@@ -1,5 +1,13 @@
+
 import { Phone, Mail, Search, ShoppingCart, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const Header = () => {
   return (
@@ -38,9 +46,58 @@ const Header = () => {
 
           {/* Navigation menu - horizontal layout */}
           <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 text-sm font-medium">
-            <Link to="/business-registration" className="text-gray-700 hover:text-green-600 transition-colors">
-              Startup
-            </Link>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                    Startup
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[950px] gap-6 p-6 md:grid-cols-4 bg-white">
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <h4 className="font-bold text-green-600 mb-2 text-base">START A BUSINESS (INDIA)</h4>
+                        <Link to="/business-registration" className="text-gray-600 hover:text-green-600">Proprietorship</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Partnership Firm</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">One Person Company</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Limited Liability Partnership</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Private Limited Company</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Section 8 Company</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Nidhi Company</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Indian Subsidiary</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <h4 className="font-bold text-green-600 mb-2 text-base">REGISTRATIONS</h4>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Digital Signature</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Udyam Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Import Export Code</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Professional Tax</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Shop & Establishment</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <h4 className="font-bold text-green-600 mb-2 text-base">INTERNATIONAL BUSINESS</h4>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in UAE</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in USA</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in Singapore</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in UK</Link>
+                        <h4 className="font-bold text-green-600 mb-2 pt-4 text-base">TRUST / NGO</h4>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trust Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Society Registration</Link>
+                      </div>
+                      <div className="bg-gray-50 p-4 rounded-lg flex flex-col justify-center text-center">
+                          <div>
+                            <h4 className="font-bold text-gray-800 text-base">Need help?</h4>
+                            <p className="text-gray-600 mt-1 text-sm font-normal">Talk to our experts to get personalised help.</p>
+                          </div>
+                          <Link to="#" className="mt-4 block bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600">
+                            TALK TO AN EXPERT
+                          </Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
             <Link to="/registrations" className="text-gray-700 hover:text-green-600 transition-colors">
               Registrations
             </Link>
