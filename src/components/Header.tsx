@@ -186,9 +186,35 @@ const Header = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
-              Goods & Services Tax
-            </Link>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                    Goods & Services Tax
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white">
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Return Filing by Accountant</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Annual Return Filing (GSTR-9)</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST E-Invoicing Software</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST LUT Form</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Notice</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Registration for Foreigners</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Invoicing & Filing Software</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Amendment</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Revocation</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GSTR-10</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Software for Accountants</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
             <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
               Income Tax
             </Link>
