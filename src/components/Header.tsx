@@ -328,9 +328,7 @@ const Header = () => {
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                         <Link to="/trademark-registration" className="text-gray-600 hover:text-green-600">Trademark Registration</Link>
                         <Link to="/copyright-registration" className="text-gray-600 hover:text-green-600">Copyright Registration</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Copyright Objection</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Patent Registration</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Protection</Link>
+                        <Link to="/patent-registration" className="text-gray-600 hover:text-green-600">Patent Registration</Link>
                       </div>
                     </div>
                   </NavigationMenuContent>
