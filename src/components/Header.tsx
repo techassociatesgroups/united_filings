@@ -1,5 +1,5 @@
 
-import { Menu, Phone, Mail, ChevronDown } from 'lucide-react';
+import { Menu, Phone, Mail, Search, ShoppingCart, User } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -30,86 +30,67 @@ const Header = () => {
       {/* Main navigation */}
       <nav className="max-w-7xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
+          {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="text-2xl font-bold text-green-600">
-              IndiaFilings
+            <Link to="/" className="flex items-center">
+              <div className="bg-gradient-to-r from-orange-400 to-green-500 text-white px-3 py-2 rounded-full text-xl font-bold mr-2">
+                India
+              </div>
+              <span className="text-green-600 text-xl font-bold">Filings</span>
             </Link>
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden xl:flex items-center space-x-4">
-            <div className="relative group">
-              <button className="text-gray-700 hover:text-green-600 transition-colors flex items-center px-2 py-1 text-sm">
-                StartUp
-                <ChevronDown className="ml-1 h-3 w-3" />
-              </button>
-            </div>
-            
-            <div className="relative group">
-              <button className="text-gray-700 hover:text-green-600 transition-colors flex items-center px-2 py-1 text-sm">
-                Registrations
-                <ChevronDown className="ml-1 h-3 w-3" />
-              </button>
-            </div>
-            
-            <div className="relative group">
-              <button className="text-gray-700 hover:text-green-600 transition-colors flex items-center px-2 py-1 text-sm">
-                Trademark
-                <ChevronDown className="ml-1 h-3 w-3" />
-              </button>
-            </div>
-            
-            <div className="relative group">
-              <button className="text-gray-700 hover:text-green-600 transition-colors flex items-center px-2 py-1 text-sm">
-                GST
-                <ChevronDown className="ml-1 h-3 w-3" />
-              </button>
-            </div>
-            
-            <div className="relative group">
-              <button className="text-gray-700 hover:text-green-600 transition-colors flex items-center px-2 py-1 text-sm">
-                Income Tax
-                <ChevronDown className="ml-1 h-3 w-3" />
-              </button>
-            </div>
-            
-            <div className="relative group">
-              <button className="text-gray-700 hover:text-green-600 transition-colors flex items-center px-2 py-1 text-sm">
-                MCA
-                <ChevronDown className="ml-1 h-3 w-3" />
-              </button>
-            </div>
-            
-            <div className="relative group">
-              <button className="text-gray-700 hover:text-green-600 transition-colors flex items-center px-2 py-1 text-sm">
-                Compliance
-                <ChevronDown className="ml-1 h-3 w-3" />
-              </button>
-            </div>
-            
-            <div className="relative group">
-              <button className="text-gray-700 hover:text-green-600 transition-colors flex items-center px-2 py-1 text-sm">
-                Consultation
-                <ChevronDown className="ml-1 h-3 w-3" />
-              </button>
-            </div>
-            
-            <div className="relative group">
-              <button className="text-gray-700 hover:text-green-600 transition-colors flex items-center px-2 py-1 text-sm">
-                Guides
-                <ChevronDown className="ml-1 h-3 w-3" />
-              </button>
-            </div>
-            
-            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors px-2 py-1 text-sm">About Us</Link>
+          <div className="hidden xl:flex items-center space-x-8">
+            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
+              Startup
+            </Link>
+            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
+              Registrations
+            </Link>
+            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
+              Trademark
+            </Link>
+            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
+              Goods & Services Tax
+            </Link>
+            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
+              Income Tax
+            </Link>
+            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
+              MCA
+            </Link>
+            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
+              Compliance
+            </Link>
+            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
+              Consultation
+            </Link>
+            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
+              Guides
+            </Link>
+            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
+              About Us
+            </Link>
           </div>
 
+          {/* Right side icons and login */}
           <div className="flex items-center space-x-4">
+            <button className="p-2 hover:bg-gray-100 rounded-full">
+              <Search className="h-5 w-5 text-gray-600" />
+            </button>
+            <button className="p-2 hover:bg-gray-100 rounded-full relative">
+              <ShoppingCart className="h-5 w-5 text-gray-600" />
+              <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                1
+              </span>
+            </button>
             <Link 
               to="/auth" 
-              className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors text-sm"
+              className="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors"
             >
-              Login
+              <User className="h-5 w-5" />
+              <span className="text-sm font-medium">V</span>
             </Link>
             <button 
               className="xl:hidden"
@@ -124,16 +105,16 @@ const Header = () => {
         {isMenuOpen && (
           <div className="xl:hidden mt-4 pb-4 border-t">
             <div className="flex flex-col space-y-4 pt-4">
-              <a href="#" className="text-gray-700 hover:text-green-600 transition-colors">StartUp</a>
-              <a href="#" className="text-gray-700 hover:text-green-600 transition-colors">Registrations</a>
-              <a href="#" className="text-gray-700 hover:text-green-600 transition-colors">Trademark</a>
-              <a href="#" className="text-gray-700 hover:text-green-600 transition-colors">Goods & Services Tax</a>
-              <a href="#" className="text-gray-700 hover:text-green-600 transition-colors">Income Tax</a>
-              <a href="#" className="text-gray-700 hover:text-green-600 transition-colors">MCA</a>
-              <a href="#" className="text-gray-700 hover:text-green-600 transition-colors">Compliance</a>
-              <a href="#" className="text-gray-700 hover:text-green-600 transition-colors">Consultation</a>
-              <a href="#" className="text-gray-700 hover:text-green-600 transition-colors">Guides</a>
-              <a href="#" className="text-gray-700 hover:text-green-600 transition-colors">About Us</a>
+              <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">Startup</Link>
+              <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">Registrations</Link>
+              <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">Trademark</Link>
+              <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">Goods & Services Tax</Link>
+              <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">Income Tax</Link>
+              <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">MCA</Link>
+              <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">Compliance</Link>
+              <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">Consultation</Link>
+              <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">Guides</Link>
+              <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">About Us</Link>
             </div>
           </div>
         )}
