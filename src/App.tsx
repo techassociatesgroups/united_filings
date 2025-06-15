@@ -23,6 +23,7 @@ import IndianSubsidiary from "./pages/IndianSubsidiary";
 import StartupIndia from "./pages/StartupIndia";
 import TradeLicense from "./pages/TradeLicense";
 import FSSAIRegistration from "./pages/FSSAIRegistration";
+import FSSAiLicense from "./pages/FSSAiLicense";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/startup-india" element={<StartupIndia />} />
           <Route path="/trade-license" element={<TradeLicense />} />
           <Route path="/fssai-registration" element={<FSSAIRegistration />} />
+          <Route path="/fssai-license" element={<FSSAiLicense />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

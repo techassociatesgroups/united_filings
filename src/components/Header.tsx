@@ -103,7 +103,7 @@ const Header = () => {
                           <Link to="/startup-india" className="text-gray-600 hover:text-green-600">Startup India</Link>
                           <Link to="/trade-license" className="text-gray-600 hover:text-green-600">Trade License</Link>
                           <Link to="/fssai-registration" className="text-gray-600 hover:text-green-600">FSSAI Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI License</Link>
+                          <Link to="/fssai-license" className="text-gray-600 hover:text-green-600">FSSAI License</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Halal License & Certification</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">ICEGATE Registration</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Import Export Code</Link>
