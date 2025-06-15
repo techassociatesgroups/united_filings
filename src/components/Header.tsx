@@ -62,6 +62,7 @@ const Header = () => {
                         <Link to="/private-limited-company" className="text-gray-600 hover:text-green-600">Private Limited Company</Link>
                         <Link to="/public-limited-company" className="text-gray-600 hover:text-green-600">Public Limited Company</Link>
                         <Link to="/section-8-company" className="text-gray-600 hover:text-green-600">Section 8 Company</Link>
+                        <Link to="/producer-company" className="text-gray-600 hover:text-green-600">Producer Company</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Nidhi Company</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Indian Subsidiary</Link>
                       </div>
