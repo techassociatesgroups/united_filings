@@ -1,4 +1,3 @@
-
 import { Phone, Mail, Search, ShoppingCart, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
@@ -105,7 +104,7 @@ const Header = () => {
                           <Link to="/fssai-registration" className="text-gray-600 hover:text-green-600">FSSAI Registration</Link>
                           <Link to="/fssai-license" className="text-gray-600 hover:text-green-600">FSSAI License</Link>
                           <Link to="/halal-certification" className="text-gray-600 hover:text-green-600">Halal License & Certification</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">ICEGATE Registration</Link>
+                          <Link to="/icegate-registration" className="text-gray-600 hover:text-green-600">ICEGATE Registration</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Import Export Code</Link>
                       </div>
                       <div className="flex flex-col space-y-2 text-sm font-normal">
