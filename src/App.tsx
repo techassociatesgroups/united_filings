@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -53,6 +52,7 @@ import PatentRegistration from "./pages/PatentRegistration";
 import GstRegistration from "./pages/GstRegistration";
 import GstReturnFiling from "./pages/GstReturnFiling";
 import GstAnnualReturnFilingGstr9 from "./pages/GstAnnualReturnFilingGstr9";
+import GstLutForm from "./pages/GstLutForm";
 
 const queryClient = new QueryClient();
 
@@ -111,6 +111,7 @@ const App = () => (
           <Route path="/gst-registration" element={<GstRegistration />} />
           <Route path="/gst-return-filing" element={<GstReturnFiling />} />
           <Route path="/gst-annual-return-filing-gstr9" element={<GstAnnualReturnFilingGstr9 />} />
+          <Route path="/gst-lut-form" element={<GstLutForm />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
