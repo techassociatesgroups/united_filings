@@ -385,17 +385,6 @@ const Header = () => {
                           </Link>
                         </NavigationMenuLink>
                         <Link
-                          to="/gst-e-invoicing-software"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        >
-                          <div className="text-sm font-medium leading-none">
-                            GST E-Invoicing Software
-                          </div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Use GST e-invoicing software to file your GST returns.
-                          </p>
-                        </Link>
-                        <Link
                           to="/gst-lut-form"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
@@ -431,22 +420,11 @@ const Header = () => {
                           </p>
                         </Link>
                         <Link
-                          to="/gst-invoicing-filing-software"
+                          to="/gst-registration-amendment"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">
-                            GST Invoicing & Filing Software
-                          </div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Use GST invoicing and filing software to file your GST returns.
-                          </p>
-                        </Link>
-                        <Link
-                          to="/gst-amendment"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        >
-                          <div className="text-sm font-medium leading-none">
-                            GST Amendment
+                            GST Registration Amendment
                           </div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                             Make changes to your GST registration.
@@ -472,17 +450,6 @@ const Header = () => {
                           </div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                             File GSTR-10 returns.
-                          </p>
-                        </Link>
-                        <Link
-                          to="/gst-software-accountants"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        >
-                          <div className="text-sm font-medium leading-none">
-                            GST Software for Accountants
-                          </div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Use GST software for accountants to file your GST returns.
                           </p>
                         </Link>
                       </div>
