@@ -1,4 +1,3 @@
-
 import { Phone, Mail, Search, ShoppingCart, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
@@ -147,9 +146,46 @@ const Header = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
-              Trademark
-            </Link>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                    Trademark
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white">
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Objection</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Certificate</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Opposition</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Hearing</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Rectification</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">TM Infringement Notice</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Renewal</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Transfer</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Expedited TM Registration</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">USA Trademark Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">International Trademark</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Logo Designing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Design Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Design Objection</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Copyright Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Copyright Objection</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Patent Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Protection</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
             <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
               Goods & Services Tax
             </Link>
