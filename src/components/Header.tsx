@@ -295,7 +295,7 @@ const Header = () => {
                       </div>
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="/12a-80g-registration" className="text-gray-600 hover:text-green-600">12A and 80G Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">12A Registration</Link>
+                          <Link to="/12a-registration" className="text-gray-600 hover:text-green-600">12A Registration</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">80G Registration</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">APEDA Registration</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Barcode Registration</Link>
