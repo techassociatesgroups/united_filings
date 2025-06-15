@@ -1,363 +1,524 @@
-import React from 'react';
-import {
-    NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuItem,
-    NavigationMenuList,
-    NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu } from "lucide-react"
-import { cn } from "@/lib/utils";
+import { Phone, Mail, Search, ShoppingCart, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { cn } from "@/lib/utils";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
-const ListItem = React.forwardRef<
-    React.ElementRef<"a">,
-    React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-    return (
-        <li>
-            <NavigationMenuLink asChild>
-                <Link
-                    ref={ref}
-                    className={cn(
-                        "block select-none space-y-1.5 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                        className
-                    )}
-                    {...props}
-                >
-                    <div className="text-sm font-medium leading-none">{title}</div>
-                    <p className="line-clamp-2 text-sm capitalize text-muted-foreground">
-                        {children}
-                    </p>
-                </Link>
-            </NavigationMenuLink>
-        </li>
-    )
-})
-ListItem.displayName = "ListItem"
+const businessRegistrationItems: { title: string; href: string; description: string }[] = [
+  {
+    title: "Proprietorship",
+    href: "/proprietorship",
+    description: "A sole proprietorship is a type of unincorporated business that is owned and run by one individual.",
+  },
+  {
+    title: "Partnership Firm",
+    href: "/partnership",
+    description: "A legal form of business operation between two or more individuals who share management and profits.",
+  },
+  {
+    title: "One Person Company",
+    href: "/one-person-company",
+    description: "A company that has only one person as to its member.",
+  },
+  {
+    title: "Limited Liability Partnership",
+    href: "/limited-liability-partnership",
+    description: "A partnership in which some or all partners have limited liabilities.",
+  },
+  {
+    title: "Private Limited Company",
+    href: "/private-limited-company",
+    description: "A type of privately held small business entity.",
+  },
+  {
+    title: "Public Limited Company",
+    href: "/public-limited-company",
+    description: "A company whose securities are traded on a stock exchange and can be bought and sold by anyone.",
+  },
+  {
+    title: "Section 8 Company",
+    href: "/section-8-company",
+    description: "An organization which is registered for promoting commerce, art, science, sports, education, etc.",
+  },
+  {
+    title: "Trust Registration",
+    href: "/trust-registration",
+    description: "A legal arrangement in which one person holds property for the benefit of another.",
+  },
+  {
+    title: "Producer Company",
+    href: "/producer-company",
+    description: "A legally recognized body of farmers/agriculturists with the aim to improve the standard of their living.",
+  },
+  {
+    title: "Indian Subsidiary",
+    href: "/indian-subsidiary",
+    description: "A company in India whose controlling interest is held by another company.",
+  },
+  {
+    title: "Startup India",
+    href: "/startup-india",
+    description: "An initiative of the Government of India for generation of employment and wealth creation.",
+  },
+  {
+    title: "Trade License",
+    href: "/trade-license",
+    description: "A license or permission issued by the municipal corporation to a person to carry on a particular business.",
+  },
+  {
+    title: "FSSAI Registration",
+    href: "/fssai-registration",
+    description: "Food Safety and Standards Authority of India registration for food businesses.",
+  },
+  {
+    title: "FSSAI License",
+    href: "/fssai-license",
+    description: "State & Central license for food businesses based on turnover.",
+  },
+  {
+    title: "Halal Licence & Certification",
+    href: "/halal-certification",
+    description: "Certification for products permissible under Islamic law.",
+  },
+  {
+    title: "ICEGATE Registration",
+    href: "/icegate-registration",
+    description: "Indian Customs Electronic Gateway registration for e-filing.",
+  },
+  {
+    title: "Import Export Code",
+    href: "/import-export-code",
+    description: "Registration for importing and exporting goods from India.",
+  },
+];
+
+const registrationItems: { title: string; href: string; description: string }[] = [
+  {
+    title: "Proprietorship",
+    href: "/proprietorship",
+    description: "A sole proprietorship is a type of unincorporated business that is owned and run by one individual.",
+  },
+  {
+    title: "Partnership Firm",
+    href: "/partnership",
+    description: "A legal form of business operation between two or more individuals who share management and profits.",
+  },
+  {
+    title: "One Person Company",
+    href: "/one-person-company",
+    description: "A company that has only one person as to its member.",
+  },
+  {
+    title: "Limited Liability Partnership",
+    href: "/limited-liability-partnership",
+    description: "A partnership in which some or all partners have limited liabilities.",
+  },
+  {
+    title: "Private Limited Company",
+    href: "/private-limited-company",
+    description: "A type of privately held small business entity.",
+  },
+  {
+    title: "Public Limited Company",
+    href: "/public-limited-company",
+    description: "A company whose securities are traded on a stock exchange and can be bought and sold by anyone.",
+  },
+  {
+    title: "Section 8 Company",
+    href: "/section-8-company",
+    description: "An organization which is registered for promoting commerce, art, science, sports, education, etc.",
+  },
+  {
+    title: "Trust Registration",
+    href: "/trust-registration",
+    description: "A legal arrangement in which one person holds property for the benefit of another.",
+  },
+  {
+    title: "Producer Company",
+    href: "/producer-company",
+    description: "A legally recognized body of farmers/agriculturists with the aim to improve the standard of their living.",
+  },
+  {
+    title: "Indian Subsidiary",
+    href: "/indian-subsidiary",
+    description: "A company in India whose controlling interest is held by another company.",
+  },
+  {
+    title: "Startup India",
+    href: "/startup-india",
+    description: "An initiative of the Government of India for generation of employment and wealth creation.",
+  },
+  {
+    title: "Trade License",
+    href: "/trade-license",
+    description: "A license or permission issued by the municipal corporation to a person to carry on a particular business.",
+  },
+  {
+    title: "FSSAI Registration",
+    href: "/fssai-registration",
+    description: "Food Safety and Standards Authority of India registration for food businesses.",
+  },
+  {
+    title: "FSSAI License",
+    href: "/fssai-license",
+    description: "State & Central license for food businesses based on turnover.",
+  },
+  {
+    title: "Halal Licence & Certification",
+    href: "/halal-certification",
+    description: "Certification for products permissible under Islamic law.",
+  },
+  {
+    title: "ICEGATE Registration",
+    href: "/icegate-registration",
+    description: "Indian Customs Electronic Gateway registration for e-filing.",
+  },
+  {
+    title: "Import Export Code",
+    href: "/import-export-code",
+    description: "Registration for importing and exporting goods from India.",
+  },
+];
 
 const Header = () => {
-    return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="container flex h-14 items-center">
-                <div className="mr-4 hidden md:flex">
-                    <Link to="/" className="mr-6 flex items-center space-x-2">
-                        <img
-                            src="/indiafilings-logo.svg"
-                            alt="IndiaFilings Logo"
-                            className="h-6"
-                        />
-                    </Link>
-                </div>
-                <NavigationMenu>
-                    <NavigationMenuList>
-                        <NavigationMenuItem>
-                            <NavigationMenuTrigger>Registrations</NavigationMenuTrigger>
-                            <NavigationMenuContent>
-                                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                                    <ListItem href="/proprietorship" title="Proprietorship">
-                                        For sole owners of a business.
-                                    </ListItem>
-                                    <ListItem href="/partnership" title="Partnership">
-                                        For businesses with two or more partners.
-                                    </ListItem>
-                                    <ListItem href="/one-person-company" title="One Person Company">
-                                        For a single person to operate a corporate entity.
-                                    </ListItem>
-                                    <ListItem href="/limited-liability-partnership" title="Limited Liability Partnership">
-                                        Offers limited liability to its partners.
-                                    </ListItem>
-                                    <ListItem href="/private-limited-company" title="Private Limited Company">
-                                        A privately held business entity.
-                                    </ListItem>
-                                    <ListItem href="/public-limited-company" title="Public Limited Company">
-                                        A company whose shares can be traded publicly.
-                                    </ListItem>
-                                    <ListItem href="/section-8-company" title="Section 8 Company">
-                                        For promoting commerce, art, science, sports, education, etc.
-                                    </ListItem>
-                                    <ListItem href="/trust-registration" title="Trust Registration">
-                                        For charitable and religious purposes.
-                                    </ListItem>
-                                    <ListItem href="/producer-company" title="Producer Company">
-                                        For primary producers to form a company.
-                                    </ListItem>
-                                    <ListItem href="/indian-subsidiary" title="Indian Subsidiary">
-                                        For foreign companies to establish a presence in India.
-                                    </ListItem>
-                                     <ListItem href="/startup-india" title="Startup India">
-                                        Registration for startups to avail government benefits.
-                                    </ListItem>
-                                    <ListItem href="/trade-license" title="Trade License">
-                                        A license required to operate a particular trade or business.
-                                    </ListItem>
-                                    <ListItem href="/fssai-registration" title="FSSAI Registration">
-                                        For food business operators with an annual turnover of up to Rs. 12 lakhs.
-                                    </ListItem>
-                                    <ListItem href="/fssai-license" title="FSSAI License">
-                                        Mandatory for food businesses with turnover above Rs. 12 lakhs.
-                                    </ListItem>
-                                    <ListItem href="/halal-certification" title="Halal Certification">
-                                        Certification for products permissible under Islamic law.
-                                    </ListItem>
-                                    <ListItem href="/icegate-registration" title="ICEGATE Registration">
-                                        For e-filing services for trade and cargo carriers.
-                                    </ListItem>
-                                    <ListItem href="/import-export-code" title="Import Export Code">
-                                        Required for businesses involved in import and export.
-                                    </ListItem>
-                                    <ListItem href="/legal-entity-identifier-code" title="Legal Entity Identifier Code">
-                                        A unique global identifier for legal entities in financial transactions.
-                                    </ListItem>
-                                    <ListItem href="/iso-registration" title="ISO Registration">
-                                        Certification for meeting international standards of quality.
-                                    </ListItem>
-                                    <ListItem href="/pf-registration" title="PF Registration">
-                                        For employers to contribute to the Provident Fund for employees.
-                                    </ListItem>
-                                    <ListItem href="/esi-registration" title="ESI Registration">
-                                        For providing medical and cash benefits to employees.
-                                    </ListItem>
-                                    <ListItem href="/professional-tax-registration" title="Professional Tax Registration">
-                                        A tax levied on professionals and trades by state governments.
-                                    </ListItem>
-                                    <ListItem href="/rcmc-registration" title="RCMC Registration">
-                                        Registration-Cum-Membership Certificate for exporters.
-                                    </ListItem>
-                                     <ListItem href="/rera-registration-for-agents" title="RERA Registration for Agents">
-                                        Registration for real estate agents under RERA.
-                                    </ListItem>
-                                    <ListItem href="/12a-80g-registration" title="12A and 80G Registration">
-                                        For NGOs to get tax exemption and provide tax deductions to donors.
-                                    </ListItem>
-                                    <ListItem href="/12a-registration" title="12A Registration">
-                                        For trusts and NGOs to get exemption from income tax.
-                                    </ListItem>
-                                    <ListItem href="/bis-registration" title="BIS Registration">
-                                        Ensures quality, safety, and reliability of products.
-                                    </ListItem>
-                                    <ListItem href="/barcode-registration" title="Barcode Registration">
-                                        For unique identification of products in the retail supply chain.
-                                    </ListItem>
-                                    <ListItem href="/apeda-registration" title="APEDA Registration">
-                                        For exporters of agricultural and processed food products.
-                                    </ListItem>
-                                    <ListItem href="/80g-registration" title="80G Registration">
-                                        Allows donors to avail tax deduction for donations to certified NGOs.
-                                    </ListItem>
-                                    <ListItem href="/certificate-of-incumbency" title="Certificate of Incumbency">
-                                        A certificate that confirms the identity of the signing authorities of a company.
-                                    </ListItem>
-                                    <ListItem href="/darpan-registration" title="DARPAN Registration">
-                                        For NGOs and VOs to access government grants and schemes.
-                                    </ListItem>
-                                    <ListItem href="/digital-signature" title="Digital Signature">
-                                        An electronic signature for verifying the authenticity of digital documents.
-                                    </ListItem>
-                                    <ListItem href="/shop-and-establishment-act" title="Shop and Establishment Act">
-                                        Registration for shops and commercial establishments.
-                                    </ListItem>
-                                    <ListItem href="/drug-license" title="Drug License">
-                                        License for manufacturing, sale, and distribution of pharmaceuticals.
-                                    </ListItem>
-                                    <ListItem href="/udyam-registration" title="Udyam Registration">
-                                        Registration for Micro, Small, and Medium Enterprises (MSMEs).
-                                    </ListItem>
-                                </ul>
-                            </NavigationMenuContent>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <NavigationMenuTrigger>Consultations</NavigationMenuTrigger>
-                            <NavigationMenuContent>
-                                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                                    <ListItem href="/consultation" title="Consultation">
-                                        Get expert advice on business and legal matters.
-                                    </ListItem>
-                                </ul>
-                            </NavigationMenuContent>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <NavigationMenuTrigger>About</NavigationMenuTrigger>
-                            <NavigationMenuContent>
-                                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                                    <ListItem href="/" title="About Us">
-                                        Learn more about our company and services.
-                                    </ListItem>
-                                </ul>
-                            </NavigationMenuContent>
-                        </NavigationMenuItem>
-                    </NavigationMenuList>
-                </NavigationMenu>
-                <div className="ml-auto flex items-center space-x-4">
-                    <Button variant="outline" size="sm">
-                        Log In
-                    </Button>
-                    <Sheet>
-                        <SheetTrigger asChild>
-                            <Button variant="ghost" size="sm" className="md:hidden">
-                                <Menu className="h-4 w-4" />
-                            </Button>
-                        </SheetTrigger>
-                        <SheetContent side="left" className="w-full sm:w-[300px]">
-                            <div className="grid gap-4">
-                                <Link to="/" className="flex items-center space-x-2">
-                                    <img
-                                        src="/indiafilings-logo.svg"
-                                        alt="IndiaFilings Logo"
-                                        className="h-6"
-                                    />
-                                </Link>
-                                <Button variant="outline" size="sm">
-                                    Log In
-                                </Button>
-                                <NavigationMenu>
-                                    <NavigationMenuList>
-                                        <NavigationMenuItem>
-                                            <NavigationMenuTrigger>Registrations</NavigationMenuTrigger>
-                                            <NavigationMenuContent>
-                                                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                                                    <ListItem href="/proprietorship" title="Proprietorship">
-                                                        For sole owners of a business.
-                                                    </ListItem>
-                                                    <ListItem href="/partnership" title="Partnership">
-                                                        For businesses with two or more partners.
-                                                    </ListItem>
-                                                    <ListItem href="/one-person-company" title="One Person Company">
-                                                        For a single person to operate a corporate entity.
-                                                    </ListItem>
-                                                    <ListItem href="/limited-liability-partnership" title="Limited Liability Partnership">
-                                                        Offers limited liability to its partners.
-                                                    </ListItem>
-                                                    <ListItem href="/private-limited-company" title="Private Limited Company">
-                                                        A privately held business entity.
-                                                    </ListItem>
-                                                    <ListItem href="/public-limited-company" title="Public Limited Company">
-                                                        A company whose shares can be traded publicly.
-                                                    </ListItem>
-                                                    <ListItem href="/section-8-company" title="Section 8 Company">
-                                                        For promoting commerce, art, science, sports, education, etc.
-                                                    </ListItem>
-                                                    <ListItem href="/trust-registration" title="Trust Registration">
-                                                        For charitable and religious purposes.
-                                                    </ListItem>
-                                                    <ListItem href="/producer-company" title="Producer Company">
-                                                        For primary producers to form a company.
-                                                    </ListItem>
-                                                    <ListItem href="/indian-subsidiary" title="Indian Subsidiary">
-                                                        For foreign companies to establish a presence in India.
-                                                    </ListItem>
-                                                     <ListItem href="/startup-india" title="Startup India">
-                                                        Registration for startups to avail government benefits.
-                                                    </ListItem>
-                                                    <ListItem href="/trade-license" title="Trade License">
-                                                        A license required to operate a particular trade or business.
-                                                    </ListItem>
-                                                    <ListItem href="/fssai-registration" title="FSSAI Registration">
-                                                        For food business operators with an annual turnover of up to Rs. 12 lakhs.
-                                                    </ListItem>
-                                                    <ListItem href="/fssai-license" title="FSSAI License">
-                                                        Mandatory for food businesses with turnover above Rs. 12 lakhs.
-                                                    </ListItem>
-                                                    <ListItem href="/halal-certification" title="Halal Certification">
-                                                        Certification for products permissible under Islamic law.
-                                                    </ListItem>
-                                                    <ListItem href="/icegate-registration" title="ICEGATE Registration">
-                                                        For e-filing services for trade and cargo carriers.
-                                                    </ListItem>
-                                                    <ListItem href="/import-export-code" title="Import Export Code">
-                                                        Required for businesses involved in import and export.
-                                                    </ListItem>
-                                                    <ListItem href="/legal-entity-identifier-code" title="Legal Entity Identifier Code">
-                                                        A unique global identifier for legal entities in financial transactions.
-                                                    </ListItem>
-                                                    <ListItem href="/iso-registration" title="ISO Registration">
-                                                        Certification for meeting international standards of quality.
-                                                    </ListItem>
-                                                    <ListItem href="/pf-registration" title="PF Registration">
-                                                        For employers to contribute to the Provident Fund for employees.
-                                                    </ListItem>
-                                                    <ListItem href="/esi-registration" title="ESI Registration">
-                                                        For providing medical and cash benefits to employees.
-                                                    </ListItem>
-                                                    <ListItem href="/professional-tax-registration" title="Professional Tax Registration">
-                                                        A tax levied on professionals and trades by state governments.
-                                                    </ListItem>
-                                                    <ListItem href="/rcmc-registration" title="RCMC Registration">
-                                                        Registration-Cum-Membership Certificate for exporters.
-                                                    </ListItem>
-                                                     <ListItem href="/rera-registration-for-agents" title="RERA Registration for Agents">
-                                                        Registration for real estate agents under RERA.
-                                                    </ListItem>
-                                                    <ListItem href="/12a-80g-registration" title="12A and 80G Registration">
-                                                        For NGOs to get tax exemption and provide tax deductions to donors.
-                                                    </ListItem>
-                                                    <ListItem href="/12a-registration" title="12A Registration">
-                                                        For trusts and NGOs to get exemption from income tax.
-                                                    </ListItem>
-                                                    <ListItem href="/bis-registration" title="BIS Registration">
-                                                        Ensures quality, safety, and reliability of products.
-                                                    </ListItem>
-                                                    <ListItem href="/barcode-registration" title="Barcode Registration">
-                                                        For unique identification of products in the retail supply chain.
-                                                    </ListItem>
-                                                    <ListItem href="/apeda-registration" title="APEDA Registration">
-                                                        For exporters of agricultural and processed food products.
-                                                    </ListItem>
-                                                    <ListItem href="/80g-registration" title="80G Registration">
-                                                        Allows donors to avail tax deduction for donations to certified NGOs.
-                                                    </ListItem>
-                                                    <ListItem href="/certificate-of-incumbency" title="Certificate of Incumbency">
-                                                        A certificate that confirms the identity of the signing authorities of a company.
-                                                    </ListItem>
-                                                    <ListItem href="/darpan-registration" title="DARPAN Registration">
-                                                        For NGOs and VOs to access government grants and schemes.
-                                                    </ListItem>
-                                                    <ListItem href="/digital-signature" title="Digital Signature">
-                                                        An electronic signature for verifying the authenticity of digital documents.
-                                                    </ListItem>
-                                                    <ListItem href="/shop-and-establishment-act" title="Shop and Establishment Act">
-                                                        Registration for shops and commercial establishments.
-                                                    </ListItem>
-                                                    <ListItem href="/drug-license" title="Drug License">
-                                                        License for manufacturing, sale, and distribution of pharmaceuticals.
-                                                    </ListItem>
-                                                    <ListItem href="/udyam-registration" title="Udyam Registration">
-                                                        Registration for Micro, Small, and Medium Enterprises (MSMEs).
-                                                    </ListItem>
-                                                </ul>
-                                            </NavigationMenuContent>
-                                        </NavigationMenuItem>
-                                        <NavigationMenuItem>
-                                            <NavigationMenuTrigger>Consultations</NavigationMenuTrigger>
-                                            <NavigationMenuContent>
-                                                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                                                    <ListItem href="/consultation" title="Consultation">
-                                                        Get expert advice on business and legal matters.
-                                                    </ListItem>
-                                                </ul>
-                                            </NavigationMenuContent>
-                                        </NavigationMenuItem>
-                                        <NavigationMenuItem>
-                                            <NavigationMenuTrigger>About</NavigationMenuTrigger>
-                                            <NavigationMenuContent>
-                                                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                                                    <ListItem href="/" title="About Us">
-                                                        Learn more about our company and services.
-                                                    </ListItem>
-                                                </ul>
-                                            </NavigationMenuContent>
-                                        </NavigationMenuItem>
-                                    </NavigationMenuList>
-                                </NavigationMenu>
-                            </div>
-                        </SheetContent>
-                    </Sheet>
-                </div>
+  return (
+    <header className="bg-white shadow-sm">
+      {/* Top contact bar */}
+      <div className="bg-green-50 py-2 px-4">
+        <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-1">
+              <Phone className="h-4 w-4 text-green-600" />
+              <span>+91 9876543210</span>
             </div>
-        </header>
-    );
-}
+            <div className="flex items-center space-x-1">
+              <Mail className="h-4 w-4 text-green-600" />
+              <span>info@indiafilings.com</span>
+            </div>
+          </div>
+          <div className="hidden md:block text-green-600">
+            Trusted by 10,00,000+ businesses across India
+          </div>
+        </div>
+      </div>
+
+      {/* Main navigation */}
+      <nav className="max-w-7xl mx-auto px-4 py-3">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center">
+              <div className="bg-gradient-to-r from-orange-400 to-green-500 text-white px-3 py-2 rounded-full text-xl font-bold mr-2">
+                India
+              </div>
+              <span className="text-green-600 text-xl font-bold">Filings</span>
+            </Link>
+          </div>
+
+          {/* Navigation menu - horizontal layout */}
+          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 text-sm font-medium">
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                    Startup
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[750px] gap-6 p-6 md:grid-cols-3 bg-white">
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <h4 className="font-bold text-green-600 mb-2 text-base">START A BUSINESS (INDIA)</h4>
+                        <Link to="/proprietorship" className="text-gray-600 hover:text-green-600">Proprietorship</Link>
+                        <Link to="/partnership" className="text-gray-600 hover:text-green-600">Partnership Firm</Link>
+                        <Link to="/one-person-company" className="text-gray-600 hover:text-green-600">One Person Company</Link>
+                        <Link to="/limited-liability-partnership" className="text-gray-600 hover:text-green-600">Limited Liability Partnership</Link>
+                        <Link to="/private-limited-company" className="text-gray-600 hover:text-green-600">Private Limited Company</Link>
+                        <Link to="/public-limited-company" className="text-gray-600 hover:text-green-600">Public Limited Company</Link>
+                        <Link to="/section-8-company" className="text-gray-600 hover:text-green-600">Section 8 Company</Link>
+                        <Link to="/producer-company" className="text-gray-600 hover:text-green-600">Producer Company</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Nidhi Company</Link>
+                        <Link to="/indian-subsidiary" className="text-gray-600 hover:text-green-600">Indian Subsidiary</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <h4 className="font-bold text-green-600 mb-2 text-base">INTERNATIONAL BUSINESS</h4>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in UAE</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in USA</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in Singapore</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in UK</Link>
+                        <h4 className="font-bold text-green-600 mb-2 pt-4 text-base">TRUST / NGO</h4>
+                        <Link to="/trust-registration" className="text-gray-600 hover:text-green-600">Trust Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Society Registration</Link>
+                      </div>
+                      <div className="bg-gray-50 p-4 rounded-lg flex flex-col justify-center text-center">
+                          <div>
+                            <h4 className="font-bold text-gray-800 text-base">Need help?</h4>
+                            <p className="text-gray-600 mt-1 text-sm font-normal">Talk to our experts to get personalised help.</p>
+                          </div>
+                          <Link to="#" className="mt-4 block bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600">
+                            TALK TO AN EXPERT
+                          </Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                    Registrations
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white">
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="/startup-india" className="text-gray-600 hover:text-green-600">Startup India</Link>
+                          <Link to="/trade-license" className="text-gray-600 hover:text-green-600">Trade License</Link>
+                          <Link to="/fssai-registration" className="text-gray-600 hover:text-green-600">FSSAI Registration</Link>
+                          <Link to="/fssai-license" className="text-gray-600 hover:text-green-600">FSSAI License</Link>
+                          <Link to="/halal-certification" className="text-gray-600 hover:text-green-600">Halal License & Certification</Link>
+                          <Link to="/icegate-registration" className="text-gray-600 hover:text-green-600">ICEGATE Registration</Link>
+                          <Link to="/import-export-code" className="text-gray-600 hover:text-green-600">Import Export Code</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="/legal-entity-identifier-code" className="text-gray-600 hover:text-green-600">Legal Entity Identifier Code</Link>
+                          <Link to="/iso-registration" className="text-gray-600 hover:text-green-600">ISO Registration</Link>
+                          <Link to="/pf-registration" className="text-gray-600 hover:text-green-600">PF Registration</Link>
+                          <Link to="/esi-registration" className="text-gray-600 hover:text-green-600">ESI Registration</Link>
+                          <Link to="/professional-tax-registration" className="text-gray-600 hover:text-green-600">Professional Tax Registration</Link>
+                          <Link to="/rcmc-registration" className="text-gray-600 hover:text-green-600">RCMC Registration</Link>
+                          <Link to="/rera-registration-for-agents" className="text-gray-600 hover:text-green-600">TN RERA Registration for Agents</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="/12a-80g-registration" className="text-gray-600 hover:text-green-600">12A and 80G Registration</Link>
+                          <Link to="/12a-registration" className="text-gray-600 hover:text-green-600">12A Registration</Link>
+                          <Link to="/80g-registration" className="text-gray-600 hover:text-green-600">80G Registration</Link>
+                          <Link to="/apeda-registration" className="text-gray-600 hover:text-green-600">APEDA Registration</Link>
+                          <Link to="/barcode-registration" className="text-gray-600 hover:text-green-600">Barcode Registration</Link>
+                          <Link to="/bis-registration" className="text-gray-600 hover:text-green-600">BIS Registration</Link>
+                          <Link to="/certificate-of-incumbency" className="text-gray-600 hover:text-green-600">Certificate of Incumbency</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="/darpan-registration" className="text-gray-600 hover:text-green-600">Darpan Registration</Link>
+                          <Link to="/digital-signature" className="text-gray-600 hover:text-green-600">Digital Signature</Link>
+                          <Link to="/shop-and-establishment-act" className="text-gray-600 hover:text-green-600">Shop Act Registration</Link>
+                          <Link to="/drug-license" className="text-gray-600 hover:text-green-600">Drug License</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Udyam Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">FCRA Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Fire License</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                    Trademark
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white">
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Objection</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Certificate</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Opposition</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Hearing</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Rectification</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">TM Infringement Notice</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Renewal</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Transfer</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Expedited TM Registration</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">USA Trademark Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">International Trademark</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Logo Designing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Design Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Design Objection</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Copyright Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Copyright Objection</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Patent Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Protection</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                    Goods & Services Tax
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white">
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Return Filing by Accountant</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Annual Return Filing (GSTR-9)</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST E-Invoicing Software</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST LUT Form</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Notice</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Registration for Foreigners</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Invoicing & Filing Software</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Amendment</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Revocation</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GSTR-10</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Software for Accountants</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                    Income Tax
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[500px] gap-6 p-6 md:grid-cols-2 bg-white">
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Income Tax E-Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Business Tax Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-1 Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-2 Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-3 Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-4 Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-5 Return Filing</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-6 Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-7 Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">15CA - 15CB Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">TAN Registration</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">TDS Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Income Tax Notice</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                    MCA
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white">
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Company Compliance</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">LLP Compliance</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">OPC Compliance</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Name Change - Company</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Registered Office Change</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">DIN eKYC Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">DIN Reactivation</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Director Change</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Remove Director</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">ADT-1 Filing</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">DPT-3 Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">LLP Form 11 Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Dormant Status Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">MOA Amendment</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">AOA Amendment</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Authorized Capital Increase</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Share Transfer</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Demat of Shares</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Winding Up - LLP</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Winding Up - Company</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                    Compliance
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white">
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">FDI Filing with RBI</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">FLA Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI Renewal</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Business Plan</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">HR & Payroll</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">PF Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">ESI Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Professional Tax Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Partnership Compliance</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Proprietorship Compliance</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Bookkeeping</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+            <Link to="/consultation" className="text-gray-700 hover:text-green-600 transition-colors">
+              Consultation
+            </Link>
+            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
+              Guides
+            </Link>
+            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
+              About Us
+            </Link>
+          </div>
+
+          {/* Right side icons and login */}
+          <div className="flex items-center space-x-4">
+            <button className="p-2 hover:bg-gray-100 rounded-full">
+              <Search className="h-5 w-5 text-gray-600" />
+            </button>
+            <button className="p-2 hover:bg-gray-100 rounded-full relative">
+              <ShoppingCart className="h-5 w-5 text-gray-600" />
+              <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                1
+              </span>
+            </button>
+            <Link 
+              to="/auth" 
+              className="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors"
+            >
+              <User className="h-5 w-5" />
+              <span className="text-sm font-medium">V</span>
+            </Link>
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
+};
 
 export default Header;
