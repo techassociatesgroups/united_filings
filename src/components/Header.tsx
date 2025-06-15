@@ -196,6 +196,11 @@ const Header = () => {
       description: "Registration for exporters of agricultural and processed food products.",
     },
     {
+      title: "Barcode Registration",
+      href: "/barcode-registration",
+      description: "Register your product with a unique barcode.",
+    },
+    {
       title: "12A and 80G Registration",
       href: "/12a-80g-registration",
       description: "Tax exemption for NGOs and benefits for donors.",
