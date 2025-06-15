@@ -1,5 +1,5 @@
 
-import { Menu, Phone, Mail } from 'lucide-react';
+import { Menu, Phone, Mail, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 
 const Header = () => {
@@ -27,7 +27,7 @@ const Header = () => {
       </div>
 
       {/* Main navigation */}
-      <nav className="max-w-7xl mx-auto px-4 py-4">
+      <nav className="max-w-7xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <div className="text-2xl font-bold text-blue-600">
@@ -36,17 +36,76 @@ const Header = () => {
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden lg:flex items-center space-x-8">
-            <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Company Registration</a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Tax & Compliance</a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Trademark & IP</a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Licenses</a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">More Services</a>
+          <div className="hidden lg:flex items-center space-x-6">
+            <div className="relative group">
+              <button className="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                StartUp
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+            </div>
+            
+            <div className="relative group">
+              <button className="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                Registrations
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+            </div>
+            
+            <div className="relative group">
+              <button className="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                Trademark
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+            </div>
+            
+            <div className="relative group">
+              <button className="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                Goods & Services Tax
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+            </div>
+            
+            <div className="relative group">
+              <button className="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                Income Tax
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+            </div>
+            
+            <div className="relative group">
+              <button className="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                MCA
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+            </div>
+            
+            <div className="relative group">
+              <button className="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                Compliance
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+            </div>
+            
+            <div className="relative group">
+              <button className="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                Consultation
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+            </div>
+            
+            <div className="relative group">
+              <button className="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                Guides
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+            </div>
+            
+            <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">About Us</a>
           </div>
 
           <div className="flex items-center space-x-4">
             <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors">
-              Get Started
+              Login
             </button>
             <button 
               className="lg:hidden"
@@ -61,11 +120,16 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden mt-4 pb-4 border-t">
             <div className="flex flex-col space-y-4 pt-4">
-              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Company Registration</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Tax & Compliance</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Trademark & IP</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Licenses</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">More Services</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">StartUp</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Registrations</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Trademark</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Goods & Services Tax</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Income Tax</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">MCA</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Compliance</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Consultation</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Guides</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">About Us</a>
             </div>
           </div>
         )}
