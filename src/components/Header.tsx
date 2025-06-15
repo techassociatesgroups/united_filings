@@ -1,5 +1,6 @@
 import { Phone, Mail, Search, ShoppingCart, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -7,6 +8,182 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+
+const businessRegistrationItems: { title: string; href: string; description: string }[] = [
+  {
+    title: "Proprietorship",
+    href: "/proprietorship",
+    description: "A sole proprietorship is a type of unincorporated business that is owned and run by one individual.",
+  },
+  {
+    title: "Partnership Firm",
+    href: "/partnership",
+    description: "A legal form of business operation between two or more individuals who share management and profits.",
+  },
+  {
+    title: "One Person Company",
+    href: "/one-person-company",
+    description: "A company that has only one person as to its member.",
+  },
+  {
+    title: "Limited Liability Partnership",
+    href: "/limited-liability-partnership",
+    description: "A partnership in which some or all partners have limited liabilities.",
+  },
+  {
+    title: "Private Limited Company",
+    href: "/private-limited-company",
+    description: "A type of privately held small business entity.",
+  },
+  {
+    title: "Public Limited Company",
+    href: "/public-limited-company",
+    description: "A company whose securities are traded on a stock exchange and can be bought and sold by anyone.",
+  },
+  {
+    title: "Section 8 Company",
+    href: "/section-8-company",
+    description: "An organization which is registered for promoting commerce, art, science, sports, education, etc.",
+  },
+  {
+    title: "Trust Registration",
+    href: "/trust-registration",
+    description: "A legal arrangement in which one person holds property for the benefit of another.",
+  },
+  {
+    title: "Producer Company",
+    href: "/producer-company",
+    description: "A legally recognized body of farmers/agriculturists with the aim to improve the standard of their living.",
+  },
+  {
+    title: "Indian Subsidiary",
+    href: "/indian-subsidiary",
+    description: "A company in India whose controlling interest is held by another company.",
+  },
+  {
+    title: "Startup India",
+    href: "/startup-india",
+    description: "An initiative of the Government of India for generation of employment and wealth creation.",
+  },
+  {
+    title: "Trade License",
+    href: "/trade-license",
+    description: "A license or permission issued by the municipal corporation to a person to carry on a particular business.",
+  },
+  {
+    title: "FSSAI Registration",
+    href: "/fssai-registration",
+    description: "Food Safety and Standards Authority of India registration for food businesses.",
+  },
+  {
+    title: "FSSAI License",
+    href: "/fssai-license",
+    description: "State & Central license for food businesses based on turnover.",
+  },
+  {
+    title: "Halal Licence & Certification",
+    href: "/halal-certification",
+    description: "Certification for products permissible under Islamic law.",
+  },
+  {
+    title: "ICEGATE Registration",
+    href: "/icegate-registration",
+    description: "Indian Customs Electronic Gateway registration for e-filing.",
+  },
+  {
+    title: "Import Export Code",
+    href: "/import-export-code",
+    description: "Registration for importing and exporting goods from India.",
+  },
+];
+
+const registrationItems: { title: string; href: string; description: string }[] = [
+  {
+    title: "Proprietorship",
+    href: "/proprietorship",
+    description: "A sole proprietorship is a type of unincorporated business that is owned and run by one individual.",
+  },
+  {
+    title: "Partnership Firm",
+    href: "/partnership",
+    description: "A legal form of business operation between two or more individuals who share management and profits.",
+  },
+  {
+    title: "One Person Company",
+    href: "/one-person-company",
+    description: "A company that has only one person as to its member.",
+  },
+  {
+    title: "Limited Liability Partnership",
+    href: "/limited-liability-partnership",
+    description: "A partnership in which some or all partners have limited liabilities.",
+  },
+  {
+    title: "Private Limited Company",
+    href: "/private-limited-company",
+    description: "A type of privately held small business entity.",
+  },
+  {
+    title: "Public Limited Company",
+    href: "/public-limited-company",
+    description: "A company whose securities are traded on a stock exchange and can be bought and sold by anyone.",
+  },
+  {
+    title: "Section 8 Company",
+    href: "/section-8-company",
+    description: "An organization which is registered for promoting commerce, art, science, sports, education, etc.",
+  },
+  {
+    title: "Trust Registration",
+    href: "/trust-registration",
+    description: "A legal arrangement in which one person holds property for the benefit of another.",
+  },
+  {
+    title: "Producer Company",
+    href: "/producer-company",
+    description: "A legally recognized body of farmers/agriculturists with the aim to improve the standard of their living.",
+  },
+  {
+    title: "Indian Subsidiary",
+    href: "/indian-subsidiary",
+    description: "A company in India whose controlling interest is held by another company.",
+  },
+  {
+    title: "Startup India",
+    href: "/startup-india",
+    description: "An initiative of the Government of India for generation of employment and wealth creation.",
+  },
+  {
+    title: "Trade License",
+    href: "/trade-license",
+    description: "A license or permission issued by the municipal corporation to a person to carry on a particular business.",
+  },
+  {
+    title: "FSSAI Registration",
+    href: "/fssai-registration",
+    description: "Food Safety and Standards Authority of India registration for food businesses.",
+  },
+  {
+    title: "FSSAI License",
+    href: "/fssai-license",
+    description: "State & Central license for food businesses based on turnover.",
+  },
+  {
+    title: "Halal Licence & Certification",
+    href: "/halal-certification",
+    description: "Certification for products permissible under Islamic law.",
+  },
+  {
+    title: "ICEGATE Registration",
+    href: "/icegate-registration",
+    description: "Indian Customs Electronic Gateway registration for e-filing.",
+  },
+  {
+    title: "Import Export Code",
+    href: "/import-export-code",
+    description: "Registration for importing and exporting goods from India.",
+  },
+];
 
 const Header = () => {
   return (
