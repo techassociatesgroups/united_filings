@@ -287,8 +287,8 @@ const Header = () => {
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="/legal-entity-identifier-code" className="text-gray-600 hover:text-green-600">Legal Entity Identifier Code</Link>
                           <Link to="/iso-registration" className="text-gray-600 hover:text-green-600">ISO Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">PF Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">ESI Registration</Link>
+                          <Link to="/pf-registration" className="text-gray-600 hover:text-green-600">PF Registration</Link>
+                          <Link to="/esi-registration" className="text-gray-600 hover:text-green-600">ESI Registration</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Professional Tax Registration</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">RCMC Registration</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">TN RERA Registration for Agents</Link>
