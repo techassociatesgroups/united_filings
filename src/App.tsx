@@ -48,6 +48,7 @@ import DrugLicense from "./pages/DrugLicense";
 import IncomeTaxEFiling from "./pages/IncomeTaxEFiling";
 import FireLicense from "./pages/FireLicense";
 import TrademarkRegistration from "./pages/TrademarkRegistration";
+import CopyrightRegistration from "./pages/CopyrightRegistration";
 
 const queryClient = new QueryClient();
 
@@ -101,6 +102,7 @@ const App = () => (
           <Route path="/income-tax-e-filing" element={<IncomeTaxEFiling />} />
           <Route path="/fire-license" element={<FireLicense />} />
           <Route path="/trademark-registration" element={<TrademarkRegistration />} />
+          <Route path="/copyright-registration" element={<CopyrightRegistration />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
