@@ -10,6 +10,7 @@ import RightSidebar from '@/components/business-registration/RightSidebar';
 import LeftSidebarNav from '@/components/business-registration/LeftSidebarNav';
 import { Button } from '@/components/ui/button';
 import { MessageSquare } from 'lucide-react';
+import PopularSearches from '@/components/business-registration/PopularSearches';
 
 const BusinessRegistration = () => {
   return (
@@ -32,6 +33,7 @@ const BusinessRegistration = () => {
               <RightSidebar />
             </aside>
           </div>
+          <PopularSearches />
         </main>
       </div>
       <Footer />
