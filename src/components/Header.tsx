@@ -43,8 +43,8 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Navigation menu with dropdowns */}
-          <div className="hidden xl:flex items-center space-x-8">
+          {/* Navigation menu with dropdowns - horizontal layout */}
+          <div className="hidden xl:flex items-center space-x-6">
             {/* Startup Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
@@ -292,15 +292,9 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Simple navigation items without dropdowns */}
+            {/* Consultation - Simple navigation item without dropdown */}
             <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
               Consultation
-            </Link>
-            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
-              Guides
-            </Link>
-            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
-              About Us
             </Link>
           </div>
 
