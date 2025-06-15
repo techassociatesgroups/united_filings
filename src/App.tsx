@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import BusinessRegistration from "./pages/BusinessRegistration";
+import Registrations from "./pages/Registrations";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/business-registration" element={<BusinessRegistration />} />
+          <Route path="/registrations" element={<Registrations />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -30,3 +32,4 @@ const App = () => (
 );
 
 export default App;
+
