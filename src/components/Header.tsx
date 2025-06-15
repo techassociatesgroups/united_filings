@@ -344,7 +344,7 @@ const Header = () => {
                   <NavigationMenuContent>
                     <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white">
                       <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Registration</Link>
+                        <Link to="/gst-registration" className="text-gray-600 hover:text-green-600">GST Registration</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">GST Return Filing by Accountant</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">GST Annual Return Filing (GSTR-9)</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">GST E-Invoicing Software</Link>
