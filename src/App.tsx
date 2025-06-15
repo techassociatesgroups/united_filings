@@ -32,6 +32,7 @@ import ISORegistration from "./pages/ISORegistration";
 import PFRegistration from "./pages/PFRegistration";
 import ESIRegistration from "./pages/ESIRegistration";
 import ProfessionalTaxRegistration from "./pages/ProfessionalTaxRegistration";
+import RCMCRegistration from "./pages/RCMCRegistration";
 
 const queryClient = new QueryClient();
 
@@ -69,6 +70,7 @@ const App = () => (
           <Route path="/pf-registration" element={<PFRegistration />} />
           <Route path="/esi-registration" element={<ESIRegistration />} />
           <Route path="/professional-tax-registration" element={<ProfessionalTaxRegistration />} />
+          <Route path="/rcmc-registration" element={<RCMCRegistration />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
