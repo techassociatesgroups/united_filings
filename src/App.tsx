@@ -59,6 +59,7 @@ import GstRegistrationForForeigners from "./pages/GstRegistrationForForeigners";
 import GstRegistrationAmendment from "./pages/GstRegistrationAmendment";
 import Gstr10ReturnFiling from "./pages/Gstr10ReturnFiling";
 import GstRevocation from "./pages/GstRevocation";
+import CompanyCompliance from "./pages/CompanyCompliance";
 
 const queryClient = new QueryClient();
 
@@ -123,6 +124,7 @@ const App = () => (
           <Route path="/gst-registration-amendment" element={<GstRegistrationAmendment />} />
           <Route path="/gst-gstr-10" element={<Gstr10ReturnFiling />} />
           <Route path="/gst-revocation" element={<GstRevocation />} />
+          <Route path="/company-compliance" element={<CompanyCompliance />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -132,4 +134,3 @@ const App = () => (
 );
 
 export default App;
-
