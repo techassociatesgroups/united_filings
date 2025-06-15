@@ -2,94 +2,77 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Star } from 'lucide-react';
+import { Star, ChevronRight } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <Card className="overflow-hidden">
-      <div className="grid grid-cols-1 md:grid-cols-2">
-        <div className="relative h-64 md:h-auto">
-          <img src="/lovable-uploads/789c416a-2d10-43cc-91db-4eb7f4ef33ef.png" alt="Income Tax E-Filing" className="object-cover w-full h-full" />
-          <div className="absolute inset-0 bg-blue-900 bg-opacity-70 p-6 flex flex-col justify-end">
-            <h1 className="text-3xl font-bold text-white">Income Tax E-Filing</h1>
-            <p className="text-white mt-2">Filing for an individual with salary income</p>
-          </div>
+    <section>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <div>
+          <img 
+            src="/lovable-uploads/da7055c7-cd54-439f-b18f-5e0ab62166f6.png" 
+            alt="Income Tax E-Filing" 
+            className="rounded-lg shadow-md w-full" 
+          />
         </div>
-        <div className="p-6 bg-gray-50">
-          <h2 className="text-xl font-semibold">Income Tax E-Filing</h2>
-          <div className="flex items-center mt-1">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-800">Income Tax E-Filing</h1>
+          <div className="flex items-center mt-2">
             <div className="flex text-yellow-400">
-              {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="w-4 h-4" />)}
+              <Star className="h-5 w-5 fill-current" />
+              <Star className="h-5 w-5 fill-current" />
+              <Star className="h-5 w-5 fill-current" />
+              <Star className="h-5 w-5 fill-current" />
+              <Star className="h-5 w-5 fill-current" />
             </div>
-            <span className="text-sm text-gray-500 ml-2">(7854)</span>
+            <span className="ml-2 text-sm text-gray-600">(7654)</span>
           </div>
-          <p className="text-sm text-gray-600 mt-2">E-file your income tax return (ITR) online through IndiaFilings quickly at an affordable price. Get free income tax support for ITR filing.</p>
+          <p className="mt-4 text-gray-600">
+            E-file your income tax return (ITR) online through IndiaFilings quickly at lowest price. Get support from income tax experts for ITR filing.
+          </p>
 
-          <div className="mt-4">
-            <Select>
-              <SelectTrigger>
-                <SelectValue placeholder="Salaried Person" />
+          <div className="mt-6">
+            <Select defaultValue="salaried">
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Select a type" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="salaried">Salaried Person</SelectItem>
+                <SelectItem value="salaried">Salaried person</SelectItem>
                 <SelectItem value="business">Business</SelectItem>
               </SelectContent>
             </Select>
           </div>
-
-          <Card className="mt-4">
-            <CardContent className="p-4">
-              <h3 className="font-semibold text-green-600">3 Secure Offers</h3>
-              <div className="mt-2 space-y-2">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <p className="font-medium">ITR e-Filing</p>
-                    <ul className="list-disc list-inside text-xs text-gray-500">
-                      <li>Income Tax computation</li>
-                      <li>Income Tax eFile copy</li>
-                      <li>Tax Consultation</li>
-                      <li>E-filing</li>
-                    </ul>
-                  </div>
-                  <Button>ADD</Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card className="mt-4">
-            <CardContent className="p-4">
-              <div className="flex justify-between items-center">
-                  <div>
-                    <p className="font-medium">30 Minutes Tax Consultation</p>
-                    <ul className="list-disc list-inside text-xs text-gray-500">
-                      <li>Tax Consultation</li>
-                      <li>Business Consultation</li>
-                      <li>Legal Consultation</li>
-                      <li>Expert on Professionals</li>
-                    </ul>
-                  </div>
-                  <Button>ADD</Button>
-                </div>
-            </CardContent>
-          </Card>
-
-          <div className="text-center mt-4">
-            <a href="#" className="text-sm text-blue-600 hover:underline">Refer a Friend</a>
-          </div>
-
-          <div className="mt-4 space-y-2">
-            <h3 className="font-semibold">Offers and discounts</h3>
-            <div className="flex items-center space-x-2">
-              <span className="text-sm text-gray-500">LEDGERS - Compliance Platform</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <span className="text-sm text-gray-500">Save 10% with GST Registration</span>
-            </div>
-          </div>
         </div>
       </div>
-    </Card>
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <Card className="border-green-500 border-2">
+          <CardContent className="p-4">
+            <div className="text-center bg-green-100 text-green-700 text-xs font-bold py-1 px-2 rounded-full mb-3 inline-block">2 Exclusive Offers</div>
+            <h3 className="font-bold text-gray-800">Salaried person</h3>
+            <ul className="mt-3 space-y-2 text-sm text-gray-600">
+              <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>Income Tax computation</span></li>
+              <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>Income Tax Saral copy</span></li>
+              <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>Tax Consultation</span></li>
+              <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>E Filing</span></li>
+            </ul>
+            <Button className="w-full mt-4 bg-white text-green-600 border border-green-600 hover:bg-green-50">ADD</Button>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="p-4">
+            <div className="text-center bg-green-100 text-green-700 text-xs font-bold py-1 px-2 rounded-full mb-3 inline-block">2 Exclusive Offers</div>
+            <h3 className="font-bold text-gray-800">30 Minutes - Tax Consultation</h3>
+            <ul className="mt-3 space-y-2 text-sm text-gray-600">
+              <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>Tax Consultation</span></li>
+              <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>Business Consultation</span></li>
+              <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>Legal Consultation</span></li>
+              <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>Experienced Professionals</span></li>
+            </ul>
+            <Button className="w-full mt-4 bg-white text-green-600 border border-green-600 hover:bg-green-50">ADD</Button>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
   );
 };
 
