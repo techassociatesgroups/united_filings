@@ -1,4 +1,3 @@
-
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -123,6 +122,9 @@ const Header = () => {
                   </ListItem>
                   <ListItem href="/business-income-tax" title="Business Income Tax">
                     File tax returns for your business.
+                  </ListItem>
+                  <ListItem href="/itr-1-filing" title="ITR-1 (Sahaj) Filing">
+                    File returns for individuals with salary income up to Rs. 50 lakhs.
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
