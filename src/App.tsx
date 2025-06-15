@@ -63,6 +63,7 @@ import CompanyCompliance from "./pages/CompanyCompliance";
 import LlpCompliance from "./pages/LlpCompliance";
 import OpcCompliance from "./pages/OpcCompliance";
 import NameChangeCompany from "./pages/NameChangeCompany";
+import RegisteredOfficeChangeCompany from "./pages/RegisteredOfficeChangeCompany";
 
 const queryClient = new QueryClient();
 
@@ -131,6 +132,7 @@ const App = () => (
           <Route path="/llp-compliance" element={<LlpCompliance />} />
           <Route path="/opc-compliance" element={<OpcCompliance />} />
           <Route path="/name-change-company" element={<NameChangeCompany />} />
+          <Route path="/registered-office-change-company" element={<RegisteredOfficeChangeCompany />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
