@@ -1,4 +1,3 @@
-
 import { Phone, Mail, Search, ShoppingCart, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
@@ -287,9 +286,35 @@ const Header = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
-              Compliance
-            </Link>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                    Compliance
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white">
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">FDI Filing with RBI</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">FLA Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI Renewal</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Business Plan</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">HR & Payroll</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">PF Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">ESI Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Professional Tax Return Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Partnership Compliance</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Proprietorship Compliance</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Bookkeeping</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
             <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
               Consultation
             </Link>
