@@ -327,7 +327,6 @@ const Header = () => {
                     <div className="grid w-[250px] gap-6 p-6 md:grid-cols-1 bg-white">
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                         <Link to="/trademark-registration" className="text-gray-600 hover:text-green-600">Trademark Registration</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Design Objection</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Copyright Registration</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Copyright Objection</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Patent Registration</Link>
