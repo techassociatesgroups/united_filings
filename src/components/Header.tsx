@@ -1,4 +1,3 @@
-
 import { Phone, Mail, Search, ShoppingCart, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
@@ -60,7 +59,7 @@ const Header = () => {
                         <Link to="/partnership" className="text-gray-600 hover:text-green-600">Partnership Firm</Link>
                         <Link to="/one-person-company" className="text-gray-600 hover:text-green-600">One Person Company</Link>
                         <Link to="/limited-liability-partnership" className="text-gray-600 hover:text-green-600">Limited Liability Partnership</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Private Limited Company</Link>
+                        <Link to="/private-limited-company" className="text-gray-600 hover:text-green-600">Private Limited Company</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Section 8 Company</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Nidhi Company</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Indian Subsidiary</Link>
