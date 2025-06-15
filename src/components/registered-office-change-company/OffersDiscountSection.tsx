@@ -1,6 +1,4 @@
 
-import { Wallet, Landmark } from 'lucide-react';
-
 const OffersDiscountSection = () => {
   return (
     <section>
@@ -8,7 +6,7 @@ const OffersDiscountSection = () => {
       <div className="space-y-4">
         <div className="border rounded-lg p-4 flex items-center">
           <div className="bg-gray-100 p-3 rounded-full mr-4">
-            <Wallet className="w-6 h-6 text-gray-600" />
+            <img src="https://img.indiafilings.com/images/ledgers-logo.png" alt="Ledgers Logo" className="w-6 h-6" />
           </div>
           <div>
             <h3 className="font-bold">LEDGERS - Compliance Platform</h3>
@@ -17,7 +15,7 @@ const OffersDiscountSection = () => {
         </div>
         <div className="border rounded-lg p-4 flex items-center">
           <div className="bg-gray-100 p-3 rounded-full mr-4">
-            <Landmark className="w-6 h-6 text-gray-600" />
+            <img src="https://img.indiafilings.com/images/gst-logo.svg" alt="GST Logo" className="w-6 h-6" />
           </div>
           <div>
             <h3 className="font-bold">Save 18% with GST Registration</h3>
