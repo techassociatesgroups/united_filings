@@ -45,6 +45,7 @@ import DarpanRegistration from "./pages/DarpanRegistration";
 import DigitalSignature from "./pages/DigitalSignature";
 import ShopAndEstablishmentAct from "./pages/ShopAndEstablishmentAct";
 import DrugLicense from "./pages/DrugLicense";
+import IncomeTaxEFiling from "./pages/IncomeTaxEFiling";
 
 const queryClient = new QueryClient();
 
@@ -95,6 +96,7 @@ const App = () => (
           <Route path="/digital-signature" element={<DigitalSignature />} />
           <Route path="/shop-and-establishment-act" element={<ShopAndEstablishmentAct />} />
           <Route path="/drug-license" element={<DrugLicense />} />
+          <Route path="/income-tax-e-filing" element={<IncomeTaxEFiling />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
