@@ -15,6 +15,7 @@ import Partnership from "./pages/Partnership";
 import OnePersonCompany from "./pages/OnePersonCompany";
 import LLP from "./pages/LLP";
 import PrivateLimitedCompany from "./pages/PrivateLimitedCompany";
+import PublicLimitedCompany from "./pages/PublicLimitedCompany";
 import Section8Company from "./pages/Section8Company";
 import TrustRegistration from "./pages/TrustRegistration";
 
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/one-person-company" element={<OnePersonCompany />} />
           <Route path="/limited-liability-partnership" element={<LLP />} />
           <Route path="/private-limited-company" element={<PrivateLimitedCompany />} />
+          <Route path="/public-limited-company" element={<PublicLimitedCompany />} />
           <Route path="/section-8-company" element={<Section8Company />} />
           <Route path="/trust-registration" element={<TrustRegistration />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
