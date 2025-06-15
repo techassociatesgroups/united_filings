@@ -55,7 +55,7 @@ const Header = () => {
                     <div className="grid w-[950px] gap-6 p-6 md:grid-cols-4 bg-white">
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                         <h4 className="font-bold text-green-600 mb-2 text-base">START A BUSINESS (INDIA)</h4>
-                        <Link to="/business-registration" className="text-gray-600 hover:text-green-600">Proprietorship</Link>
+                        <Link to="/proprietorship" className="text-gray-600 hover:text-green-600">Proprietorship</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Partnership Firm</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">One Person Company</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Limited Liability Partnership</Link>
