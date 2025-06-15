@@ -191,21 +191,94 @@ const Header = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
+                  <NavigationMenuTrigger className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium bg-transparent">
                     Income Tax
-                  </Link>
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid grid-cols-2 gap-4 p-6 w-[600px]">
+                      <div className="space-y-2">
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Income Tax E-Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Business Tax Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">ITR-1 Return Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">ITR-2 Return Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">ITR-3 Return Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">ITR-4 Return Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">ITR-5 Return Filing</Link>
+                      </div>
+                      <div className="space-y-2">
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">ITR-6 Return Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">ITR-7 Return Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">15CA - 15CB Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">TAN Registration</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">TDS Return Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Income Tax Notice</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
+                  <NavigationMenuTrigger className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium bg-transparent">
                     MCA
-                  </Link>
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid grid-cols-4 gap-4 p-6 w-[800px]">
+                      <div className="space-y-2">
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Company Compliance</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">LLP Compliance</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">OPC Compliance</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Name Change - Company</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Registered Office Change</Link>
+                      </div>
+                      <div className="space-y-2">
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">DIN eKYC Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">DIN Reactivation</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Director Change</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Remove Director</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">ADT-1 Filing</Link>
+                      </div>
+                      <div className="space-y-2">
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">DPT-3 Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">LLP Form 11 Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Dormant Status Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">MOA Amendment</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">AOA Amendment</Link>
+                      </div>
+                      <div className="space-y-2">
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Authorized Capital Increase</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Share Transfer</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Demat of Shares</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Winding Up - LLP</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Winding Up - Company</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
+                  <NavigationMenuTrigger className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium bg-transparent">
                     Compliance
-                  </Link>
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid grid-cols-2 gap-4 p-6 w-[600px]">
+                      <div className="space-y-2">
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">FDI Filing with RBI</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">FLA Return Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">FSSAI Renewal</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">FSSAI Return Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Business Plan</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">HR & Payroll</Link>
+                      </div>
+                      <div className="space-y-2">
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">PF Return Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">ESI Return Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Professional Tax Return Filing</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Partnership Compliance</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Proprietorship Compliance</Link>
+                        <Link to="#" className="block hover:text-green-600 text-sm py-1">Bookkeeping</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
