@@ -15,14 +15,8 @@ const HeroSection = () => {
     <Card className="overflow-hidden">
       <div className="grid md:grid-cols-12">
         <div className="md:col-span-4">
-            <div className="relative h-full min-h-[550px] bg-gray-200">
-                <img src="https://images.unsplash.com/photo-1556740738-b6a63e2775df?q=80&w=1000&auto=format&fit=crop" alt="Shop and Establishment Registration" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-black/20 flex items-center justify-center p-4">
-                    <div className="bg-blue-600 text-white rounded-lg p-6 flex flex-col items-center text-center max-w-sm mx-auto border-2 border-white/50">
-                        <h2 className="text-2xl font-bold uppercase">Shop and Establishment Registration</h2>
-                        <div className="text-sm mt-4 bg-white text-blue-700 font-semibold py-2 px-4 rounded-full">Get the support to start and scale your business⚡</div>
-                    </div>
-                </div>
+            <div className="h-full min-h-[550px] bg-gray-200">
+                <img src="/lovable-uploads/f7bb8802-2d69-4ca4-9fac-23f73405ed89.png" alt="Shop and Establishment Registration" className="w-full h-full object-cover" />
             </div>
         </div>
         <div className="md:col-span-8 p-8">

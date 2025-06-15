@@ -304,8 +304,8 @@ const Header = () => {
                       </div>
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="/darpan-registration" className="text-gray-600 hover:text-green-600">Darpan Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Digital Signature</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Shop Act Registration</Link>
+                          <Link to="/digital-signature" className="text-gray-600 hover:text-green-600">Digital Signature</Link>
+                          <Link to="/shop-and-establishment-act" className="text-gray-600 hover:text-green-600">Shop Act Registration</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Drug License</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Udyam Registration</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">FCRA Registration</Link>
