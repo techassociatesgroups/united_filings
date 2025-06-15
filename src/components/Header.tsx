@@ -542,8 +542,6 @@ const Header = () => {
                         <Link to="#" className="text-gray-600 hover:text-green-600">FLA Return Filing</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI Renewal</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Business Plan</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">HR & Payroll</Link>
                       </div>
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                         <Link to="#" className="text-gray-600 hover:text-green-600">PF Return Filing</Link>
