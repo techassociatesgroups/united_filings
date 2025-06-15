@@ -37,6 +37,7 @@ import ReraRegistrationForAgents from "./pages/ReraRegistrationForAgents";
 import TwelveAand80GRegistration from "./pages/12Aand80GRegistration";
 import TwelveARegistration from "./pages/12ARegistration";
 import EightyGRegistration from "./pages/80GRegistration";
+import ApedaRegistration from "./pages/ApedaRegistration";
 
 const queryClient = new QueryClient();
 
@@ -79,6 +80,7 @@ const App = () => (
           <Route path="/12a-80g-registration" element={<TwelveAand80GRegistration />} />
           <Route path="/12a-registration" element={<TwelveARegistration />} />
           <Route path="/80g-registration" element={<EightyGRegistration />} />
+          <Route path="/apeda-registration" element={<ApedaRegistration />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

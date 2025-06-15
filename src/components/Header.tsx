@@ -191,6 +191,11 @@ const Header = () => {
       description: "Allow donors to claim tax deductions on donations.",
     },
     {
+      title: "APEDA Registration",
+      href: "/apeda-registration",
+      description: "Registration for exporters of agricultural and processed food products.",
+    },
+    {
       title: "12A and 80G Registration",
       href: "/12a-80g-registration",
       description: "Tax exemption for NGOs and benefits for donors.",
