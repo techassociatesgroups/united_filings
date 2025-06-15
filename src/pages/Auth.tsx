@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Eye, EyeOff } from 'lucide-react';
+import { useToast } from '@/components/ui/use-toast';
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -13,75 +14,158 @@ const Auth = () => {
   const [name, setName] = useState('');
   const [mobile, setMobile] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const [emailOtp, setEmailOtp] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [showOtpField, setShowOtpField] = useState(false);
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
+  const { toast } = useToast();
 
   useEffect(() => {
+    // Check for existing session
+    const checkSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session?.user) {
+        console.log('User already logged in, redirecting to home');
+        navigate('/');
+      }
+    };
+
+    checkSession();
+
+    // Listen for auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        if (session?.user) {
+      async (event, session) => {
+        console.log('Auth state changed:', event, session?.user?.email);
+        
+        if (event === 'SIGNED_IN' && session?.user) {
+          toast({
+            title: "Success!",
+            description: "Successfully logged in.",
+          });
           navigate('/');
+        } else if (event === 'TOKEN_REFRESHED') {
+          console.log('Token refreshed');
+        } else if (event === 'USER_UPDATED') {
+          console.log('User updated');
         }
       }
     );
 
     return () => subscription.unsubscribe();
-  }, [navigate]);
+  }, [navigate, toast]);
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setMessage('');
     setLoading(true);
 
     try {
       if (isLogin) {
-        const { error } = await supabase.auth.signInWithPassword({
+        console.log('Attempting login for:', email);
+        const { data, error } = await supabase.auth.signInWithPassword({
           email,
           password,
         });
-        if (error) throw error;
+        
+        if (error) {
+          console.error('Login error:', error);
+          throw error;
+        }
+        
+        if (data.user) {
+          console.log('Login successful:', data.user.email);
+          toast({
+            title: "Success!",
+            description: "Successfully logged in.",
+          });
+          navigate('/');
+        }
       } else {
         if (password !== repeatPassword) {
           throw new Error('Passwords do not match');
         }
         
-        const { error } = await supabase.auth.signUp({
+        console.log('Attempting signup for:', email);
+        const { data, error } = await supabase.auth.signUp({
           email,
           password,
           options: {
-            emailRedirectTo: `${window.location.origin}/`,
+            emailRedirectTo: `${window.location.origin}/auth`,
             data: {
               name,
               mobile,
             }
           }
         });
-        if (error) throw error;
-        setShowOtpField(true);
+        
+        if (error) {
+          console.error('Signup error:', error);
+          throw error;
+        }
+        
+        if (data.user) {
+          if (data.user.email_confirmed_at) {
+            console.log('User immediately confirmed:', data.user.email);
+            toast({
+              title: "Success!",
+              description: "Account created and confirmed!",
+            });
+            navigate('/');
+          } else {
+            console.log('Confirmation email sent to:', data.user.email);
+            setMessage('Please check your email and click the confirmation link to complete your registration.');
+            toast({
+              title: "Check your email",
+              description: "We've sent you a confirmation link.",
+            });
+          }
+        }
       }
     } catch (error: any) {
+      console.error('Auth error:', error);
       setError(error.message);
+      toast({
+        title: "Error",
+        description: error.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
   };
 
-  const resendOtp = async () => {
+  const resendConfirmation = async () => {
+    setLoading(true);
+    setError('');
+    setMessage('');
+    
     try {
       const { error } = await supabase.auth.resend({
         type: 'signup',
         email,
         options: {
-          emailRedirectTo: `${window.location.origin}/`
+          emailRedirectTo: `${window.location.origin}/auth`
         }
       });
+      
       if (error) throw error;
+      
+      setMessage('Confirmation email resent. Please check your inbox.');
+      toast({
+        title: "Email sent",
+        description: "Confirmation email has been resent.",
+      });
     } catch (error: any) {
       setError(error.message);
+      toast({
+        title: "Error",
+        description: error.message,
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -97,7 +181,7 @@ const Auth = () => {
             onClick={() => setIsLogin(true)}
             className={`flex-1 py-2 px-4 rounded-l-lg transition-colors ${
               isLogin 
-                ? 'bg-blue-600 text-white' 
+                ? 'bg-green-600 text-white' 
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
@@ -107,7 +191,7 @@ const Auth = () => {
             onClick={() => setIsLogin(false)}
             className={`flex-1 py-2 px-4 rounded-r-lg transition-colors ${
               !isLogin 
-                ? 'bg-blue-600 text-white' 
+                ? 'bg-green-600 text-white' 
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
@@ -198,52 +282,46 @@ const Auth = () => {
             </div>
           )}
 
-          {showOtpField && !isLogin && (
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email OTP</label>
-              <div className="flex space-x-2">
-                <Input
-                  type="text"
-                  value={emailOtp}
-                  onChange={(e) => setEmailOtp(e.target.value)}
-                  className="flex-1"
-                  placeholder="Enter OTP"
-                />
-                <Button
-                  type="button"
-                  onClick={resendOtp}
-                  className="bg-green-600 hover:bg-green-700"
-                >
-                  Resend Email OTP
-                </Button>
-              </div>
-            </div>
-          )}
-
           {isLogin && (
             <div className="text-right">
-              <a href="#" className="text-blue-600 hover:underline text-sm">
+              <a href="#" className="text-green-600 hover:underline text-sm">
                 Forgot Password?
               </a>
             </div>
           )}
 
           {error && (
-            <div className="text-red-600 text-sm">{error}</div>
+            <div className="text-red-600 text-sm bg-red-50 p-3 rounded-md">{error}</div>
+          )}
+
+          {message && (
+            <div className="text-green-600 text-sm bg-green-50 p-3 rounded-md">
+              {message}
+              {!isLogin && (
+                <button
+                  type="button"
+                  onClick={resendConfirmation}
+                  className="block mt-2 text-green-700 underline hover:text-green-800"
+                  disabled={loading}
+                >
+                  Resend confirmation email
+                </button>
+              )}
+            </div>
           )}
 
           {!isLogin && (
             <div className="text-xs text-gray-500">
               By continuing, you agree to IndiaFilings{' '}
-              <a href="#" className="text-blue-600 hover:underline">Terms of Use</a> and{' '}
-              <a href="#" className="text-blue-600 hover:underline">Privacy Policy</a>.
+              <a href="#" className="text-green-600 hover:underline">Terms of Use</a> and{' '}
+              <a href="#" className="text-green-600 hover:underline">Privacy Policy</a>.
             </div>
           )}
 
           <Button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3"
+            className="w-full bg-green-600 hover:bg-green-700 text-white py-3"
           >
             {loading ? 'Loading...' : (isLogin ? 'Continue' : 'Sign up')}
           </Button>
@@ -266,7 +344,7 @@ const Auth = () => {
           </div>
 
           <div className="text-center">
-            <a href="#" className="text-blue-600 hover:underline text-sm">
+            <a href="#" className="text-green-600 hover:underline text-sm">
               Contact Us
             </a>
           </div>
