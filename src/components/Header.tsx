@@ -324,22 +324,16 @@ const Header = () => {
                     Trademark
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid w-[750px] gap-6 p-6 md:grid-cols-3 bg-white">
+                    <div className="grid w-[500px] gap-6 p-6 md:grid-cols-2 bg-white">
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                         <Link to="/trademark-registration" className="text-gray-600 hover:text-green-600">Trademark Registration</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Objection</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Certificate</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Opposition</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Hearing</Link>
-                      </div>
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
                         <Link to="#" className="text-gray-600 hover:text-green-600">USA Trademark Registration</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">International Trademark</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Logo Designing</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Design Registration</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Design Objection</Link>
                       </div>
                       <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Design Objection</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Copyright Registration</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Copyright Objection</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Patent Registration</Link>
