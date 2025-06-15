@@ -2,7 +2,7 @@
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const Breadcrumb = (). => {
+const Breadcrumb = () => {
   return (
     <nav className="flex items-center text-sm text-gray-500">
       <Link to="/" className="hover:text-green-600">IndiaFilings</Link>
