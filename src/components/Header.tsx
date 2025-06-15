@@ -1,3 +1,4 @@
+
 import { Phone, Mail, Search, ShoppingCart, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
@@ -245,9 +246,47 @@ const Header = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
-              MCA
-            </Link>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                    MCA
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white">
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Company Compliance</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">LLP Compliance</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">OPC Compliance</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Name Change - Company</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Registered Office Change</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">DIN eKYC Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">DIN Reactivation</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Director Change</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Remove Director</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">ADT-1 Filing</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">DPT-3 Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">LLP Form 11 Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Dormant Status Filing</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">MOA Amendment</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">AOA Amendment</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Authorized Capital Increase</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Share Transfer</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Demat of Shares</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Winding Up - LLP</Link>
+                        <Link to="#" className="text-gray-600 hover:text-green-600">Winding Up - Company</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
             <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
               Compliance
             </Link>
