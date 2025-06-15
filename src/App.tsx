@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -60,6 +59,7 @@ import GstRegistrationAmendment from "./pages/GstRegistrationAmendment";
 import Gstr10ReturnFiling from "./pages/Gstr10ReturnFiling";
 import GstRevocation from "./pages/GstRevocation";
 import CompanyCompliance from "./pages/CompanyCompliance";
+import LlpCompliance from "./pages/LlpCompliance";
 
 const queryClient = new QueryClient();
 
@@ -125,6 +125,7 @@ const App = () => (
           <Route path="/gst-gstr-10" element={<Gstr10ReturnFiling />} />
           <Route path="/gst-revocation" element={<GstRevocation />} />
           <Route path="/company-compliance" element={<CompanyCompliance />} />
+          <Route path="/llp-compliance" element={<LlpCompliance />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

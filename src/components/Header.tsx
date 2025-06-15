@@ -498,7 +498,7 @@ const Header = () => {
                     <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white">
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                         <Link to="/company-compliance" className="text-gray-600 hover:text-green-600">Company Compliance</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">LLP Compliance</Link>
+                        <Link to="/llp-compliance" className="text-gray-600 hover:text-green-600">LLP Compliance</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">OPC Compliance</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Name Change - Company</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Registered Office Change</Link>
