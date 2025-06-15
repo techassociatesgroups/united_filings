@@ -44,6 +44,7 @@ import CertificateOfIncumbency from "./pages/CertificateOfIncumbency";
 import DarpanRegistration from "./pages/DarpanRegistration";
 import DigitalSignature from "./pages/DigitalSignature";
 import ShopAndEstablishmentAct from "./pages/ShopAndEstablishmentAct";
+import DrugLicense from "./pages/DrugLicense";
 
 const queryClient = new QueryClient();
 
@@ -93,6 +94,7 @@ const App = () => (
           <Route path="/darpan-registration" element={<DarpanRegistration />} />
           <Route path="/digital-signature" element={<DigitalSignature />} />
           <Route path="/shop-and-establishment-act" element={<ShopAndEstablishmentAct />} />
+          <Route path="/drug-license" element={<DrugLicense />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
