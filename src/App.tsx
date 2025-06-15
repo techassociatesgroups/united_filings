@@ -19,6 +19,7 @@ import PublicLimitedCompany from "./pages/PublicLimitedCompany";
 import Section8Company from "./pages/Section8Company";
 import TrustRegistration from "./pages/TrustRegistration";
 import ProducerCompany from "./pages/ProducerCompany";
+import IndianSubsidiary from "./pages/IndianSubsidiary";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ const App = () => (
           <Route path="/section-8-company" element={<Section8Company />} />
           <Route path="/trust-registration" element={<TrustRegistration />} />
           <Route path="/producer-company" element={<ProducerCompany />} />
+          <Route path="/indian-subsidiary" element={<IndianSubsidiary />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
