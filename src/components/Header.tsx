@@ -299,7 +299,7 @@ const Header = () => {
                           <Link to="#" className="text-gray-600 hover:text-green-600">80G Registration</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">APEDA Registration</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Barcode Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">BIS Registration</Link>
+                          <Link to="/bis-registration" className="text-gray-600 hover:text-green-600">BIS Registration</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Certificate of Incumbency</Link>
                       </div>
                       <div className="flex flex-col space-y-2 text-sm font-normal">
