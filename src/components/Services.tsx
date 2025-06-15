@@ -1,5 +1,5 @@
 
-import { Building2, FileText, Trademark, Scale, Calculator, UserCheck, Globe, CreditCard, Briefcase, Users, FileCheck, Gavel } from 'lucide-react';
+import { Building2, FileText, Copyright, Scale, Calculator, UserCheck, Globe, CreditCard, Briefcase, Users, FileCheck, Gavel } from 'lucide-react';
 
 const Services = () => {
   const services = [
@@ -25,7 +25,7 @@ const Services = () => {
       popular: false
     },
     {
-      icon: Trademark,
+      icon: Copyright,
       title: "Trademark Registration",
       description: "Protect your brand with trademark registration",
       price: "₹3,999",
