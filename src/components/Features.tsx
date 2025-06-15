@@ -50,8 +50,8 @@ const Features = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div key={index} className="text-center group">
-              <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-600 transition-colors">
-                <feature.icon className="h-10 w-10 text-blue-600 group-hover:text-white transition-colors" />
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-600 transition-colors">
+                <feature.icon className="h-10 w-10 text-green-600 group-hover:text-white transition-colors" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
                 {feature.title}
