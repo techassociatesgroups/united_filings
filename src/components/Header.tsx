@@ -44,14 +44,14 @@ const Header = () => {
           </div>
 
           {/* Navigation menu with dropdowns - horizontal layout */}
-          <div className="hidden xl:flex items-center space-x-6">
+          <div className="hidden lg:flex items-center space-x-6">
             {/* Startup Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
                 <span>Startup</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56 bg-white border shadow-lg">
+              <DropdownMenuContent className="w-56 bg-white border shadow-lg z-50">
                 <DropdownMenuItem>
                   <Link to="#" className="w-full">Private Limited Company</Link>
                 </DropdownMenuItem>
@@ -85,7 +85,7 @@ const Header = () => {
                 <span>Registrations</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56 bg-white border shadow-lg">
+              <DropdownMenuContent className="w-56 bg-white border shadow-lg z-50">
                 <DropdownMenuItem>
                   <Link to="#" className="w-full">GST Registration</Link>
                 </DropdownMenuItem>
@@ -125,7 +125,7 @@ const Header = () => {
                 <span>Trademark</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56 bg-white border shadow-lg">
+              <DropdownMenuContent className="w-56 bg-white border shadow-lg z-50">
                 <DropdownMenuItem>
                   <Link to="#" className="w-full">Trademark Registration</Link>
                 </DropdownMenuItem>
@@ -162,7 +162,7 @@ const Header = () => {
                 <span>Goods & Services Tax</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56 bg-white border shadow-lg">
+              <DropdownMenuContent className="w-56 bg-white border shadow-lg z-50">
                 <DropdownMenuItem>
                   <Link to="#" className="w-full">GST Registration</Link>
                 </DropdownMenuItem>
@@ -196,7 +196,7 @@ const Header = () => {
                 <span>Income Tax</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56 bg-white border shadow-lg">
+              <DropdownMenuContent className="w-56 bg-white border shadow-lg z-50">
                 <DropdownMenuItem>
                   <Link to="#" className="w-full">Income Tax Return Filing</Link>
                 </DropdownMenuItem>
@@ -230,7 +230,7 @@ const Header = () => {
                 <span>MCA</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56 bg-white border shadow-lg">
+              <DropdownMenuContent className="w-56 bg-white border shadow-lg z-50">
                 <DropdownMenuItem>
                   <Link to="#" className="w-full">Annual Filing</Link>
                 </DropdownMenuItem>
@@ -264,7 +264,7 @@ const Header = () => {
                 <span>Compliance</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56 bg-white border shadow-lg">
+              <DropdownMenuContent className="w-56 bg-white border shadow-lg z-50">
                 <DropdownMenuItem>
                   <Link to="#" className="w-full">Annual Compliance</Link>
                 </DropdownMenuItem>
