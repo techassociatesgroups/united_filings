@@ -282,10 +282,10 @@ const Header = () => {
                           <Link to="/fssai-license" className="text-gray-600 hover:text-green-600">FSSAI License</Link>
                           <Link to="/halal-certification" className="text-gray-600 hover:text-green-600">Halal License & Certification</Link>
                           <Link to="/icegate-registration" className="text-gray-600 hover:text-green-600">ICEGATE Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Import Export Code</Link>
+                          <Link to="/import-export-code" className="text-gray-600 hover:text-green-600">Import Export Code</Link>
                       </div>
                       <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Legal Entity Identifier Code</Link>
+                          <Link to="/legal-entity-identifier-code" className="text-gray-600 hover:text-green-600">Legal Entity Identifier Code</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">ISO Registration</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">PF Registration</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">ESI Registration</Link>

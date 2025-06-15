@@ -27,6 +27,7 @@ import FSSAiLicense from "./pages/FSSAiLicense";
 import HalalCertification from "./pages/HalalCertification";
 import IcegateRegistration from "./pages/IcegateRegistration";
 import ImportExportCode from "./pages/ImportExportCode";
+import LegalEntityIdentifierCode from "./pages/LegalEntityIdentifierCode";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => (
           <Route path="/halal-certification" element={<HalalCertification />} />
           <Route path="/icegate-registration" element={<IcegateRegistration />} />
           <Route path="/import-export-code" element={<ImportExportCode />} />
+          <Route path="/legal-entity-identifier-code" element={<LegalEntityIdentifierCode />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
