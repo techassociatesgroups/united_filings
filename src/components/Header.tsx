@@ -80,7 +80,7 @@ const Header = () => {
                         <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in Singapore</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in UK</Link>
                         <h4 className="font-bold text-green-600 mb-2 pt-4 text-base">TRUST / NGO</h4>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Trust Registration</Link>
+                        <Link to="/trust-registration" className="text-gray-600 hover:text-green-600">Trust Registration</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Society Registration</Link>
                       </div>
                       <div className="bg-gray-50 p-4 rounded-lg flex flex-col justify-center text-center">
