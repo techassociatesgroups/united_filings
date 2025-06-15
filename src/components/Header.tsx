@@ -315,7 +315,7 @@ const Header = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
+            <Link to="/consultation" className="text-gray-700 hover:text-green-600 transition-colors">
               Consultation
             </Link>
             <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
