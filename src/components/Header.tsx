@@ -291,7 +291,7 @@ const Header = () => {
                           <Link to="/esi-registration" className="text-gray-600 hover:text-green-600">ESI Registration</Link>
                           <Link to="/professional-tax-registration" className="text-gray-600 hover:text-green-600">Professional Tax Registration</Link>
                           <Link to="/rcmc-registration" className="text-gray-600 hover:text-green-600">RCMC Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">TN RERA Registration for Agents</Link>
+                          <Link to="/rera-registration-for-agents" className="text-gray-600 hover:text-green-600">TN RERA Registration for Agents</Link>
                       </div>
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="#" className="text-gray-600 hover:text-green-600">12A and 80G Registration</Link>
