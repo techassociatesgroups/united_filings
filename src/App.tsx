@@ -59,8 +59,6 @@ import GstRegistrationForForeigners from "./pages/GstRegistrationForForeigners";
 import GstRegistrationAmendment from "./pages/GstRegistrationAmendment";
 import Gstr10ReturnFiling from "./pages/Gstr10ReturnFiling";
 import GstRevocation from "./pages/GstRevocation";
-import BusinessIncomeTax from "./pages/BusinessIncomeTax";
-import Itr1Filing from "./pages/Itr1Filing";
 
 const queryClient = new QueryClient();
 
@@ -112,8 +110,6 @@ const App = () => (
           <Route path="/shop-and-establishment-act" element={<ShopAndEstablishmentAct />} />
           <Route path="/drug-license" element={<DrugLicense />} />
           <Route path="/income-tax-e-filing" element={<IncomeTaxEFiling />} />
-          <Route path="/business-income-tax" element={<BusinessIncomeTax />} />
-          <Route path="/itr-1-filing" element={<Itr1Filing />} />
           <Route path="/fire-license" element={<FireLicense />} />
           <Route path="/trademark-registration" element={<TrademarkRegistration />} />
           <Route path="/copyright-registration" element={<CopyrightRegistration />} />
@@ -136,3 +132,4 @@ const App = () => (
 );
 
 export default App;
+
