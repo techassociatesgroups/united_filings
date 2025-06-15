@@ -55,6 +55,7 @@ import GstReturnFiling from "./pages/GstReturnFiling";
 import GstAnnualReturnFilingGstr9 from "./pages/GstAnnualReturnFilingGstr9";
 import GstLutForm from "./pages/GstLutForm";
 import GstNotice from "./pages/GstNotice";
+import GstRegistrationForForeigners from "./pages/GstRegistrationForForeigners";
 
 const queryClient = new QueryClient();
 
@@ -115,6 +116,7 @@ const App = () => (
           <Route path="/gst-annual-return-filing-gstr9" element={<GstAnnualReturnFilingGstr9 />} />
           <Route path="/gst-lut-form" element={<GstLutForm />} />
           <Route path="/gst-notice" element={<GstNotice />} />
+          <Route path="/gst-registration-for-foreigners" element={<GstRegistrationForForeigners />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
