@@ -296,6 +296,16 @@ const Header = () => {
             <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
               Consultation
             </Link>
+
+            {/* Guides - Simple navigation item without dropdown */}
+            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
+              Guides
+            </Link>
+
+            {/* About Us - Simple navigation item without dropdown */}
+            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors text-sm font-medium">
+              About Us
+            </Link>
           </div>
 
           {/* Right side icons and login */}
