@@ -1,6 +1,6 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
 
 const Section = ({ title, children }: { title: string, children: React.ReactNode }) => (
     <div className="space-y-2">
@@ -39,7 +39,6 @@ const DetailsSection = () => {
         "Application Scrutiny: The Drug Inspector reviews the application and accompanying documents against observations made during the site visit. If any clarifications are needed, they will be requested from the applicant, who must respond within three days. Failure to provide a satisfactory response can result in the application being denied.",
         "License Issuance: Following a thorough drug licence verification process and assuming all criteria are met, the Drug Control Department will issue the Drug License. Frequently, you can check drug licence status."
     ];
-
 
   return (
     <Card>
@@ -126,7 +125,11 @@ const DetailsSection = () => {
         </Section>
 
         <Section title="Eligibility Criteria for Obtaining a Drug License">
-            {/* ... Content ... */}
+            <p>The eligibility criteria for obtaining a drug license can vary based on the state and the type of license. However, some general requirements include:</p>
+            <ul className="list-disc pl-5 space-y-2">
+                <li><strong>Qualification:</strong> For a retail license, the person must be a registered pharmacist. For a wholesale license, the person should be a graduate with one year of experience in drug sales or an undergraduate with four years of experience.</li>
+                <li><strong>Storage Facility:</strong> The premises must have adequate storage facilities, including refrigerators for certain drugs.</li>
+            </ul>
         </Section>
 
         <Section title="Premises Specifications & Conditions">
