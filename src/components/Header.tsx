@@ -56,7 +56,7 @@ const Header = () => {
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                         <h4 className="font-bold text-green-600 mb-2 text-base">START A BUSINESS (INDIA)</h4>
                         <Link to="/proprietorship" className="text-gray-600 hover:text-green-600">Proprietorship</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Partnership Firm</Link>
+                        <Link to="/partnership" className="text-gray-600 hover:text-green-600">Partnership Firm</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">One Person Company</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Limited Liability Partnership</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Private Limited Company</Link>
