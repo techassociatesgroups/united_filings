@@ -38,6 +38,7 @@ import TwelveAand80GRegistration from "./pages/12Aand80GRegistration";
 import TwelveARegistration from "./pages/12ARegistration";
 import BisRegistration from "./pages/BisRegistration";
 import BarcodeRegistration from "./pages/BarcodeRegistration";
+import ApedaRegistration from "./pages/ApedaRegistration";
 
 const queryClient = new QueryClient();
 
@@ -81,6 +82,7 @@ const App = () => (
           <Route path="/12a-registration" element={<TwelveARegistration />} />
           <Route path="/bis-registration" element={<BisRegistration />} />
           <Route path="/barcode-registration" element={<BarcodeRegistration />} />
+          <Route path="/apeda-registration" element={<ApedaRegistration />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
