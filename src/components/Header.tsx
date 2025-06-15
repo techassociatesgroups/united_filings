@@ -98,9 +98,55 @@ const Header = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            <Link to="/registrations" className="text-gray-700 hover:text-green-600 transition-colors">
-              Registrations
-            </Link>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                    Registrations
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white">
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Startup India</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Trade License</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI License</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Halal License & Certification</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">ICEGATE Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Import Export Code</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Legal Entity Identifier Code</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">ISO Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">PF Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">ESI Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Professional Tax Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">RCMC Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">TN RERA Registration for Agents</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="#" className="text-gray-600 hover:text-green-600">12A and 80G Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">12A Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">80G Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">APEDA Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Barcode Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">BIS Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Certificate of Incumbency</Link>
+                      </div>
+                      <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Darpan Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Digital Signature</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Shop Act Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Drug License</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Udyam Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">FCRA Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Fire License</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
             <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
               Trademark
             </Link>
