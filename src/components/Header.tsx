@@ -7,6 +7,7 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
+  NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 
 const businessRegistrationItems: { title: string; href: string; description: string }[] = [
@@ -344,20 +345,146 @@ const Header = () => {
                   <NavigationMenuContent>
                     <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white">
                       <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="/gst-registration" className="text-gray-600 hover:text-green-600">GST Registration</Link>
-                        <Link to="/gst-return-filing" className="text-gray-600 hover:text-green-600">GST Return Filing by Accountant</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Annual Return Filing (GSTR-9)</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST E-Invoicing Software</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST LUT Form</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Notice</Link>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/gst-registration"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">
+                              GST Registration
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              Register your business with GST.
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/gst-return-filing"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">
+                              GST Return Filing by Accountant
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              Get an Accountant to do your GST return filing.
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/gst-annual-return-filing-gstr9"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">
+                              GST Annual Return Filing (GSTR - 9)
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              File annual GST returns (GSTR-9).
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                        <Link
+                          to="/gst-e-invoicing-software"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">
+                            GST E-Invoicing Software
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Use GST e-invoicing software to file your GST returns.
+                          </p>
+                        </Link>
+                        <Link
+                          to="/gst-lut-form"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">
+                            GST LUT Form
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Download the GST LUT form.
+                          </p>
+                        </Link>
+                        <Link
+                          to="/gst-notice"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">
+                            GST Notice
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Get GST notices and updates.
+                          </p>
+                        </Link>
                       </div>
                       <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Registration for Foreigners</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Invoicing & Filing Software</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Amendment</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Revocation</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GSTR-10</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Software for Accountants</Link>
+                        <Link
+                          to="/gst-registration-for-foreigners"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">
+                            GST Registration for Foreigners
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Register your business with GST for foreign entities.
+                          </p>
+                        </Link>
+                        <Link
+                          to="/gst-invoicing-filing-software"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">
+                            GST Invoicing & Filing Software
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Use GST invoicing and filing software to file your GST returns.
+                          </p>
+                        </Link>
+                        <Link
+                          to="/gst-amendment"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">
+                            GST Amendment
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Make changes to your GST registration.
+                          </p>
+                        </Link>
+                        <Link
+                          to="/gst-revocation"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">
+                            GST Revocation
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Revoke your GST registration.
+                          </p>
+                        </Link>
+                        <Link
+                          to="/gst-gstr-10"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">
+                            GSTR-10
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            File GSTR-10 returns.
+                          </p>
+                        </Link>
+                        <Link
+                          to="/gst-software-accountants"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">
+                            GST Software for Accountants
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Use GST software for accountants to file your GST returns.
+                          </p>
+                        </Link>
                       </div>
                     </div>
                   </NavigationMenuContent>
