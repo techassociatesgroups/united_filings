@@ -29,6 +29,7 @@ import IcegateRegistration from "./pages/IcegateRegistration";
 import ImportExportCode from "./pages/ImportExportCode";
 import LegalEntityIdentifierCode from "./pages/LegalEntityIdentifierCode";
 import ISORegistration from "./pages/ISORegistration";
+import PFRegistration from "./pages/PFRegistration";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +64,7 @@ const App = () => (
           <Route path="/import-export-code" element={<ImportExportCode />} />
           <Route path="/legal-entity-identifier-code" element={<LegalEntityIdentifierCode />} />
           <Route path="/iso-registration" element={<ISORegistration />} />
+          <Route path="/pf-registration" element={<PFRegistration />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
