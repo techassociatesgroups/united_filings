@@ -1,522 +1,278 @@
-import { Phone, Mail, Search, ShoppingCart, User } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
+  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-
-const businessRegistrationItems: { title: string; href: string; description: string }[] = [
-  {
-    title: "Proprietorship",
-    href: "/proprietorship",
-    description: "A sole proprietorship is a type of unincorporated business that is owned and run by one individual.",
-  },
-  {
-    title: "Partnership Firm",
-    href: "/partnership",
-    description: "A legal form of business operation between two or more individuals who share management and profits.",
-  },
-  {
-    title: "One Person Company",
-    href: "/one-person-company",
-    description: "A company that has only one person as to its member.",
-  },
-  {
-    title: "Limited Liability Partnership",
-    href: "/limited-liability-partnership",
-    description: "A partnership in which some or all partners have limited liabilities.",
-  },
-  {
-    title: "Private Limited Company",
-    href: "/private-limited-company",
-    description: "A type of privately held small business entity.",
-  },
-  {
-    title: "Public Limited Company",
-    href: "/public-limited-company",
-    description: "A company whose securities are traded on a stock exchange and can be bought and sold by anyone.",
-  },
-  {
-    title: "Section 8 Company",
-    href: "/section-8-company",
-    description: "An organization which is registered for promoting commerce, art, science, sports, education, etc.",
-  },
-  {
-    title: "Trust Registration",
-    href: "/trust-registration",
-    description: "A legal arrangement in which one person holds property for the benefit of another.",
-  },
-  {
-    title: "Producer Company",
-    href: "/producer-company",
-    description: "A legally recognized body of farmers/agriculturists with the aim to improve the standard of their living.",
-  },
-  {
-    title: "Indian Subsidiary",
-    href: "/indian-subsidiary",
-    description: "A company in India whose controlling interest is held by another company.",
-  },
-  {
-    title: "Startup India",
-    href: "/startup-india",
-    description: "An initiative of the Government of India for generation of employment and wealth creation.",
-  },
-  {
-    title: "Trade License",
-    href: "/trade-license",
-    description: "A license or permission issued by the municipal corporation to a person to carry on a particular business.",
-  },
-  {
-    title: "FSSAI Registration",
-    href: "/fssai-registration",
-    description: "Food Safety and Standards Authority of India registration for food businesses.",
-  },
-  {
-    title: "FSSAI License",
-    href: "/fssai-license",
-    description: "State & Central license for food businesses based on turnover.",
-  },
-  {
-    title: "Halal Licence & Certification",
-    href: "/halal-certification",
-    description: "Certification for products permissible under Islamic law.",
-  },
-  {
-    title: "ICEGATE Registration",
-    href: "/icegate-registration",
-    description: "Indian Customs Electronic Gateway registration for e-filing.",
-  },
-  {
-    title: "Import Export Code",
-    href: "/import-export-code",
-    description: "Registration for importing and exporting goods from India.",
-  },
-];
-
-const registrationItems: { title: string; href: string; description: string }[] = [
-  {
-    title: "Proprietorship",
-    href: "/proprietorship",
-    description: "A sole proprietorship is a type of unincorporated business that is owned and run by one individual.",
-  },
-  {
-    title: "Partnership Firm",
-    href: "/partnership",
-    description: "A legal form of business operation between two or more individuals who share management and profits.",
-  },
-  {
-    title: "One Person Company",
-    href: "/one-person-company",
-    description: "A company that has only one person as to its member.",
-  },
-  {
-    title: "Limited Liability Partnership",
-    href: "/limited-liability-partnership",
-    description: "A partnership in which some or all partners have limited liabilities.",
-  },
-  {
-    title: "Private Limited Company",
-    href: "/private-limited-company",
-    description: "A type of privately held small business entity.",
-  },
-  {
-    title: "Public Limited Company",
-    href: "/public-limited-company",
-    description: "A company whose securities are traded on a stock exchange and can be bought and sold by anyone.",
-  },
-  {
-    title: "Section 8 Company",
-    href: "/section-8-company",
-    description: "An organization which is registered for promoting commerce, art, science, sports, education, etc.",
-  },
-  {
-    title: "Trust Registration",
-    href: "/trust-registration",
-    description: "A legal arrangement in which one person holds property for the benefit of another.",
-  },
-  {
-    title: "Producer Company",
-    href: "/producer-company",
-    description: "A legally recognized body of farmers/agriculturists with the aim to improve the standard of their living.",
-  },
-  {
-    title: "Indian Subsidiary",
-    href: "/indian-subsidiary",
-    description: "A company in India whose controlling interest is held by another company.",
-  },
-  {
-    title: "Startup India",
-    href: "/startup-india",
-    description: "An initiative of the Government of India for generation of employment and wealth creation.",
-  },
-  {
-    title: "Trade License",
-    href: "/trade-license",
-    description: "A license or permission issued by the municipal corporation to a person to carry on a particular business.",
-  },
-  {
-    title: "FSSAI Registration",
-    href: "/fssai-registration",
-    description: "Food Safety and Standards Authority of India registration for food businesses.",
-  },
-  {
-    title: "FSSAI License",
-    href: "/fssai-license",
-    description: "State & Central license for food businesses based on turnover.",
-  },
-  {
-    title: "Halal Licence & Certification",
-    href: "/halal-certification",
-    description: "Certification for products permissible under Islamic law.",
-  },
-  {
-    title: "ICEGATE Registration",
-    href: "/icegate-registration",
-    description: "Indian Customs Electronic Gateway registration for e-filing.",
-  },
-  {
-    title: "Import Export Code",
-    href: "/import-export-code",
-    description: "Registration for importing and exporting goods from India.",
-  },
-];
+import { Button } from "./ui/button";
 
 const Header = () => {
+  const businessRegistrationLinks = [
+    {
+      title: "Proprietorship",
+      href: "/proprietorship",
+      description: "Owned and managed by one person.",
+    },
+    {
+      title: "Partnership",
+      href: "/partnership",
+      description: "Agreement between two or more individuals.",
+    },
+    {
+      title: "One Person Company",
+      href: "/one-person-company",
+      description: "A single person as a company owner.",
+    },
+    {
+      title: "Limited Liability Partnership",
+      href: "/limited-liability-partnership",
+      description: "Combines partnership and company benefits.",
+    },
+    {
+      title: "Private Limited Company",
+      href: "/private-limited-company",
+      description: "A separate legal entity with limited liability.",
+    },
+    {
+      title: "Public Limited Company",
+      href: "/public-limited-company",
+      description: "Shares offered to the public.",
+    },
+    {
+      title: "Section 8 Company",
+      href: "/section-8-company",
+      description: "Promotes social welfare, not for profit.",
+    },
+    {
+      title: "Trust Registration",
+      href: "/trust-registration",
+      description: "Register a trust for charitable purposes.",
+    },
+    {
+      title: "Producer Company",
+      href: "/producer-company",
+      description: "Farmers or producers form a company.",
+    },
+    {
+      title: "Indian Subsidiary",
+      href: "/indian-subsidiary",
+      description: "A company controlled by a foreign company.",
+    },
+  ];
+
+  const registrationsLinks = [
+    {
+      title: "Proprietorship",
+      href: "/proprietorship",
+      description: "Owned and managed by one person.",
+    },
+    {
+      title: "Partnership",
+      href: "/partnership",
+      description: "Agreement between two or more individuals.",
+    },
+    {
+      title: "One Person Company",
+      href: "/one-person-company",
+      description: "A single person as a company owner.",
+    },
+    {
+      title: "Limited Liability Partnership",
+      href: "/limited-liability-partnership",
+      description: "Combines partnership and company benefits.",
+    },
+    {
+      title: "Private Limited Company",
+      href: "/private-limited-company",
+      description: "A separate legal entity with limited liability.",
+    },
+    {
+      title: "Public Limited Company",
+      href: "/public-limited-company",
+      description: "Shares offered to the public.",
+    },
+    {
+      title: "Section 8 Company",
+      href: "/section-8-company",
+      description: "Promotes social welfare, not for profit.",
+    },
+    {
+      title: "Trust Registration",
+      href: "/trust-registration",
+      description: "Register a trust for charitable purposes.",
+    },
+    {
+      title: "Producer Company",
+      href: "/producer-company",
+      description: "Farmers or producers form a company.",
+    },
+    {
+      title: "Indian Subsidiary",
+      href: "/indian-subsidiary",
+      description: "A company controlled by a foreign company.",
+    },
+    {
+      title: "Startup India",
+      href: "/startup-india",
+      description: "Register for Startup India",
+    },
+    {
+      title: "Trade License",
+      href: "/trade-license",
+      description: "Register for Trade License",
+    },
+    {
+      title: "FSSAI Registration",
+      href: "/fssai-registration",
+      description: "Register for FSSAI Registration",
+    },
+    {
+      title: "FSSAI License",
+      href: "/fssai-license",
+      description: "Register for FSSAI License",
+    },
+    {
+      title: "Halal Certification",
+      href: "/halal-certification",
+      description: "Register for Halal Certification",
+    },
+    {
+      title: "Icegate Registration",
+      href: "/icegate-registration",
+      description: "Register for Icegate Registration",
+    },
+    {
+      title: "Import Export Code",
+      href: "/import-export-code",
+      description: "Register for Import Export Code",
+    },
+    {
+      title: "Legal Entity Identifier Code",
+      href: "/legal-entity-identifier-code",
+      description: "Register for Legal Entity Identifier Code",
+    },
+    {
+      title: "ISO Registration",
+      href: "/iso-registration",
+      description: "Register for ISO Registration",
+    },
+    {
+      title: "PF Registration",
+      href: "/pf-registration",
+      description: "Register for PF Registration",
+    },
+    {
+      title: "ESI Registration",
+      href: "/esi-registration",
+      description: "Register for ESI Registration",
+    },
+    {
+      title: "Professional Tax Registration",
+      href: "/professional-tax-registration",
+      description: "Register for Professional Tax Registration",
+    },
+    {
+      title: "RCMC Registration",
+      href: "/rcmc-registration",
+      description: "Register for RCMC Registration",
+    },
+    {
+      title: "RERA Registration for Agents",
+      href: "/rera-registration-for-agents",
+      description: "Legal process for real estate developers and agents.",
+    },
+    {
+      title: "80G Registration",
+      href: "/80g-registration",
+      description: "Allow donors to claim tax deductions on donations.",
+    },
+    {
+      title: "12A and 80G Registration",
+      href: "/12a-80g-registration",
+      description: "Tax exemption for NGOs and benefits for donors.",
+    },
+    {
+      title: "12A Registration",
+      href: "/12a-registration",
+      description: "One-time registration for tax-exempt status for trusts, NGOs.",
+    },
+  ];
+
   return (
-    <header className="bg-white shadow-sm">
-      {/* Top contact bar */}
-      <div className="bg-green-50 py-2 px-4">
-        <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-1">
-              <Phone className="h-4 w-4 text-green-600" />
-              <span>+91 9876543210</span>
-            </div>
-            <div className="flex items-center space-x-1">
-              <Mail className="h-4 w-4 text-green-600" />
-              <span>info@indiafilings.com</span>
-            </div>
-          </div>
-          <div className="hidden md:block text-green-600">
-            Trusted by 10,00,000+ businesses across India
-          </div>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container h-16 flex items-center justify-between">
+        <Link to="/" className="flex items-center">
+          <img src="/placeholder.svg" alt="Logo" className="h-8 w-8" />
+          <span className="ml-2 font-bold">IndiaFilings</span>
+        </Link>
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Business Registration</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                  {businessRegistrationLinks.map((component) => (
+                    <li key={component.title}>
+                      <NavigationMenuLink asChild>
+                        <a
+                          href={component.href}
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">{component.title}</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            {component.description}
+                          </p>
+                        </a>
+                      </NavigationMenuLink>
+                    </li>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Registrations</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                  {registrationsLinks.map((component) => (
+                    <li key={component.title}>
+                      <NavigationMenuLink asChild>
+                        <a
+                          href={component.href}
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">{component.title}</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            {component.description}
+                          </p>
+                        </a>
+                      </NavigationMenuLink>
+                    </li>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link to="/consultation">
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Consultation
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+        <div className="flex items-center gap-2">
+          <Button variant="outline" asChild>
+            <Link to="/auth">Login</Link>
+          </Button>
+          <Button asChild>
+            <Link to="/auth">Sign Up</Link>
+          </Button>
         </div>
       </div>
-
-      {/* Main navigation */}
-      <nav className="max-w-7xl mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center">
-            <Link to="/" className="flex items-center">
-              <div className="bg-gradient-to-r from-orange-400 to-green-500 text-white px-3 py-2 rounded-full text-xl font-bold mr-2">
-                India
-              </div>
-              <span className="text-green-600 text-xl font-bold">Filings</span>
-            </Link>
-          </div>
-
-          {/* Navigation menu - horizontal layout */}
-          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 text-sm font-medium">
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
-                    Startup
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid w-[750px] gap-6 p-6 md:grid-cols-3 bg-white">
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <h4 className="font-bold text-green-600 mb-2 text-base">START A BUSINESS (INDIA)</h4>
-                        <Link to="/proprietorship" className="text-gray-600 hover:text-green-600">Proprietorship</Link>
-                        <Link to="/partnership" className="text-gray-600 hover:text-green-600">Partnership Firm</Link>
-                        <Link to="/one-person-company" className="text-gray-600 hover:text-green-600">One Person Company</Link>
-                        <Link to="/limited-liability-partnership" className="text-gray-600 hover:text-green-600">Limited Liability Partnership</Link>
-                        <Link to="/private-limited-company" className="text-gray-600 hover:text-green-600">Private Limited Company</Link>
-                        <Link to="/public-limited-company" className="text-gray-600 hover:text-green-600">Public Limited Company</Link>
-                        <Link to="/section-8-company" className="text-gray-600 hover:text-green-600">Section 8 Company</Link>
-                        <Link to="/producer-company" className="text-gray-600 hover:text-green-600">Producer Company</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Nidhi Company</Link>
-                        <Link to="/indian-subsidiary" className="text-gray-600 hover:text-green-600">Indian Subsidiary</Link>
-                      </div>
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <h4 className="font-bold text-green-600 mb-2 text-base">INTERNATIONAL BUSINESS</h4>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in UAE</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in USA</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in Singapore</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in UK</Link>
-                        <h4 className="font-bold text-green-600 mb-2 pt-4 text-base">TRUST / NGO</h4>
-                        <Link to="/trust-registration" className="text-gray-600 hover:text-green-600">Trust Registration</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Society Registration</Link>
-                      </div>
-                      <div className="bg-gray-50 p-4 rounded-lg flex flex-col justify-center text-center">
-                          <div>
-                            <h4 className="font-bold text-gray-800 text-base">Need help?</h4>
-                            <p className="text-gray-600 mt-1 text-sm font-normal">Talk to our experts to get personalised help.</p>
-                          </div>
-                          <Link to="#" className="mt-4 block bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600">
-                            TALK TO AN EXPERT
-                          </Link>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
-                    Registrations
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white">
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="/startup-india" className="text-gray-600 hover:text-green-600">Startup India</Link>
-                          <Link to="/trade-license" className="text-gray-600 hover:text-green-600">Trade License</Link>
-                          <Link to="/fssai-registration" className="text-gray-600 hover:text-green-600">FSSAI Registration</Link>
-                          <Link to="/fssai-license" className="text-gray-600 hover:text-green-600">FSSAI License</Link>
-                          <Link to="/halal-certification" className="text-gray-600 hover:text-green-600">Halal License & Certification</Link>
-                          <Link to="/icegate-registration" className="text-gray-600 hover:text-green-600">ICEGATE Registration</Link>
-                          <Link to="/import-export-code" className="text-gray-600 hover:text-green-600">Import Export Code</Link>
-                      </div>
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="/legal-entity-identifier-code" className="text-gray-600 hover:text-green-600">Legal Entity Identifier Code</Link>
-                          <Link to="/iso-registration" className="text-gray-600 hover:text-green-600">ISO Registration</Link>
-                          <Link to="/pf-registration" className="text-gray-600 hover:text-green-600">PF Registration</Link>
-                          <Link to="/esi-registration" className="text-gray-600 hover:text-green-600">ESI Registration</Link>
-                          <Link to="/professional-tax-registration" className="text-gray-600 hover:text-green-600">Professional Tax Registration</Link>
-                          <Link to="/rcmc-registration" className="text-gray-600 hover:text-green-600">RCMC Registration</Link>
-                          <Link to="/rera-registration-for-agents" className="text-gray-600 hover:text-green-600">TN RERA Registration for Agents</Link>
-                      </div>
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="/12a-80g-registration" className="text-gray-600 hover:text-green-600">12A and 80G Registration</Link>
-                          <Link to="/12a-registration" className="text-gray-600 hover:text-green-600">12A Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">80G Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">APEDA Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Barcode Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">BIS Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Certificate of Incumbency</Link>
-                      </div>
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Darpan Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Digital Signature</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Shop Act Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Drug License</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Udyam Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">FCRA Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Fire License</Link>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
-                    Trademark
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white">
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Registration</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Objection</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Certificate</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Opposition</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Hearing</Link>
-                      </div>
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Rectification</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">TM Infringement Notice</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Renewal</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Transfer</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Expedited TM Registration</Link>
-                      </div>
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">USA Trademark Registration</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">International Trademark</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Logo Designing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Design Registration</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Design Objection</Link>
-                      </div>
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Copyright Registration</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Copyright Objection</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Patent Registration</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Trademark Protection</Link>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
-                    Goods & Services Tax
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white">
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Registration</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Return Filing by Accountant</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Annual Return Filing (GSTR-9)</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST E-Invoicing Software</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST LUT Form</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Notice</Link>
-                      </div>
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Registration for Foreigners</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Invoicing & Filing Software</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Amendment</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Revocation</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GSTR-10</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">GST Software for Accountants</Link>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
-                    Income Tax
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid w-[500px] gap-6 p-6 md:grid-cols-2 bg-white">
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Income Tax E-Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Business Tax Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-1 Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-2 Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-3 Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-4 Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-5 Return Filing</Link>
-                      </div>
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-6 Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-7 Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">15CA - 15CB Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">TAN Registration</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">TDS Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Income Tax Notice</Link>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
-                    MCA
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white">
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Company Compliance</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">LLP Compliance</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">OPC Compliance</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Name Change - Company</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Registered Office Change</Link>
-                      </div>
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">DIN eKYC Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">DIN Reactivation</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Director Change</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Remove Director</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ADT-1 Filing</Link>
-                      </div>
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">DPT-3 Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">LLP Form 11 Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Dormant Status Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">MOA Amendment</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">AOA Amendment</Link>
-                      </div>
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Authorized Capital Increase</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Share Transfer</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Demat of Shares</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Winding Up - LLP</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Winding Up - Company</Link>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
-                    Compliance
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white">
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">FDI Filing with RBI</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">FLA Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI Renewal</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Business Plan</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">HR & Payroll</Link>
-                      </div>
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">PF Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ESI Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Professional Tax Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Partnership Compliance</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Proprietorship Compliance</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Bookkeeping</Link>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            <Link to="/consultation" className="text-gray-700 hover:text-green-600 transition-colors">
-              Consultation
-            </Link>
-            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
-              Guides
-            </Link>
-            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
-              About Us
-            </Link>
-          </div>
-
-          {/* Right side icons and login */}
-          <div className="flex items-center space-x-4">
-            <button className="p-2 hover:bg-gray-100 rounded-full">
-              <Search className="h-5 w-5 text-gray-600" />
-            </button>
-            <button className="p-2 hover:bg-gray-100 rounded-full relative">
-              <ShoppingCart className="h-5 w-5 text-gray-600" />
-              <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                1
-              </span>
-            </button>
-            <Link 
-              to="/auth" 
-              className="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors"
-            >
-              <User className="h-5 w-5" />
-              <span className="text-sm font-medium">V</span>
-            </Link>
-          </div>
-        </div>
-      </nav>
     </header>
   );
 };
