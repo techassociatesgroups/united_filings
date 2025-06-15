@@ -51,6 +51,7 @@ import TrademarkRegistration from "./pages/TrademarkRegistration";
 import CopyrightRegistration from "./pages/CopyrightRegistration";
 import PatentRegistration from "./pages/PatentRegistration";
 import GstRegistration from "./pages/GstRegistration";
+import GstReturnFiling from "./pages/GstReturnFiling";
 
 const queryClient = new QueryClient();
 
@@ -107,6 +108,7 @@ const App = () => (
           <Route path="/copyright-registration" element={<CopyrightRegistration />} />
           <Route path="/patent-registration" element={<PatentRegistration />} />
           <Route path="/gst-registration" element={<GstRegistration />} />
+          <Route path="/gst-return-filing" element={<GstReturnFiling />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
