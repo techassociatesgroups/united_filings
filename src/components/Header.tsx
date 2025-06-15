@@ -1,4 +1,3 @@
-
 import { Phone, Mail, Search, ShoppingCart, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
@@ -53,7 +52,7 @@ const Header = () => {
                     Startup
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid w-[950px] gap-6 p-6 md:grid-cols-4 bg-white">
+                    <div className="grid w-[750px] gap-6 p-6 md:grid-cols-3 bg-white">
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                         <h4 className="font-bold text-green-600 mb-2 text-base">START A BUSINESS (INDIA)</h4>
                         <Link to="/proprietorship" className="text-gray-600 hover:text-green-600">Proprietorship</Link>
@@ -66,15 +65,6 @@ const Header = () => {
                         <Link to="/producer-company" className="text-gray-600 hover:text-green-600">Producer Company</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Nidhi Company</Link>
                         <Link to="/indian-subsidiary" className="text-gray-600 hover:text-green-600">Indian Subsidiary</Link>
-                      </div>
-                      <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <h4 className="font-bold text-green-600 mb-2 text-base">REGISTRATIONS</h4>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Digital Signature</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Udyam Registration</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Import Export Code</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI Registration</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Professional Tax</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Shop & Establishment</Link>
                       </div>
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                         <h4 className="font-bold text-green-600 mb-2 text-base">INTERNATIONAL BUSINESS</h4>
