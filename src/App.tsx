@@ -65,6 +65,7 @@ import OpcCompliance from "./pages/OpcCompliance";
 import NameChangeCompany from "./pages/NameChangeCompany";
 import RegisteredOfficeChangeCompany from "./pages/RegisteredOfficeChangeCompany";
 import DINEkycFiling from "./pages/DINEkycFiling";
+import BusinessIncomeTax from "./pages/BusinessIncomeTax";
 
 const queryClient = new QueryClient();
 
@@ -135,6 +136,7 @@ const App = () => (
           <Route path="/name-change-company" element={<NameChangeCompany />} />
           <Route path="/registered-office-change-company" element={<RegisteredOfficeChangeCompany />} />
           <Route path="/din-ekyc-filing" element={<DINEkycFiling />} />
+          <Route path="/business-income-tax" element={<BusinessIncomeTax />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
