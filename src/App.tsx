@@ -46,6 +46,7 @@ import DigitalSignature from "./pages/DigitalSignature";
 import ShopAndEstablishmentAct from "./pages/ShopAndEstablishmentAct";
 import DrugLicense from "./pages/DrugLicense";
 import IncomeTaxEFiling from "./pages/IncomeTaxEFiling";
+import IncomeTaxEFilingNew from "./pages/IncomeTaxEFilingNew";
 import FireLicense from "./pages/FireLicense";
 import TrademarkRegistration from "./pages/TrademarkRegistration";
 import CopyrightRegistration from "./pages/CopyrightRegistration";
@@ -118,6 +119,7 @@ const App = () => (
           <Route path="/shop-and-establishment-act" element={<ShopAndEstablishmentAct />} />
           <Route path="/drug-license" element={<DrugLicense />} />
           <Route path="/income-tax-e-filing" element={<IncomeTaxEFiling />} />
+          <Route path="/income-tax-e-filing-new" element={<IncomeTaxEFilingNew />} />
           <Route path="/fire-license" element={<FireLicense />} />
           <Route path="/trademark-registration" element={<TrademarkRegistration />} />
           <Route path="/copyright-registration" element={<CopyrightRegistration />} />
