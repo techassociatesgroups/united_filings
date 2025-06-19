@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -74,6 +75,15 @@ import ITR3ReturnFiling from "./pages/ITR3ReturnFiling";
 import ITR4ReturnFiling from "./pages/ITR4ReturnFiling";
 import ITR5ReturnFiling from "./pages/ITR5ReturnFiling";
 import ITR7ReturnFiling from "./pages/ITR7ReturnFiling";
+import FLAReturnFiling from "./pages/FLAReturnFiling";
+import FSSAIRenewal from "./pages/FSSAIRenewal";
+import FSSAIReturnFiling from "./pages/FSSAIReturnFiling";
+import PFReturnFiling from "./pages/PFReturnFiling";
+import ESIReturnFiling from "./pages/ESIReturnFiling";
+import ProfessionalTaxReturnFiling from "./pages/ProfessionalTaxReturnFiling";
+import PartnershipCompliance from "./pages/PartnershipCompliance";
+import ProprietorshipCompliance from "./pages/ProprietorshipCompliance";
+import Bookkeeping from "./pages/Bookkeeping";
 
 const queryClient = new QueryClient();
 
@@ -154,6 +164,15 @@ const App = () => (
           <Route path="/business-income-tax" element={<BusinessIncomeTax />} />
           <Route path="/itr-6-return-filing" element={<ITR6ReturnFiling />} />
           <Route path="/fdi-filing-rbi" element={<FDIFilingWithRBI />} />
+          <Route path="/fla-return-filing" element={<FLAReturnFiling />} />
+          <Route path="/fssai-renewal" element={<FSSAIRenewal />} />
+          <Route path="/fssai-return-filing" element={<FSSAIReturnFiling />} />
+          <Route path="/pf-return-filing" element={<PFReturnFiling />} />
+          <Route path="/esi-return-filing" element={<ESIReturnFiling />} />
+          <Route path="/professional-tax-return-filing" element={<ProfessionalTaxReturnFiling />} />
+          <Route path="/partnership-compliance" element={<PartnershipCompliance />} />
+          <Route path="/proprietorship-compliance" element={<ProprietorshipCompliance />} />
+          <Route path="/bookkeeping" element={<Bookkeeping />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

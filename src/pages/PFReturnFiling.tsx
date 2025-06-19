@@ -3,11 +3,11 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Star, ChevronRight, FileText, Clock, Shield, Users } from "lucide-react";
+import { Star, ChevronRight, Users, FileText, Clock, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import Sidebar from "@/components/itr1-return-filing/Sidebar";
 
-const NameChangeCompany = () => {
+const PFReturnFiling = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       <Header />
@@ -22,13 +22,13 @@ const NameChangeCompany = () => {
             <li>
               <div className="flex items-center">
                 <ChevronRight className="h-5 w-5 text-gray-400" />
-                <span className="ml-1 text-sm font-medium text-gray-700 md:ml-2">MCA Services</span>
+                <span className="ml-1 text-sm font-medium text-gray-700 md:ml-2">Compliance</span>
               </div>
             </li>
             <li aria-current="page">
               <div className="flex items-center">
                 <ChevronRight className="h-5 w-5 text-gray-400" />
-                <span className="ml-1 text-sm font-medium text-gray-500 md:ml-2">Name Change - Company</span>
+                <span className="ml-1 text-sm font-medium text-gray-500 md:ml-2">PF Return Filing</span>
               </div>
             </li>
           </ol>
@@ -39,9 +39,9 @@ const NameChangeCompany = () => {
             <Card className="overflow-hidden">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div className="bg-blue-600 p-8 text-white">
-                  <h1 className="text-3xl font-bold mb-4">Company Name Change</h1>
+                  <h1 className="text-3xl font-bold mb-4">PF Return Filing</h1>
                   <p className="text-blue-100 mb-6">
-                    Change your company name with expert assistance through MCA filing and compliance.
+                    File Provident Fund returns and maintain compliance with EPFO regulations.
                   </p>
                   
                   <div className="flex items-center mb-4">
@@ -54,33 +54,33 @@ const NameChangeCompany = () => {
                   </div>
 
                   <Button className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 text-lg">
-                    Start Name Change
+                    File PF Returns
                   </Button>
                 </div>
                 <div className="p-8 bg-gradient-to-br from-blue-50 to-white">
                   <div className="grid grid-cols-2 gap-6 h-full">
                     <div className="space-y-4">
                       <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
-                        <FileText className="h-8 w-8 text-blue-600 mb-2" />
-                        <h3 className="font-semibold text-gray-800">MCA Filing</h3>
-                        <p className="text-sm text-gray-600">Complete documentation</p>
+                        <Users className="h-8 w-8 text-blue-600 mb-2" />
+                        <h3 className="font-semibold text-gray-800">Employee PF</h3>
+                        <p className="text-sm text-gray-600">Monthly contributions</p>
                       </div>
                       <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
-                        <Clock className="h-8 w-8 text-green-600 mb-2" />
-                        <h3 className="font-semibold text-gray-800">Quick Process</h3>
-                        <p className="text-sm text-gray-600">15-20 working days</p>
+                        <FileText className="h-8 w-8 text-green-600 mb-2" />
+                        <h3 className="font-semibold text-gray-800">ECR Filing</h3>
+                        <p className="text-sm text-gray-600">Electronic returns</p>
                       </div>
                     </div>
                     <div className="space-y-4">
                       <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-500">
-                        <Shield className="h-8 w-8 text-orange-600 mb-2" />
-                        <h3 className="font-semibold text-gray-800">Legal Compliance</h3>
-                        <p className="text-sm text-gray-600">100% compliant process</p>
+                        <Clock className="h-8 w-8 text-orange-600 mb-2" />
+                        <h3 className="font-semibold text-gray-800">Timely Filing</h3>
+                        <p className="text-sm text-gray-600">Monthly deadlines</p>
                       </div>
                       <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-purple-500">
-                        <Users className="h-8 w-8 text-purple-600 mb-2" />
-                        <h3 className="font-semibold text-gray-800">Expert Support</h3>
-                        <p className="text-sm text-gray-600">Professional guidance</p>
+                        <Shield className="h-8 w-8 text-purple-600 mb-2" />
+                        <h3 className="font-semibold text-gray-800">EPFO Compliance</h3>
+                        <p className="text-sm text-gray-600">100% compliant</p>
                       </div>
                     </div>
                   </div>
@@ -89,16 +89,16 @@ const NameChangeCompany = () => {
             </Card>
 
             <Card className="p-8">
-              <h2 className="text-2xl font-bold mb-6 text-blue-600">Company Name Change Process</h2>
+              <h2 className="text-2xl font-bold mb-6 text-blue-600">PF Return Filing Requirements</h2>
               <p className="text-gray-700 mb-4">
-                Changing your company name requires compliance with the Companies Act and MCA regulations.
+                Employers must file monthly PF returns and remit contributions to EPFO.
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
-                <li>Board resolution for name change</li>
-                <li>Special resolution by shareholders</li>
-                <li>MCA approval and filing</li>
-                <li>Certificate of incorporation with new name</li>
-                <li>Update all statutory registrations</li>
+                <li>Monthly ECR filing by 15th</li>
+                <li>Employee and employer contributions</li>
+                <li>Annual return filing</li>
+                <li>Inspection compliance</li>
+                <li>Penalty for delayed filing</li>
               </ul>
             </Card>
           </div>
@@ -112,4 +112,4 @@ const NameChangeCompany = () => {
   );
 };
 
-export default NameChangeCompany;
+export default PFReturnFiling;

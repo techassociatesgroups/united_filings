@@ -499,11 +499,11 @@ const Header = () => {
                         <Link to="/company-compliance" className="text-gray-600 hover:text-green-600">Company Compliance</Link>
                         <Link to="/llp-compliance" className="text-gray-600 hover:text-green-600">LLP Compliance</Link>
                         <Link to="/opc-compliance" className="text-gray-600 hover:text-green-600">OPC Compliance</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Name Change - Company</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Registered Office Change</Link>
+                        <Link to="/name-change-company" className="text-gray-600 hover:text-green-600">Name Change - Company</Link>
+                        <Link to="/registered-office-change-company" className="text-gray-600 hover:text-green-600">Registered Office Change</Link>
                       </div>
                       <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">DIN eKYC Filing</Link>
+                        <Link to="/din-ekyc-filing" className="text-gray-600 hover:text-green-600">DIN eKYC Filing</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">DIN Reactivation</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Director Change</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">Remove Director</Link>
@@ -538,17 +538,17 @@ const Header = () => {
                     <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white">
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                         <Link to="/fdi-filing-rbi" className="text-gray-600 hover:text-green-600">FDI Filing with RBI</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">FLA Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI Renewal</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI Return Filing</Link>
+                        <Link to="/fla-return-filing" className="text-gray-600 hover:text-green-600">FLA Return Filing</Link>
+                        <Link to="/fssai-renewal" className="text-gray-600 hover:text-green-600">FSSAI Renewal</Link>
+                        <Link to="/fssai-return-filing" className="text-gray-600 hover:text-green-600">FSSAI Return Filing</Link>
                       </div>
                       <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">PF Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ESI Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Professional Tax Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Partnership Compliance</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Proprietorship Compliance</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Bookkeeping</Link>
+                        <Link to="/pf-return-filing" className="text-gray-600 hover:text-green-600">PF Return Filing</Link>
+                        <Link to="/esi-return-filing" className="text-gray-600 hover:text-green-600">ESI Return Filing</Link>
+                        <Link to="/professional-tax-return-filing" className="text-gray-600 hover:text-green-600">Professional Tax Return Filing</Link>
+                        <Link to="/partnership-compliance" className="text-gray-600 hover:text-green-600">Partnership Compliance</Link>
+                        <Link to="/proprietorship-compliance" className="text-gray-600 hover:text-green-600">Proprietorship Compliance</Link>
+                        <Link to="/bookkeeping" className="text-gray-600 hover:text-green-600">Bookkeeping</Link>
                       </div>
                     </div>
                   </NavigationMenuContent>
