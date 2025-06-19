@@ -68,6 +68,12 @@ import DINEkycFiling from "./pages/DINEkycFiling";
 import BusinessIncomeTax from "./pages/BusinessIncomeTax";
 import ITR6ReturnFiling from "./pages/ITR6ReturnFiling";
 import FDIFilingWithRBI from "./pages/FDIFilingWithRBI";
+import ITR1ReturnFiling from "./pages/ITR1ReturnFiling";
+import ITR2ReturnFiling from "./pages/ITR2ReturnFiling";
+import ITR3ReturnFiling from "./pages/ITR3ReturnFiling";
+import ITR4ReturnFiling from "./pages/ITR4ReturnFiling";
+import ITR5ReturnFiling from "./pages/ITR5ReturnFiling";
+import ITR7ReturnFiling from "./pages/ITR7ReturnFiling";
 
 const queryClient = new QueryClient();
 
@@ -120,6 +126,12 @@ const App = () => (
           <Route path="/drug-license" element={<DrugLicense />} />
           <Route path="/income-tax-e-filing" element={<IncomeTaxEFiling />} />
           <Route path="/income-tax-e-filing-new" element={<IncomeTaxEFilingNew />} />
+          <Route path="/itr-1-return-filing" element={<ITR1ReturnFiling />} />
+          <Route path="/itr-2-return-filing" element={<ITR2ReturnFiling />} />
+          <Route path="/itr-3-return-filing" element={<ITR3ReturnFiling />} />
+          <Route path="/itr-4-return-filing" element={<ITR4ReturnFiling />} />
+          <Route path="/itr-5-return-filing" element={<ITR5ReturnFiling />} />
+          <Route path="/itr-7-return-filing" element={<ITR7ReturnFiling />} />
           <Route path="/fire-license" element={<FireLicense />} />
           <Route path="/trademark-registration" element={<TrademarkRegistration />} />
           <Route path="/copyright-registration" element={<CopyrightRegistration />} />

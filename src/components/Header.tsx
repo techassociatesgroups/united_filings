@@ -468,16 +468,15 @@ const Header = () => {
                     <div className="grid w-[500px] gap-6 p-6 md:grid-cols-2 bg-white">
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                         <Link to="/income-tax-e-filing-new" className="text-gray-600 hover:text-green-600">Income Tax E-Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">Business Tax Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-1 Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-2 Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-3 Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-4 Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-5 Return Filing</Link>
+                        <Link to="/itr-1-return-filing" className="text-gray-600 hover:text-green-600">ITR-1 Return Filing</Link>
+                        <Link to="/itr-2-return-filing" className="text-gray-600 hover:text-green-600">ITR-2 Return Filing</Link>
+                        <Link to="/itr-3-return-filing" className="text-gray-600 hover:text-green-600">ITR-3 Return Filing</Link>
+                        <Link to="/itr-4-return-filing" className="text-gray-600 hover:text-green-600">ITR-4 Return Filing</Link>
+                        <Link to="/itr-5-return-filing" className="text-gray-600 hover:text-green-600">ITR-5 Return Filing</Link>
                       </div>
                       <div className="flex flex-col space-y-2 text-sm font-normal">
                         <Link to="/itr-6-return-filing" className="text-gray-600 hover:text-green-600">ITR-6 Return Filing</Link>
-                        <Link to="#" className="text-gray-600 hover:text-green-600">ITR-7 Return Filing</Link>
+                        <Link to="/itr-7-return-filing" className="text-gray-600 hover:text-green-600">ITR-7 Return Filing</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">15CA - 15CB Filing</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">TAN Registration</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">TDS Return Filing</Link>
