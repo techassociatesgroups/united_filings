@@ -1,4 +1,3 @@
-
 import { Phone, Mail, Search, ShoppingCart, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
@@ -539,7 +538,7 @@ const Header = () => {
                   <NavigationMenuContent>
                     <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white">
                       <div className="flex flex-col space-y-2 text-sm font-normal">
-                        <Link to="#" className="text-gray-600 hover:text-green-600">FDI Filing with RBI</Link>
+                        <Link to="/fdi-filing-rbi" className="text-gray-600 hover:text-green-600">FDI Filing with RBI</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">FLA Return Filing</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI Renewal</Link>
                         <Link to="#" className="text-gray-600 hover:text-green-600">FSSAI Return Filing</Link>

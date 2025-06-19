@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -68,6 +67,7 @@ import RegisteredOfficeChangeCompany from "./pages/RegisteredOfficeChangeCompany
 import DINEkycFiling from "./pages/DINEkycFiling";
 import BusinessIncomeTax from "./pages/BusinessIncomeTax";
 import ITR6ReturnFiling from "./pages/ITR6ReturnFiling";
+import FDIFilingWithRBI from "./pages/FDIFilingWithRBI";
 
 const queryClient = new QueryClient();
 
@@ -141,6 +141,7 @@ const App = () => (
           <Route path="/din-ekyc-filing" element={<DINEkycFiling />} />
           <Route path="/business-income-tax" element={<BusinessIncomeTax />} />
           <Route path="/itr-6-return-filing" element={<ITR6ReturnFiling />} />
+          <Route path="/fdi-filing-rbi" element={<FDIFilingWithRBI />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
