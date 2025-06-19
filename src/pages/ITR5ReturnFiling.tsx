@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Star, ChevronRight } from "lucide-react";
+import { Star, ChevronRight, Users, Building, Shield, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import Sidebar from "@/components/itr1-return-filing/Sidebar";
 
@@ -57,12 +57,33 @@ const ITR5ReturnFiling = () => {
                     File ITR-5
                   </Button>
                 </div>
-                <div className="relative p-8">
-                  <img 
-                    src="/lovable-uploads/b3d90403-a3c9-455a-89d1-f26b7b7c0a1b.png" 
-                    alt="ITR-5 Filing" 
-                    className="w-full h-full object-contain"
-                  />
+                <div className="p-8 bg-gradient-to-br from-blue-50 to-white">
+                  <div className="grid grid-cols-2 gap-6 h-full">
+                    <div className="space-y-4">
+                      <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <Users className="h-8 w-8 text-blue-600 mb-2" />
+                        <h3 className="font-semibold text-gray-800">Partnership</h3>
+                        <p className="text-sm text-gray-600">Partnership firms</p>
+                      </div>
+                      <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+                        <Building className="h-8 w-8 text-green-600 mb-2" />
+                        <h3 className="font-semibold text-gray-800">LLP</h3>
+                        <p className="text-sm text-gray-600">Limited Liability Partnerships</p>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-500">
+                        <Shield className="h-8 w-8 text-orange-600 mb-2" />
+                        <h3 className="font-semibold text-gray-800">AOP/BOI</h3>
+                        <p className="text-sm text-gray-600">Association/Body of Persons</p>
+                      </div>
+                      <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-purple-500">
+                        <FileText className="h-8 w-8 text-purple-600 mb-2" />
+                        <h3 className="font-semibold text-gray-800">Trusts</h3>
+                        <p className="text-sm text-gray-600">Cooperative societies</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </Card>

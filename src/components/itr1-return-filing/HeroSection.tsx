@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Star } from "lucide-react";
+import { Star, FileText, CheckCircle, Clock, Shield, Users } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -43,12 +43,33 @@ const HeroSection = () => {
             </Button>
           </div>
         </div>
-        <div className="relative p-8">
-          <img 
-            src="/lovable-uploads/b3d90403-a3c9-455a-89d1-f26b7b7c0a1b.png" 
-            alt="ITR Filing" 
-            className="w-full h-full object-contain"
-          />
+        <div className="p-8 bg-gradient-to-br from-blue-50 to-white">
+          <div className="grid grid-cols-2 gap-6 h-full">
+            <div className="space-y-4">
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
+                <FileText className="h-8 w-8 text-blue-600 mb-2" />
+                <h3 className="font-semibold text-gray-800">Easy Filing</h3>
+                <p className="text-sm text-gray-600">Simplified tax return process</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+                <CheckCircle className="h-8 w-8 text-green-600 mb-2" />
+                <h3 className="font-semibold text-gray-800">Accuracy</h3>
+                <p className="text-sm text-gray-600">100% accurate calculations</p>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-500">
+                <Clock className="h-8 w-8 text-orange-600 mb-2" />
+                <h3 className="font-semibold text-gray-800">Quick Process</h3>
+                <p className="text-sm text-gray-600">Fast and efficient filing</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-purple-500">
+                <Shield className="h-8 w-8 text-purple-600 mb-2" />
+                <h3 className="font-semibold text-gray-800">Secure</h3>
+                <p className="text-sm text-gray-600">Your data is protected</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Card>
