@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CartProvider } from "@/contexts/CartContext";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
@@ -89,95 +90,97 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/business-registration" element={<BusinessRegistration />} />
-          <Route path="/registrations" element={<Registrations />} />
-          <Route path="/consultation" element={<Consultation />} />
-          <Route path="/proprietorship" element={<Proprietorship />} />
-          <Route path="/partnership" element={<Partnership />} />
-          <Route path="/one-person-company" element={<OnePersonCompany />} />
-          <Route path="/limited-liability-partnership" element={<LLP />} />
-          <Route path="/private-limited-company" element={<PrivateLimitedCompany />} />
-          <Route path="/public-limited-company" element={<PublicLimitedCompany />} />
-          <Route path="/section-8-company" element={<Section8Company />} />
-          <Route path="/trust-registration" element={<TrustRegistration />} />
-          <Route path="/producer-company" element={<ProducerCompany />} />
-          <Route path="/indian-subsidiary" element={<IndianSubsidiary />} />
-          <Route path="/startup-india" element={<StartupIndia />} />
-          <Route path="/trade-license" element={<TradeLicense />} />
-          <Route path="/fssai-registration" element={<FSSAIRegistration />} />
-          <Route path="/fssai-license" element={<FSSAiLicense />} />
-          <Route path="/halal-certification" element={<HalalCertification />} />
-          <Route path="/icegate-registration" element={<IcegateRegistration />} />
-          <Route path="/import-export-code" element={<ImportExportCode />} />
-          <Route path="/legal-entity-identifier-code" element={<LegalEntityIdentifierCode />} />
-          <Route path="/iso-registration" element={<ISORegistration />} />
-          <Route path="/pf-registration" element={<PFRegistration />} />
-          <Route path="/esi-registration" element={<ESIRegistration />} />
-          <Route path="/professional-tax-registration" element={<ProfessionalTaxRegistration />} />
-          <Route path="/rcmc-registration" element={<RCMCRegistration />} />
-          <Route path="/rera-registration-for-agents" element={<ReraRegistrationForAgents />} />
-          <Route path="/12a-80g-registration" element={<TwelveAand80GRegistration />} />
-          <Route path="/12a-registration" element={<TwelveARegistration />} />
-          <Route path="/bis-registration" element={<BisRegistration />} />
-          <Route path="/barcode-registration" element={<BarcodeRegistration />} />
-          <Route path="/apeda-registration" element={<ApedaRegistration />} />
-          <Route path="/80g-registration" element={<EightyGRegistration />} />
-          <Route path="/certificate-of-incumbency" element={<CertificateOfIncumbency />} />
-          <Route path="/darpan-registration" element={<DarpanRegistration />} />
-          <Route path="/digital-signature" element={<DigitalSignature />} />
-          <Route path="/shop-and-establishment-act" element={<ShopAndEstablishmentAct />} />
-          <Route path="/drug-license" element={<DrugLicense />} />
-          <Route path="/income-tax-e-filing" element={<IncomeTaxEFiling />} />
-          <Route path="/income-tax-e-filing-new" element={<IncomeTaxEFilingNew />} />
-          <Route path="/itr-1-return-filing" element={<ITR1ReturnFiling />} />
-          <Route path="/itr-2-return-filing" element={<ITR2ReturnFiling />} />
-          <Route path="/itr-3-return-filing" element={<ITR3ReturnFiling />} />
-          <Route path="/itr-4-return-filing" element={<ITR4ReturnFiling />} />
-          <Route path="/itr-5-return-filing" element={<ITR5ReturnFiling />} />
-          <Route path="/itr-7-return-filing" element={<ITR7ReturnFiling />} />
-          <Route path="/fire-license" element={<FireLicense />} />
-          <Route path="/trademark-registration" element={<TrademarkRegistration />} />
-          <Route path="/copyright-registration" element={<CopyrightRegistration />} />
-          <Route path="/patent-registration" element={<PatentRegistration />} />
-          <Route path="/gst-registration" element={<GstRegistration />} />
-          <Route path="/gst-return-filing" element={<GstReturnFiling />} />
-          <Route path="/gst-annual-return-filing-gstr9" element={<GstAnnualReturnFilingGstr9 />} />
-          <Route path="/gst-lut-form" element={<GstLutForm />} />
-          <Route path="/gst-notice" element={<GstNotice />} />
-          <Route path="/gst-registration-for-foreigners" element={<GstRegistrationForForeigners />} />
-          <Route path="/gst-registration-amendment" element={<GstRegistrationAmendment />} />
-          <Route path="/gst-gstr-10" element={<Gstr10ReturnFiling />} />
-          <Route path="/gst-revocation" element={<GstRevocation />} />
-          <Route path="/company-compliance" element={<CompanyCompliance />} />
-          <Route path="/llp-compliance" element={<LlpCompliance />} />
-          <Route path="/opc-compliance" element={<OpcCompliance />} />
-          <Route path="/name-change-company" element={<NameChangeCompany />} />
-          <Route path="/registered-office-change-company" element={<RegisteredOfficeChangeCompany />} />
-          <Route path="/din-ekyc-filing" element={<DINEkycFiling />} />
-          <Route path="/business-income-tax" element={<BusinessIncomeTax />} />
-          <Route path="/itr-6-return-filing" element={<ITR6ReturnFiling />} />
-          <Route path="/fdi-filing-rbi" element={<FDIFilingWithRBI />} />
-          <Route path="/fla-return-filing" element={<FLAReturnFiling />} />
-          <Route path="/fssai-renewal" element={<FSSAIRenewal />} />
-          <Route path="/fssai-return-filing" element={<FSSAIReturnFiling />} />
-          <Route path="/pf-return-filing" element={<PFReturnFiling />} />
-          <Route path="/esi-return-filing" element={<ESIReturnFiling />} />
-          <Route path="/professional-tax-return-filing" element={<ProfessionalTaxReturnFiling />} />
-          <Route path="/partnership-compliance" element={<PartnershipCompliance />} />
-          <Route path="/proprietorship-compliance" element={<ProprietorshipCompliance />} />
-          <Route path="/bookkeeping" element={<Bookkeeping />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <CartProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/business-registration" element={<BusinessRegistration />} />
+            <Route path="/registrations" element={<Registrations />} />
+            <Route path="/consultation" element={<Consultation />} />
+            <Route path="/proprietorship" element={<Proprietorship />} />
+            <Route path="/partnership" element={<Partnership />} />
+            <Route path="/one-person-company" element={<OnePersonCompany />} />
+            <Route path="/limited-liability-partnership" element={<LLP />} />
+            <Route path="/private-limited-company" element={<PrivateLimitedCompany />} />
+            <Route path="/public-limited-company" element={<PublicLimitedCompany />} />
+            <Route path="/section-8-company" element={<Section8Company />} />
+            <Route path="/trust-registration" element={<TrustRegistration />} />
+            <Route path="/producer-company" element={<ProducerCompany />} />
+            <Route path="/indian-subsidiary" element={<IndianSubsidiary />} />
+            <Route path="/startup-india" element={<StartupIndia />} />
+            <Route path="/trade-license" element={<TradeLicense />} />
+            <Route path="/fssai-registration" element={<FSSAIRegistration />} />
+            <Route path="/fssai-license" element={<FSSAiLicense />} />
+            <Route path="/halal-certification" element={<HalalCertification />} />
+            <Route path="/icegate-registration" element={<IcegateRegistration />} />
+            <Route path="/import-export-code" element={<ImportExportCode />} />
+            <Route path="/legal-entity-identifier-code" element={<LegalEntityIdentifierCode />} />
+            <Route path="/iso-registration" element={<ISORegistration />} />
+            <Route path="/pf-registration" element={<PFRegistration />} />
+            <Route path="/esi-registration" element={<ESIRegistration />} />
+            <Route path="/professional-tax-registration" element={<ProfessionalTaxRegistration />} />
+            <Route path="/rcmc-registration" element={<RCMCRegistration />} />
+            <Route path="/rera-registration-for-agents" element={<ReraRegistrationForAgents />} />
+            <Route path="/12a-80g-registration" element={<TwelveAand80GRegistration />} />
+            <Route path="/12a-registration" element={<TwelveARegistration />} />
+            <Route path="/bis-registration" element={<BisRegistration />} />
+            <Route path="/barcode-registration" element={<BarcodeRegistration />} />
+            <Route path="/apeda-registration" element={<ApedaRegistration />} />
+            <Route path="/80g-registration" element={<EightyGRegistration />} />
+            <Route path="/certificate-of-incumbency" element={<CertificateOfIncumbency />} />
+            <Route path="/darpan-registration" element={<DarpanRegistration />} />
+            <Route path="/digital-signature" element={<DigitalSignature />} />
+            <Route path="/shop-and-establishment-act" element={<ShopAndEstablishmentAct />} />
+            <Route path="/drug-license" element={<DrugLicense />} />
+            <Route path="/income-tax-e-filing" element={<IncomeTaxEFiling />} />
+            <Route path="/income-tax-e-filing-new" element={<IncomeTaxEFilingNew />} />
+            <Route path="/itr-1-return-filing" element={<ITR1ReturnFiling />} />
+            <Route path="/itr-2-return-filing" element={<ITR2ReturnFiling />} />
+            <Route path="/itr-3-return-filing" element={<ITR3ReturnFiling />} />
+            <Route path="/itr-4-return-filing" element={<ITR4ReturnFiling />} />
+            <Route path="/itr-5-return-filing" element={<ITR5ReturnFiling />} />
+            <Route path="/itr-7-return-filing" element={<ITR7ReturnFiling />} />
+            <Route path="/fire-license" element={<FireLicense />} />
+            <Route path="/trademark-registration" element={<TrademarkRegistration />} />
+            <Route path="/copyright-registration" element={<CopyrightRegistration />} />
+            <Route path="/patent-registration" element={<PatentRegistration />} />
+            <Route path="/gst-registration" element={<GstRegistration />} />
+            <Route path="/gst-return-filing" element={<GstReturnFiling />} />
+            <Route path="/gst-annual-return-filing-gstr9" element={<GstAnnualReturnFilingGstr9 />} />
+            <Route path="/gst-lut-form" element={<GstLutForm />} />
+            <Route path="/gst-notice" element={<GstNotice />} />
+            <Route path="/gst-registration-for-foreigners" element={<GstRegistrationForForeigners />} />
+            <Route path="/gst-registration-amendment" element={<GstRegistrationAmendment />} />
+            <Route path="/gst-gstr-10" element={<Gstr10ReturnFiling />} />
+            <Route path="/gst-revocation" element={<GstRevocation />} />
+            <Route path="/company-compliance" element={<CompanyCompliance />} />
+            <Route path="/llp-compliance" element={<LlpCompliance />} />
+            <Route path="/opc-compliance" element={<OpcCompliance />} />
+            <Route path="/name-change-company" element={<NameChangeCompany />} />
+            <Route path="/registered-office-change-company" element={<RegisteredOfficeChangeCompany />} />
+            <Route path="/din-ekyc-filing" element={<DINEkycFiling />} />
+            <Route path="/business-income-tax" element={<BusinessIncomeTax />} />
+            <Route path="/itr-6-return-filing" element={<ITR6ReturnFiling />} />
+            <Route path="/fdi-filing-rbi" element={<FDIFilingWithRBI />} />
+            <Route path="/fla-return-filing" element={<FLAReturnFiling />} />
+            <Route path="/fssai-renewal" element={<FSSAIRenewal />} />
+            <Route path="/fssai-return-filing" element={<FSSAIReturnFiling />} />
+            <Route path="/pf-return-filing" element={<PFReturnFiling />} />
+            <Route path="/esi-return-filing" element={<ESIReturnFiling />} />
+            <Route path="/professional-tax-return-filing" element={<ProfessionalTaxReturnFiling />} />
+            <Route path="/partnership-compliance" element={<PartnershipCompliance />} />
+            <Route path="/proprietorship-compliance" element={<ProprietorshipCompliance />} />
+            <Route path="/bookkeeping" element={<Bookkeeping />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </CartProvider>
   </QueryClientProvider>
 );
 

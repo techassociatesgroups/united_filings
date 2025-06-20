@@ -5,8 +5,21 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useCart } from '@/contexts/CartContext';
+import { toast } from 'sonner';
 
 const Sidebar = () => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: 'private-limited-company',
+      name: 'Private Limited Company Registration',
+      price: 5999
+    });
+    toast.success('Private Limited Company Registration added to cart!');
+  };
+
   return (
     <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 sticky top-24">
       <div className="text-center">
@@ -35,8 +48,13 @@ const Sidebar = () => {
           <Checkbox id="gst-credit" />
           <Label htmlFor="gst-credit" className="text-sm font-normal text-gray-600 cursor-pointer">Enter GSTIN to get 18% GST Credit</Label>
         </div>
-        <Button type="submit" className="w-full bg-green-500 hover:bg-green-600 text-white font-bold text-base" size="lg">
-          Get Started
+        <Button 
+          type="button" 
+          onClick={handleAddToCart}
+          className="w-full bg-green-500 hover:bg-green-600 text-white font-bold text-base" 
+          size="lg"
+        >
+          Add to Cart
         </Button>
       </form>
     </div>
