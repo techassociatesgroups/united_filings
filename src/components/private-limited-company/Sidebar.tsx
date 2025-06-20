@@ -5,34 +5,14 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useCart } from '@/contexts/CartContext';
-import { useState } from 'react';
 
 const Sidebar = () => {
-  const { addToCart } = useCart();
-  const [isAdded, setIsAdded] = useState(false);
-
-  const handleAddToCart = () => {
-    addToCart({
-      id: 'private-limited-company',
-      name: 'Private Limited Company Registration',
-      price: 6999,
-      category: 'Business Registration'
-    });
-    setIsAdded(true);
-    setTimeout(() => setIsAdded(false), 2000);
-  };
-
   return (
     <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 sticky top-24">
       <div className="text-center">
         <ShoppingBag className="mx-auto h-12 w-12 text-gray-400" />
-        <h3 className="mt-2 text-lg font-semibold text-gray-800">Company Registration</h3>
-        <p className="mt-1 text-sm text-gray-500">Complete private limited company setup</p>
-        <div className="mt-4">
-          <span className="text-2xl font-bold text-green-600">₹6,999</span>
-          <span className="text-sm text-gray-500 line-through ml-2">₹12,999</span>
-        </div>
+        <h3 className="mt-2 text-lg font-semibold text-gray-800">Your cart is empty</h3>
+        <p className="mt-1 text-sm text-gray-500">Browse our services and add some services in cart!</p>
       </div>
 
       <div className="mt-6 text-sm text-center">
@@ -55,17 +35,8 @@ const Sidebar = () => {
           <Checkbox id="gst-credit" />
           <Label htmlFor="gst-credit" className="text-sm font-normal text-gray-600 cursor-pointer">Enter GSTIN to get 18% GST Credit</Label>
         </div>
-        <Button 
-          type="button" 
-          onClick={handleAddToCart}
-          className={`w-full font-bold text-base ${
-            isAdded 
-              ? 'bg-green-600 hover:bg-green-700' 
-              : 'bg-green-500 hover:bg-green-600'
-          } text-white`}
-          size="lg"
-        >
-          {isAdded ? 'Added to Cart!' : 'Add to Cart'}
+        <Button type="submit" className="w-full bg-green-500 hover:bg-green-600 text-white font-bold text-base" size="lg">
+          Get Started
         </Button>
       </form>
     </div>
