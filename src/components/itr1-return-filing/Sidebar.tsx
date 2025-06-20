@@ -1,72 +1,73 @@
 
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Label } from '@/components/ui/label';
+import { ShoppingBag } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useCart } from '@/contexts/CartContext';
+import { useState } from 'react';
 
 const Sidebar = () => {
+  const { addToCart } = useCart();
+  const [isAdded, setIsAdded] = useState(false);
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: 'itr1-filing',
+      name: 'ITR-1 Return Filing',
+      price: 1499,
+      category: 'Tax Filing'
+    });
+    setIsAdded(true);
+    setTimeout(() => setIsAdded(false), 2000);
+  };
+
   return (
-    <div className="space-y-6">
-      {/* Service Cards */}
-      <Card className="p-6 bg-blue-600 text-white">
-        <h3 className="font-bold text-lg mb-4">INCOME TAX E-FILING</h3>
-        <p className="text-sm mb-4">Avail our professional support services</p>
-        <Button className="w-full bg-green-500 hover:bg-green-600">
-          Get Service
-        </Button>
-      </Card>
-
-      <Card className="p-6 bg-blue-600 text-white">
-        <h3 className="font-bold text-lg mb-4">PARTNERSHIP COMPLIANCE</h3>
-        <p className="text-sm mb-4">Avail our professional support services</p>
-        <Button className="w-full bg-green-500 hover:bg-green-600">
-          Get Service
-        </Button>
-      </Card>
-
-      {/* Popular Searches */}
-      <Card className="p-6">
-        <h3 className="font-bold text-lg mb-4">Popular Searches</h3>
-        <div className="flex flex-wrap gap-2">
-          {[
-            "Partnership", "Digital Logo Designing", "Annual Registration", "Copyright Registration", "Indian Startup",
-            "GSTRegistration", "12A Registration", "Annual Certificate", "Online Aadhar", "CAMPaigning",
-            "Service License", "LLPParmentership", "Company Service", "Business Partnership", "Income Registration"
-          ].map((item, index) => (
-            <span key={index} className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-700">
-              {item}
-            </span>
-          ))}
+    <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 sticky top-24">
+      <div className="text-center">
+        <ShoppingBag className="mx-auto h-12 w-12 text-gray-400" />
+        <h3 className="mt-2 text-lg font-semibold text-gray-800">ITR-1 Return Filing</h3>
+        <p className="mt-1 text-sm text-gray-500">Professional tax return filing service</p>
+        <div className="mt-4">
+          <span className="text-2xl font-bold text-green-600">₹1,499</span>
+          <span className="text-sm text-gray-500 line-through ml-2">₹2,999</span>
         </div>
-      </Card>
+      </div>
 
-      {/* Footer Links */}
-      <Card className="p-6">
-        <div className="grid grid-cols-3 gap-4 text-xs">
-          <div>
-            <h4 className="font-semibold mb-2">IndiaFilings</h4>
-            <ul className="space-y-1 text-gray-600">
-              <li>About IndiaFilings</li>
-              <li>Careers</li>
-              <li>Contact Us</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Platform</h4>
-            <ul className="space-y-1 text-gray-600">
-              <li>Business Search</li>
-              <li>Directory</li>
-              <li>FileSearch</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Usage</h4>
-            <ul className="space-y-1 text-gray-600">
-              <li>Terms & Conditions</li>
-              <li>Privacy Policy</li>
-              <li>Refund Policy</li>
-            </ul>
-          </div>
+      <div className="mt-6 text-sm text-center">
+        <span className="text-gray-600">Existing User? </span>
+        <Link to="/auth" className="font-medium text-green-600 hover:text-green-700">Login</Link>
+      </div>
+
+      <form className="mt-6 space-y-4">
+        <div>
+          <Input type="text" placeholder="Name" />
         </div>
-      </Card>
+        <div>
+          <Input type="email" placeholder="Email" />
+        </div>
+        <div className="flex">
+            <Input type="text" value="+91" readOnly className="w-16 rounded-r-none bg-gray-100 text-center" />
+            <Input type="tel" placeholder="Phone" className="rounded-l-none" />
+        </div>
+        <div className="flex items-center space-x-2">
+          <Checkbox id="gst-credit" />
+          <Label htmlFor="gst-credit" className="text-sm font-normal text-gray-600 cursor-pointer">Enter GSTIN to get 18% GST Credit</Label>
+        </div>
+        <Button 
+          type="button" 
+          onClick={handleAddToCart}
+          className={`w-full font-bold text-base ${
+            isAdded 
+              ? 'bg-green-600 hover:bg-green-700' 
+              : 'bg-green-500 hover:bg-green-600'
+          } text-white`}
+          size="lg"
+        >
+          {isAdded ? 'Added to Cart!' : 'Add to Cart'}
+        </Button>
+      </form>
     </div>
   );
 };
