@@ -1,24 +1,52 @@
 
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useCart } from '@/contexts/CartContext';
+import { toast } from 'sonner';
 
 const Sidebar = () => {
+  const { addToCart } = useCart();
+
+  const handleAddIncomeTaxService = () => {
+    addToCart({
+      id: 'income-tax-e-filing',
+      name: 'Income Tax E-Filing',
+      price: 999
+    });
+    toast.success('Income Tax E-Filing added to cart!');
+  };
+
+  const handleAddPartnershipCompliance = () => {
+    addToCart({
+      id: 'partnership-compliance',
+      name: 'Partnership Compliance',
+      price: 2499
+    });
+    toast.success('Partnership Compliance added to cart!');
+  };
+
   return (
     <div className="space-y-6">
       {/* Service Cards */}
       <Card className="p-6 bg-blue-600 text-white">
         <h3 className="font-bold text-lg mb-4">INCOME TAX E-FILING</h3>
         <p className="text-sm mb-4">Avail our professional support services</p>
-        <Button className="w-full bg-green-500 hover:bg-green-600">
-          Get Service
+        <Button 
+          onClick={handleAddIncomeTaxService}
+          className="w-full bg-green-500 hover:bg-green-600"
+        >
+          Add to Cart
         </Button>
       </Card>
 
       <Card className="p-6 bg-blue-600 text-white">
         <h3 className="font-bold text-lg mb-4">PARTNERSHIP COMPLIANCE</h3>
         <p className="text-sm mb-4">Avail our professional support services</p>
-        <Button className="w-full bg-green-500 hover:bg-green-600">
-          Get Service
+        <Button 
+          onClick={handleAddPartnershipCompliance}
+          className="w-full bg-green-500 hover:bg-green-600"
+        >
+          Add to Cart
         </Button>
       </Card>
 
