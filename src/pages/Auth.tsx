@@ -1,9 +1,10 @@
+
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff, Phone, Mail, User, MessageCircle, Apple, Facebook } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 
 const Auth = () => {
@@ -203,7 +204,7 @@ const Auth = () => {
     <div className="min-h-screen bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8">
         <div className="flex justify-center mb-8">
-          <img src="/lovable-uploads/4ce05405-f89f-4b07-b491-a85dafeaea7b.png" alt="IndiaFilings" className="h-12" />
+          <img src="/lovable-uploads/4ce05405-f89f-4b07-b491-a85dafeaea7b.png" alt="IndiaFilings" className="h-16 w-auto" />
         </div>
 
         <div className="flex mb-8">
@@ -233,13 +234,17 @@ const Auth = () => {
           {!isLogin && (
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-              <Input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required={!isLogin}
-                className="w-full"
-              />
+              <div className="relative">
+                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                <Input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required={!isLogin}
+                  className="w-full pl-10"
+                  placeholder="Enter your full name"
+                />
+              </div>
             </div>
           )}
 
@@ -248,7 +253,7 @@ const Auth = () => {
               <label className="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
               <div className="flex">
                 <div className="flex items-center bg-gray-50 border border-r-0 border-gray-300 rounded-l-md px-3">
-                  <img src="/placeholder.svg" alt="India" className="w-5 h-3 mr-2" />
+                  <Phone className="w-4 h-4 mr-2 text-gray-400" />
                   <span className="text-sm">+91</span>
                 </div>
                 <Input
@@ -265,13 +270,17 @@ const Auth = () => {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-            <Input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full"
-            />
+            <div className="relative">
+              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+              <Input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="w-full pl-10"
+                placeholder="Enter your email"
+              />
+            </div>
           </div>
 
           <div>
@@ -283,6 +292,7 @@ const Auth = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 className="w-full pr-10"
+                placeholder="Enter your password"
               />
               <button
                 type="button"
@@ -308,6 +318,7 @@ const Auth = () => {
                 onChange={(e) => setRepeatPassword(e.target.value)}
                 required={!isLogin}
                 className="w-full"
+                placeholder="Repeat your password"
               />
             </div>
           )}
@@ -377,19 +388,20 @@ const Auth = () => {
 
             <div className="flex justify-center space-x-4">
               <button type="button" className="p-2 border rounded-lg hover:bg-gray-50">
-                <img src="/placeholder.svg" alt="Amazon" className="w-6 h-6" />
+                <MessageCircle className="w-6 h-6 text-green-600" />
               </button>
               <button type="button" className="p-2 border rounded-lg hover:bg-gray-50">
-                <img src="/placeholder.svg" alt="Apple" className="w-6 h-6" />
+                <Apple className="w-6 h-6 text-gray-700" />
               </button>
               <button type="button" className="p-2 border rounded-lg hover:bg-gray-50">
-                <img src="/placeholder.svg" alt="Facebook" className="w-6 h-6" />
+                <Facebook className="w-6 h-6 text-blue-600" />
               </button>
             </div>
           </div>
 
           <div className="text-center">
-            <a href="#" className="text-green-600 hover:underline text-sm">
+            <a href="#" className="text-green-600 hover:underline text-sm flex items-center justify-center">
+              <MessageCircle className="w-4 h-4 mr-1" />
               Contact Us
             </a>
           </div>
