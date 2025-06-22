@@ -1,10 +1,22 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ShoppingCart } from "lucide-react";
+import { useCart } from '@/contexts/CartContext';
+import { toast } from 'sonner';
 
 const Sidebar = () => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: 'business-income-tax',
+      name: 'Business Income Tax',
+      price: 2999
+    });
+    toast.success('Business Income Tax added to cart!');
+  };
+
   return (
     <div className="space-y-6">
       <div className="bg-gray-50 p-6 rounded-lg text-center">
@@ -34,7 +46,12 @@ const Sidebar = () => {
           
           <Input placeholder="Enter GSTIN to get 18% GST Credit" className="w-full" />
           
-          <Button className="w-full bg-green-600 hover:bg-green-700">Get Started</Button>
+          <Button 
+            onClick={handleAddToCart}
+            className="w-full bg-green-600 hover:bg-green-700"
+          >
+            Add to Cart
+          </Button>
         </div>
       </div>
 
