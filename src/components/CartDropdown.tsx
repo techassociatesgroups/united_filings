@@ -3,6 +3,7 @@ import React from 'react';
 import { ShoppingCart, X } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 interface CartDropdownProps {
   isOpen: boolean;
@@ -11,6 +12,12 @@ interface CartDropdownProps {
 
 const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
   const { items, removeFromCart, totalPrice, clearCart } = useCart();
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    navigate('/checkout');
+    onClose();
+  };
 
   if (!isOpen) return null;
 
@@ -62,7 +69,10 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
                   Clear Cart
                 </Button>
               </div>
-              <Button className="w-full bg-green-600 hover:bg-green-700">
+              <Button 
+                onClick={handleCheckout}
+                className="w-full bg-green-600 hover:bg-green-700"
+              >
                 Proceed to Checkout
               </Button>
             </div>

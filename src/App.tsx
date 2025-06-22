@@ -85,6 +85,7 @@ import ProfessionalTaxReturnFiling from "./pages/ProfessionalTaxReturnFiling";
 import PartnershipCompliance from "./pages/PartnershipCompliance";
 import ProprietorshipCompliance from "./pages/ProprietorshipCompliance";
 import Bookkeeping from "./pages/Bookkeeping";
+import Checkout from "./pages/Checkout";
 
 const queryClient = new QueryClient();
 
@@ -98,6 +99,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/business-registration" element={<BusinessRegistration />} />
             <Route path="/registrations" element={<Registrations />} />
             <Route path="/consultation" element={<Consultation />} />
