@@ -1,11 +1,23 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { ShoppingBag } from "lucide-react";
+import { useCart } from '@/contexts/CartContext';
+import { toast } from 'sonner';
 
 const Sidebar = () => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: 'gst-annual-return-filing-gstr9',
+      name: 'GST Annual Return Filing GSTR-9',
+      price: 2499
+    });
+    toast.success('GST Annual Return Filing GSTR-9 added to cart!');
+  };
+
   return (
     <aside className="bg-gray-50 p-6 rounded-lg shadow-sm sticky top-24">
       <div className="text-center border-b pb-6">
@@ -43,8 +55,12 @@ const Sidebar = () => {
             Enter GSTIN to get 18% GST Credit
           </Label>
         </div>
-        <Button type="submit" className="w-full bg-green-500 hover:bg-green-600">
-          Get Started
+        <Button 
+          type="button" 
+          onClick={handleAddToCart}
+          className="w-full bg-green-500 hover:bg-green-600"
+        >
+          Add to Cart
         </Button>
       </form>
     </aside>

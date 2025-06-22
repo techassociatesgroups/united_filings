@@ -1,9 +1,30 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Star, Check } from 'lucide-react';
+import { useCart } from '@/contexts/CartContext';
+import { toast } from 'sonner';
 
 const HeroSection = () => {
+  const { addToCart } = useCart();
+
+  const handleAddStartupIndia = () => {
+    addToCart({
+      id: 'startup-india-basic',
+      name: 'Startup India Registration',
+      price: 3999
+    });
+    toast.success('Startup India Registration added to cart!');
+  };
+
+  const handleAddStartupIndiaDSC = () => {
+    addToCart({
+      id: 'startup-india-dsc',
+      name: 'Startup India + DSC',
+      price: 5999
+    });
+    toast.success('Startup India + DSC added to cart!');
+  };
+
   return (
     <Card className="overflow-hidden">
       <CardContent className="p-0">
@@ -45,7 +66,12 @@ const HeroSection = () => {
                         <li className="flex items-start"><Check className="w-4 h-4 mr-2 mt-1 text-green-500 flex-shrink-0" /><span>DPIIT Recognition</span></li>
                         <li className="flex items-start"><Check className="w-4 h-4 mr-2 mt-1 text-green-500 flex-shrink-0" /><span>Startup India Certificate</span></li>
                     </ul>
-                    <Button className="w-full mt-4 bg-white border border-green-500 text-green-500 hover:bg-green-50">ADD</Button>
+                    <Button 
+                        onClick={handleAddStartupIndia}
+                        className="w-full mt-4 bg-white border border-green-500 text-green-500 hover:bg-green-50"
+                    >
+                        ADD
+                    </Button>
                 </div>
                 <div className="border rounded-lg p-4">
                     <p className="text-xs text-green-600 bg-green-100 rounded-full px-2 py-0.5 inline-block font-semibold">2 Exclusive Offers</p>
@@ -58,7 +84,12 @@ const HeroSection = () => {
                         <li className="flex items-start"><Check className="w-4 h-4 mr-2 mt-1 text-green-500 flex-shrink-0" /><span>Startup India Certificate</span></li>
                         <li className="flex items-start"><Check className="w-4 h-4 mr-2 mt-1 text-green-500 flex-shrink-0" /><span>Class 3 DSC - Company</span></li>
                     </ul>
-                    <Button className="w-full mt-4 bg-white border border-green-500 text-green-500 hover:bg-green-50">ADD</Button>
+                    <Button 
+                        onClick={handleAddStartupIndiaDSC}
+                        className="w-full mt-4 bg-white border border-green-500 text-green-500 hover:bg-green-50"
+                    >
+                        ADD
+                    </Button>
                 </div>
             </div>
             <div className="flex justify-between mt-4 text-sm">

@@ -1,12 +1,24 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { useCart } from '@/contexts/CartContext';
+import { toast } from 'sonner';
 
 const Sidebar = () => {
+    const { addToCart } = useCart();
+
+    const handleAddToCart = () => {
+        addToCart({
+            id: 'startup-india-registration',
+            name: 'Startup India Registration',
+            price: 3999
+        });
+        toast.success('Startup India Registration added to cart!');
+    };
+
     return (
         <Card>
             <CardHeader>
@@ -47,7 +59,13 @@ const Sidebar = () => {
                         <Label htmlFor="message">Message</Label>
                         <Textarea id="message" placeholder="Your message" />
                     </div>
-                    <Button type="submit" className="w-full bg-green-500 hover:bg-green-600">Talk to an Expert</Button>
+                    <Button 
+                        type="button" 
+                        onClick={handleAddToCart}
+                        className="w-full bg-green-500 hover:bg-green-600"
+                    >
+                        Add to Cart
+                    </Button>
                 </form>
             </CardContent>
         </Card>
