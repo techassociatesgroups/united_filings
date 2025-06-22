@@ -1,5 +1,6 @@
 
 import { Facebook, MessageCircle, Twitter, Youtube } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-gray-900 mb-4">IndiaFilings</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-600 hover:text-blue-600 text-sm">About IndiaFilings</a></li>
+              <li><Link to="/about-us" className="text-gray-600 hover:text-blue-600 text-sm">About IndiaFilings</Link></li>
               <li><a href="#" className="text-gray-600 hover:text-blue-600 text-sm">Careers</a></li>
               <li><a href="#" className="text-gray-600 hover:text-blue-600 text-sm">Contact Us</a></li>
             </ul>
@@ -28,8 +29,9 @@ const Footer = () => {
 
           {/* Usage Column */}
           <div>
-            <h4 className="font-semibold text-gray-900 mb-4">Usage</h4>
+            <h4 className="font-semibold text-gray-900 mb-4">Resources</h4>
             <ul className="space-y-2">
+              <li><Link to="/guide" className="text-gray-600 hover:text-blue-600 text-sm">Business Setup Guide</Link></li>
               <li><a href="#" className="text-gray-600 hover:text-blue-600 text-sm">Terms & Conditions</a></li>
               <li><a href="#" className="text-gray-600 hover:text-blue-600 text-sm">Privacy Policy</a></li>
               <li><a href="#" className="text-gray-600 hover:text-blue-600 text-sm">Refund Policy</a></li>
