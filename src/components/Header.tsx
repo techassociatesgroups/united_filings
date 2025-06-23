@@ -1,5 +1,5 @@
 
-import { Phone, Mail, Search, ShoppingCart, User } from 'lucide-react';
+import { Phone, Mail, Search, ShoppingCart, User, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
 import { useState } from 'react';
@@ -193,6 +193,59 @@ const registrationItems: { title: string; href: string; description: string }[] 
 const Header = () => {
   const { totalItems } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  // Search data - all available services
+  const allServices = [
+    { name: "Proprietorship", path: "/proprietorship" },
+    { name: "Partnership Firm", path: "/partnership" },
+    { name: "One Person Company", path: "/one-person-company" },
+    { name: "Limited Liability Partnership", path: "/limited-liability-partnership" },
+    { name: "Private Limited Company", path: "/private-limited-company" },
+    { name: "Public Limited Company", path: "/public-limited-company" },
+    { name: "Section 8 Company", path: "/section-8-company" },
+    { name: "Trust Registration", path: "/trust-registration" },
+    { name: "Producer Company", path: "/producer-company" },
+    { name: "Indian Subsidiary", path: "/indian-subsidiary" },
+    { name: "Startup India", path: "/startup-india" },
+    { name: "Trade License", path: "/trade-license" },
+    { name: "FSSAI Registration", path: "/fssai-registration" },
+    { name: "FSSAI License", path: "/fssai-license" },
+    { name: "GST Registration", path: "/gst-registration" },
+    { name: "GST Return Filing", path: "/gst-return-filing" },
+    { name: "Income Tax E-Filing", path: "/income-tax-e-filing-new" },
+    { name: "Trademark Registration", path: "/trademark-registration" },
+    { name: "Copyright Registration", path: "/copyright-registration" },
+    { name: "Patent Registration", path: "/patent-registration" },
+    { name: "Import Export Code", path: "/import-export-code" },
+    { name: "Digital Signature", path: "/digital-signature" },
+    { name: "PF Registration", path: "/pf-registration" },
+    { name: "ESI Registration", path: "/esi-registration" },
+  ];
+
+  // Filter services based on search query
+  const filteredServices = allServices.filter(service =>
+    service.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (filteredServices.length > 0) {
+      window.location.href = filteredServices[0].path;
+    }
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+    setIsSearchOpen(value.length > 0);
+  };
+
+  const clearSearch = () => {
+    setSearchQuery('');
+    setIsSearchOpen(false);
+  };
 
   return (
     <header className="bg-white shadow-sm">
@@ -575,9 +628,61 @@ const Header = () => {
 
           {/* Right side icons and login */}
           <div className="flex items-center space-x-4">
-            <button className="p-2 hover:bg-gray-100 rounded-full">
-              <Search className="h-5 w-5 text-gray-600" />
-            </button>
+            <div className="relative">
+              <form onSubmit={handleSearchSubmit} className="relative">
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                    placeholder="Search services..."
+                    className="pl-10 pr-8 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-64"
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={clearSearch}
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  )}
+                </div>
+              </form>
+              
+              {/* Search Results Dropdown */}
+              {isSearchOpen && filteredServices.length > 0 && (
+                <div className="absolute top-full mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
+                  {filteredServices.slice(0, 8).map((service, index) => (
+                    <Link
+                      key={index}
+                      to={service.path}
+                      onClick={() => {
+                        setSearchQuery('');
+                        setIsSearchOpen(false);
+                      }}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 border-b border-gray-100 last:border-b-0"
+                    >
+                      {service.name}
+                    </Link>
+                  ))}
+                  {filteredServices.length > 8 && (
+                    <div className="px-4 py-2 text-xs text-gray-500 text-center">
+                      Showing top 8 results
+                    </div>
+                  )}
+                </div>
+              )}
+              
+              {/* No Results Message */}
+              {isSearchOpen && searchQuery && filteredServices.length === 0 && (
+                <div className="absolute top-full mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50 p-4 text-center text-gray-500 text-sm">
+                  No services found for "{searchQuery}"
+                </div>
+              )}
+            </div>
+            
             <div className="relative">
               <button 
                 className="p-2 hover:bg-gray-100 rounded-full relative"
