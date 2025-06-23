@@ -1,5 +1,5 @@
 
-import { ChevronLeft, ChevronRight, Download } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Download, FileText, Users, Award, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 
 const Hero = () => {
@@ -9,7 +9,7 @@ const Hero = () => {
     {
       title: "TDS Filing & Form 16 Issuance",
       subtitle: "Simplify with IndiaFilings",
-      image: "/lovable-uploads/4ce05405-f89f-4b07-b491-a85dafeaea7b.png"
+      description: "Complete TDS filing and Form 16 generation service with expert guidance and timely compliance."
     }
   ];
 
@@ -26,35 +26,62 @@ const Hero = () => {
 
             {/* Content */}
             <div className="flex-1 z-10">
-              <div className="bg-black/70 text-white p-6 rounded-lg max-w-md">
+              <div className="bg-black/70 text-white p-8 rounded-lg max-w-md">
                 <h1 className="text-2xl lg:text-3xl font-bold mb-2">
                   {slides[currentSlide].title}
                 </h1>
-                <p className="text-lg text-gray-200">
+                <p className="text-lg text-gray-200 mb-4">
                   {slides[currentSlide].subtitle}
+                </p>
+                <p className="text-sm text-gray-300">
+                  {slides[currentSlide].description}
                 </p>
               </div>
             </div>
 
-            {/* Right side image area */}
+            {/* Right side visual design */}
             <div className="flex-1 flex justify-end items-center">
               <div className="relative">
-                <img 
-                  src={slides[currentSlide].image}
-                  alt="Professional services"
-                  className="w-full max-w-md h-64 object-cover rounded-lg"
-                />
-                {/* App download badges */}
-                <div className="absolute bottom-4 right-4 bg-black/70 p-3 rounded-lg">
-                  <p className="text-white text-sm mb-2">Download our App</p>
-                  <div className="flex flex-col space-y-2">
-                    <div className="flex items-center space-x-2 bg-black text-white px-3 py-1 rounded text-xs">
-                      <Download className="h-4 w-4" />
-                      <span>Google Play</span>
+                {/* Modern card design instead of image */}
+                <div className="bg-white rounded-xl shadow-2xl p-8 w-full max-w-md">
+                  <div className="text-center mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                      <FileText className="h-8 w-8 text-white" />
                     </div>
-                    <div className="flex items-center space-x-2 bg-black text-white px-3 py-1 rounded text-xs">
-                      <Download className="h-4 w-4" />
-                      <span>App Store</span>
+                    <h3 className="text-xl font-bold text-gray-900">Professional Services</h3>
+                    <p className="text-gray-600 text-sm">Trusted by businesses nationwide</p>
+                  </div>
+                  
+                  {/* Stats */}
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="text-center">
+                      <div className="flex items-center justify-center mb-2">
+                        <Users className="h-5 w-5 text-green-600 mr-1" />
+                        <span className="text-lg font-bold text-gray-900">10L+</span>
+                      </div>
+                      <p className="text-xs text-gray-600">Happy Clients</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="flex items-center justify-center mb-2">
+                        <Award className="h-5 w-5 text-blue-600 mr-1" />
+                        <span className="text-lg font-bold text-gray-900">99%</span>
+                      </div>
+                      <p className="text-xs text-gray-600">Success Rate</p>
+                    </div>
+                  </div>
+
+                  {/* App download section */}
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <p className="text-gray-800 text-sm font-medium mb-3 text-center">Download our App</p>
+                    <div className="flex flex-col space-y-2">
+                      <div className="flex items-center justify-center space-x-2 bg-black text-white px-4 py-2 rounded-lg text-xs hover:bg-gray-800 transition-colors cursor-pointer">
+                        <Download className="h-4 w-4" />
+                        <span>Google Play</span>
+                      </div>
+                      <div className="flex items-center justify-center space-x-2 bg-black text-white px-4 py-2 rounded-lg text-xs hover:bg-gray-800 transition-colors cursor-pointer">
+                        <Download className="h-4 w-4" />
+                        <span>App Store</span>
+                      </div>
                     </div>
                   </div>
                 </div>

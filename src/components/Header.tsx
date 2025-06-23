@@ -1,4 +1,3 @@
-
 import { Phone, Mail, Search, ShoppingCart, User, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
@@ -281,13 +280,13 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Navigation menu - horizontal layout */}
-          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 text-sm font-medium">
+          {/* Navigation menu - horizontal layout with reduced spacing */}
+          <div className="hidden lg:flex items-center space-x-2 xl:space-x-4 text-sm font-medium">
             {/* Startup and Registrations NavigationMenu */}
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                  <NavigationMenuTrigger className="px-2 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
                     Startup
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -332,7 +331,7 @@ const Header = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                  <NavigationMenuTrigger className="px-2 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
                     Registrations
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -381,7 +380,7 @@ const Header = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                  <NavigationMenuTrigger className="px-2 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
                     Trademark
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -399,7 +398,7 @@ const Header = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                  <NavigationMenuTrigger className="px-2 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
                     Goods & Services Tax
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -521,7 +520,7 @@ const Header = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                  <NavigationMenuTrigger className="px-2 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
                     Income Tax
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -550,7 +549,7 @@ const Header = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                  <NavigationMenuTrigger className="px-2 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
                     MCA
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -591,7 +590,7 @@ const Header = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="p-0 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
+                  <NavigationMenuTrigger className="px-2 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto">
                     Compliance
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -615,13 +614,13 @@ const Header = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            <Link to="/consultation" className="text-gray-700 hover:text-green-600 transition-colors">
+            <Link to="/consultation" className="px-2 py-1 text-gray-700 hover:text-green-600 transition-colors">
               Consultation
             </Link>
-            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
+            <Link to="/guide" className="px-2 py-1 text-gray-700 hover:text-green-600 transition-colors">
               Guides
             </Link>
-            <Link to="#" className="text-gray-700 hover:text-green-600 transition-colors">
+            <Link to="/about-us" className="px-2 py-1 text-gray-700 hover:text-green-600 transition-colors">
               About Us
             </Link>
           </div>
