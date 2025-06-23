@@ -1,3 +1,4 @@
+
 import { Phone, Mail, Search, ShoppingCart, User, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
@@ -247,7 +248,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-sm overflow-hidden">
+    <header className="bg-white shadow-sm overflow-visible relative z-50">
       {/* Top contact bar */}
       <div className="bg-green-50 py-2 px-2 sm:px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-xs sm:text-sm">
@@ -268,7 +269,7 @@ const Header = () => {
       </div>
 
       {/* Main navigation */}
-      <nav className="max-w-7xl mx-auto px-2 sm:px-4 py-2 sm:py-3">
+      <nav className="max-w-7xl mx-auto px-2 sm:px-4 py-2 sm:py-3 relative z-50">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center flex-shrink-0">
@@ -284,14 +285,14 @@ const Header = () => {
           <div className="hidden xl:flex items-center justify-center flex-1 max-w-4xl mx-4">
             <div className="flex items-center space-x-1 text-xs font-medium">
               {/* Startup and Registrations NavigationMenu */}
-              <NavigationMenu>
+              <NavigationMenu className="relative z-[100]">
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
                       Startup
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="grid w-[750px] gap-6 p-6 md:grid-cols-3 bg-white">
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[750px] gap-6 p-6 md:grid-cols-3 bg-white shadow-xl border">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <h4 className="font-bold text-green-600 mb-2 text-base">START A BUSINESS (INDIA)</h4>
                           <Link to="/proprietorship" className="text-gray-600 hover:text-green-600">Proprietorship</Link>
@@ -330,14 +331,14 @@ const Header = () => {
                 </NavigationMenuList>
               </NavigationMenu>
               
-              <NavigationMenu>
+              <NavigationMenu className="relative z-[100]">
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
                       Registrations
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white">
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white shadow-xl border">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                             <Link to="/startup-india" className="text-gray-600 hover:text-green-600">Startup India</Link>
                             <Link to="/trade-license" className="text-gray-600 hover:text-green-600">Trade License</Link>
@@ -380,14 +381,14 @@ const Header = () => {
                 </NavigationMenuList>
               </NavigationMenu>
               
-              <NavigationMenu>
+              <NavigationMenu className="relative z-[100]">
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
                       Trademark
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="grid w-[250px] gap-6 p-6 md:grid-cols-1 bg-white">
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[250px] gap-6 p-6 md:grid-cols-1 bg-white shadow-xl border">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="/trademark-registration" className="text-gray-600 hover:text-green-600">Trademark Registration</Link>
                           <Link to="/copyright-registration" className="text-gray-600 hover:text-green-600">Copyright Registration</Link>
@@ -399,14 +400,14 @@ const Header = () => {
                 </NavigationMenuList>
               </NavigationMenu>
               
-              <NavigationMenu>
+              <NavigationMenu className="relative z-[100]">
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
                       GST
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white">
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white shadow-xl border">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <NavigationMenuLink asChild>
                             <Link
@@ -522,14 +523,15 @@ const Header = () => {
                 </NavigationMenuList>
               </NavigationMenu>
               
-              <NavigationMenu>
+              {/* Continue with remaining NavigationMenu components with same z-index pattern */}
+              <NavigationMenu className="relative z-[100]">
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
                       Tax
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="grid w-[500px] gap-6 p-6 md:grid-cols-2 bg-white">
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[500px] gap-6 p-6 md:grid-cols-2 bg-white shadow-xl border">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="/income-tax-e-filing-new" className="text-gray-600 hover:text-green-600">Income Tax E-Filing</Link>
                           <Link to="/itr-1-return-filing" className="text-gray-600 hover:text-green-600">ITR-1 Return Filing</Link>
@@ -552,14 +554,14 @@ const Header = () => {
                 </NavigationMenuList>
               </NavigationMenu>
               
-              <NavigationMenu>
+              <NavigationMenu className="relative z-[100]">
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
                       MCA
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white">
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white shadow-xl border">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="/company-compliance" className="text-gray-600 hover:text-green-600">Company Compliance</Link>
                           <Link to="/llp-compliance" className="text-gray-600 hover:text-green-600">LLP Compliance</Link>
@@ -594,14 +596,14 @@ const Header = () => {
                 </NavigationMenuList>
               </NavigationMenu>
               
-              <NavigationMenu>
+              <NavigationMenu className="relative z-[100]">
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
                       Compliance
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white">
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white shadow-xl border">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="/fdi-filing-rbi" className="text-gray-600 hover:text-green-600">FDI Filing with RBI</Link>
                           <Link to="/fla-return-filing" className="text-gray-600 hover:text-green-600">FLA Return Filing</Link>
@@ -637,14 +639,14 @@ const Header = () => {
           {/* Compact navigation for smaller screens */}
           <div className="hidden lg:flex xl:hidden items-center justify-center flex-1 max-w-3xl mx-4">
             <div className="flex items-center space-x-1 text-xs font-medium">
-              <NavigationMenu>
+              <NavigationMenu className="relative z-[100]">
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
                       Business
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white">
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white shadow-xl border">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <h4 className="font-bold text-green-600 mb-2">Startup & Registration</h4>
                           <Link to="/proprietorship" className="text-gray-600 hover:text-green-600">Proprietorship</Link>
@@ -707,7 +709,7 @@ const Header = () => {
               
               {/* Search Results Dropdown */}
               {isSearchOpen && filteredServices.length > 0 && (
-                <div className="absolute top-full mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
+                <div className="absolute top-full mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-[110] max-h-60 overflow-y-auto">
                   {filteredServices.slice(0, 8).map((service, index) => (
                     <Link
                       key={index}
@@ -731,7 +733,7 @@ const Header = () => {
               
               {/* No Results Message */}
               {isSearchOpen && searchQuery && filteredServices.length === 0 && (
-                <div className="absolute top-full mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50 p-4 text-center text-gray-500 text-sm">
+                <div className="absolute top-full mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-[110] p-4 text-center text-gray-500 text-sm">
                   No services found for "{searchQuery}"
                 </div>
               )}
