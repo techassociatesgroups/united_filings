@@ -40,7 +40,7 @@ const DetailsSection = () => {
           <li><strong className="text-gray-700">Entities under Reverse Charge Mechanism:</strong> Businesses obligated to pay tax under the reverse charge.</li>
           <li><strong className="text-gray-700">Input Service Distributors & Agents:</strong> Distributors of input services, including their representatives.</li>
           <li><strong className="text-gray-700">E-Commerce Platforms:</strong> Operators or aggregators of e-commerce platforms</li>
-          <li><strong className="text-gray-700">Non-Resident Taxable Entities:</strong> Individuals or entities that are non-resident but engage in taxable supply within India.</li>
+          <li><strong className="text-gray-700">Non-Resident Taxable Entities:</strong> Individuals or entities that are non-resident but engage in taxable supply within india.</li>
           <li><strong className="text-gray-700">Supplier's Agents:</strong> Representatives who supply on behalf of a principal supplier.</li>
           <li><strong className="text-gray-700">E-Commerce Suppliers:</strong> Individuals or entities that offer goods or services through an e-commerce aggregator.</li>
           <li><strong className="text-gray-700">Online Service Providers:</strong> Entities delivering online information, database access, or retrieval services from outside India to an individual in India, excluding those already registered under GST.</li>
