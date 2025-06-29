@@ -12,6 +12,7 @@ import CallEmailButtons from './CallEmailButtons';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [cartDropdownOpen, setCartDropdownOpen] = useState(false);
 
   return (
     <>
@@ -79,8 +80,13 @@ const Header = () => {
             </div>
 
             {/* Right side actions */}
-            <div className="flex items-center space-x-4">
-              <CartDropdown />
+            <div className="flex items-center space-x-4 relative">
+              <div className="relative">
+                <CartDropdown 
+                  isOpen={cartDropdownOpen} 
+                  onClose={() => setCartDropdownOpen(false)} 
+                />
+              </div>
               <UserMenu onAuthClick={() => setAuthModalOpen(true)} />
               
               {/* Mobile menu button */}
