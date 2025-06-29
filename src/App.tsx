@@ -18,7 +18,7 @@ import SoleProprietorship from "./pages/SoleProprietorship";
 
 // Service Pages
 import TrademarkRegistration from "./pages/TrademarkRegistration";
-import GSTRegistration from "./pages/GSTRegistration";
+import GstRegistration from "./pages/GstRegistration";
 import IncomeTextEFiling from "./pages/IncomeTextEFiling";
 import Consultation from "./pages/Consultation";
 import Guide from "./pages/Guide";
@@ -52,7 +52,7 @@ function App() {
               
               {/* Service Routes */}
               <Route path="/trademark-registration" element={<TrademarkRegistration />} />
-              <Route path="/gst-registration" element={<GSTRegistration />} />
+              <Route path="/gst-registration" element={<GstRegistration />} />
               <Route path="/income-tax-e-filing" element={<IncomeTextEFiling />} />
               <Route path="/consultation" element={<Consultation />} />
               <Route path="/guide" element={<Guide />} />
