@@ -27,18 +27,20 @@ const Header = () => {
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               <Phone className="h-4 w-4" />
-              <span>+91 8068301312</span>
+              <span>+91 9876543210</span>
             </div>
             <div className="flex items-center space-x-2">
               <Mail className="h-4 w-4" />
-              <span>support@indiafilings.com</span>
+              <span>info@indiafilings.com</span>
             </div>
             <div className="flex items-center space-x-2">
               <Clock className="h-4 w-4" />
               <span>Mon-Sat 9AM-6PM</span>
             </div>
           </div>
-          <CallEmailButtons className="hidden md:flex" />
+          <div className="hidden md:flex">
+            <span>Trusted by 10,00,000+ businesses across India</span>
+          </div>
         </div>
       </div>
 
@@ -55,16 +57,16 @@ const Header = () => {
 
             {/* Desktop Navigation with Dropdowns */}
             <nav className="hidden lg:flex items-center space-x-1">
-              {/* Start a Business Dropdown */}
+              {/* Startup Dropdown */}
               <div className="relative">
                 <button
-                  onMouseEnter={() => handleDropdownToggle('business')}
+                  onMouseEnter={() => handleDropdownToggle('startup')}
                   className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2"
                 >
-                  <span>Start a Business</span>
+                  <span>Startup</span>
                   <ChevronDown className="h-4 w-4" />
                 </button>
-                {activeDropdown === 'business' && (
+                {activeDropdown === 'startup' && (
                   <div
                     onMouseLeave={() => setActiveDropdown(null)}
                     className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
@@ -93,6 +95,12 @@ const Header = () => {
                       </Link>
                       <Link to="/section-8-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                         Section 8 Company
+                      </Link>
+                      <Link to="/trust-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Trust Registration
+                      </Link>
+                      <Link to="/indian-subsidiary" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Indian Subsidiary
                       </Link>
                     </div>
                   </div>
@@ -138,18 +146,74 @@ const Header = () => {
                       <Link to="/msme-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                         MSME Registration
                       </Link>
+                      <Link to="/apeda-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        APEDA Registration
+                      </Link>
+                      <Link to="/iso-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        ISO Registration
+                      </Link>
+                      <Link to="/bis-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        BIS Registration
+                      </Link>
+                      <Link to="/barcode-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Barcode Registration
+                      </Link>
+                      <Link to="/halal-certification" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Halal Certification
+                      </Link>
+                      <Link to="/darpan-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        DARPAN Registration
+                      </Link>
+                      <Link to="/12a-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        12A Registration
+                      </Link>
+                      <Link to="/80g-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        80G Registration
+                      </Link>
+                      <Link to="/12a-80g-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        12A & 80G Registration
+                      </Link>
                     </div>
                   </div>
                 )}
               </div>
 
-              {/* GST Services Dropdown */}
+              {/* Trademark Dropdown */}
+              <div className="relative">
+                <button
+                  onMouseEnter={() => handleDropdownToggle('trademark')}
+                  className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2"
+                >
+                  <span>Trademark</span>
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                {activeDropdown === 'trademark' && (
+                  <div
+                    onMouseLeave={() => setActiveDropdown(null)}
+                    className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                  >
+                    <div className="py-2">
+                      <Link to="/trademark-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Trademark Registration
+                      </Link>
+                      <Link to="/copyright-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Copyright Registration
+                      </Link>
+                      <Link to="/patent-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Patent Registration
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* GST Dropdown */}
               <div className="relative">
                 <button
                   onMouseEnter={() => handleDropdownToggle('gst')}
                   className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2"
                 >
-                  <span>GST Services</span>
+                  <span>GST</span>
                   <ChevronDown className="h-4 w-4" />
                 </button>
                 {activeDropdown === 'gst' && (
@@ -164,30 +228,42 @@ const Header = () => {
                       <Link to="/gst-return-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                         GST Return Filing
                       </Link>
-                      <Link to="/gst-annual-return" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                        GST Annual Return
+                      <Link to="/gst-annual-return-filing-gstr9" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        GST Annual Return Filing
                       </Link>
                       <Link to="/gst-registration-cancellation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                         GST Registration Cancellation
                       </Link>
-                      <Link to="/gst-lut-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                      <Link to="/gst-lut-form" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                         GST LUT Filing
                       </Link>
                       <Link to="/gst-registration-amendment" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                         GST Registration Amendment
+                      </Link>
+                      <Link to="/gst-registration-for-foreigners" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        GST Registration for Foreigners
+                      </Link>
+                      <Link to="/gst-revocation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        GST Revocation
+                      </Link>
+                      <Link to="/gst-notice" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        GST Notice
+                      </Link>
+                      <Link to="/gstr-10-return-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        GSTR-10 Return Filing
                       </Link>
                     </div>
                   </div>
                 )}
               </div>
 
-              {/* Tax Filing Dropdown */}
+              {/* Tax Dropdown */}
               <div className="relative">
                 <button
                   onMouseEnter={() => handleDropdownToggle('tax')}
                   className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2"
                 >
-                  <span>Tax Filing</span>
+                  <span>Tax</span>
                   <ChevronDown className="h-4 w-4" />
                 </button>
                 {activeDropdown === 'tax' && (
@@ -211,8 +287,117 @@ const Header = () => {
                       <Link to="/itr-4-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                         ITR-4 Filing
                       </Link>
-                      <Link to="/tds-return-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                        TDS Return Filing
+                      <Link to="/itr-5-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        ITR-5 Filing
+                      </Link>
+                      <Link to="/itr-6-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        ITR-6 Filing
+                      </Link>
+                      <Link to="/itr-7-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        ITR-7 Filing
+                      </Link>
+                      <Link to="/business-income-tax" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Business Income Tax
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* MCA Dropdown */}
+              <div className="relative">
+                <button
+                  onMouseEnter={() => handleDropdownToggle('mca')}
+                  className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2"
+                >
+                  <span>MCA</span>
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                {activeDropdown === 'mca' && (
+                  <div
+                    onMouseLeave={() => setActiveDropdown(null)}
+                    className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                  >
+                    <div className="py-2">
+                      <Link to="/company-compliance" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Company Compliance
+                      </Link>
+                      <Link to="/llp-compliance" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        LLP Compliance
+                      </Link>
+                      <Link to="/opc-compliance" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        OPC Compliance
+                      </Link>
+                      <Link to="/name-change-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Name Change Company
+                      </Link>
+                      <Link to="/registered-office-change-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Registered Office Change
+                      </Link>
+                      <Link to="/din-ekyc-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        DIN eKYC Filing
+                      </Link>
+                      <Link to="/certificate-of-incumbency" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Certificate of Incumbency
+                      </Link>
+                      <Link to="/legal-entity-identifier-code" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Legal Entity Identifier Code
+                      </Link>
+                      <Link to="/fdi-filing-rbi" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        FDI Filing with RBI
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Compliance Dropdown */}
+              <div className="relative">
+                <button
+                  onMouseEnter={() => handleDropdownToggle('compliance')}
+                  className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2"
+                >
+                  <span>Compliance</span>
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                {activeDropdown === 'compliance' && (
+                  <div
+                    onMouseLeave={() => setActiveDropdown(null)}
+                    className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                  >
+                    <div className="py-2">
+                      <Link to="/pf-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        PF Registration
+                      </Link>
+                      <Link to="/esi-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        ESI Registration
+                      </Link>
+                      <Link to="/professional-tax-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Professional Tax Registration
+                      </Link>
+                      <Link to="/shop-and-establishment-act" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Shop & Establishment Act
+                      </Link>
+                      <Link to="/trade-license" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Trade License
+                      </Link>
+                      <Link to="/fssai-license" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        FSSAI License
+                      </Link>
+                      <Link to="/drug-license" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Drug License
+                      </Link>
+                      <Link to="/fire-license" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Fire License
+                      </Link>
+                      <Link to="/rera-registration-agents" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        RERA Registration for Agents
+                      </Link>
+                      <Link to="/rcmc-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        RCMC Registration
+                      </Link>
+                      <Link to="/icegate-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Icegate Registration
                       </Link>
                     </div>
                   </div>
@@ -223,6 +408,16 @@ const Header = () => {
               <Link to="/consultation" className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2">
                 Consultation
               </Link>
+
+              {/* Guides Link */}
+              <Link to="/guide" className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2">
+                Guides
+              </Link>
+
+              {/* About Link */}
+              <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2">
+                About
+              </Link>
             </nav>
 
             {/* Search Bar */}
@@ -231,20 +426,15 @@ const Header = () => {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                 <Input
                   type="text"
-                  placeholder="Search services..."
+                  placeholder="Search..."
                   className="pl-10 pr-4 py-2 w-full border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
             </div>
 
             {/* Right side actions */}
-            <div className="flex items-center space-x-4 relative">
-              <div className="relative">
-                <CartDropdown 
-                  isOpen={cartDropdownOpen} 
-                  onClose={() => setCartDropdownOpen(false)} 
-                />
-              </div>
+            <div className="flex items-center space-x-4">
+              <CartDropdown />
               <UserMenu onAuthClick={() => setAuthModalOpen(true)} />
               
               {/* Mobile menu button */}
@@ -262,7 +452,7 @@ const Header = () => {
             <div className="lg:hidden py-4 border-t">
               <div className="flex flex-col space-y-4">
                 <div className="space-y-2">
-                  <div className="font-semibold text-gray-900 px-2">Start a Business</div>
+                  <div className="font-semibold text-gray-900 px-2">Startup</div>
                   <Link to="/private-limited-company" className="text-gray-700 hover:text-blue-600 pl-4">
                     Private Limited Company
                   </Link>
@@ -274,6 +464,12 @@ const Header = () => {
                   </Link>
                   <Link to="/one-person-company" className="text-gray-700 hover:text-blue-600 pl-4">
                     One Person Company
+                  </Link>
+                  <Link to="/partnership-firm" className="text-gray-700 hover:text-blue-600 pl-4">
+                    Partnership Firm
+                  </Link>
+                  <Link to="/sole-proprietorship" className="text-gray-700 hover:text-blue-600 pl-4">
+                    Sole Proprietorship
                   </Link>
                 </div>
                 
@@ -288,10 +484,13 @@ const Header = () => {
                   <Link to="/fssai-registration" className="text-gray-700 hover:text-blue-600 pl-4">
                     FSSAI Registration
                   </Link>
+                  <Link to="/import-export-code" className="text-gray-700 hover:text-blue-600 pl-4">
+                    Import Export Code
+                  </Link>
                 </div>
 
                 <div className="space-y-2">
-                  <div className="font-semibold text-gray-900 px-2">GST Services</div>
+                  <div className="font-semibold text-gray-900 px-2">GST</div>
                   <Link to="/gst-registration" className="text-gray-700 hover:text-blue-600 pl-4">
                     GST Registration
                   </Link>
@@ -301,7 +500,7 @@ const Header = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <div className="font-semibold text-gray-900 px-2">Tax Filing</div>
+                  <div className="font-semibold text-gray-900 px-2">Tax</div>
                   <Link to="/income-tax-e-filing" className="text-gray-700 hover:text-blue-600 pl-4">
                     Income Tax E-Filing
                   </Link>
@@ -312,6 +511,14 @@ const Header = () => {
 
                 <Link to="/consultation" className="text-gray-700 hover:text-blue-600 font-medium px-2">
                   Consultation
+                </Link>
+                
+                <Link to="/guide" className="text-gray-700 hover:text-blue-600 font-medium px-2">
+                  Guides
+                </Link>
+                
+                <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium px-2">
+                  About
                 </Link>
                 
                 <div className="pt-4 border-t">
