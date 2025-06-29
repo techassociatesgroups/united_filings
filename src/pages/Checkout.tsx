@@ -1,40 +1,73 @@
 
 import { useState } from 'react';
 import { useCart } from '@/contexts/CartContext';
+import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { ArrowLeft, Mail, Phone } from 'lucide-react';
+import { ArrowLeft, Mail, Phone, CreditCard } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
+import AuthModal from '@/components/auth/AuthModal';
 
 const Checkout = () => {
   const { items, totalPrice, clearCart } = useCart();
+  const { user } = useAuth();
   const navigate = useNavigate();
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [billingInfo, setBillingInfo] = useState({
     name: '',
-    email: '',
+    email: user?.email || '',
     phone: '',
     businessName: '',
-    gstin: ''
+    gstin: '',
+    address: '',
+    city: '',
+    state: '',
+    pincode: ''
   });
 
   const handleInputChange = (field: string, value: string) => {
     setBillingInfo(prev => ({ ...prev, [field]: value }));
   };
 
-  const handlePayment = () => {
-    if (!billingInfo.name || !billingInfo.email) {
+  const handlePayment = async () => {
+    if (!user) {
+      setAuthModalOpen(true);
+      return;
+    }
+
+    if (!billingInfo.name || !billingInfo.email || !billingInfo.phone) {
       toast.error('Please fill in required fields');
       return;
     }
     
-    // Simulate payment processing
-    toast.success('Payment processed successfully!');
-    clearCart();
-    navigate('/');
+    setLoading(true);
+    
+    try {
+      // Create payment session
+      const { data, error } = await supabase.functions.invoke('create-payment-session', {
+        body: {
+          items,
+          customerInfo: billingInfo
+        }
+      });
+
+      if (error) throw error;
+
+      toast.success('Order created successfully!');
+      clearCart();
+      navigate('/');
+    } catch (error: any) {
+      console.error('Payment error:', error);
+      toast.error('Payment failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const gstAmount = Math.round(totalPrice * 0.18);
@@ -78,16 +111,8 @@ const Checkout = () => {
                 </div>
                 <CardTitle className="text-xl">IndiaFilings Private Limited</CardTitle>
                 <p className="text-blue-100 text-sm mt-1">
-                  Chennai, Chennai - 600031<br/>
-                  CIN: U67190TN2014PTC096978<br/>
-                  GSTIN: 33AADCI0542H1ZX
+                  Your Trusted Business Partner
                 </p>
-              </div>
-              <div className="text-right">
-                <div className="bg-blue-500 px-3 py-1 rounded text-sm mb-2">
-                  Registrations & Licence
-                </div>
-                <p className="text-sm">Import Export Code</p>
               </div>
             </div>
           </CardHeader>
@@ -97,6 +122,20 @@ const Checkout = () => {
               {/* Billing Information */}
               <div>
                 <h3 className="text-lg font-semibold mb-4">Customer Information</h3>
+                {!user && (
+                  <div className="mb-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <p className="text-sm text-yellow-800">
+                      Please sign in to continue with checkout
+                    </p>
+                    <Button 
+                      onClick={() => setAuthModalOpen(true)}
+                      className="mt-2 bg-blue-600 hover:bg-blue-700"
+                      size="sm"
+                    >
+                      Sign In / Sign Up
+                    </Button>
+                  </div>
+                )}
                 <div className="space-y-4">
                   <div>
                     <Label htmlFor="name">Name *</Label>
@@ -120,16 +159,17 @@ const Checkout = () => {
                     />
                   </div>
                   <div>
-                    <Label htmlFor="phone">Phone</Label>
+                    <Label htmlFor="phone">Phone *</Label>
                     <Input
                       id="phone"
                       value={billingInfo.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
                       placeholder="Enter your phone number"
+                      required
                     />
                   </div>
                   <div>
-                    <Label htmlFor="businessName">Business Name or GSTIN</Label>
+                    <Label htmlFor="businessName">Business Name</Label>
                     <Input
                       id="businessName"
                       value={billingInfo.businessName}
@@ -138,7 +178,7 @@ const Checkout = () => {
                     />
                   </div>
                   <div>
-                    <Label htmlFor="gstin">GSTIN (for 18% GST Credit)</Label>
+                    <Label htmlFor="gstin">GSTIN</Label>
                     <Input
                       id="gstin"
                       value={billingInfo.gstin}
@@ -146,36 +186,50 @@ const Checkout = () => {
                       placeholder="Enter GSTIN"
                     />
                   </div>
+                  <div>
+                    <Label htmlFor="address">Address</Label>
+                    <Input
+                      id="address"
+                      value={billingInfo.address}
+                      onChange={(e) => handleInputChange('address', e.target.value)}
+                      placeholder="Enter address"
+                    />
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="city">City</Label>
+                      <Input
+                        id="city"
+                        value={billingInfo.city}
+                        onChange={(e) => handleInputChange('city', e.target.value)}
+                        placeholder="City"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="state">State</Label>
+                      <Input
+                        id="state"
+                        value={billingInfo.state}
+                        onChange={(e) => handleInputChange('state', e.target.value)}
+                        placeholder="State"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Order Summary */}
               <div>
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-semibold">Order Summary</h3>
-                  <div className="text-right text-sm text-gray-600">
-                    <p>Estimate Date:</p>
-                    <p>{new Date().toLocaleDateString('en-GB')}</p>
-                  </div>
-                </div>
+                <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
 
                 <div className="space-y-4">
-                  <div className="grid grid-cols-4 gap-4 text-sm font-medium text-gray-700 border-b pb-2">
-                    <div>Description</div>
-                    <div className="text-center">Quantity</div>
-                    <div className="text-center">Rate</div>
-                    <div className="text-right">Amount</div>
-                  </div>
-
                   {items.map((item) => (
-                    <div key={item.id} className="grid grid-cols-4 gap-4 text-sm py-2 border-b">
+                    <div key={item.id} className="flex justify-between items-center p-3 bg-gray-50 rounded">
                       <div>
                         <p className="font-medium">{item.name}</p>
-                        <p className="text-gray-600 text-xs">Professional service registration</p>
+                        <p className="text-sm text-gray-600">Qty: {item.quantity}</p>
                       </div>
-                      <div className="text-center">{item.quantity}</div>
-                      <div className="text-center">₹{item.price.toLocaleString()}</div>
-                      <div className="text-right">₹{(item.price * item.quantity).toLocaleString()}</div>
+                      <p className="font-medium">₹{(item.price * item.quantity).toLocaleString()}</p>
                     </div>
                   ))}
 
@@ -190,7 +244,7 @@ const Checkout = () => {
                     </div>
                     <Separator />
                     <div className="flex justify-between font-bold text-lg">
-                      <span>Total Due:</span>
+                      <span>Total:</span>
                       <span>₹{finalTotal.toLocaleString()}</span>
                     </div>
                   </div>
@@ -199,43 +253,17 @@ const Checkout = () => {
                     onClick={handlePayment}
                     className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 mt-6"
                     size="lg"
+                    disabled={loading || !user}
                   >
-                    PAY ₹{finalTotal.toLocaleString()} ONLINE
+                    <CreditCard className="mr-2 h-4 w-4" />
+                    {loading ? 'Processing...' : `Pay ₹${finalTotal.toLocaleString()}`}
                   </Button>
-                </div>
-
-                {/* Payment Options */}
-                <div className="mt-6 p-4 bg-gray-50 rounded">
-                  <h4 className="font-semibold mb-2">Bank Transfer:</h4>
-                  <div className="text-sm text-gray-700 space-y-1">
-                    <p>Bank Transfer: ICICI BANK</p>
-                    <p>Account Name: INDIAFILINGS PRIVATE LIMITED</p>
-                    <p>Account Number: 000905034501</p>
-                    <p>IFSC Code: ICIC0006239</p>
-                  </div>
-                </div>
-
-                <div className="mt-4 p-4 bg-blue-50 rounded">
-                  <h4 className="font-semibold mb-2 flex items-center">
-                    <Phone className="h-4 w-4 mr-2" />
-                    Support:
-                  </h4>
-                  <div className="text-sm text-gray-700 space-y-1">
-                    <p className="flex items-center">
-                      <Mail className="h-4 w-4 mr-2" />
-                      Email: billing@indiafilings.com
-                    </p>
-                    <p className="flex items-center">
-                      <Phone className="h-4 w-4 mr-2" />
-                      Phone: +91 8068301312
-                    </p>
-                  </div>
                 </div>
 
                 <div className="mt-4 text-xs text-gray-600">
                   <p>
-                    <strong>Notes:</strong> Invoices will be issued and service will be initiated on receipt of payment. 
-                    Read our terms of service & refund policy online. In case of bank transfer please allow 24 hours for service activation.
+                    <strong>Note:</strong> Service will be initiated after payment confirmation. 
+                    All transactions are secure and encrypted.
                   </p>
                 </div>
               </div>
@@ -243,6 +271,8 @@ const Checkout = () => {
           </CardContent>
         </Card>
       </div>
+
+      <AuthModal isOpen={authModalOpen} onClose={() => setAuthModalOpen(false)} />
     </div>
   );
 };
