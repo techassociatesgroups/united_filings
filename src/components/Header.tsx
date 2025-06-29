@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -81,27 +82,48 @@ const Header = () => {
                   {activeDropdown === 'startup' && (
                     <div
                       onMouseLeave={() => setActiveDropdown(null)}
-                      className="absolute top-full left-0 mt-1 w-60 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                      className="absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
                     >
-                      <div className="py-2">
-                        <Link to="/private-limited-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Private Limited Company
-                        </Link>
-                        <Link to="/public-limited-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Public Limited Company
-                        </Link>
-                        <Link to="/limited-liability-partnership" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Limited Liability Partnership
-                        </Link>
-                        <Link to="/one-person-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          One Person Company
-                        </Link>
-                        <Link to="/partnership-firm" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Partnership Firm
-                        </Link>
-                        <Link to="/sole-proprietorship" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Sole Proprietorship
-                        </Link>
+                      <div className="py-2 grid grid-cols-2 gap-1">
+                        <div>
+                          <div className="px-4 py-2 font-semibold text-green-600 text-sm border-b">START A BUSINESS (INDIA)</div>
+                          <Link to="/sole-proprietorship" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Proprietorship
+                          </Link>
+                          <Link to="/partnership-firm" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Partnership Firm
+                          </Link>
+                          <Link to="/one-person-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            One Person Company
+                          </Link>
+                          <Link to="/limited-liability-partnership" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Limited Liability Partnership
+                          </Link>
+                          <Link to="/private-limited-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Private Limited Company
+                          </Link>
+                          <Link to="/public-limited-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Public Limited Company
+                          </Link>
+                          <Link to="/section-8-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Section 8 Company
+                          </Link>
+                          <Link to="/producer-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Producer Company
+                          </Link>
+                          <Link to="/indian-subsidiary" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Indian Subsidiary
+                          </Link>
+                        </div>
+                        <div>
+                          <div className="px-4 py-2 font-semibold text-green-600 text-sm border-b">TRUST / NGO</div>
+                          <Link to="/trust-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Trust Registration
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Society Registration
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -119,60 +141,101 @@ const Header = () => {
                   {activeDropdown === 'registrations' && (
                     <div
                       onMouseLeave={() => setActiveDropdown(null)}
-                      className="absolute top-full left-0 mt-1 w-60 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                      className="absolute top-full left-0 mt-1 w-96 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
                     >
-                      <div className="py-2">
-                        <Link to="/trademark-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Trademark Registration
-                        </Link>
-                        <Link to="/copyright-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Copyright Registration
-                        </Link>
-                        <Link to="/patent-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Patent Registration
-                        </Link>
-                        <Link to="/fssai-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          FSSAI Registration
-                        </Link>
-                        <Link to="/import-export-code" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Import Export Code
-                        </Link>
-                        <Link to="/startup-india-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Startup India Registration
-                        </Link>
-                        <Link to="/digital-signature" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Digital Signature
-                        </Link>
-                        <Link to="/msme-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          MSME Registration
-                        </Link>
-                        <Link to="/apeda-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          APEDA Registration
-                        </Link>
-                        <Link to="/iso-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          ISO Registration
-                        </Link>
-                        <Link to="/bis-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          BIS Registration
-                        </Link>
-                        <Link to="/barcode-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Barcode Registration
-                        </Link>
-                        <Link to="/halal-certification" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Halal Certification
-                        </Link>
-                        <Link to="/darpan-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          DARPAN Registration
-                        </Link>
-                        <Link to="/12a-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          12A Registration
-                        </Link>
-                        <Link to="/80g-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          80G Registration
-                        </Link>
-                        <Link to="/12a-80g-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          12A & 80G Registration
-                        </Link>
+                      <div className="py-2 grid grid-cols-4 gap-1 text-xs">
+                        <div>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Startup India
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Trade License
+                          </Link>
+                          <Link to="/fssai-registration" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            FSSAI Registration
+                          </Link>
+                          <Link to="/fssai-license" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            FSSAI License
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Halal License & Certification
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            ICEGATE Registration
+                          </Link>
+                          <Link to="/import-export-code" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Import Export Code
+                          </Link>
+                        </div>
+                        <div>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Legal Entity Identifier Code
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            ISO Registration
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            PF Registration
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            ESI Registration
+                          </Link>
+                          <Link to="/professional-tax-registration" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Professional Tax Registration
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            RCMC Registration
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            TN RERA Registration for Agents
+                          </Link>
+                        </div>
+                        <div>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            12A and 80G Registration
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            12A Registration
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            80G Registration
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            APEDA Registration
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Barcode Registration
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            BIS Registration
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Certificate of Incumbency
+                          </Link>
+                        </div>
+                        <div>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Darpan Registration
+                          </Link>
+                          <Link to="/digital-signature" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Digital Signature
+                          </Link>
+                          <Link to="/shop-and-establishment-act" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Shop Act Registration
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Drug License
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Udyam Registration
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            FCRA Registration
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Fire License
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -219,39 +282,49 @@ const Header = () => {
                   {activeDropdown === 'gst' && (
                     <div
                       onMouseLeave={() => setActiveDropdown(null)}
-                      className="absolute top-full left-0 mt-1 w-60 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                      className="absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
                     >
-                      <div className="py-2">
-                        <Link to="/gst-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          GST Registration
-                        </Link>
-                        <Link to="/gst-return-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          GST Return Filing
-                        </Link>
-                        <Link to="/gst-annual-return-filing-gstr9" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          GST Annual Return Filing
-                        </Link>
-                        <Link to="/gst-registration-cancellation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          GST Registration Cancellation
-                        </Link>
-                        <Link to="/gst-lut-form" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          GST LUT Filing
-                        </Link>
-                        <Link to="/gst-registration-amendment" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          GST Registration Amendment
-                        </Link>
-                        <Link to="/gst-registration-for-foreigners" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          GST Registration for Foreigners
-                        </Link>
-                        <Link to="/gst-revocation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          GST Revocation
-                        </Link>
-                        <Link to="/gst-notice" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          GST Notice
-                        </Link>
-                        <Link to="/gstr-10-return-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          GSTR-10 Return Filing
-                        </Link>
+                      <div className="py-2 grid grid-cols-2 gap-1">
+                        <div>
+                          <Link to="/gst-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            <div className="font-medium">GST Registration</div>
+                            <div className="text-xs text-gray-500">Register your business with GST.</div>
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            <div className="font-medium">GST Return Filing by Accountant</div>
+                            <div className="text-xs text-gray-500">Get an Accountant to do your GST return filing.</div>
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            <div className="font-medium">GST Annual Return Filing (GSTR - 9)</div>
+                            <div className="text-xs text-gray-500">File annual GST returns (GSTR-9).</div>
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            <div className="font-medium">GST LUT Form</div>
+                            <div className="text-xs text-gray-500">Download the GST LUT form.</div>
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            <div className="font-medium">GST Notice</div>
+                            <div className="text-xs text-gray-500">Get GST notices and updates.</div>
+                          </Link>
+                        </div>
+                        <div>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            <div className="font-medium">GST Registration for Foreigners</div>
+                            <div className="text-xs text-gray-500">Register your business with GST for foreign entities.</div>
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            <div className="font-medium">GST Registration Amendment</div>
+                            <div className="text-xs text-gray-500">Make changes to your GST registration.</div>
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            <div className="font-medium">GST Revocation</div>
+                            <div className="text-xs text-gray-500">Revoke your GST registration.</div>
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            <div className="font-medium">GSTR-10</div>
+                            <div className="text-xs text-gray-500">File GSTR-10 returns.</div>
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -269,36 +342,49 @@ const Header = () => {
                   {activeDropdown === 'tax' && (
                     <div
                       onMouseLeave={() => setActiveDropdown(null)}
-                      className="absolute top-full left-0 mt-1 w-60 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                      className="absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
                     >
-                      <div className="py-2">
-                        <Link to="/income-tax-e-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Income Tax E-Filing
-                        </Link>
-                        <Link to="/itr-1-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          ITR-1 Filing
-                        </Link>
-                        <Link to="/itr-2-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          ITR-2 Filing
-                        </Link>
-                        <Link to="/itr-3-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          ITR-3 Filing
-                        </Link>
-                        <Link to="/itr-4-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          ITR-4 Filing
-                        </Link>
-                        <Link to="/itr-5-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          ITR-5 Filing
-                        </Link>
-                        <Link to="/itr-6-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          ITR-6 Filing
-                        </Link>
-                        <Link to="/itr-7-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          ITR-7 Filing
-                        </Link>
-                        <Link to="/business-income-tax" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Business Income Tax
-                        </Link>
+                      <div className="py-2 grid grid-cols-2 gap-1">
+                        <div>
+                          <Link to="/income-tax-e-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Income Tax E-Filing
+                          </Link>
+                          <Link to="/itr-1-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            ITR-1 Return Filing
+                          </Link>
+                          <Link to="/itr-2-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            ITR-2 Return Filing
+                          </Link>
+                          <Link to="/itr-3-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            ITR-3 Return Filing
+                          </Link>
+                          <Link to="/itr-4-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            ITR-4 Return Filing
+                          </Link>
+                          <Link to="/itr-5-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            ITR-5 Return Filing
+                          </Link>
+                        </div>
+                        <div>
+                          <Link to="/itr-6-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            ITR-6 Return Filing
+                          </Link>
+                          <Link to="/itr-7-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            ITR-7 Return Filing
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            15CA - 15CB Filing
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            TAN Registration
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            TDS Return Filing
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Income Tax Notice
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -316,36 +402,77 @@ const Header = () => {
                   {activeDropdown === 'mca' && (
                     <div
                       onMouseLeave={() => setActiveDropdown(null)}
-                      className="absolute top-full left-0 mt-1 w-60 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                      className="absolute top-full left-0 mt-1 w-96 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
                     >
-                      <div className="py-2">
-                        <Link to="/company-compliance" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Company Compliance
-                        </Link>
-                        <Link to="/llp-compliance" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          LLP Compliance
-                        </Link>
-                        <Link to="/opc-compliance" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          OPC Compliance
-                        </Link>
-                        <Link to="/name-change-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Name Change Company
-                        </Link>
-                        <Link to="/registered-office-change-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Registered Office Change
-                        </Link>
-                        <Link to="/din-ekyc-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          DIN eKYC Filing
-                        </Link>
-                        <Link to="/certificate-of-incumbency" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Certificate of Incumbency
-                        </Link>
-                        <Link to="/legal-entity-identifier-code" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Legal Entity Identifier Code
-                        </Link>
-                        <Link to="/fdi-filing-rbi" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          FDI Filing with RBI
-                        </Link>
+                      <div className="py-2 grid grid-cols-4 gap-1 text-xs">
+                        <div>
+                          <Link to="/company-compliance" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Company Compliance
+                          </Link>
+                          <Link to="/llp-compliance" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            LLP Compliance
+                          </Link>
+                          <Link to="/opc-compliance" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            OPC Compliance
+                          </Link>
+                          <Link to="/name-change-company" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Name Change - Company
+                          </Link>
+                          <Link to="/registered-office-change-company" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Registered Office Change
+                          </Link>
+                        </div>
+                        <div>
+                          <Link to="/din-ekyc-filing" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            DIN eKYC Filing
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            DIN Reactivation
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Director Change
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Remove Director
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            ADT-1 Filing
+                          </Link>
+                        </div>
+                        <div>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            DPT-3 Filing
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            LLP Form 11 Filing
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Dormant Status Filing
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            MOA Amendment
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            AOA Amendment
+                          </Link>
+                        </div>
+                        <div>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Authorized Capital Increase
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Share Transfer
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Demat of Shares
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Winding Up - LLP
+                          </Link>
+                          <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Winding Up - Company
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -363,42 +490,43 @@ const Header = () => {
                   {activeDropdown === 'compliance' && (
                     <div
                       onMouseLeave={() => setActiveDropdown(null)}
-                      className="absolute top-full left-0 mt-1 w-60 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                      className="absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
                     >
-                      <div className="py-2">
-                        <Link to="/pf-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          PF Registration
-                        </Link>
-                        <Link to="/esi-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          ESI Registration
-                        </Link>
-                        <Link to="/professional-tax-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Professional Tax Registration
-                        </Link>
-                        <Link to="/shop-and-establishment-act" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Shop & Establishment Act
-                        </Link>
-                        <Link to="/trade-license" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Trade License
-                        </Link>
-                        <Link to="/fssai-license" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          FSSAI License
-                        </Link>
-                        <Link to="/drug-license" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Drug License
-                        </Link>
-                        <Link to="/fire-license" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Fire License
-                        </Link>
-                        <Link to="/rera-registration-agents" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          RERA Registration for Agents
-                        </Link>
-                        <Link to="/rcmc-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          RCMC Registration
-                        </Link>
-                        <Link to="/icegate-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Icegate Registration
-                        </Link>
+                      <div className="py-2 grid grid-cols-2 gap-1">
+                        <div>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            FDI Filing with RBI
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            FLA Return Filing
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            FSSAI Renewal
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            FSSAI Return Filing
+                          </Link>
+                        </div>
+                        <div>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            PF Return Filing
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            ESI Return Filing
+                          </Link>
+                          <Link to="/professional-tax-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Professional Tax Return Filing
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Partnership Compliance
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Proprietorship Compliance
+                          </Link>
+                          <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            Bookkeeping
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -418,15 +546,15 @@ const Header = () => {
             </nav>
 
             {/* Search Bar - Make it functional */}
-            <div className="hidden md:flex items-center flex-shrink-0 w-24 lg:w-32">
+            <div className="hidden md:flex items-center flex-shrink-0 w-20 lg:w-28">
               <form onSubmit={handleSearch} className="relative w-full">
-                <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 h-3 w-3" />
                 <Input
                   type="text"
-                  placeholder="Search services..."
+                  placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 pr-4 py-2 w-full border-gray-300 rounded-lg"
+                  className="pl-8 pr-2 py-1 w-full border-gray-300 rounded-lg text-xs"
                 />
               </form>
             </div>

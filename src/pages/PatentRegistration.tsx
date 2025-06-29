@@ -1,34 +1,45 @@
 
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Breadcrumb from "@/components/patent-registration/Breadcrumb";
-import HeroSection from "@/components/patent-registration/HeroSection";
-import DetailsSection from "@/components/patent-registration/DetailsSection";
-import Sidebar from "@/components/patent-registration/Sidebar";
-import { Button } from "@/components/ui/button";
-import { MessageSquare } from "lucide-react";
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { Button } from '@/components/ui/button';
+import { Lightbulb } from 'lucide-react';
+import { useCart } from '@/contexts/CartContext';
+import { toast } from 'sonner';
 
 const PatentRegistration = () => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: 'patent-registration',
+      name: 'Patent Registration',
+      price: 15999
+    });
+    toast.success('Service added to cart!');
+  };
+
   return (
-    <div className="bg-white">
+    <div className="min-h-screen">
       <Header />
-      <main className="max-w-screen-xl mx-auto px-4 py-8 md:px-8 lg:px-16">
-        <Breadcrumb />
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
-          <div className="lg:col-span-2 space-y-8">
-            <HeroSection />
-            <DetailsSection />
+      <div className="pt-20">
+        <section className="bg-gradient-to-br from-yellow-600 to-orange-700 text-white py-20">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <Lightbulb className="h-16 w-16 mx-auto mb-6" />
+            <h1 className="text-4xl font-bold mb-6">Patent Registration</h1>
+            <p className="text-xl text-yellow-100 mb-8 max-w-3xl mx-auto">
+              Protect your inventions and innovations with professional patent registration services.
+            </p>
+            <Button 
+              onClick={handleAddToCart}
+              className="bg-white text-yellow-600 hover:bg-gray-100 px-8 py-3"
+              size="lg"
+            >
+              Add to Cart - ₹15,999
+            </Button>
           </div>
-          <div className="lg:col-span-1">
-            <Sidebar />
-          </div>
-        </div>
-      </main>
+        </section>
+      </div>
       <Footer />
-      <Button className="fixed bottom-8 right-8 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg h-16 w-auto px-6 text-lg z-50">
-        <MessageSquare className="mr-3 h-6 w-6" />
-        Live Chat with Experts
-      </Button>
     </div>
   );
 };
