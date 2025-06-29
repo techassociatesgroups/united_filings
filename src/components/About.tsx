@@ -1,62 +1,73 @@
 
-import { CheckCircle, Users, Building, Award } from 'lucide-react';
+import { Users, Award, TrendingUp, Shield, Clock, CheckCircle2 } from 'lucide-react';
 
 const About = () => {
   const stats = [
-    { number: "10,00,000+", label: "Businesses Served" },
-    { number: "50+", label: "Professional Services" },
-    { number: "15+", label: "Years of Experience" },
-    { number: "99%", label: "Customer Satisfaction" }
+    { number: "10L+", label: "Happy Customers", icon: Users },
+    { number: "15+", label: "Years of Experience", icon: Award },
+    { number: "99%", label: "Success Rate", icon: TrendingUp },
+    { number: "24/7", label: "Customer Support", icon: Shield }
+  ];
+
+  const achievements = [
+    "Trusted by over 1 million businesses across India",
+    "ISO 27001 certified for information security",
+    "Recognized as India's leading business services platform",
+    "Featured in major business publications and media",
+    "Award-winning customer service and support",
+    "Partnerships with leading banks and financial institutions"
   ];
 
   return (
-    <section className="py-20 bg-blue-50">
+    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50/30">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Content */}
           <div>
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              India's Leading Business Services Platform
+              About IndiaFilings
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
-              IndiaFilings has been helping entrepreneurs and businesses across India with their legal and compliance needs since 2009. We are the trusted partner for company registration, tax filing, trademark protection, and ongoing compliance services.
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              India's most trusted business services platform, helping entrepreneurs and businesses navigate the complex landscape of Indian business regulations with ease and confidence.
             </p>
-
+            <p className="text-gray-600 mb-8 leading-relaxed">
+              Since our inception, we have been committed to simplifying business processes through technology, expert guidance, and exceptional customer service. Our comprehensive suite of services covers everything from company registration to ongoing compliance management.
+            </p>
+            
             <div className="space-y-4 mb-8">
-              <div className="flex items-start">
-                <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-1" />
-                <div>
-                  <h4 className="font-semibold text-gray-900">Expert Team</h4>
-                  <p className="text-gray-600">Qualified CAs, lawyers, and business consultants</p>
+              {achievements.map((achievement, index) => (
+                <div key={index} className="flex items-start space-x-3">
+                  <CheckCircle2 className="h-6 w-6 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">{achievement}</span>
                 </div>
-              </div>
-              <div className="flex items-start">
-                <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-1" />
-                <div>
-                  <h4 className="font-semibold text-gray-900">Technology Driven</h4>
-                  <p className="text-gray-600">Modern platform for seamless service delivery</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-1" />
-                <div>
-                  <h4 className="font-semibold text-gray-900">Transparent Pricing</h4>
-                  <p className="text-gray-600">No hidden charges, clear pricing for all services</p>
-                </div>
-              </div>
+              ))}
             </div>
-
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-blue-700 transition-colors">
-              Learn More About Us
-            </button>
           </div>
 
-          <div className="grid grid-cols-2 gap-6">
-            {stats.map((stat, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">{stat.number}</div>
-                <div className="text-gray-600">{stat.label}</div>
+          {/* Stats */}
+          <div>
+            <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Our Impact</h3>
+              <div className="grid grid-cols-2 gap-8">
+                {stats.map((stat, index) => (
+                  <div key={index} className="text-center group">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                      <stat.icon className="h-8 w-8 text-white" />
+                    </div>
+                    <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
+                    <div className="text-gray-600 font-medium">{stat.label}</div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+            
+            <div className="mt-8 bg-gradient-to-r from-green-500 to-teal-600 rounded-2xl p-8 text-white shadow-xl">
+              <h4 className="text-xl font-bold mb-4">Ready to get started?</h4>
+              <p className="mb-6 text-green-50">Join thousands of successful businesses who trust IndiaFilings for their growth journey.</p>
+              <button className="bg-white text-green-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors shadow-lg">
+                Start Your Business Today
+              </button>
+            </div>
           </div>
         </div>
       </div>

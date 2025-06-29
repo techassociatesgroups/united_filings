@@ -1,38 +1,45 @@
 
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Breadcrumb from "@/components/trademark-registration/Breadcrumb";
-import HeroSection from "@/components/trademark-registration/HeroSection";
-import DetailsSection from "@/components/trademark-registration/DetailsSection";
-import Sidebar from "@/components/trademark-registration/Sidebar";
-import ComparisonTable from "@/components/trademark-registration/ComparisonTable";
-import DocumentsSection from "@/components/trademark-registration/DocumentsSection";
-import { Button } from "@/components/ui/button";
-import { MessageSquare } from "lucide-react";
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { Button } from '@/components/ui/button';
+import { Shield } from 'lucide-react';
+import { useCart } from '@/contexts/CartContext';
+import { toast } from 'sonner';
 
 const TrademarkRegistration = () => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: 'trademark-registration',
+      name: 'Trademark Registration',
+      price: 9999
+    });
+    toast.success('Service added to cart!');
+  };
+
   return (
-    <div className="bg-white">
+    <div className="min-h-screen">
       <Header />
-      <main className="max-w-screen-xl mx-auto px-4 py-8 md:px-8 lg:px-16">
-        <Breadcrumb />
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
-          <div className="lg:col-span-2 space-y-8">
-            <HeroSection />
-            <DetailsSection />
-            <DocumentsSection />
-            <ComparisonTable />
+      <div className="pt-20">
+        <section className="bg-gradient-to-br from-red-600 to-pink-700 text-white py-20">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <Shield className="h-16 w-16 mx-auto mb-6" />
+            <h1 className="text-4xl font-bold mb-6">Trademark Registration</h1>
+            <p className="text-xl text-red-100 mb-8 max-w-3xl mx-auto">
+              Protect your brand identity with comprehensive trademark registration services.
+            </p>
+            <Button 
+              onClick={handleAddToCart}
+              className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3"
+              size="lg"
+            >
+              Add to Cart - ₹9,999
+            </Button>
           </div>
-          <div className="lg:col-span-1">
-            <Sidebar />
-          </div>
-        </div>
-      </main>
+        </section>
+      </div>
       <Footer />
-      <Button className="fixed bottom-8 right-8 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg h-16 w-auto px-6 text-lg z-50">
-        <MessageSquare className="mr-3 h-6 w-6" />
-        Live Chat with Experts
-      </Button>
     </div>
   );
 };
