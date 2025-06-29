@@ -7,6 +7,8 @@ import { CartProvider } from "@/contexts/CartContext";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Checkout from "./pages/Checkout";
+import Profile from "./pages/Profile";
+import MyOrders from "./pages/MyOrders";
 
 // Startup Pages
 import PrivateLimitedCompany from "./pages/PrivateLimitedCompany";
@@ -47,6 +49,8 @@ function App() {
               <Route path="/auth" element={<Auth />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/search" element={<SearchResultsPage />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/my-orders" element={<MyOrders />} />
               
               {/* Startup Routes */}
               <Route path="/private-limited-company" element={<PrivateLimitedCompany />} />

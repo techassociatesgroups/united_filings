@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { User, LogOut, FileText } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 interface UserMenuProps {
   onAuthClick: () => void;
@@ -16,6 +17,7 @@ interface UserMenuProps {
 
 const UserMenu = ({ onAuthClick }: UserMenuProps) => {
   const { user, signOut } = useAuth();
+  const navigate = useNavigate();
 
   if (!user) {
     return (
@@ -24,6 +26,14 @@ const UserMenu = ({ onAuthClick }: UserMenuProps) => {
       </Button>
     );
   }
+
+  const handleProfileClick = () => {
+    navigate('/profile');
+  };
+
+  const handleOrdersClick = () => {
+    navigate('/my-orders');
+  };
 
   return (
     <DropdownMenu>
@@ -34,11 +44,11 @@ const UserMenu = ({ onAuthClick }: UserMenuProps) => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={handleProfileClick}>
           <User className="mr-2 h-4 w-4" />
           Profile
         </DropdownMenuItem>
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={handleOrdersClick}>
           <FileText className="mr-2 h-4 w-4" />
           My Orders
         </DropdownMenuItem>
