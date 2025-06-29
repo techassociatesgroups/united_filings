@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Search, Menu, X, Phone, Mail, Clock } from 'lucide-react';
+import { Search, Menu, X, Phone, Mail, Clock, ChevronDown } from 'lucide-react';
 import CartDropdown from './CartDropdown';
 import UserMenu from './UserMenu';
 import AuthModal from './auth/AuthModal';
@@ -13,6 +13,11 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [cartDropdownOpen, setCartDropdownOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const handleDropdownToggle = (dropdown: string) => {
+    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+  };
 
   return (
     <>
@@ -48,21 +53,174 @@ const Header = () => {
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
-              <Link to="/business-registration" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-                Start a Business
-              </Link>
-              <Link to="/registrations" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-                Registrations
-              </Link>
-              <Link to="/gst-registration" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-                GST Services
-              </Link>
-              <Link to="/income-tax-e-filing" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-                Tax Filing
-              </Link>
-              <Link to="/consultation" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            {/* Desktop Navigation with Dropdowns */}
+            <nav className="hidden lg:flex items-center space-x-1">
+              {/* Start a Business Dropdown */}
+              <div className="relative">
+                <button
+                  onMouseEnter={() => handleDropdownToggle('business')}
+                  className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2"
+                >
+                  <span>Start a Business</span>
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                {activeDropdown === 'business' && (
+                  <div
+                    onMouseLeave={() => setActiveDropdown(null)}
+                    className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                  >
+                    <div className="py-2">
+                      <Link to="/private-limited-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Private Limited Company
+                      </Link>
+                      <Link to="/public-limited-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Public Limited Company
+                      </Link>
+                      <Link to="/limited-liability-partnership" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Limited Liability Partnership
+                      </Link>
+                      <Link to="/one-person-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        One Person Company
+                      </Link>
+                      <Link to="/partnership-firm" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Partnership Firm
+                      </Link>
+                      <Link to="/sole-proprietorship" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Sole Proprietorship
+                      </Link>
+                      <Link to="/producer-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Producer Company
+                      </Link>
+                      <Link to="/section-8-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Section 8 Company
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Registrations Dropdown */}
+              <div className="relative">
+                <button
+                  onMouseEnter={() => handleDropdownToggle('registrations')}
+                  className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2"
+                >
+                  <span>Registrations</span>
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                {activeDropdown === 'registrations' && (
+                  <div
+                    onMouseLeave={() => setActiveDropdown(null)}
+                    className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                  >
+                    <div className="py-2">
+                      <Link to="/trademark-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Trademark Registration
+                      </Link>
+                      <Link to="/copyright-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Copyright Registration
+                      </Link>
+                      <Link to="/patent-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Patent Registration
+                      </Link>
+                      <Link to="/fssai-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        FSSAI Registration
+                      </Link>
+                      <Link to="/import-export-code" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Import Export Code
+                      </Link>
+                      <Link to="/startup-india-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Startup India Registration
+                      </Link>
+                      <Link to="/digital-signature" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Digital Signature
+                      </Link>
+                      <Link to="/msme-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        MSME Registration
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* GST Services Dropdown */}
+              <div className="relative">
+                <button
+                  onMouseEnter={() => handleDropdownToggle('gst')}
+                  className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2"
+                >
+                  <span>GST Services</span>
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                {activeDropdown === 'gst' && (
+                  <div
+                    onMouseLeave={() => setActiveDropdown(null)}
+                    className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                  >
+                    <div className="py-2">
+                      <Link to="/gst-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        GST Registration
+                      </Link>
+                      <Link to="/gst-return-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        GST Return Filing
+                      </Link>
+                      <Link to="/gst-annual-return" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        GST Annual Return
+                      </Link>
+                      <Link to="/gst-registration-cancellation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        GST Registration Cancellation
+                      </Link>
+                      <Link to="/gst-lut-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        GST LUT Filing
+                      </Link>
+                      <Link to="/gst-registration-amendment" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        GST Registration Amendment
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Tax Filing Dropdown */}
+              <div className="relative">
+                <button
+                  onMouseEnter={() => handleDropdownToggle('tax')}
+                  className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2"
+                >
+                  <span>Tax Filing</span>
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                {activeDropdown === 'tax' && (
+                  <div
+                    onMouseLeave={() => setActiveDropdown(null)}
+                    className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                  >
+                    <div className="py-2">
+                      <Link to="/income-tax-e-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        Income Tax E-Filing
+                      </Link>
+                      <Link to="/itr-1-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        ITR-1 Filing
+                      </Link>
+                      <Link to="/itr-2-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        ITR-2 Filing
+                      </Link>
+                      <Link to="/itr-3-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        ITR-3 Filing
+                      </Link>
+                      <Link to="/itr-4-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        ITR-4 Filing
+                      </Link>
+                      <Link to="/tds-return-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                        TDS Return Filing
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Consultation Link */}
+              <Link to="/consultation" className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2">
                 Consultation
               </Link>
             </nav>
@@ -103,21 +261,59 @@ const Header = () => {
           {isMenuOpen && (
             <div className="lg:hidden py-4 border-t">
               <div className="flex flex-col space-y-4">
-                <Link to="/business-registration" className="text-gray-700 hover:text-blue-600 font-medium">
-                  Start a Business
-                </Link>
-                <Link to="/registrations" className="text-gray-700 hover:text-blue-600 font-medium">
-                  Registrations
-                </Link>
-                <Link to="/gst-registration" className="text-gray-700 hover:text-blue-600 font-medium">
-                  GST Services
-                </Link>
-                <Link to="/income-tax-e-filing" className="text-gray-700 hover:text-blue-600 font-medium">
-                  Tax Filing
-                </Link>
-                <Link to="/consultation" className="text-gray-700 hover:text-blue-600 font-medium">
+                <div className="space-y-2">
+                  <div className="font-semibold text-gray-900 px-2">Start a Business</div>
+                  <Link to="/private-limited-company" className="text-gray-700 hover:text-blue-600 pl-4">
+                    Private Limited Company
+                  </Link>
+                  <Link to="/public-limited-company" className="text-gray-700 hover:text-blue-600 pl-4">
+                    Public Limited Company
+                  </Link>
+                  <Link to="/limited-liability-partnership" className="text-gray-700 hover:text-blue-600 pl-4">
+                    Limited Liability Partnership
+                  </Link>
+                  <Link to="/one-person-company" className="text-gray-700 hover:text-blue-600 pl-4">
+                    One Person Company
+                  </Link>
+                </div>
+                
+                <div className="space-y-2">
+                  <div className="font-semibold text-gray-900 px-2">Registrations</div>
+                  <Link to="/trademark-registration" className="text-gray-700 hover:text-blue-600 pl-4">
+                    Trademark Registration
+                  </Link>
+                  <Link to="/copyright-registration" className="text-gray-700 hover:text-blue-600 pl-4">
+                    Copyright Registration
+                  </Link>
+                  <Link to="/fssai-registration" className="text-gray-700 hover:text-blue-600 pl-4">
+                    FSSAI Registration
+                  </Link>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="font-semibold text-gray-900 px-2">GST Services</div>
+                  <Link to="/gst-registration" className="text-gray-700 hover:text-blue-600 pl-4">
+                    GST Registration
+                  </Link>
+                  <Link to="/gst-return-filing" className="text-gray-700 hover:text-blue-600 pl-4">
+                    GST Return Filing
+                  </Link>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="font-semibold text-gray-900 px-2">Tax Filing</div>
+                  <Link to="/income-tax-e-filing" className="text-gray-700 hover:text-blue-600 pl-4">
+                    Income Tax E-Filing
+                  </Link>
+                  <Link to="/itr-1-filing" className="text-gray-700 hover:text-blue-600 pl-4">
+                    ITR-1 Filing
+                  </Link>
+                </div>
+
+                <Link to="/consultation" className="text-gray-700 hover:text-blue-600 font-medium px-2">
                   Consultation
                 </Link>
+                
                 <div className="pt-4 border-t">
                   <CallEmailButtons />
                 </div>
