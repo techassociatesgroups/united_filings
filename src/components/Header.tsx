@@ -20,7 +20,7 @@ const Header = () => {
   };
 
   return (
-    <div className="w-full max-w-full overflow-x-hidden">
+    <div className="w-full">
       {/* Top bar */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-1.5 w-full">
         <div className="w-full px-2 sm:px-4 flex items-center justify-between text-xs">
@@ -49,7 +49,7 @@ const Header = () => {
       {/* Main header */}
       <header className="bg-white shadow-lg border-b sticky top-0 z-50 w-full">
         <div className="w-full px-2 sm:px-4">
-          <div className="flex items-center justify-between h-14 min-w-0 gap-2">
+          <div className="flex items-center justify-between h-14 min-w-0 gap-1">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0">
               <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-2 sm:px-3 py-1.5 rounded-lg font-bold text-sm sm:text-base shadow-lg whitespace-nowrap">
@@ -58,13 +58,13 @@ const Header = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center flex-1 justify-center min-w-0">
-              <div className="flex items-center space-x-1 xl:space-x-2 overflow-hidden">
+            <nav className="hidden lg:flex items-center flex-1 justify-center min-w-0 mx-2">
+              <div className="flex items-center space-x-1 overflow-hidden">
                 {/* Startup Dropdown */}
                 <div className="relative">
                   <button
                     onMouseEnter={() => handleDropdownToggle('startup')}
-                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-1.5 py-2 whitespace-nowrap text-sm"
+                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-1 py-2 whitespace-nowrap text-sm"
                   >
                     <span>Startup</span>
                     <ChevronDown className="h-3 w-3" />
@@ -114,7 +114,7 @@ const Header = () => {
                 <div className="relative">
                   <button
                     onMouseEnter={() => handleDropdownToggle('registrations')}
-                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-1.5 py-2 whitespace-nowrap text-sm"
+                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-1 py-2 whitespace-nowrap text-sm"
                   >
                     <span>Registrations</span>
                     <ChevronDown className="h-3 w-3" />
@@ -185,7 +185,7 @@ const Header = () => {
                 <div className="relative">
                   <button
                     onMouseEnter={() => handleDropdownToggle('trademark')}
-                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-1.5 py-2 whitespace-nowrap text-sm"
+                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-1 py-2 whitespace-nowrap text-sm"
                   >
                     <span>Trademark</span>
                     <ChevronDown className="h-3 w-3" />
@@ -214,7 +214,7 @@ const Header = () => {
                 <div className="relative">
                   <button
                     onMouseEnter={() => handleDropdownToggle('gst')}
-                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-1.5 py-2 whitespace-nowrap text-sm"
+                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-1 py-2 whitespace-nowrap text-sm"
                   >
                     <span>GST</span>
                     <ChevronDown className="h-3 w-3" />
@@ -264,7 +264,7 @@ const Header = () => {
                 <div className="relative">
                   <button
                     onMouseEnter={() => handleDropdownToggle('tax')}
-                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-1.5 py-2 whitespace-nowrap text-sm"
+                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-1 py-2 whitespace-nowrap text-sm"
                   >
                     <span>Tax</span>
                     <ChevronDown className="h-3 w-3" />
@@ -311,7 +311,7 @@ const Header = () => {
                 <div className="relative">
                   <button
                     onMouseEnter={() => handleDropdownToggle('mca')}
-                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-1.5 py-2 whitespace-nowrap text-sm"
+                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-1 py-2 whitespace-nowrap text-sm"
                   >
                     <span>MCA</span>
                     <ChevronDown className="h-3 w-3" />
@@ -358,7 +358,7 @@ const Header = () => {
                 <div className="relative">
                   <button
                     onMouseEnter={() => handleDropdownToggle('compliance')}
-                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-1.5 py-2 whitespace-nowrap text-sm"
+                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-1 py-2 whitespace-nowrap text-sm"
                   >
                     <span>Compliance</span>
                     <ChevronDown className="h-3 w-3" />
@@ -408,32 +408,32 @@ const Header = () => {
                 </div>
 
                 {/* Direct Navigation Links */}
-                <Link to="/consultation" className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-1.5 py-2 whitespace-nowrap text-sm">
+                <Link to="/consultation" className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-1 py-2 whitespace-nowrap text-sm">
                   Consultation
                 </Link>
-                <Link to="/guide" className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-1.5 py-2 whitespace-nowrap text-sm">
+                <Link to="/guide" className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-1 py-2 whitespace-nowrap text-sm">
                   Guides
                 </Link>
-                <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-1.5 py-2 whitespace-nowrap text-sm">
+                <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-1 py-2 whitespace-nowrap text-sm">
                   About
                 </Link>
               </div>
             </nav>
 
-            {/* Search Bar */}
-            <div className="hidden md:flex items-center flex-shrink-0 w-48 lg:w-56 xl:w-64">
+            {/* Search Bar - Reduced size */}
+            <div className="hidden md:flex items-center flex-shrink-0 w-32 lg:w-40">
               <div className="relative w-full">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 h-3 w-3" />
                 <Input
                   type="text"
                   placeholder="Search..."
-                  className="pl-10 pr-4 py-2 w-full border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                  className="pl-7 pr-2 py-1.5 w-full border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs"
                 />
               </div>
             </div>
 
             {/* Right side actions */}
-            <div className="flex items-center space-x-2 flex-shrink-0">
+            <div className="flex items-center space-x-1 flex-shrink-0">
               <CartDropdown 
                 isOpen={cartDropdownOpen} 
                 onClose={() => setCartDropdownOpen(false)} 
