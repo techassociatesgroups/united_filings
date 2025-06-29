@@ -35,11 +35,11 @@ const Header = () => {
     suggestion.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const handleDropdownToggle = (dropdown: string) => {
-    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+  const handleDropdownEnter = (dropdown: string) => {
+    setActiveDropdown(dropdown);
   };
 
-  const handleDropdownClose = () => {
+  const handleDropdownLeave = () => {
     setActiveDropdown(null);
   };
 
@@ -106,24 +106,20 @@ const Header = () => {
             <nav className="hidden lg:flex items-center flex-1 justify-center min-w-0 mx-2">
               <div className="flex items-center space-x-1 overflow-hidden">
                 {/* Startup Dropdown */}
-                <div className="relative">
-                  <button
-                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 whitespace-nowrap text-sm"
-                    onMouseEnter={() => setActiveDropdown('startup')}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                  >
+                <div 
+                  className="relative"
+                  onMouseEnter={() => handleDropdownEnter('startup')}
+                  onMouseLeave={handleDropdownLeave}
+                >
+                  <button className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 whitespace-nowrap text-sm">
                     <span>Startup</span>
                     <ChevronDown className="h-3 w-3" />
                   </button>
                   {activeDropdown === 'startup' && (
-                    <div 
-                      className="absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
-                      onMouseEnter={() => setActiveDropdown('startup')}
-                      onMouseLeave={() => setActiveDropdown(null)}
-                    >
+                    <div className="absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-lg shadow-xl z-[100]">
                       <div className="py-2 grid grid-cols-2 gap-1">
                         <div>
-                          <div className="px-4 py-2 font-semibold text-green-600 text-sm border-b">START A BUSINESS (INDIA)</div>
+                          <div className="px-4 py-2 font-semibold text-green-600 text-sm border-b bg-gray-50">START A BUSINESS (INDIA)</div>
                           <Link to="/sole-proprietorship" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                             Proprietorship
                           </Link>
@@ -153,7 +149,7 @@ const Header = () => {
                           </Link>
                         </div>
                         <div>
-                          <div className="px-4 py-2 font-semibold text-green-600 text-sm border-b">TRUST / NGO</div>
+                          <div className="px-4 py-2 font-semibold text-green-600 text-sm border-b bg-gray-50">TRUST / NGO</div>
                           <Link to="/trust-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                             Trust Registration
                           </Link>
@@ -167,21 +163,17 @@ const Header = () => {
                 </div>
 
                 {/* Registrations Dropdown */}
-                <div className="relative">
-                  <button 
-                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 whitespace-nowrap text-sm"
-                    onMouseEnter={() => setActiveDropdown('registrations')}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                  >
+                <div 
+                  className="relative"
+                  onMouseEnter={() => handleDropdownEnter('registrations')}
+                  onMouseLeave={handleDropdownLeave}
+                >
+                  <button className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 whitespace-nowrap text-sm">
                     <span>Registrations</span>
                     <ChevronDown className="h-3 w-3" />
                   </button>
                   {activeDropdown === 'registrations' && (
-                    <div 
-                      className="absolute top-full left-0 mt-1 w-96 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
-                      onMouseEnter={() => setActiveDropdown('registrations')}
-                      onMouseLeave={() => setActiveDropdown(null)}
-                    >
+                    <div className="absolute top-full left-0 mt-1 w-96 bg-white border border-gray-200 rounded-lg shadow-xl z-[100]">
                       <div className="py-2 grid grid-cols-4 gap-1 text-xs">
                         <div>
                           <Link to="/consultation" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
@@ -281,21 +273,17 @@ const Header = () => {
                 </div>
 
                 {/* Trademark Dropdown */}
-                <div className="relative">
-                  <button 
-                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 whitespace-nowrap text-sm"
-                    onMouseEnter={() => setActiveDropdown('trademark')}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                  >
+                <div 
+                  className="relative"
+                  onMouseEnter={() => handleDropdownEnter('trademark')}
+                  onMouseLeave={handleDropdownLeave}
+                >
+                  <button className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 whitespace-nowrap text-sm">
                     <span>Trademark</span>
                     <ChevronDown className="h-3 w-3" />
                   </button>
                   {activeDropdown === 'trademark' && (
-                    <div 
-                      className="absolute top-full left-0 mt-1 w-60 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
-                      onMouseEnter={() => setActiveDropdown('trademark')}
-                      onMouseLeave={() => setActiveDropdown(null)}
-                    >
+                    <div className="absolute top-full left-0 mt-1 w-60 bg-white border border-gray-200 rounded-lg shadow-xl z-[100]">
                       <div className="py-2">
                         <Link to="/trademark-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                           Trademark Registration
@@ -312,21 +300,17 @@ const Header = () => {
                 </div>
 
                 {/* GST Dropdown */}
-                <div className="relative">
-                  <button 
-                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 whitespace-nowrap text-sm"
-                    onMouseEnter={() => setActiveDropdown('gst')}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                  >
+                <div 
+                  className="relative"
+                  onMouseEnter={() => handleDropdownEnter('gst')}
+                  onMouseLeave={handleDropdownLeave}
+                >
+                  <button className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 whitespace-nowrap text-sm">
                     <span>GST</span>
                     <ChevronDown className="h-3 w-3" />
                   </button>
                   {activeDropdown === 'gst' && (
-                    <div 
-                      className="absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
-                      onMouseEnter={() => setActiveDropdown('gst')}
-                      onMouseLeave={() => setActiveDropdown(null)}
-                    >
+                    <div className="absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-lg shadow-xl z-[100]">
                       <div className="py-2 grid grid-cols-2 gap-1">
                         <div>
                           <Link to="/gst-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
@@ -374,21 +358,17 @@ const Header = () => {
                 </div>
 
                 {/* Tax Dropdown */}
-                <div className="relative">
-                  <button 
-                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 whitespace-nowrap text-sm"
-                    onMouseEnter={() => setActiveDropdown('tax')}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                  >
+                <div 
+                  className="relative"
+                  onMouseEnter={() => handleDropdownEnter('tax')}
+                  onMouseLeave={handleDropdownLeave}
+                >
+                  <button className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 whitespace-nowrap text-sm">
                     <span>Tax</span>
                     <ChevronDown className="h-3 w-3" />
                   </button>
                   {activeDropdown === 'tax' && (
-                    <div 
-                      className="absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
-                      onMouseEnter={() => setActiveDropdown('tax')}
-                      onMouseLeave={() => setActiveDropdown(null)}
-                    >
+                    <div className="absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-lg shadow-xl z-[100]">
                       <div className="py-2 grid grid-cols-2 gap-1">
                         <div>
                           <Link to="/income-tax-e-filing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
@@ -436,21 +416,17 @@ const Header = () => {
                 </div>
 
                 {/* MCA Dropdown */}
-                <div className="relative">
-                  <button 
-                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 whitespace-nowrap text-sm"
-                    onMouseEnter={() => setActiveDropdown('mca')}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                  >
+                <div 
+                  className="relative"
+                  onMouseEnter={() => handleDropdownEnter('mca')}
+                  onMouseLeave={handleDropdownLeave}
+                >
+                  <button className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 whitespace-nowrap text-sm">
                     <span>MCA</span>
                     <ChevronDown className="h-3 w-3" />
                   </button>
                   {activeDropdown === 'mca' && (
-                    <div 
-                      className="absolute top-full left-0 mt-1 w-96 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
-                      onMouseEnter={() => setActiveDropdown('mca')}
-                      onMouseLeave={() => setActiveDropdown(null)}
-                    >
+                    <div className="absolute top-full left-0 mt-1 w-96 bg-white border border-gray-200 rounded-lg shadow-xl z-[100]">
                       <div className="py-2 grid grid-cols-4 gap-1 text-xs">
                         <div>
                           <Link to="/company-compliance" className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">
@@ -526,21 +502,17 @@ const Header = () => {
                 </div>
 
                 {/* Compliance Dropdown */}
-                <div className="relative">
-                  <button 
-                    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 whitespace-nowrap text-sm"
-                    onMouseEnter={() => setActiveDropdown('compliance')}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                  >
+                <div 
+                  className="relative"
+                  onMouseEnter={() => handleDropdownEnter('compliance')}
+                  onMouseLeave={handleDropdownLeave}
+                >
+                  <button className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 whitespace-nowrap text-sm">
                     <span>Compliance</span>
                     <ChevronDown className="h-3 w-3" />
                   </button>
                   {activeDropdown === 'compliance' && (
-                    <div 
-                      className="absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
-                      onMouseEnter={() => setActiveDropdown('compliance')}
-                      onMouseLeave={() => setActiveDropdown(null)}
-                    >
+                    <div className="absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-lg shadow-xl z-[100]">
                       <div className="py-2 grid grid-cols-2 gap-1">
                         <div>
                           <Link to="/consultation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
