@@ -434,7 +434,10 @@ const Header = () => {
 
             {/* Right side actions */}
             <div className="flex items-center space-x-4">
-              <CartDropdown />
+              <CartDropdown 
+                isOpen={cartDropdownOpen} 
+                onClose={() => setCartDropdownOpen(false)} 
+              />
               <UserMenu onAuthClick={() => setAuthModalOpen(true)} />
               
               {/* Mobile menu button */}
