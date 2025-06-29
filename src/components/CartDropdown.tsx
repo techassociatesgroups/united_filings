@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ShoppingCart, X } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { Button } from '@/components/ui/button';
@@ -13,28 +13,40 @@ interface CartDropdownProps {
 const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
   const { items, removeFromCart, totalPrice, clearCart, totalItems } = useCart();
   const navigate = useNavigate();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleCheckout = () => {
     navigate('/checkout');
-    onClose();
+    setDropdownOpen(false);
   };
 
   const toggleDropdown = () => {
-    if (isOpen) {
-      onClose();
-    } else {
-      // This will be handled by parent component
-    }
+    setDropdownOpen(!dropdownOpen);
   };
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="relative">
+    <div className="relative" ref={dropdownRef}>
       {/* Cart Button */}
       <Button 
         variant="outline" 
         size="sm" 
         className="relative"
-        onClick={() => !isOpen && onClose()}
+        onClick={toggleDropdown}
       >
         <ShoppingCart className="h-4 w-4" />
         {totalItems > 0 && (
@@ -45,12 +57,12 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
       </Button>
 
       {/* Dropdown */}
-      {isOpen && (
+      {dropdownOpen && (
         <div className="absolute right-0 top-full mt-2 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
           <div className="p-4">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold">Shopping Cart</h3>
-              <button onClick={onClose} className="p-1 hover:bg-gray-100 rounded">
+              <button onClick={() => setDropdownOpen(false)} className="p-1 hover:bg-gray-100 rounded">
                 <X className="h-4 w-4" />
               </button>
             </div>
@@ -70,7 +82,7 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
                         <p className="text-xs text-gray-500">Qty: {item.quantity}</p>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <span className="text-sm font-medium">₹{item.price * item.quantity}</span>
+                        <span className="text-sm font-medium">₹{(item.price * item.quantity).toLocaleString()}</span>
                         <button 
                           onClick={() => removeFromCart(item.id)}
                           className="p-1 hover:bg-gray-100 rounded"
@@ -84,7 +96,7 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
                 
                 <div className="border-t pt-3">
                   <div className="flex justify-between items-center mb-3">
-                    <span className="font-semibold">Total: ₹{totalPrice}</span>
+                    <span className="font-semibold">Total: ₹{totalPrice.toLocaleString()}</span>
                     <Button 
                       onClick={clearCart}
                       variant="outline" 

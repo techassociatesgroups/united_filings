@@ -1,21 +1,36 @@
 
 import { Search, TrendingUp, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const PopularSearches = () => {
+  const navigate = useNavigate();
+
   const searches = [
-    { term: "GST Registration", count: "50K+ searches" },
-    { term: "Company Registration", count: "45K+ searches" },
-    { term: "Trademark Registration", count: "30K+ searches" },
-    { term: "Income Tax Filing", count: "40K+ searches" },
-    { term: "FSSAI License", count: "25K+ searches" },
-    { term: "Import Export Code", count: "20K+ searches" },
-    { term: "Digital Signature", count: "35K+ searches" },
-    { term: "Startup India Registration", count: "18K+ searches" },
-    { term: "PAN Card", count: "60K+ searches" },
-    { term: "Udyam Registration", count: "22K+ searches" },
-    { term: "Shop Act License", count: "15K+ searches" },
-    { term: "Professional Tax", count: "12K+ searches" }
+    { term: "GST Registration", count: "50K+ searches", link: "/gst-registration" },
+    { term: "Company Registration", count: "45K+ searches", link: "/private-limited-company" },
+    { term: "Trademark Registration", count: "30K+ searches", link: "/trademark-registration" },
+    { term: "Income Tax Filing", count: "40K+ searches", link: "/income-tax-e-filing" },
+    { term: "FSSAI License", count: "25K+ searches", link: "/fssai-license" },
+    { term: "Import Export Code", count: "20K+ searches", link: "/import-export-code" },
+    { term: "Digital Signature", count: "35K+ searches", link: "/digital-signature" },
+    { term: "Startup India Registration", count: "18K+ searches", link: "/startup-india-registration" },
+    { term: "PAN Card", count: "60K+ searches", link: "/consultation" },
+    { term: "Udyam Registration", count: "22K+ searches", link: "/msme-registration" },
+    { term: "Shop Act License", count: "15K+ searches", link: "/shop-and-establishment-act" },
+    { term: "Professional Tax", count: "12K+ searches", link: "/professional-tax-registration" }
   ];
+
+  const handleSearchClick = (link: string) => {
+    navigate(link);
+  };
+
+  const handleExpertHelp = () => {
+    navigate('/consultation');
+  };
+
+  const handleBrowseServices = () => {
+    navigate('/guide');
+  };
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30">
@@ -34,7 +49,7 @@ const PopularSearches = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
           {searches.map((search, index) => (
-            <div key={index} className="group cursor-pointer">
+            <div key={index} className="group cursor-pointer" onClick={() => handleSearchClick(search.link)}>
               <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-start justify-between mb-4">
                   <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
@@ -60,10 +75,16 @@ const PopularSearches = () => {
               Our experts are here to help you find the right business service for your needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg">
+              <button 
+                onClick={handleExpertHelp}
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg"
+              >
                 Get Expert Help
               </button>
-              <button className="border border-gray-300 text-gray-700 px-8 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors">
+              <button 
+                onClick={handleBrowseServices}
+                className="border border-gray-300 text-gray-700 px-8 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
+              >
                 Browse All Services
               </button>
             </div>

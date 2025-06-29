@@ -1,30 +1,44 @@
 
 import { Calendar, ArrowRight, Clock, TrendingUp } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const UpdatesSection = () => {
+  const navigate = useNavigate();
+
   const updates = [
     {
       date: "Dec 25, 2024",
       title: "New GST Return Filing Deadline Extended",
       description: "Government extends GSTR-1 filing deadline to provide businesses more time for compliance.",
       category: "GST Updates",
-      color: "from-blue-500 to-blue-600"
+      color: "from-blue-500 to-blue-600",
+      link: "/gst-registration"
     },
     {
       date: "Dec 20, 2024", 
       title: "Simplified Company Registration Process",
       description: "MCA introduces new digital initiatives to streamline the company incorporation process.",
       category: "MCA Updates",
-      color: "from-green-500 to-green-600"
+      color: "from-green-500 to-green-600",
+      link: "/private-limited-company"
     },
     {
       date: "Dec 18, 2024",
       title: "Income Tax Return Filing Made Easier",
       description: "New features added to income tax portal for faster and more accurate ITR filing.",
       category: "Income Tax",
-      color: "from-purple-500 to-purple-600"
+      color: "from-purple-500 to-purple-600",
+      link: "/income-tax-e-filing"
     }
   ];
+
+  const handleReadMore = (link: string) => {
+    navigate(link);
+  };
+
+  const handleViewAllUpdates = () => {
+    navigate('/all-updates');
+  };
 
   return (
     <section className="py-20 bg-white">
@@ -40,7 +54,7 @@ const UpdatesSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {updates.map((update, index) => (
-            <div key={index} className="group cursor-pointer">
+            <div key={index} className="group cursor-pointer" onClick={() => handleReadMore(update.link)}>
               <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className={`h-2 bg-gradient-to-r ${update.color}`}></div>
                 <div className="p-8">
@@ -70,7 +84,10 @@ const UpdatesSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+          <button 
+            onClick={handleViewAllUpdates}
+            className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
             View All Updates
           </button>
         </div>

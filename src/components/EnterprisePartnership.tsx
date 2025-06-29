@@ -1,7 +1,10 @@
 
 import { Users, Building, Award, Handshake, ArrowRight, CheckCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const EnterprisePartnership = () => {
+  const navigate = useNavigate();
+
   const benefits = [
     {
       icon: Users,
@@ -34,6 +37,14 @@ const EnterprisePartnership = () => {
     "Training and onboarding support"
   ];
 
+  const handleBecomePartner = () => {
+    navigate('/become-partner');
+  };
+
+  const handleLearnMore = () => {
+    navigate('/become-partner');
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
@@ -62,7 +73,10 @@ const EnterprisePartnership = () => {
               ))}
             </div>
 
-            <button className="bg-white text-blue-900 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors flex items-center space-x-2 shadow-lg">
+            <button 
+              onClick={handleBecomePartner}
+              className="bg-white text-blue-900 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors flex items-center space-x-2 shadow-lg"
+            >
               <span>Become a Partner</span>
               <ArrowRight className="h-5 w-5" />
             </button>
@@ -85,7 +99,10 @@ const EnterprisePartnership = () => {
               <p className="text-green-100 text-sm mb-4">
                 Join our network of successful partners and grow your business with our proven platform.
               </p>
-              <button className="text-green-300 font-semibold hover:text-green-200 transition-colors">
+              <button 
+                onClick={handleLearnMore}
+                className="text-green-300 font-semibold hover:text-green-200 transition-colors"
+              >
                 Learn More →
               </button>
             </div>

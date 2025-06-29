@@ -1,6 +1,5 @@
-
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Search, Menu, X, Phone, Mail, Clock, ChevronDown } from 'lucide-react';
@@ -10,13 +9,23 @@ import AuthModal from './auth/AuthModal';
 import CallEmailButtons from './CallEmailButtons';
 
 const Header = () => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [cartDropdownOpen, setCartDropdownOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleDropdownToggle = (dropdown: string) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+  };
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery('');
+    }
   };
 
   return (
@@ -92,18 +101,6 @@ const Header = () => {
                         </Link>
                         <Link to="/sole-proprietorship" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                           Sole Proprietorship
-                        </Link>
-                        <Link to="/producer-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Producer Company
-                        </Link>
-                        <Link to="/section-8-company" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Section 8 Company
-                        </Link>
-                        <Link to="/trust-registration" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Trust Registration
-                        </Link>
-                        <Link to="/indian-subsidiary" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                          Indian Subsidiary
                         </Link>
                       </div>
                     </div>
@@ -420,16 +417,18 @@ const Header = () => {
               </div>
             </nav>
 
-            {/* Search Bar - Reduced size */}
-            <div className="hidden md:flex items-center flex-shrink-0 w-32 lg:w-40">
-              <div className="relative w-full">
-                <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 h-3 w-3" />
+            {/* Search Bar - Make it functional */}
+            <div className="hidden md:flex items-center flex-shrink-0 w-24 lg:w-32">
+              <form onSubmit={handleSearch} className="relative w-full">
+                <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                 <Input
                   type="text"
-                  placeholder="Search..."
-                  className="pl-7 pr-2 py-1.5 w-full border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs"
+                  placeholder="Search services..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 pr-4 py-2 w-full border-gray-300 rounded-lg"
                 />
-              </div>
+              </form>
             </div>
 
             {/* Right side actions */}
@@ -454,6 +453,18 @@ const Header = () => {
           {isMenuOpen && (
             <div className="lg:hidden py-4 border-t w-full">
               <div className="flex flex-col space-y-3 w-full">
+                {/* Mobile Search */}
+                <form onSubmit={handleSearch} className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                  <Input
+                    type="text"
+                    placeholder="Search services..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-10 pr-4 py-2 w-full border-gray-300 rounded-lg"
+                  />
+                </form>
+
                 <div className="space-y-2">
                   <div className="font-semibold text-gray-900 text-sm">Startup</div>
                   <Link to="/private-limited-company" className="text-gray-700 hover:text-blue-600 pl-4 block text-sm">
