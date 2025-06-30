@@ -53,6 +53,7 @@ import WindingUpCompany from '@/pages/WindingUpCompany';
 import Auth from '@/pages/Auth';
 import Profile from '@/pages/Profile';
 import Orders from '@/pages/Orders';
+import Checkout from '@/pages/Checkout';
 
 const queryClient = new QueryClient();
 
@@ -118,6 +119,7 @@ function App() {
               <Route path="/auth" element={<Auth />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/orders" element={<Orders />} />
+              <Route path="/checkout" element={<Checkout />} />
             </Routes>
           </div>
         </Router>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import UserDropdown from './UserDropdown';
+import CartIcon from './CartIcon';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -277,8 +278,9 @@ const Header = () => {
             </Link>
           </nav>
 
-          {/* Right side - User Menu/Login */}
-          <div className="flex items-center">
+          {/* Right side - Cart and User Menu */}
+          <div className="flex items-center space-x-4">
+            <CartIcon />
             <UserDropdown />
           </div>
 
