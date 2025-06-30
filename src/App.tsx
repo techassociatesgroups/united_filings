@@ -88,6 +88,8 @@ import Checkout from "./pages/Checkout";
 import AboutUs from "./pages/AboutUs";
 import Guide from "./pages/Guide";
 import UdyamRegistration from "./pages/UdyamRegistration";
+import AllUpdates from "./pages/AllUpdates";
+import StartYourBusiness from "./pages/StartYourBusiness";
 
 const queryClient = new QueryClient();
 
@@ -104,6 +106,8 @@ const App = () => (
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/guide" element={<Guide />} />
+            <Route path="/all-updates" element={<AllUpdates />} />
+            <Route path="/start-your-business" element={<StartYourBusiness />} />
             <Route path="/business-registration" element={<BusinessRegistration />} />
             <Route path="/registrations" element={<Registrations />} />
             <Route path="/consultation" element={<Consultation />} />

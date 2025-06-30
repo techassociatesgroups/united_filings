@@ -1,5 +1,5 @@
-
 import { Users, Award, TrendingUp, Shield, Clock, CheckCircle2 } from 'lucide-react';
+import { handlePhoneCall, handleEmailContact, businessPhone, businessEmail } from '@/utils/contactUtils';
 
 const About = () => {
   const stats = [
@@ -19,7 +19,7 @@ const About = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50/30">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
@@ -69,6 +69,23 @@ const About = () => {
               </button>
             </div>
           </div>
+        </div>
+      </div>
+      
+      <div className="text-center mt-12">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button 
+            onClick={() => handlePhoneCall(businessPhone)}
+            className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            Call Us Now
+          </button>
+          <button 
+            onClick={() => handleEmailContact(businessEmail, "Business Inquiry", "Hello, I would like to know more about your services.")}
+            className="border border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
+          >
+            Email Us
+          </button>
         </div>
       </div>
     </section>
