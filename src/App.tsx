@@ -87,6 +87,7 @@ import Bookkeeping from "./pages/Bookkeeping";
 import Checkout from "./pages/Checkout";
 import AboutUs from "./pages/AboutUs";
 import Guide from "./pages/Guide";
+import UdyamRegistration from "./pages/UdyamRegistration";
 
 const queryClient = new QueryClient();
 
@@ -180,6 +181,7 @@ const App = () => (
             <Route path="/partnership-compliance" element={<PartnershipCompliance />} />
             <Route path="/proprietorship-compliance" element={<ProprietorshipCompliance />} />
             <Route path="/bookkeeping" element={<Bookkeeping />} />
+            <Route path="/udyam-registration" element={<UdyamRegistration />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
