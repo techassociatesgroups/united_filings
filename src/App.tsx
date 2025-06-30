@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { CartProvider } from '@/contexts/CartContext';
+import { Toaster } from '@/components/ui/toaster';
 import Index from '@/pages/Index';
 import Proprietorship from '@/pages/Proprietorship';
 import Partnership from '@/pages/Partnership'; 
@@ -49,6 +50,9 @@ import ShareTransfer from '@/pages/ShareTransfer';
 import DematOfShares from '@/pages/DematOfShares';
 import WindingUpLLP from '@/pages/WindingUpLLP';
 import WindingUpCompany from '@/pages/WindingUpCompany';
+import Auth from '@/pages/Auth';
+import Profile from '@/pages/Profile';
+import Orders from '@/pages/Orders';
 
 const queryClient = new QueryClient();
 
@@ -109,9 +113,15 @@ function App() {
               <Route path="/demat-of-shares" element={<DematOfShares />} />
               <Route path="/winding-up-llp" element={<WindingUpLLP />} />
               <Route path="/winding-up-company" element={<WindingUpCompany />} />
+              
+              {/* New Auth Routes */}
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/orders" element={<Orders />} />
             </Routes>
           </div>
         </Router>
+        <Toaster />
       </CartProvider>
     </QueryClientProvider>
   );
