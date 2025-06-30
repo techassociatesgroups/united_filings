@@ -1,4 +1,3 @@
-
 import { Building2, Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
 const Footer = () => {
@@ -42,25 +41,25 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-green-500 rounded-lg flex items-center justify-center">
                 <Building2 className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold">IndiaFilings</h3>
+              <h3 className="text-2xl font-bold">CA PI</h3>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               India's most trusted business services platform, helping entrepreneurs and businesses navigate regulatory compliance with ease and confidence.
             </p>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-blue-400" />
+                <Phone className="h-5 w-5 text-green-400" />
                 <span className="text-gray-300">+91 80 4718 4222</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-300">support@indiafilings.com</span>
+                <Mail className="h-5 w-5 text-green-400" />
+                <span className="text-gray-300">support@capi.com</span>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="h-5 w-5 text-blue-400" />
+                <MapPin className="h-5 w-5 text-green-400" />
                 <span className="text-gray-300">Bangalore, Karnataka, India</span>
               </div>
             </div>
@@ -127,7 +126,7 @@ const Footer = () => {
               </a>
             </div>
             <div className="text-gray-400 text-sm">
-              © 2024 IndiaFilings. All rights reserved.
+              © 2024 CA PI. All rights reserved.
             </div>
           </div>
         </div>

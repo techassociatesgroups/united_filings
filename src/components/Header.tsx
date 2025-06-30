@@ -258,7 +258,7 @@ const Header = () => {
             </div>
             <div className="flex items-center space-x-1">
               <Mail className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
-              <span className="hidden sm:inline">info@indiafilings.com</span>
+              <span className="hidden sm:inline">info@capi.com</span>
             </div>
           </div>
           <div className="hidden lg:block text-green-600 text-xs">
@@ -274,9 +274,9 @@ const Header = () => {
           <div className="flex items-center flex-shrink-0">
             <Link to="/" className="flex items-center">
               <div className="bg-gradient-to-r from-orange-400 to-green-500 text-white px-2 sm:px-3 py-1 sm:py-2 rounded-full text-sm sm:text-xl font-bold mr-1 sm:mr-2">
-                India
+                CA
               </div>
-              <span className="text-green-600 text-sm sm:text-xl font-bold">Filings</span>
+              <span className="text-green-600 text-sm sm:text-xl font-bold">PI</span>
             </Link>
           </div>
 
@@ -743,7 +743,7 @@ const Header = () => {
                 className="p-1 sm:p-2 hover:bg-gray-100 rounded-full relative"
                 onClick={() => setIsCartOpen(!isCartOpen)}
               >
-                <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600" />
+                <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5" />
                 {totalItems > 0 && (
                   <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center">
                     {totalItems}
