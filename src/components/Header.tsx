@@ -1,4 +1,3 @@
-
 import { Phone, Mail, Search, ShoppingCart, User, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
@@ -371,7 +370,7 @@ const Header = () => {
                             <Link to="/digital-signature" className="text-gray-600 hover:text-green-600">Digital Signature</Link>
                             <Link to="/shop-and-establishment-act" className="text-gray-600 hover:text-green-600">Shop Act Registration</Link>
                             <Link to="/drug-license" className="text-gray-600 hover:text-green-600">Drug License</Link>
-                            <Link to="#" className="text-gray-600 hover:text-green-600">Udyam Registration</Link>
+                            <Link to="/udyam-registration" className="text-gray-600 hover:text-green-600">Udyam Registration</Link>
                             <Link to="#" className="text-gray-600 hover:text-green-600">FCRA Registration</Link>
                             <Link to="#" className="text-gray-600 hover:text-green-600">Fire License</Link>
                         </div>
@@ -571,24 +570,24 @@ const Header = () => {
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="/din-ekyc-filing" className="text-gray-600 hover:text-green-600">DIN eKYC Filing</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">DIN Reactivation</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Director Change</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Remove Director</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">ADT-1 Filing</Link>
+                          <Link to="/din-reactivation" className="text-gray-600 hover:text-green-600">DIN Reactivation</Link>
+                          <Link to="/director-change" className="text-gray-600 hover:text-green-600">Director Change</Link>
+                          <Link to="/remove-director" className="text-gray-600 hover:text-green-600">Remove Director</Link>
+                          <Link to="/adt-1-filing" className="text-gray-600 hover:text-green-600">ADT-1 Filing</Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="#" className="text-gray-600 hover:text-green-600">DPT-3 Filing</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">LLP Form 11 Filing</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Dormant Status Filing</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">MOA Amendment</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">AOA Amendment</Link>
+                          <Link to="/dpt-3-filing" className="text-gray-600 hover:text-green-600">DPT-3 Filing</Link>
+                          <Link to="/llp-form-11-filing" className="text-gray-600 hover:text-green-600">LLP Form 11 Filing</Link>
+                          <Link to="/dormant-status-filing" className="text-gray-600 hover:text-green-600">Dormant Status Filing</Link>
+                          <Link to="/moa-amendment" className="text-gray-600 hover:text-green-600">MOA Amendment</Link>
+                          <Link to="/aoa-amendment" className="text-gray-600 hover:text-green-600">AOA Amendment</Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Authorized Capital Increase</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Share Transfer</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Demat of Shares</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Winding Up - LLP</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Winding Up - Company</Link>
+                          <Link to="/authorized-capital-increase" className="text-gray-600 hover:text-green-600">Authorized Capital Increase</Link>
+                          <Link to="/share-transfer" className="text-gray-600 hover:text-green-600">Share Transfer</Link>
+                          <Link to="/demat-of-shares" className="text-gray-600 hover:text-green-600">Demat of Shares</Link>
+                          <Link to="/winding-up-llp" className="text-gray-600 hover:text-green-600">Winding Up - LLP</Link>
+                          <Link to="/winding-up-company" className="text-gray-600 hover:text-green-600">Winding Up - Company</Link>
                         </div>
                       </div>
                     </NavigationMenuContent>
