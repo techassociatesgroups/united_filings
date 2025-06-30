@@ -1,6 +1,6 @@
+
 import React from 'react';
-import Image from 'next/image';
-import { RocketLaunch } from 'lucide-react';
+import { Rocket } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
@@ -36,7 +36,7 @@ const Hero = () => {
             </div>
             
             <div className="flex items-center space-x-4">
-              <RocketLaunch className="h-6 w-6 text-blue-500" />
+              <Rocket className="h-6 w-6 text-blue-500" />
               <span className="text-gray-600 font-semibold">
                 Launch your business with confidence
               </span>
@@ -44,12 +44,10 @@ const Hero = () => {
           </div>
           
           <div>
-            <Image 
+            <img 
               src="/assets/apeda-hero.png"
               alt="Business Growth"
-              width={700}
-              height={500}
-              className="rounded-2xl shadow-2xl"
+              className="w-full h-auto max-w-[700px] rounded-2xl shadow-2xl"
             />
           </div>
         </div>
