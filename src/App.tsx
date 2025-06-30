@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { CartProvider } from '@/contexts/CartContext';
@@ -36,6 +35,20 @@ import Consultation from '@/pages/Consultation';
 import AllUpdates from '@/pages/AllUpdates';
 import StartYourBusiness from '@/pages/StartYourBusiness';
 import UdyamRegistration from '@/pages/UdyamRegistration';
+import DINReactivation from '@/pages/DINReactivation';
+import DirectorChange from '@/pages/DirectorChange';
+import RemoveDirector from '@/pages/RemoveDirector';
+import ADT1Filing from '@/pages/ADT1Filing';
+import DPT3Filing from '@/pages/DPT3Filing';
+import LLPForm11Filing from '@/pages/LLPForm11Filing';
+import DormantStatusFiling from '@/pages/DormantStatusFiling';
+import MOAAmendment from '@/pages/MOAAmendment';
+import AOAAmendment from '@/pages/AOAAmendment';
+import AuthorizedCapitalIncrease from '@/pages/AuthorizedCapitalIncrease';
+import ShareTransfer from '@/pages/ShareTransfer';
+import DematOfShares from '@/pages/DematOfShares';
+import WindingUpLLP from '@/pages/WindingUpLLP';
+import WindingUpCompany from '@/pages/WindingUpCompany';
 
 const queryClient = new QueryClient();
 
@@ -80,6 +93,22 @@ function App() {
               <Route path="/all-updates" element={<AllUpdates />} />
               <Route path="/start-your-business" element={<StartYourBusiness />} />
               <Route path="/udyam-registration" element={<UdyamRegistration />} />
+              
+              {/* New MCA Service Routes */}
+              <Route path="/din-reactivation" element={<DINReactivation />} />
+              <Route path="/director-change" element={<DirectorChange />} />
+              <Route path="/remove-director" element={<RemoveDirector />} />
+              <Route path="/adt-1-filing" element={<ADT1Filing />} />
+              <Route path="/dpt-3-filing" element={<DPT3Filing />} />
+              <Route path="/llp-form-11-filing" element={<LLPForm11Filing />} />
+              <Route path="/dormant-status-filing" element={<DormantStatusFiling />} />
+              <Route path="/moa-amendment" element={<MOAAmendment />} />
+              <Route path="/aoa-amendment" element={<AOAAmendment />} />
+              <Route path="/authorized-capital-increase" element={<AuthorizedCapitalIncrease />} />
+              <Route path="/share-transfer" element={<ShareTransfer />} />
+              <Route path="/demat-of-shares" element={<DematOfShares />} />
+              <Route path="/winding-up-llp" element={<WindingUpLLP />} />
+              <Route path="/winding-up-company" element={<WindingUpCompany />} />
             </Routes>
           </div>
         </Router>
