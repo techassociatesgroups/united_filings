@@ -1,4 +1,4 @@
-import { Phone, Mail, Search, ShoppingCart, User, X, Building2, ChevronDown, Menu } from 'lucide-react';
+import { Phone, Mail, Search, ShoppingCart, User, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
 import { useState } from 'react';
@@ -194,11 +194,6 @@ const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [businessOpen, setBusinessOpen] = useState(false);
-  const [gstOpen, setGstOpen] = useState(false);
-  const [taxOpen, setTaxOpen] = useState(false);
-  const [mcaOpen, setMcaOpen] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Search data - all available services
   const allServices = [
@@ -252,213 +247,521 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-sm border-b">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Top Bar */}
-        <div className="flex items-center justify-between py-2 text-sm border-b border-gray-100">
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-2">
-              <Phone className="h-4 w-4 text-blue-600" />
-              <span className="text-gray-600">+91 9876543210</span>
+    <header className="bg-white shadow-sm overflow-visible relative z-50">
+      {/* Top contact bar */}
+      <div className="bg-green-50 py-2 px-2 sm:px-4">
+        <div className="max-w-7xl mx-auto flex justify-between items-center text-xs sm:text-sm">
+          <div className="flex items-center space-x-2 sm:space-x-4">
+            <div className="flex items-center space-x-1">
+              <Phone className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
+              <span className="hidden sm:inline">+91 9876543210</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <Mail className="h-4 w-4 text-blue-600" />
-              <span className="text-gray-600">info@capi.com</span>
+            <div className="flex items-center space-x-1">
+              <Mail className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
+              <span className="hidden sm:inline">info@capi.com</span>
             </div>
           </div>
-          <div className="flex items-center space-x-4">
-            <span className="text-blue-600 font-medium">Trusted by 10,00,000+ businesses across India</span>
-            <button className="flex items-center space-x-1 text-gray-600 hover:text-blue-600">
-              <User className="h-4 w-4" />
-              <span>Login</span>
-            </button>
+          <div className="hidden lg:block text-green-600 text-xs">
+            Trusted by 10,00,000+ businesses across India
           </div>
         </div>
+      </div>
 
-        {/* Main Navigation */}
-        <div className="flex items-center justify-between py-4">
+      {/* Main navigation */}
+      <nav className="max-w-7xl mx-auto px-2 sm:px-4 py-2 sm:py-3 relative z-50">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center">
-              <Building2 className="h-6 w-6 text-white" />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-blue-600">CA</h1>
-              <span className="text-xl font-bold text-blue-800 ml-1">PI</span>
-            </div>
-          </Link>
-
-          {/* Navigation Menu */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {/* Business Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setBusinessOpen(true)}
-              onMouseLeave={() => setBusinessOpen(false)}
-            >
-              <button className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium">
-                <span>Business</span>
-                <ChevronDown className="h-4 w-4" />
-              </button>
-              
-              {businessOpen && (
-                <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-lg border z-50">
-                  <div className="p-6">
-                    <h3 className="font-semibold text-blue-600 mb-4">Business Registration</h3>
-                    <div className="grid grid-cols-1 gap-2">
-                      <Link to="/private-limited-company" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Private Limited Company</Link>
-                      <Link to="/llp" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Limited Liability Partnership</Link>
-                      <Link to="/opc" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">One Person Company</Link>
-                      <Link to="/partnership" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Partnership Firm</Link>
-                      <Link to="/proprietorship" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Sole Proprietorship</Link>
-                      <Link to="/indian-subsidiary" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Indian Subsidiary</Link>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* GST Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setGstOpen(true)}
-              onMouseLeave={() => setGstOpen(false)}
-            >
-              <button className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium">
-                <span>GST</span>
-                <ChevronDown className="h-4 w-4" />
-              </button>
-              
-              {gstOpen && (
-                <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-lg border z-50">
-                  <div className="p-6">
-                    <div className="grid grid-cols-1 gap-2">
-                      <Link to="/gst-registration" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">GST Registration</Link>
-                      <Link to="/gst-return-filing" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">GST Return Filing</Link>
-                      <Link to="/gst-annual-return-filing-gstr9" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">GST Annual Return</Link>
-                      <Link to="/gst-registration-amendment" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">GST Registration Amendment</Link>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Tax Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setTaxOpen(true)}
-              onMouseLeave={() => setTaxOpen(false)}
-            >
-              <button className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium">
-                <span>Tax</span>
-                <ChevronDown className="h-4 w-4" />
-              </button>
-              
-              {taxOpen && (
-                <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-lg border z-50">
-                  <div className="p-6">
-                    <div className="grid grid-cols-1 gap-2">
-                      <Link to="/income-tax-e-filing" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Income Tax E-Filing</Link>
-                      <Link to="/itr1-return-filing" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">ITR-1 Return Filing</Link>
-                      <Link to="/itr2-return-filing" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">ITR-2 Return Filing</Link>
-                      <Link to="/business-income-tax" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Business Income Tax</Link>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Trademark */}
-            <Link to="/trademark-registration" className="text-gray-700 hover:text-blue-600 font-medium">
-              Trademark
+          <div className="flex items-center flex-shrink-0">
+            <Link to="/" className="flex items-center">
+              <div className="bg-gradient-to-r from-orange-400 to-green-500 text-white px-2 sm:px-3 py-1 sm:py-2 rounded-full text-sm sm:text-xl font-bold mr-1 sm:mr-2">
+                CA
+              </div>
+              <span className="text-green-600 text-sm sm:text-xl font-bold">PI</span>
             </Link>
+          </div>
 
-            {/* MCA Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setMcaOpen(true)}
-              onMouseLeave={() => setMcaOpen(false)}
-            >
-              <button className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium">
-                <span>MCA</span>
-                <ChevronDown className="h-4 w-4" />
-              </button>
+          {/* Navigation menu - optimized for different screen sizes */}
+          <div className="hidden xl:flex items-center justify-center flex-1 max-w-4xl mx-4">
+            <div className="flex items-center space-x-1 text-xs font-medium">
+              {/* Startup and Registrations NavigationMenu */}
+              <NavigationMenu className="relative z-[100]">
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
+                      Startup
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[750px] gap-6 p-6 md:grid-cols-3 bg-white shadow-xl border">
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <h4 className="font-bold text-green-600 mb-2 text-base">START A BUSINESS (INDIA)</h4>
+                          <Link to="/proprietorship" className="text-gray-600 hover:text-green-600">Proprietorship</Link>
+                          <Link to="/partnership" className="text-gray-600 hover:text-green-600">Partnership Firm</Link>
+                          <Link to="/one-person-company" className="text-gray-600 hover:text-green-600">One Person Company</Link>
+                          <Link to="/limited-liability-partnership" className="text-gray-600 hover:text-green-600">Limited Liability Partnership</Link>
+                          <Link to="/private-limited-company" className="text-gray-600 hover:text-green-600">Private Limited Company</Link>
+                          <Link to="/public-limited-company" className="text-gray-600 hover:text-green-600">Public Limited Company</Link>
+                          <Link to="/section-8-company" className="text-gray-600 hover:text-green-600">Section 8 Company</Link>
+                          <Link to="/producer-company" className="text-gray-600 hover:text-green-600">Producer Company</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Nidhi Company</Link>
+                          <Link to="/indian-subsidiary" className="text-gray-600 hover:text-green-600">Indian Subsidiary</Link>
+                        </div>
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <h4 className="font-bold text-green-600 mb-2 text-base">INTERNATIONAL BUSINESS</h4>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in UAE</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in USA</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in Singapore</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in UK</Link>
+                          <h4 className="font-bold text-green-600 mb-2 pt-4 text-base">TRUST / NGO</h4>
+                          <Link to="/trust-registration" className="text-gray-600 hover:text-green-600">Trust Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Society Registration</Link>
+                        </div>
+                        <div className="bg-gray-50 p-4 rounded-lg flex flex-col justify-center text-center">
+                            <div>
+                              <h4 className="font-bold text-gray-800 text-base">Need help?</h4>
+                              <p className="text-gray-600 mt-1 text-sm font-normal">Talk to our experts to get personalised help.</p>
+                            </div>
+                            <Link to="#" className="mt-4 block bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600">
+                              TALK TO AN EXPERT
+                            </Link>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
               
-              {mcaOpen && (
-                <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-lg border z-50">
-                  <div className="p-6">
-                    <div className="grid grid-cols-1 gap-2">
-                      <Link to="/company-compliance" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Company Compliance</Link>
-                      <Link to="/din-reactivation" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">DIN Reactivation</Link>
-                      <Link to="/director-change" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Director Change</Link>
-                      <Link to="/remove-director" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Remove Director</Link>
-                      <Link to="/adt1-filing" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">ADT-1 Filing</Link>
-                      <Link to="/dpt3-filing" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">DPT-3 Filing</Link>
-                      <Link to="/llp-form11-filing" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">LLP Form 11 Filing</Link>
-                      <Link to="/dormant-status-filing" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Dormant Status Filing</Link>
-                      <Link to="/moa-amendment" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">MOA Amendment</Link>
-                      <Link to="/aoa-amendment" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">AOA Amendment</Link>
-                      <Link to="/authorized-capital-increase" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Authorized Capital Increase</Link>
-                      <Link to="/share-transfer" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Share Transfer</Link>
-                      <Link to="/demat-of-shares" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Demat of Shares</Link>
-                      <Link to="/winding-up-llp" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Winding Up - LLP</Link>
-                      <Link to="/winding-up-company" className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">Winding Up - Company</Link>
-                    </div>
-                  </div>
-                </div>
-              )}
+              <NavigationMenu className="relative z-[100]">
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
+                      Registrations
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white shadow-xl border">
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                            <Link to="/startup-india" className="text-gray-600 hover:text-green-600">Startup India</Link>
+                            <Link to="/trade-license" className="text-gray-600 hover:text-green-600">Trade License</Link>
+                            <Link to="/fssai-registration" className="text-gray-600 hover:text-green-600">FSSAI Registration</Link>
+                            <Link to="/fssai-license" className="text-gray-600 hover:text-green-600">FSSAI License</Link>
+                            <Link to="/halal-certification" className="text-gray-600 hover:text-green-600">Halal License & Certification</Link>
+                            <Link to="/icegate-registration" className="text-gray-600 hover:text-green-600">ICEGATE Registration</Link>
+                            <Link to="/import-export-code" className="text-gray-600 hover:text-green-600">Import Export Code</Link>
+                        </div>
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                            <Link to="/legal-entity-identifier-code" className="text-gray-600 hover:text-green-600">Legal Entity Identifier Code</Link>
+                            <Link to="/iso-registration" className="text-gray-600 hover:text-green-600">ISO Registration</Link>
+                            <Link to="/pf-registration" className="text-gray-600 hover:text-green-600">PF Registration</Link>
+                            <Link to="/esi-registration" className="text-gray-600 hover:text-green-600">ESI Registration</Link>
+                            <Link to="/professional-tax-registration" className="text-gray-600 hover:text-green-600">Professional Tax Registration</Link>
+                            <Link to="/rcmc-registration" className="text-gray-600 hover:text-green-600">RCMC Registration</Link>
+                            <Link to="/rera-registration-for-agents" className="text-gray-600 hover:text-green-600">TN RERA Registration for Agents</Link>
+                        </div>
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                            <Link to="/12a-80g-registration" className="text-gray-600 hover:text-green-600">12A and 80G Registration</Link>
+                            <Link to="/12a-registration" className="text-gray-600 hover:text-green-600">12A Registration</Link>
+                            <Link to="/80g-registration" className="text-gray-600 hover:text-green-600">80G Registration</Link>
+                            <Link to="/apeda-registration" className="text-gray-600 hover:text-green-600">APEDA Registration</Link>
+                            <Link to="/barcode-registration" className="text-gray-600 hover:text-green-600">Barcode Registration</Link>
+                            <Link to="/bis-registration" className="text-gray-600 hover:text-green-600">BIS Registration</Link>
+                            <Link to="/certificate-of-incumbency" className="text-gray-600 hover:text-green-600">Certificate of Incumbency</Link>
+                        </div>
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                            <Link to="/darpan-registration" className="text-gray-600 hover:text-green-600">Darpan Registration</Link>
+                            <Link to="/digital-signature" className="text-gray-600 hover:text-green-600">Digital Signature</Link>
+                            <Link to="/shop-and-establishment-act" className="text-gray-600 hover:text-green-600">Shop Act Registration</Link>
+                            <Link to="/drug-license" className="text-gray-600 hover:text-green-600">Drug License</Link>
+                            <Link to="/udyam-registration" className="text-gray-600 hover:text-green-600">Udyam Registration</Link>
+                            <Link to="#" className="text-gray-600 hover:text-green-600">FCRA Registration</Link>
+                            <Link to="#" className="text-gray-600 hover:text-green-600">Fire License</Link>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+              
+              <NavigationMenu className="relative z-[100]">
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
+                      Trademark
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[250px] gap-6 p-6 md:grid-cols-1 bg-white shadow-xl border">
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="/trademark-registration" className="text-gray-600 hover:text-green-600">Trademark Registration</Link>
+                          <Link to="/copyright-registration" className="text-gray-600 hover:text-green-600">Copyright Registration</Link>
+                          <Link to="/patent-registration" className="text-gray-600 hover:text-green-600">Patent Registration</Link>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+              
+              <NavigationMenu className="relative z-[100]">
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
+                      GST
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white shadow-xl border">
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to="/gst-registration"
+                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            >
+                              <div className="text-sm font-medium leading-none">
+                                GST Registration
+                              </div>
+                              <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                Register your business with GST.
+                              </p>
+                            </Link>
+                          </NavigationMenuLink>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to="/gst-return-filing"
+                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            >
+                              <div className="text-sm font-medium leading-none">
+                                GST Return Filing by Accountant
+                              </div>
+                              <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                Get an Accountant to do your GST return filing.
+                              </p>
+                            </Link>
+                          </NavigationMenuLink>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to="/gst-annual-return-filing-gstr9"
+                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            >
+                              <div className="text-sm font-medium leading-none">
+                                GST Annual Return Filing (GSTR - 9)
+                              </div>
+                              <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                File annual GST returns (GSTR-9).
+                              </p>
+                            </Link>
+                          </NavigationMenuLink>
+                          <Link
+                            to="/gst-lut-form"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">
+                              GST LUT Form
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              Download the GST LUT form.
+                            </p>
+                          </Link>
+                          <Link
+                            to="/gst-notice"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">
+                              GST Notice
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              Get GST notices and updates.
+                            </p>
+                          </Link>
+                        </div>
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link
+                            to="/gst-registration-for-foreigners"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">
+                              GST Registration for Foreigners
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              Register your business with GST for foreign entities.
+                            </p>
+                          </Link>
+                          <Link
+                            to="/gst-registration-amendment"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">
+                              GST Registration Amendment
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              Make changes to your GST registration.
+                            </p>
+                          </Link>
+                          <Link
+                            to="/gst-revocation"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">
+                              GST Revocation
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              Revoke your GST registration.
+                            </p>
+                          </Link>
+                          <Link
+                            to="/gst-gstr-10"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">
+                              GSTR-10
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              File GSTR-10 returns.
+                            </p>
+                          </Link>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+              
+              {/* Continue with remaining NavigationMenu components with same z-index pattern */}
+              <NavigationMenu className="relative z-[100]">
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
+                      Tax
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[500px] gap-6 p-6 md:grid-cols-2 bg-white shadow-xl border">
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="/income-tax-e-filing-new" className="text-gray-600 hover:text-green-600">Income Tax E-Filing</Link>
+                          <Link to="/itr-1-return-filing" className="text-gray-600 hover:text-green-600">ITR-1 Return Filing</Link>
+                          <Link to="/itr-2-return-filing" className="text-gray-600 hover:text-green-600">ITR-2 Return Filing</Link>
+                          <Link to="/itr-3-return-filing" className="text-gray-600 hover:text-green-600">ITR-3 Return Filing</Link>
+                          <Link to="/itr-4-return-filing" className="text-gray-600 hover:text-green-600">ITR-4 Return Filing</Link>
+                          <Link to="/itr-5-return-filing" className="text-gray-600 hover:text-green-600">ITR-5 Return Filing</Link>
+                        </div>
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="/itr-6-return-filing" className="text-gray-600 hover:text-green-600">ITR-6 Return Filing</Link>
+                          <Link to="/itr-7-return-filing" className="text-gray-600 hover:text-green-600">ITR-7 Return Filing</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">15CA - 15CB Filing</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">TAN Registration</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">TDS Return Filing</Link>
+                          <Link to="#" className="text-gray-600 hover:text-green-600">Income Tax Notice</Link>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+              
+              <NavigationMenu className="relative z-[100]">
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
+                      MCA
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white shadow-xl border">
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="/company-compliance" className="text-gray-600 hover:text-green-600">Company Compliance</Link>
+                          <Link to="/llp-compliance" className="text-gray-600 hover:text-green-600">LLP Compliance</Link>
+                          <Link to="/opc-compliance" className="text-gray-600 hover:text-green-600">OPC Compliance</Link>
+                          <Link to="/name-change-company" className="text-gray-600 hover:text-green-600">Name Change - Company</Link>
+                          <Link to="/registered-office-change-company" className="text-gray-600 hover:text-green-600">Registered Office Change</Link>
+                        </div>
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="/din-ekyc-filing" className="text-gray-600 hover:text-green-600">DIN eKYC Filing</Link>
+                          <Link to="/din-reactivation" className="text-gray-600 hover:text-green-600">DIN Reactivation</Link>
+                          <Link to="/director-change" className="text-gray-600 hover:text-green-600">Director Change</Link>
+                          <Link to="/remove-director" className="text-gray-600 hover:text-green-600">Remove Director</Link>
+                          <Link to="/adt-1-filing" className="text-gray-600 hover:text-green-600">ADT-1 Filing</Link>
+                        </div>
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="/dpt-3-filing" className="text-gray-600 hover:text-green-600">DPT-3 Filing</Link>
+                          <Link to="/llp-form-11-filing" className="text-gray-600 hover:text-green-600">LLP Form 11 Filing</Link>
+                          <Link to="/dormant-status-filing" className="text-gray-600 hover:text-green-600">Dormant Status Filing</Link>
+                          <Link to="/moa-amendment" className="text-gray-600 hover:text-green-600">MOA Amendment</Link>
+                          <Link to="/aoa-amendment" className="text-gray-600 hover:text-green-600">AOA Amendment</Link>
+                        </div>
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="/authorized-capital-increase" className="text-gray-600 hover:text-green-600">Authorized Capital Increase</Link>
+                          <Link to="/share-transfer" className="text-gray-600 hover:text-green-600">Share Transfer</Link>
+                          <Link to="/demat-of-shares" className="text-gray-600 hover:text-green-600">Demat of Shares</Link>
+                          <Link to="/winding-up-llp" className="text-gray-600 hover:text-green-600">Winding Up - LLP</Link>
+                          <Link to="/winding-up-company" className="text-gray-600 hover:text-green-600">Winding Up - Company</Link>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+              
+              <NavigationMenu className="relative z-[100]">
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
+                      Compliance
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white shadow-xl border">
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="/fdi-filing-rbi" className="text-gray-600 hover:text-green-600">FDI Filing with RBI</Link>
+                          <Link to="/fla-return-filing" className="text-gray-600 hover:text-green-600">FLA Return Filing</Link>
+                          <Link to="/fssai-renewal" className="text-gray-600 hover:text-green-600">FSSAI Renewal</Link>
+                          <Link to="/fssai-return-filing" className="text-gray-600 hover:text-green-600">FSSAI Return Filing</Link>
+                        </div>
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <Link to="/pf-return-filing" className="text-gray-600 hover:text-green-600">PF Return Filing</Link>
+                          <Link to="/esi-return-filing" className="text-gray-600 hover:text-green-600">ESI Return Filing</Link>
+                          <Link to="/professional-tax-return-filing" className="text-gray-600 hover:text-green-600">Professional Tax Return Filing</Link>
+                          <Link to="/partnership-compliance" className="text-gray-600 hover:text-green-600">Partnership Compliance</Link>
+                          <Link to="/proprietorship-compliance" className="text-gray-600 hover:text-green-600">Proprietorship Compliance</Link>
+                          <Link to="/bookkeeping" className="text-gray-600 hover:text-green-600">Bookkeeping</Link>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+              
+              <Link to="/consultation" className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs">
+                Consultation
+              </Link>
+              <Link to="/guide" className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs">
+                Guides
+              </Link>
+              <Link to="/about-us" className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs">
+                About
+              </Link>
             </div>
+          </div>
 
-            {/* Consult */}
-            <Link to="/consultation" className="text-gray-700 hover:text-blue-600 font-medium">
-              Consult
-            </Link>
-          </nav>
+          {/* Compact navigation for smaller screens */}
+          <div className="hidden lg:flex xl:hidden items-center justify-center flex-1 max-w-3xl mx-4">
+            <div className="flex items-center space-x-1 text-xs font-medium">
+              <NavigationMenu className="relative z-[100]">
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="px-1 py-1 font-medium bg-transparent text-gray-700 hover:text-green-600 focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent focus:text-green-600 h-auto text-xs">
+                      Business
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="z-[100]">
+                      <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white shadow-xl border">
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <h4 className="font-bold text-green-600 mb-2">Startup & Registration</h4>
+                          <Link to="/proprietorship" className="text-gray-600 hover:text-green-600">Proprietorship</Link>
+                          <Link to="/partnership" className="text-gray-600 hover:text-green-600">Partnership</Link>
+                          <Link to="/private-limited-company" className="text-gray-600 hover:text-green-600">Private Ltd Company</Link>
+                          <Link to="/limited-liability-partnership" className="text-gray-600 hover:text-green-600">LLP</Link>
+                        </div>
+                        <div className="flex flex-col space-y-2 text-sm font-normal">
+                          <h4 className="font-bold text-green-600 mb-2">Compliance</h4>
+                          <Link to="/company-compliance" className="text-gray-600 hover:text-green-600">Company Compliance</Link>
+                          <Link to="/gst-registration" className="text-gray-600 hover:text-green-600">GST Registration</Link>
+                          <Link to="/trademark-registration" className="text-gray-600 hover:text-green-600">Trademark</Link>
+                          <Link to="/income-tax-e-filing-new" className="text-gray-600 hover:text-green-600">Income Tax</Link>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+              
+              <Link to="/gst-registration" className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs">
+                GST
+              </Link>
+              <Link to="/income-tax-e-filing-new" className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs">
+                Tax
+              </Link>
+              <Link to="/trademark-registration" className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs">
+                Trademark
+              </Link>
+              <Link to="/consultation" className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs">
+                Consult
+              </Link>
+            </div>
+          </div>
 
-          {/* Search and Cart */}
-          <div className="flex items-center space-x-4">
+          {/* Right side icons and login */}
+          <div className="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-              <input
-                type="text"
-                placeholder="Search..."
-                className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
+              <form onSubmit={handleSearchSubmit} className="relative">
+                <div className="relative">
+                  <Search className="absolute left-2 sm:left-3 top-1/2 transform -translate-y-1/2 h-3 w-3 sm:h-4 sm:w-4 text-gray-400" />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                    placeholder="Search..."
+                    className="pl-8 sm:pl-10 pr-6 sm:pr-8 py-1 sm:py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-32 sm:w-48 lg:w-64 text-xs sm:text-sm"
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={clearSearch}
+                      className="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    >
+                      <X className="h-3 w-3 sm:h-4 sm:w-4" />
+                    </button>
+                  )}
+                </div>
+              </form>
+              
+              {/* Search Results Dropdown */}
+              {isSearchOpen && filteredServices.length > 0 && (
+                <div className="absolute top-full mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-[110] max-h-60 overflow-y-auto">
+                  {filteredServices.slice(0, 8).map((service, index) => (
+                    <Link
+                      key={index}
+                      to={service.path}
+                      onClick={() => {
+                        setSearchQuery('');
+                        setIsSearchOpen(false);
+                      }}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 border-b border-gray-100 last:border-b-0"
+                    >
+                      {service.name}
+                    </Link>
+                  ))}
+                  {filteredServices.length > 8 && (
+                    <div className="px-4 py-2 text-xs text-gray-500 text-center">
+                      Showing top 8 results
+                    </div>
+                  )}
+                </div>
+              )}
+              
+              {/* No Results Message */}
+              {isSearchOpen && searchQuery && filteredServices.length === 0 && (
+                <div className="absolute top-full mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-[110] p-4 text-center text-gray-500 text-sm">
+                  No services found for "{searchQuery}"
+                </div>
+              )}
             </div>
             
             <div className="relative">
-              <button className="p-2 hover:bg-gray-100 rounded-lg">
-                <ShoppingCart className="h-5 w-5 text-gray-600" />
-                <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                  0
-                </span>
+              <button 
+                className="p-1 sm:p-2 hover:bg-gray-100 rounded-full relative"
+                onClick={() => setIsCartOpen(!isCartOpen)}
+              >
+                <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5" />
+                {totalItems > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center">
+                    {totalItems}
+                  </span>
+                )}
               </button>
+              <CartDropdown isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
             </div>
-
-            {/* Mobile Menu Button */}
-            <button 
-              className="lg:hidden p-2 hover:bg-gray-100 rounded-lg"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            <Link 
+              to="/auth" 
+              className="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors"
             >
-              <Menu className="h-5 w-5 text-gray-600" />
-            </button>
+              <User className="h-4 w-4 sm:h-5 sm:w-5" />
+              <span className="text-xs sm:text-sm font-medium hidden sm:inline">Login</span>
+            </Link>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden border-t bg-white">
-            <div className="py-4 space-y-2">
-              <button className="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Business</button>
-              <button className="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">GST</button>
-              <button className="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Tax</button>
-              <Link to="/trademark-registration" className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Trademark</Link>
-              <button className="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">MCA</button>
-              <Link to="/consultation" className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Consult</Link>
-            </div>
-          </div>
-        )}
-      </div>
+      </nav>
     </header>
   );
 };
