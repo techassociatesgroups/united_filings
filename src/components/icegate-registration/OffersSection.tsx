@@ -1,13 +1,32 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import AddToCartButton from "@/components/AddToCartButton";
 
 const OffersSection = () => {
   return (
     <Card className="mt-8">
       <CardHeader>
-        <CardTitle>Offers and discounts</CardTitle>
+        <CardTitle>Our ICEGATE Registration Services</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-6">
+        <div className="border rounded-lg p-6">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-lg font-semibold">ICEGATE Registration</h3>
+            <span className="text-lg font-bold text-green-600">₹1,499</span>
+          </div>
+          <ul className="space-y-2 text-sm text-gray-600 mb-4">
+            <li>• Complete ICEGATE registration process</li>
+            <li>• Document preparation and submission</li>
+            <li>• User ID and password setup</li>
+            <li>• Training on platform usage</li>
+          </ul>
+          <AddToCartButton 
+            serviceName="ICEGATE Registration" 
+            price={1499}
+            className="w-full bg-green-600 hover:bg-green-700 text-white"
+          />
+        </div>
+        
         <div className="flex items-center justify-between p-4 border rounded-lg">
           <div className="flex items-center">
             <img src="https://indiafilings.com/images/ledgers-compliance-platform.svg" alt="LEDGERS Logo" className="h-10 w-10 mr-4" />
