@@ -12,9 +12,9 @@ const DPT3Filing = () => {
       <Header />
       <main className="container mx-auto px-4 py-8">
         <nav className="flex items-center space-x-1 text-sm text-gray-600 mb-6">
-          <Link to="/" className="hover:text-green-600">CA PI</Link>
+          <Link to="/" className="hover:text-blue-600">CA PI</Link>
           <ChevronRight className="h-4 w-4" />
-          <Link to="/company-compliance" className="hover:text-green-600">MCA Services</Link>
+          <Link to="/company-compliance" className="hover:text-blue-600">MCA Services</Link>
           <ChevronRight className="h-4 w-4" />
           <span className="text-gray-900">DPT-3 Filing</span>
         </nav>
@@ -23,7 +23,7 @@ const DPT3Filing = () => {
           <div className="lg:col-span-2">
             <Card className="mb-8">
               <CardHeader>
-                <CardTitle className="text-3xl text-green-600">DPT-3 Filing</CardTitle>
+                <CardTitle className="text-3xl text-blue-600">DPT-3 Filing</CardTitle>
                 <p className="text-gray-600">File DPT-3 return for companies that have accepted deposits from public.</p>
               </CardHeader>
               <CardContent>
@@ -46,15 +46,15 @@ const DPT3Filing = () => {
                     <h3 className="text-xl font-semibold mb-3">Filing Requirements</h3>
                     <ul className="space-y-2">
                       <li className="flex items-start space-x-2">
-                        <DollarSign className="h-5 w-5 text-green-500 mt-0.5" />
+                        <DollarSign className="h-5 w-5 text-blue-500 mt-0.5" />
                         <span className="text-gray-600">Details of deposits accepted</span>
                       </li>
                       <li className="flex items-start space-x-2">
-                        <FileText className="h-5 w-5 text-green-500 mt-0.5" />
+                        <FileText className="h-5 w-5 text-blue-500 mt-0.5" />
                         <span className="text-gray-600">Annual return submission</span>
                       </li>
                       <li className="flex items-start space-x-2">
-                        <Clock className="h-5 w-5 text-green-500 mt-0.5" />
+                        <Clock className="h-5 w-5 text-blue-500 mt-0.5" />
                         <span className="text-gray-600">Compliance with deposit rules</span>
                       </li>
                     </ul>
@@ -67,15 +67,15 @@ const DPT3Filing = () => {
           <div className="lg:col-span-1">
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg text-green-600">Get Started</CardTitle>
+                <CardTitle className="text-lg text-blue-600">Get Started</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-2">
-                    <Clock className="h-4 w-4 text-green-600" />
+                    <Clock className="h-4 w-4 text-blue-600" />
                     <span className="text-sm">Processing Time: 5-7 days</span>
                   </div>
-                  <Button className="w-full bg-green-600 hover:bg-green-700">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700">
                     File DPT-3
                   </Button>
                 </div>

@@ -12,9 +12,9 @@ const MOAAmendment = () => {
       <Header />
       <main className="container mx-auto px-4 py-8">
         <nav className="flex items-center space-x-1 text-sm text-gray-600 mb-6">
-          <Link to="/" className="hover:text-green-600">CA PI</Link>
+          <Link to="/" className="hover:text-blue-600">CA PI</Link>
           <ChevronRight className="h-4 w-4" />
-          <Link to="/company-compliance" className="hover:text-green-600">MCA Services</Link>
+          <Link to="/company-compliance" className="hover:text-blue-600">MCA Services</Link>
           <ChevronRight className="h-4 w-4" />
           <span className="text-gray-900">MOA Amendment</span>
         </nav>
@@ -23,7 +23,7 @@ const MOAAmendment = () => {
           <div className="lg:col-span-2">
             <Card className="mb-8">
               <CardHeader>
-                <CardTitle className="text-3xl text-green-600">MOA Amendment</CardTitle>
+                <CardTitle className="text-3xl text-blue-600">MOA Amendment</CardTitle>
                 <p className="text-gray-600">Amend the Memorandum of Association of your company with proper legal compliance.</p>
               </CardHeader>
               <CardContent>
@@ -46,15 +46,15 @@ const MOAAmendment = () => {
                     <h3 className="text-xl font-semibold mb-3">Common Amendments</h3>
                     <ul className="space-y-2">
                       <li className="flex items-start space-x-2">
-                        <Edit className="h-5 w-5 text-green-500 mt-0.5" />
+                        <Edit className="h-5 w-5 text-blue-500 mt-0.5" />
                         <span className="text-gray-600">Change in company objectives</span>
                       </li>
                       <li className="flex items-start space-x-2">
-                        <FileText className="h-5 w-5 text-green-500 mt-0.5" />
+                        <FileText className="h-5 w-5 text-blue-500 mt-0.5" />
                         <span className="text-gray-600">Capital structure modification</span>
                       </li>
                       <li className="flex items-start space-x-2">
-                        <Clock className="h-5 w-5 text-green-500 mt-0.5" />
+                        <Clock className="h-5 w-5 text-blue-500 mt-0.5" />
                         <span className="text-gray-600">Registered office change</span>
                       </li>
                     </ul>
@@ -67,15 +67,15 @@ const MOAAmendment = () => {
           <div className="lg:col-span-1">
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg text-green-600">Get Started</CardTitle>
+                <CardTitle className="text-lg text-blue-600">Get Started</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-2">
-                    <Clock className="h-4 w-4 text-green-600" />
+                    <Clock className="h-4 w-4 text-blue-600" />
                     <span className="text-sm">Processing Time: 15-30 days</span>
                   </div>
-                  <Button className="w-full bg-green-600 hover:bg-green-700">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700">
                     Start MOA Amendment
                   </Button>
                 </div>
