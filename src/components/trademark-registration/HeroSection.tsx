@@ -1,4 +1,3 @@
-
 import { Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,7 +14,7 @@ const HeroSection = () => {
     <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
       <div>
         <img
-          src="/lovable-uploads/b86200c6-26c2-476e-a3ac-94747ba673dd.png"
+          src="/assets/b86200c6-26c2-476e-a3ac-94747ba673dd.png"
           alt="Trademark Registration"
           className="rounded-lg shadow-md w-full"
         />
