@@ -1,3 +1,4 @@
+
 import { Star, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,6 +10,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Link } from "react-router-dom";
+import AddToCartButton from "@/components/AddToCartButton";
+import LiveChatButton from "@/components/LiveChatButton";
 
 const HeroSection = () => {
   return (
@@ -43,17 +46,23 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="md:col-span-8">
-          <h1 className="text-3xl font-bold text-gray-800">Proprietorship</h1>
-          <div className="flex items-center mt-2">
-            <div className="flex text-yellow-400">
-              <Star fill="currentColor" className="w-5 h-5" />
-              <Star fill="currentColor" className="w-5 h-5" />
-              <Star fill="currentColor" className="w-5 h-5" />
-              <Star fill="currentColor" className="w-5 h-5" />
-              <Star className="w-5 h-5 text-gray-300" />
+          <div className="flex justify-between items-start mb-4">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-800">Proprietorship</h1>
+              <div className="flex items-center mt-2">
+                <div className="flex text-yellow-400">
+                  <Star fill="currentColor" className="w-5 h-5" />
+                  <Star fill="currentColor" className="w-5 h-5" />
+                  <Star fill="currentColor" className="w-5 h-5" />
+                  <Star fill="currentColor" className="w-5 h-5" />
+                  <Star className="w-5 h-5 text-gray-300" />
+                </div>
+                <span className="ml-2 text-sm text-gray-600">(13147)</span>
+              </div>
             </div>
-            <span className="ml-2 text-sm text-gray-600">(13147)</span>
+            <LiveChatButton />
           </div>
+          
           <p className="mt-4 text-gray-600">
             Assistance for GST registration with 1 year LEDGERS Accounting
             software license for invoicing, GST E-invoicing and GST filing
@@ -101,9 +110,12 @@ const HeroSection = () => {
                     LEDGERS GST Software - 1 Year License
                   </li>
                 </ul>
-                <Button className="w-full mt-4 bg-white text-green-600 border border-green-600 hover:bg-green-50">
-                  ADD
-                </Button>
+                <AddToCartButton 
+                  serviceName="GST Software & Registration" 
+                  price={4999}
+                  className="w-full mt-4 bg-white text-green-600 border border-green-600 hover:bg-green-50"
+                  variant="outline"
+                />
               </CardContent>
             </Card>
             <Card>
@@ -136,9 +148,12 @@ const HeroSection = () => {
                     LEDGERS GST Software - 1 Year License
                   </li>
                 </ul>
-                <Button className="w-full mt-4 bg-white text-green-600 border border-green-600 hover:bg-green-50">
-                  ADD
-                </Button>
+                <AddToCartButton 
+                  serviceName="GST Filing & Registration - 6 Months" 
+                  price={7999}
+                  className="w-full mt-4 bg-white text-green-600 border border-green-600 hover:bg-green-50"
+                  variant="outline"
+                />
               </CardContent>
             </Card>
           </div>
