@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
-import { useToast } from "@/components/ui/use-toast";
+import { toast } from "sonner";
 
 interface AddToCartButtonProps {
   serviceName: string;
@@ -12,18 +12,18 @@ interface AddToCartButtonProps {
 
 const AddToCartButton = ({ serviceName, price, className, variant = "default" }: AddToCartButtonProps) => {
   const { addToCart } = useCart();
-  const { toast } = useToast();
 
   const handleAddToCart = () => {
+    const serviceId = `service-${serviceName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
+    
     addToCart({
-      id: `service-${serviceName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`,
+      id: serviceId,
       name: serviceName,
       price: price
     });
     
-    toast({
-      title: "Added to Cart",
-      description: `${serviceName} has been added to your cart.`,
+    toast.success(`${serviceName} added to cart!`, {
+      description: `Price: ₹${price.toLocaleString()}`,
     });
   };
 
@@ -33,7 +33,7 @@ const AddToCartButton = ({ serviceName, price, className, variant = "default" }:
       variant={variant}
       onClick={handleAddToCart}
     >
-      ADD
+      ADD TO CART
     </Button>
   );
 };

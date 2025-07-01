@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { CartProvider } from '@/contexts/CartContext';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from 'sonner';
 import Index from '@/pages/Index';
 import Proprietorship from '@/pages/Proprietorship';
 import Partnership from '@/pages/Partnership'; 
@@ -54,6 +54,7 @@ import Auth from '@/pages/Auth';
 import Profile from '@/pages/Profile';
 import Orders from '@/pages/Orders';
 import Checkout from '@/pages/Checkout';
+import PaymentSuccess from '@/pages/PaymentSuccess';
 
 const queryClient = new QueryClient();
 
@@ -120,10 +121,11 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/orders" element={<Orders />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/payment-success" element={<PaymentSuccess />} />
             </Routes>
           </div>
         </Router>
-        <Toaster />
+        <Toaster position="top-right" />
       </CartProvider>
     </QueryClientProvider>
   );

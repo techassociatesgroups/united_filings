@@ -6,13 +6,15 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { ArrowLeft, Mail, Phone } from 'lucide-react';
+import { ArrowLeft, Mail, Phone, Loader2 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
 
 const Checkout = () => {
   const { items, totalPrice, clearCart } = useCart();
   const navigate = useNavigate();
+  const [isProcessing, setIsProcessing] = useState(false);
   const [billingInfo, setBillingInfo] = useState({
     name: '',
     email: '',
@@ -25,16 +27,45 @@ const Checkout = () => {
     setBillingInfo(prev => ({ ...prev, [field]: value }));
   };
 
-  const handlePayment = () => {
+  const handlePayment = async () => {
     if (!billingInfo.name || !billingInfo.email) {
       toast.error('Please fill in required fields');
       return;
     }
-    
-    // Simulate payment processing
-    toast.success('Payment processed successfully!');
-    clearCart();
-    navigate('/');
+
+    if (items.length === 0) {
+      toast.error('Your cart is empty');
+      return;
+    }
+
+    setIsProcessing(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('create-checkout', {
+        body: {
+          items: items,
+          customerInfo: billingInfo
+        }
+      });
+
+      if (error) {
+        console.error('Payment error:', error);
+        toast.error('Payment failed. Please try again.');
+        return;
+      }
+
+      if (data?.url) {
+        // Redirect to Stripe Checkout
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL received');
+      }
+    } catch (error) {
+      console.error('Payment error:', error);
+      toast.error('Payment failed. Please try again.');
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
   const gstAmount = Math.round(totalPrice * 0.18);
@@ -87,14 +118,14 @@ const Checkout = () => {
                 <div className="bg-blue-500 px-3 py-1 rounded text-sm mb-2">
                   Registrations & Licence
                 </div>
-                <p className="text-sm">Import Export Code</p>
+                <p className="text-sm">Professional Services</p>
               </div>
             </div>
           </CardHeader>
 
           <CardContent className="p-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Billing Information */}
+              {/* Customer Information */}
               <div>
                 <h3 className="text-lg font-semibold mb-4">Customer Information</h3>
                 <div className="space-y-4">
@@ -129,7 +160,7 @@ const Checkout = () => {
                     />
                   </div>
                   <div>
-                    <Label htmlFor="businessName">Business Name or GSTIN</Label>
+                    <Label htmlFor="businessName">Business Name</Label>
                     <Input
                       id="businessName"
                       value={billingInfo.businessName}
@@ -154,15 +185,15 @@ const Checkout = () => {
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-lg font-semibold">Order Summary</h3>
                   <div className="text-right text-sm text-gray-600">
-                    <p>Estimate Date:</p>
+                    <p>Order Date:</p>
                     <p>{new Date().toLocaleDateString('en-GB')}</p>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   <div className="grid grid-cols-4 gap-4 text-sm font-medium text-gray-700 border-b pb-2">
-                    <div>Description</div>
-                    <div className="text-center">Quantity</div>
+                    <div>Service</div>
+                    <div className="text-center">Qty</div>
                     <div className="text-center">Rate</div>
                     <div className="text-right">Amount</div>
                   </div>
@@ -171,7 +202,7 @@ const Checkout = () => {
                     <div key={item.id} className="grid grid-cols-4 gap-4 text-sm py-2 border-b">
                       <div>
                         <p className="font-medium">{item.name}</p>
-                        <p className="text-gray-600 text-xs">Professional service registration</p>
+                        <p className="text-gray-600 text-xs">Professional service</p>
                       </div>
                       <div className="text-center">{item.quantity}</div>
                       <div className="text-center">₹{item.price.toLocaleString()}</div>
@@ -190,32 +221,30 @@ const Checkout = () => {
                     </div>
                     <Separator />
                     <div className="flex justify-between font-bold text-lg">
-                      <span>Total Due:</span>
+                      <span>Total:</span>
                       <span>₹{finalTotal.toLocaleString()}</span>
                     </div>
                   </div>
 
                   <Button 
                     onClick={handlePayment}
+                    disabled={isProcessing}
                     className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 mt-6"
                     size="lg"
                   >
-                    PAY ₹{finalTotal.toLocaleString()} ONLINE
+                    {isProcessing ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Processing...
+                      </>
+                    ) : (
+                      `PAY ₹${finalTotal.toLocaleString()}`
+                    )}
                   </Button>
                 </div>
 
-                {/* Payment Options */}
-                <div className="mt-6 p-4 bg-gray-50 rounded">
-                  <h4 className="font-semibold mb-2">Bank Transfer:</h4>
-                  <div className="text-sm text-gray-700 space-y-1">
-                    <p>Bank Transfer: ICICI BANK</p>
-                    <p>Account Name: INDIAFILINGS PRIVATE LIMITED</p>
-                    <p>Account Number: 000905034501</p>
-                    <p>IFSC Code: ICIC0006239</p>
-                  </div>
-                </div>
-
-                <div className="mt-4 p-4 bg-blue-50 rounded">
+                {/* Support Information */}
+                <div className="mt-6 p-4 bg-blue-50 rounded">
                   <h4 className="font-semibold mb-2 flex items-center">
                     <Phone className="h-4 w-4 mr-2" />
                     Support:
@@ -230,13 +259,6 @@ const Checkout = () => {
                       Phone: +91 8068301312
                     </p>
                   </div>
-                </div>
-
-                <div className="mt-4 text-xs text-gray-600">
-                  <p>
-                    <strong>Notes:</strong> Invoices will be issued and service will be initiated on receipt of payment. 
-                    Read our terms of service & refund policy online. In case of bank transfer please allow 24 hours for service activation.
-                  </p>
                 </div>
               </div>
             </div>
