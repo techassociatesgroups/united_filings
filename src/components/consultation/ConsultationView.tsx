@@ -11,8 +11,9 @@ import {
 } from "@/components/ui/select";
 import { Link } from 'react-router-dom';
 import OffersSection from './OffersSection';
+import AddToCartButton from '@/components/AddToCartButton';
 
-const ConsultationCard = ({ type, features }: { type: string, features: string[] }) => {
+const ConsultationCard = ({ type, features, price }: { type: string, features: string[], price: number }) => {
   return (
     <Card className="border-dashed border-green-500 transition-shadow hover:shadow-lg">
       <div className="bg-green-100 text-green-700 text-xs font-bold py-1 px-3 inline-block rounded-br-lg rounded-tl-lg">2 Exclusive Offers</div>
@@ -26,9 +27,12 @@ const ConsultationCard = ({ type, features }: { type: string, features: string[]
             </li>
           ))}
         </ul>
-        <Button variant="outline" className="mt-6 w-full border-green-500 text-green-500 hover:bg-green-50 hover:text-green-600 font-bold">
-          ADD
-        </Button>
+        <AddToCartButton 
+          serviceName={`30 Minutes - ${type} Consultation`}
+          price={price}
+          className="mt-6 w-full border-green-500 text-green-500 hover:bg-green-50 hover:text-green-600 font-bold"
+          variant="outline"
+        />
       </CardContent>
     </Card>
   );
@@ -80,6 +84,7 @@ const ConsultationView = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         <ConsultationCard 
           type="CA" 
+          price={2999}
           features={[
             "Online Consultation", 
             "30 Minute Session", 
@@ -91,6 +96,7 @@ const ConsultationView = () => {
         />
         <ConsultationCard 
           type="Lawyer" 
+          price={2999}
           features={[
             "Online Consultation", 
             "30 Minute Session", 
