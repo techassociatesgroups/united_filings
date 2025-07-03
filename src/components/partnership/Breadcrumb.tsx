@@ -1,13 +1,16 @@
-
-import { ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Breadcrumb = () => {
   return (
     <nav className="flex items-center text-sm text-gray-500">
-      <Link to="/" className="hover:text-green-600">IndiaFilings</Link>
+      <Link to="/" className="hover:text-green-600">
+        CA PI
+      </Link>
       <ChevronRight className="h-4 w-4 mx-1" />
-      <Link to="/business-registration" className="hover:text-green-600">Business Registration</Link>
+      <Link to="/business-registration" className="hover:text-green-600">
+        Business Registration
+      </Link>
       <ChevronRight className="h-4 w-4 mx-1" />
       <span className="font-medium text-blue-600">Partnership Firm</span>
     </nav>
