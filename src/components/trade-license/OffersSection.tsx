@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const OffersSection = () => {
@@ -10,10 +9,16 @@ const OffersSection = () => {
       <CardContent>
         <div className="flex items-center justify-between p-4 border rounded-lg">
           <div className="flex items-center">
-            <img src="https://indiafilings.com/images/ledgers-compliance-platform.svg" alt="LEDGERS Logo" className="h-10 w-10 mr-4" />
+            <img
+              src="assets/ledger.png"
+              alt="LEDGERS Logo"
+              className="h-10 w-10 mr-4"
+            />
             <div>
               <p className="font-bold">LEDGERS - Compliance Platform</p>
-              <p className="text-sm text-gray-600">Invoicing, GST Filing, Banking and Payroll</p>
+              <p className="text-sm text-gray-600">
+                Invoicing, GST Filing, Banking and Payroll
+              </p>
             </div>
           </div>
         </div>

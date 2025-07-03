@@ -32,7 +32,7 @@ const HeroSection = () => {
           <div className="md:col-span-5 p-6 flex flex-col justify-between bg-gray-50">
             <div>
               <img
-                src="assets/startup-India.jpg"
+                src="assets/startup-india.avif"
                 alt="Startup India Certification"
                 className="rounded-lg object-cover w-full"
               />

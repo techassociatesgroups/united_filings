@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, Clock } from "lucide-react";
@@ -17,7 +16,7 @@ const Sidebar = () => {
           </div>
           <div className="flex items-center space-x-2">
             <Mail className="h-4 w-4 text-green-600" />
-            <span className="text-sm">support@indiafilings.com</span>
+            <span className="text-sm">support@CA PI.com</span>
           </div>
           <Button className="w-full bg-green-600 hover:bg-green-700">
             Talk to Expert
@@ -27,7 +26,9 @@ const Sidebar = () => {
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg text-green-600">Processing Time</CardTitle>
+          <CardTitle className="text-lg text-green-600">
+            Processing Time
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex items-center space-x-2">
@@ -39,7 +40,9 @@ const Sidebar = () => {
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg text-green-600">Why Choose Us?</CardTitle>
+          <CardTitle className="text-lg text-green-600">
+            Why Choose Us?
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <ul className="space-y-2 text-sm text-gray-600">

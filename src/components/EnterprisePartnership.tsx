@@ -1,28 +1,34 @@
-
-import { Users, Building, Award, Handshake, ArrowRight, CheckCircle } from 'lucide-react';
+import {
+  Users,
+  Building,
+  Award,
+  Handshake,
+  ArrowRight,
+  CheckCircle,
+} from "lucide-react";
 
 const EnterprisePartnership = () => {
   const benefits = [
     {
       icon: Users,
       title: "Dedicated Account Manager",
-      description: "Personal support for all your business needs"
+      description: "Personal support for all your business needs",
     },
     {
       icon: Building,
       title: "Bulk Processing",
-      description: "Streamlined solutions for multiple entities"
+      description: "Streamlined solutions for multiple entities",
     },
     {
       icon: Award,
       title: "Priority Support",
-      description: "24/7 premium customer service"
+      description: "24/7 premium customer service",
     },
     {
       icon: Handshake,
       title: "Custom Solutions",
-      description: "Tailored services for your industry"
-    }
+      description: "Tailored services for your industry",
+    },
   ];
 
   const features = [
@@ -31,7 +37,7 @@ const EnterprisePartnership = () => {
     "Custom reporting and analytics",
     "API integration capabilities",
     "White-label solutions available",
-    "Training and onboarding support"
+    "Training and onboarding support",
   ];
 
   return (
@@ -45,7 +51,9 @@ const EnterprisePartnership = () => {
               Enterprise Partnership Program
             </h2>
             <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              Partner with IndiaFilings to provide comprehensive business services to your clients. Our enterprise solutions are designed for accounting firms, consultants, and business service providers.
+              Partner with CA PI to provide comprehensive business services to
+              your clients. Our enterprise solutions are designed for accounting
+              firms, consultants, and business service providers.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -56,7 +64,9 @@ const EnterprisePartnership = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2">{benefit.title}</h3>
-                    <p className="text-blue-100 text-sm">{benefit.description}</p>
+                    <p className="text-blue-100 text-sm">
+                      {benefit.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -79,11 +89,14 @@ const EnterprisePartnership = () => {
                 </div>
               ))}
             </div>
-            
+
             <div className="mt-8 p-6 bg-gradient-to-r from-green-500/20 to-teal-500/20 rounded-xl border border-green-400/30">
-              <h4 className="font-semibold text-green-300 mb-2">Ready to Scale?</h4>
+              <h4 className="font-semibold text-green-300 mb-2">
+                Ready to Scale?
+              </h4>
               <p className="text-green-100 text-sm mb-4">
-                Join our network of successful partners and grow your business with our proven platform.
+                Join our network of successful partners and grow your business
+                with our proven platform.
               </p>
               <button className="text-green-300 font-semibold hover:text-green-200 transition-colors">
                 Learn More →

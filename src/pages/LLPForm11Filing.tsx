@@ -1,4 +1,3 @@
-
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,9 +11,13 @@ const LLPForm11Filing = () => {
       <Header />
       <main className="container mx-auto px-4 py-8">
         <nav className="flex items-center space-x-1 text-sm text-gray-600 mb-6">
-          <Link to="/" className="hover:text-green-600">IndiaFilings</Link>
+          <Link to="/" className="hover:text-green-600">
+            CA PI
+          </Link>
           <ChevronRight className="h-4 w-4" />
-          <Link to="/company-compliance" className="hover:text-green-600">MCA Services</Link>
+          <Link to="/company-compliance" className="hover:text-green-600">
+            MCA Services
+          </Link>
           <ChevronRight className="h-4 w-4" />
           <span className="text-gray-900">LLP Form 11 Filing</span>
         </nav>
@@ -23,39 +26,56 @@ const LLPForm11Filing = () => {
           <div className="lg:col-span-2">
             <Card className="mb-8">
               <CardHeader>
-                <CardTitle className="text-3xl text-green-600">LLP Form 11 Filing</CardTitle>
-                <p className="text-gray-600">File Form 11 for Limited Liability Partnership annual return and statement of accounts.</p>
+                <CardTitle className="text-3xl text-green-600">
+                  LLP Form 11 Filing
+                </CardTitle>
+                <p className="text-gray-600">
+                  File Form 11 for Limited Liability Partnership annual return
+                  and statement of accounts.
+                </p>
               </CardHeader>
               <CardContent>
-                <img 
-                  src="/assets/5297086e-acf0-4b80-ad21-5c2e95a411d8.png" 
-                  alt="LLP Form 11 Filing" 
+                <img
+                  src="/assets/5297086e-acf0-4b80-ad21-5c2e95a411d8.png"
+                  alt="LLP Form 11 Filing"
                   className="w-full h-48 object-cover rounded-lg mb-6"
                 />
-                
+
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-xl font-semibold mb-3">About LLP Form 11</h3>
+                    <h3 className="text-xl font-semibold mb-3">
+                      About LLP Form 11
+                    </h3>
                     <p className="text-gray-600">
-                      Form 11 is an annual return and statement of accounts that every LLP must file with the Ministry of Corporate Affairs. 
-                      It contains essential information about the LLP's financial position and activities.
+                      Form 11 is an annual return and statement of accounts that
+                      every LLP must file with the Ministry of Corporate
+                      Affairs. It contains essential information about the LLP's
+                      financial position and activities.
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-semibold mb-3">Filing Details</h3>
+                    <h3 className="text-xl font-semibold mb-3">
+                      Filing Details
+                    </h3>
                     <ul className="space-y-2">
                       <li className="flex items-start space-x-2">
                         <Building className="h-5 w-5 text-green-500 mt-0.5" />
-                        <span className="text-gray-600">Annual return for LLP</span>
+                        <span className="text-gray-600">
+                          Annual return for LLP
+                        </span>
                       </li>
                       <li className="flex items-start space-x-2">
                         <FileText className="h-5 w-5 text-green-500 mt-0.5" />
-                        <span className="text-gray-600">Statement of accounts</span>
+                        <span className="text-gray-600">
+                          Statement of accounts
+                        </span>
                       </li>
                       <li className="flex items-start space-x-2">
                         <Clock className="h-5 w-5 text-green-500 mt-0.5" />
-                        <span className="text-gray-600">Mandatory annual compliance</span>
+                        <span className="text-gray-600">
+                          Mandatory annual compliance
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -67,7 +87,9 @@ const LLPForm11Filing = () => {
           <div className="lg:col-span-1">
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg text-green-600">Get Started</CardTitle>
+                <CardTitle className="text-lg text-green-600">
+                  Get Started
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">

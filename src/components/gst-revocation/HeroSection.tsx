@@ -1,4 +1,3 @@
-
 import { Star, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -33,48 +32,88 @@ const HeroSection = () => {
           <span className="ml-2 text-sm text-gray-600">(28)</span>
         </div>
         <p className="mt-4 text-gray-600">
-          GST Revocation service by IndiaFilings helps businesses restore their canceled GST registration by assisting with application preparation, submission, and follow-up. Our experts ensure seamless and timely reinstatement, allowing businesses to resume operations without interruptions.
+          GST Revocation service by CA PI helps businesses restore their
+          canceled GST registration by assisting with application preparation,
+          submission, and follow-up. Our experts ensure seamless and timely
+          reinstatement, allowing businesses to resume operations without
+          interruptions.
         </p>
 
         <div className="mt-6">
-            <Select defaultValue="andaman">
-                <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select a state" />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectItem value="andaman">Andaman and Nicobar Islands</SelectItem>
-                    <SelectItem value="andhra">Andhra Pradesh</SelectItem>
-                </SelectContent>
-            </Select>
+          <Select defaultValue="andaman">
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Select a state" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="andaman">
+                Andaman and Nicobar Islands
+              </SelectItem>
+              <SelectItem value="andhra">Andhra Pradesh</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Card className="border-green-500 border-2">
-                <CardContent className="p-4">
-                    <div className="text-center bg-green-100 text-green-700 text-xs font-bold py-1 px-2 rounded-full mb-3 inline-block">2 Exclusive Offers</div>
-                    <h3 className="font-bold text-gray-800">Andaman and Nicobar Islands</h3>
-                    <ul className="mt-3 space-y-2 text-sm text-gray-600">
-                        <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>Filing Revocation Application</span></li>
-                        <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>Followup and Clarifications</span></li>
-                        <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>Reactivated GSTIN</span></li>
-                        <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>GST Compliance Advisory</span></li>
-                    </ul>
-                    <Button className="w-full mt-4 bg-white text-green-600 border border-green-600 hover:bg-green-50">ADD</Button>
-                </CardContent>
-            </Card>
-            <Card>
-                <CardContent className="p-4">
-                    <div className="text-center bg-green-100 text-green-700 text-xs font-bold py-1 px-2 rounded-full mb-3 inline-block">2 Exclusive Offers</div>
-                    <h3 className="font-bold text-gray-800">Andhra Pradesh</h3>
-                    <ul className="mt-3 space-y-2 text-sm text-gray-600">
-                        <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>Filing Revocation Application</span></li>
-                        <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>Followup and Clarifications</span></li>
-                        <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>Reactivated GSTIN</span></li>
-                        <li className="flex items-start"><ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" /> <span>GST Compliance Advisory</span></li>
-                    </ul>
-                    <Button className="w-full mt-4 bg-white text-green-600 border border-green-600 hover:bg-green-50">ADD</Button>
-                </CardContent>
-            </Card>
+          <Card className="border-green-500 border-2">
+            <CardContent className="p-4">
+              <div className="text-center bg-green-100 text-green-700 text-xs font-bold py-1 px-2 rounded-full mb-3 inline-block">
+                2 Exclusive Offers
+              </div>
+              <h3 className="font-bold text-gray-800">
+                Andaman and Nicobar Islands
+              </h3>
+              <ul className="mt-3 space-y-2 text-sm text-gray-600">
+                <li className="flex items-start">
+                  <ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" />{" "}
+                  <span>Filing Revocation Application</span>
+                </li>
+                <li className="flex items-start">
+                  <ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" />{" "}
+                  <span>Followup and Clarifications</span>
+                </li>
+                <li className="flex items-start">
+                  <ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" />{" "}
+                  <span>Reactivated GSTIN</span>
+                </li>
+                <li className="flex items-start">
+                  <ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" />{" "}
+                  <span>GST Compliance Advisory</span>
+                </li>
+              </ul>
+              <Button className="w-full mt-4 bg-white text-green-600 border border-green-600 hover:bg-green-50">
+                ADD
+              </Button>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-4">
+              <div className="text-center bg-green-100 text-green-700 text-xs font-bold py-1 px-2 rounded-full mb-3 inline-block">
+                2 Exclusive Offers
+              </div>
+              <h3 className="font-bold text-gray-800">Andhra Pradesh</h3>
+              <ul className="mt-3 space-y-2 text-sm text-gray-600">
+                <li className="flex items-start">
+                  <ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" />{" "}
+                  <span>Filing Revocation Application</span>
+                </li>
+                <li className="flex items-start">
+                  <ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" />{" "}
+                  <span>Followup and Clarifications</span>
+                </li>
+                <li className="flex items-start">
+                  <ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" />{" "}
+                  <span>Reactivated GSTIN</span>
+                </li>
+                <li className="flex items-start">
+                  <ChevronRight className="h-4 w-4 mr-1 text-green-500 mt-1 flex-shrink-0" />{" "}
+                  <span>GST Compliance Advisory</span>
+                </li>
+              </ul>
+              <Button className="w-full mt-4 bg-white text-green-600 border border-green-600 hover:bg-green-50">
+                ADD
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
@@ -82,4 +121,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-

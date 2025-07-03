@@ -1,14 +1,13 @@
-
-import { useEffect, useState } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { CheckCircle, ArrowLeft, Download } from 'lucide-react';
-import { useCart } from '@/contexts/CartContext';
+import { useEffect, useState } from "react";
+import { useSearchParams, Link } from "react-router-dom";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { CheckCircle, ArrowLeft, Download } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
 
 const PaymentSuccess = () => {
   const [searchParams] = useSearchParams();
-  const sessionId = searchParams.get('session_id');
+  const sessionId = searchParams.get("session_id");
   const { clearCart } = useCart();
   const [orderNumber] = useState(`ORD-${Date.now()}`);
 
@@ -27,15 +26,19 @@ const PaymentSuccess = () => {
             <div className="flex justify-center mb-4">
               <CheckCircle className="h-16 w-16 text-green-500" />
             </div>
-            <CardTitle className="text-2xl text-green-600">Payment Successful!</CardTitle>
+            <CardTitle className="text-2xl text-green-600">
+              Payment Successful!
+            </CardTitle>
             <p className="text-gray-600 mt-2">
               Thank you for your purchase. Your order has been confirmed.
             </p>
           </CardHeader>
-          
+
           <CardContent className="space-y-6">
             <div className="bg-green-50 p-4 rounded-lg">
-              <h3 className="font-semibold text-green-800 mb-2">Order Details</h3>
+              <h3 className="font-semibold text-green-800 mb-2">
+                Order Details
+              </h3>
               <p className="text-sm text-green-700">
                 <strong>Order Number:</strong> {orderNumber}
               </p>
@@ -43,7 +46,7 @@ const PaymentSuccess = () => {
                 <strong>Payment ID:</strong> {sessionId}
               </p>
               <p className="text-sm text-green-700">
-                <strong>Date:</strong> {new Date().toLocaleDateString('en-GB')}
+                <strong>Date:</strong> {new Date().toLocaleDateString("en-GB")}
               </p>
             </div>
 
@@ -63,7 +66,7 @@ const PaymentSuccess = () => {
                 For any queries regarding your order, please contact us:
               </p>
               <p className="text-sm text-gray-600">
-                Email: billing@indiafilings.com | Phone: +91 8068301312
+                Email: billing@CA PI.com | Phone: +91 8068301312
               </p>
             </div>
 
