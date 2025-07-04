@@ -3,17 +3,14 @@ import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
 
 const OffersSection = () => {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
   const { toast } = useToast();
 
   const handleAddToCart = (planType: string, price: number) => {
-    addItem({
+    addToCart({
       id: `fcra-registration-${planType.toLowerCase()}`,
       name: `FCRA Registration - ${planType}`,
-      price: price,
-      originalPrice: price + 25000,
-      discount: '33% off',
-      description: `FCRA registration ${planType.toLowerCase()} plan`
+      price: price
     });
     
     toast({

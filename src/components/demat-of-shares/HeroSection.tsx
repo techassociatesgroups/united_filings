@@ -3,17 +3,14 @@ import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
 
 const HeroSection = () => {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
   const { toast } = useToast();
 
   const handleAddToCart = () => {
-    addItem({
+    addToCart({
       id: 'demat-of-shares',
       name: 'Demat of Shares',
-      price: 15000,
-      originalPrice: 20000,
-      discount: '25% off',
-      description: 'Complete demat of shares conversion service'
+      price: 15000
     });
     
     toast({

@@ -3,17 +3,14 @@ import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
 
 const HeroSection = () => {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
   const { toast } = useToast();
 
   const handleAddToCart = () => {
-    addItem({
+    addToCart({
       id: 'udyam-registration',
       name: 'Udyam Registration',
-      price: 2500,
-      originalPrice: 5000,
-      discount: '50% off',
-      description: 'Complete Udyam registration for MSME benefits'
+      price: 2500
     });
     
     toast({

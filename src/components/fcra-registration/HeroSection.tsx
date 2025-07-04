@@ -3,17 +3,14 @@ import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
 
 const HeroSection = () => {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
   const { toast } = useToast();
 
   const handleAddToCart = () => {
-    addItem({
+    addToCart({
       id: 'fcra-registration',
       name: 'FCRA Registration',
-      price: 50000,
-      originalPrice: 75000,
-      discount: '33% off',
-      description: 'Complete FCRA registration for foreign contribution acceptance'
+      price: 50000
     });
     
     toast({

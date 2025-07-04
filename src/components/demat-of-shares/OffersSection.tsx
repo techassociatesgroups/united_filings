@@ -3,17 +3,14 @@ import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
 
 const OffersSection = () => {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
   const { toast } = useToast();
 
   const handleAddToCart = (planType: string, price: number) => {
-    addItem({
+    addToCart({
       id: `demat-of-shares-${planType.toLowerCase()}`,
       name: `Demat of Shares - ${planType}`,
-      price: price,
-      originalPrice: price + 5000,
-      discount: '25% off',
-      description: `Demat of shares ${planType.toLowerCase()} plan`
+      price: price
     });
     
     toast({

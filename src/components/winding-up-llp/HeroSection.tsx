@@ -3,17 +3,14 @@ import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
 
 const HeroSection = () => {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
   const { toast } = useToast();
 
   const handleAddToCart = () => {
-    addItem({
+    addToCart({
       id: 'winding-up-llp',
       name: 'Winding Up - LLP',
-      price: 25000,
-      originalPrice: 35000,
-      discount: '29% off',
-      description: 'Complete LLP winding up and closure service'
+      price: 25000
     });
     
     toast({
