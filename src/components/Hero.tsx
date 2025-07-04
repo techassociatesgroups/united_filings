@@ -25,7 +25,7 @@ const Hero = () => {
             </button>
 
             {/* Content */}
-            <div className="flex-1 z-10">
+            <div className="flex-1">
               <div className="bg-black/70 text-white p-8 rounded-lg max-w-md">
                 <h1 className="text-2xl lg:text-3xl font-bold mb-2">
                   {slides[currentSlide].title}
