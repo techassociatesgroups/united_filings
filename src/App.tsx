@@ -92,6 +92,10 @@ import TANRegistration from "./pages/TANRegistration";
 import TDSReturnFiling from "./pages/TDSReturnFiling";
 import IncomeTaxNotice from "./pages/IncomeTaxNotice";
 import DINReactivation from "./pages/DINReactivation";
+import MOAAmendment from "./pages/MOAAmendment";
+import AOAAmendment from "./pages/AOAAmendment";
+import AuthorizedCapitalIncrease from "./pages/AuthorizedCapitalIncrease";
+import ShareTransfer from "./pages/ShareTransfer";
 
 const queryClient = new QueryClient();
 
@@ -190,6 +194,10 @@ const App = () => (
             <Route path="/tds-return-filing" element={<TDSReturnFiling />} />
             <Route path="/income-tax-notice" element={<IncomeTaxNotice />} />
             <Route path="/din-reactivation" element={<DINReactivation />} />
+            <Route path="/moa-amendment" element={<MOAAmendment />} />
+            <Route path="/aoa-amendment" element={<AOAAmendment />} />
+            <Route path="/authorized-capital-increase" element={<AuthorizedCapitalIncrease />} />
+            <Route path="/share-transfer" element={<ShareTransfer />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
