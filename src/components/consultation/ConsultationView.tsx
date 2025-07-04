@@ -8,24 +8,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import OffersSection from "./OffersSection";
+import AddToCartButton from "@/components/AddToCartButton";
 
 const ConsultationCard = ({
   type,
   features,
+  price,
 }: {
   type: string;
   features: string[];
+  price: number;
 }) => {
-=======
-import { Link } from 'react-router-dom';
-import OffersSection from './OffersSection';
-import AddToCartButton from '@/components/AddToCartButton';
-
-const ConsultationCard = ({ type, features, price }: { type: string, features: string[], price: number }) => {
->>>>>>> 9ac1ffbe3d76605a6c86049f36c4fa05ce534279
   return (
     <Card className="border-dashed border-green-500 transition-shadow hover:shadow-lg">
       <div className="bg-green-100 text-green-700 text-xs font-bold py-1 px-3 inline-block rounded-br-lg rounded-tl-lg">
@@ -41,21 +36,12 @@ const ConsultationCard = ({ type, features, price }: { type: string, features: s
             </li>
           ))}
         </ul>
-<<<<<<< HEAD
-        <Button
-          variant="outline"
-          className="mt-6 w-full border-green-500 text-green-500 hover:bg-green-50 hover:text-green-600 font-bold"
-        >
-          ADD
-        </Button>
-=======
-        <AddToCartButton 
+        <AddToCartButton
           serviceName={`30 Minutes - ${type} Consultation`}
           price={price}
           className="mt-6 w-full border-green-500 text-green-500 hover:bg-green-50 hover:text-green-600 font-bold"
           variant="outline"
         />
->>>>>>> 9ac1ffbe3d76605a6c86049f36c4fa05ce534279
       </CardContent>
     </Card>
   );
@@ -120,14 +106,9 @@ const ConsultationView = () => {
       </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-<<<<<<< HEAD
         <ConsultationCard
           type="CA"
-=======
-        <ConsultationCard 
-          type="CA" 
           price={2999}
->>>>>>> 9ac1ffbe3d76605a6c86049f36c4fa05ce534279
           features={[
             "Online Consultation",
             "30 Minute Session",
@@ -137,14 +118,9 @@ const ConsultationView = () => {
             "Consultation report - Financial",
           ]}
         />
-<<<<<<< HEAD
         <ConsultationCard
           type="Lawyer"
-=======
-        <ConsultationCard 
-          type="Lawyer" 
           price={2999}
->>>>>>> 9ac1ffbe3d76605a6c86049f36c4fa05ce534279
           features={[
             "Online Consultation",
             "30 Minute Session",
