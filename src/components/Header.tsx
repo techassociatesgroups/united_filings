@@ -221,6 +221,11 @@ const Header = () => {
     { name: "Digital Signature", path: "/digital-signature" },
     { name: "PF Registration", path: "/pf-registration" },
     { name: "ESI Registration", path: "/esi-registration" },
+    { name: "Demat of Shares", path: "/demat-of-shares" },
+    { name: "Winding Up - LLP", path: "/winding-up-llp" },
+    { name: "Winding Up - Company", path: "/winding-up-company" },
+    { name: "Udyam Registration", path: "/udyam-registration" },
+    { name: "FCRA Registration", path: "/fcra-registration" },
   ];
 
   // Filter services based on search query
@@ -355,11 +360,16 @@ const Header = () => {
                             <Link to="/professional-tax-registration" className="text-gray-600 hover:text-green-600">Professional Tax Registration</Link>
                             <Link to="/rcmc-registration" className="text-gray-600 hover:text-green-600">RCMC Registration</Link>
                             <Link to="/rera-registration-for-agents" className="text-gray-600 hover:text-green-600">TN RERA Registration for Agents</Link>
+                            <Link to="/demat-of-shares" className="text-gray-600 hover:text-green-600">Demat of Shares</Link>
+                            <Link to="/winding-up-llp" className="text-gray-600 hover:text-green-600">Winding Up - LLP</Link>
+                            <Link to="/winding-up-company" className="text-gray-600 hover:text-green-600">Winding Up - Company</Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                             <Link to="/12a-80g-registration" className="text-gray-600 hover:text-green-600">12A and 80G Registration</Link>
                             <Link to="/12a-registration" className="text-gray-600 hover:text-green-600">12A Registration</Link>
                             <Link to="/80g-registration" className="text-gray-600 hover:text-green-600">80G Registration</Link>
+                            <Link to="/udyam-registration" className="text-gray-600 hover:text-green-600">Udyam Registration</Link>
+                            <Link to="/fcra-registration" className="text-gray-600 hover:text-green-600">FCRA Registration</Link>
                             <Link to="/apeda-registration" className="text-gray-600 hover:text-green-600">APEDA Registration</Link>
                             <Link to="/barcode-registration" className="text-gray-600 hover:text-green-600">Barcode Registration</Link>
                             <Link to="/bis-registration" className="text-gray-600 hover:text-green-600">BIS Registration</Link>
