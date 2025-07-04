@@ -87,6 +87,11 @@ import Bookkeeping from "./pages/Bookkeeping";
 import Checkout from "./pages/Checkout";
 import AboutUs from "./pages/AboutUs";
 import Guide from "./pages/Guide";
+import FifteenCA15CBFiling from "./pages/15CA15CBFiling";
+import TANRegistration from "./pages/TANRegistration";
+import TDSReturnFiling from "./pages/TDSReturnFiling";
+import IncomeTaxNotice from "./pages/IncomeTaxNotice";
+import DINReactivation from "./pages/DINReactivation";
 
 const queryClient = new QueryClient();
 
@@ -180,7 +185,11 @@ const App = () => (
             <Route path="/partnership-compliance" element={<PartnershipCompliance />} />
             <Route path="/proprietorship-compliance" element={<ProprietorshipCompliance />} />
             <Route path="/bookkeeping" element={<Bookkeeping />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="/15ca-15cb-filing" element={<FifteenCA15CBFiling />} />
+            <Route path="/tan-registration" element={<TANRegistration />} />
+            <Route path="/tds-return-filing" element={<TDSReturnFiling />} />
+            <Route path="/income-tax-notice" element={<IncomeTaxNotice />} />
+            <Route path="/din-reactivation" element={<DINReactivation />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

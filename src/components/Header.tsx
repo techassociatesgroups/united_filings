@@ -541,10 +541,10 @@ const Header = () => {
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="/itr-6-return-filing" className="text-gray-600 hover:text-green-600">ITR-6 Return Filing</Link>
                           <Link to="/itr-7-return-filing" className="text-gray-600 hover:text-green-600">ITR-7 Return Filing</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">15CA - 15CB Filing</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">TAN Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">TDS Return Filing</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Income Tax Notice</Link>
+                          <Link to="/15ca-15cb-filing" className="text-gray-600 hover:text-green-600">15CA - 15CB Filing</Link>
+                          <Link to="/tan-registration" className="text-gray-600 hover:text-green-600">TAN Registration</Link>
+                          <Link to="/tds-return-filing" className="text-gray-600 hover:text-green-600">TDS Return Filing</Link>
+                          <Link to="/income-tax-notice" className="text-gray-600 hover:text-green-600">Income Tax Notice</Link>
                         </div>
                       </div>
                     </NavigationMenuContent>
@@ -569,7 +569,7 @@ const Header = () => {
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="/din-ekyc-filing" className="text-gray-600 hover:text-green-600">DIN eKYC Filing</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">DIN Reactivation</Link>
+                          <Link to="/din-reactivation" className="text-gray-600 hover:text-green-600">DIN Reactivation</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Director Change</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Remove Director</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">ADT-1 Filing</Link>
