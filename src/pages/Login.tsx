@@ -13,6 +13,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<{email?: string; password?: string}>({});
+  const [isCheckingSession, setIsCheckingSession] = useState(true);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -23,11 +24,17 @@ const Login = () => {
       emailInput.focus();
     }
 
-    // Check for existing session
+    // Check for existing session only once
     const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session?.user) {
-        navigate('/');
+      try {
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (!error && session?.user) {
+          navigate('/', { replace: true });
+        }
+      } catch (error) {
+        console.error('Session check error:', error);
+      } finally {
+        setIsCheckingSession(false);
       }
     };
 
@@ -41,13 +48,22 @@ const Login = () => {
             title: "Welcome back!",
             description: "You have been successfully logged in.",
           });
-          navigate('/');
+          navigate('/', { replace: true });
         }
       }
     );
 
     return () => subscription.unsubscribe();
   }, [navigate, toast]);
+
+  // Show loading spinner while checking session
+  if (isCheckingSession) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600"></div>
+      </div>
+    );
+  }
 
   const validateForm = () => {
     const newErrors: {email?: string; password?: string} = {};
@@ -172,6 +188,7 @@ const Login = () => {
                 onChange={(e) => handleInputChange('email', e.target.value)}
                 className={`w-full pl-10 ${errors.email ? 'border-red-500 focus:border-red-500' : 'focus:border-green-500'}`}
                 placeholder="Enter your email"
+                disabled={loading}
               />
             </div>
             {errors.email && (
@@ -192,11 +209,13 @@ const Login = () => {
                 onChange={(e) => handleInputChange('password', e.target.value)}
                 className={`w-full pl-10 pr-10 ${errors.password ? 'border-red-500 focus:border-red-500' : 'focus:border-green-500'}`}
                 placeholder="Enter your password"
+                disabled={loading}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                disabled={loading}
               >
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>

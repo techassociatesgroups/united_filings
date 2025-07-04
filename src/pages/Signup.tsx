@@ -24,6 +24,7 @@ const Signup = () => {
     confirmPassword?: string;
     terms?: string;
   }>({});
+  const [isCheckingSession, setIsCheckingSession] = useState(true);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -34,16 +35,31 @@ const Signup = () => {
       nameInput.focus();
     }
 
-    // Check for existing session
+    // Check for existing session only once
     const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session?.user) {
-        navigate('/');
+      try {
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (!error && session?.user) {
+          navigate('/', { replace: true });
+        }
+      } catch (error) {
+        console.error('Session check error:', error);
+      } finally {
+        setIsCheckingSession(false);
       }
     };
 
     checkSession();
   }, [navigate]);
+
+  // Show loading spinner while checking session
+  if (isCheckingSession) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600"></div>
+      </div>
+    );
+  }
 
   const validateForm = () => {
     const newErrors: {
@@ -236,6 +252,7 @@ const Signup = () => {
                 onChange={(e) => handleInputChange('fullName', e.target.value)}
                 className={`w-full pl-10 ${errors.fullName ? 'border-red-500 focus:border-red-500' : 'focus:border-green-500'}`}
                 placeholder="Enter your full name"
+                disabled={loading}
               />
             </div>
             {errors.fullName && (
@@ -256,6 +273,7 @@ const Signup = () => {
                 onChange={(e) => handleInputChange('email', e.target.value)}
                 className={`w-full pl-10 ${errors.email ? 'border-red-500 focus:border-red-500' : 'focus:border-green-500'}`}
                 placeholder="Enter your email"
+                disabled={loading}
               />
             </div>
             {errors.email && (
@@ -276,11 +294,13 @@ const Signup = () => {
                 onChange={(e) => handleInputChange('password', e.target.value)}
                 className={`w-full pl-10 pr-10 ${errors.password ? 'border-red-500 focus:border-red-500' : 'focus:border-green-500'}`}
                 placeholder="Create a password"
+                disabled={loading}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                disabled={loading}
               >
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
@@ -306,11 +326,13 @@ const Signup = () => {
                 onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
                 className={`w-full pl-10 pr-10 ${errors.confirmPassword ? 'border-red-500 focus:border-red-500' : 'focus:border-green-500'}`}
                 placeholder="Confirm your password"
+                disabled={loading}
               />
               <button
                 type="button"
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                disabled={loading}
               >
                 {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
@@ -327,6 +349,7 @@ const Signup = () => {
               checked={agreeToTerms}
               onCheckedChange={(checked) => handleInputChange('terms', checked as boolean)}
               className="mt-1"
+              disabled={loading}
             />
             <div className="text-sm">
               <label htmlFor="terms" className="text-gray-700 cursor-pointer">
