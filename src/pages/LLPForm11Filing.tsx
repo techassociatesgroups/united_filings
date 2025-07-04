@@ -1,0 +1,26 @@
+
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/llp-form-11-filing/Breadcrumb";
+import HeroSection from "@/components/llp-form-11-filing/HeroSection";
+import DetailsSection from "@/components/llp-form-11-filing/DetailsSection";
+import DocumentsSection from "@/components/llp-form-11-filing/DocumentsSection";
+import OffersSection from "@/components/llp-form-11-filing/OffersSection";
+
+const LLPForm11Filing = () => {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+      <div className="py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <Breadcrumb />
+      </div>
+      <HeroSection />
+      <DetailsSection />
+      <DocumentsSection />
+      <OffersSection />
+      <Footer />
+    </div>
+  );
+};
+
+export default LLPForm11Filing;

@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -92,6 +93,12 @@ import TANRegistration from "./pages/TANRegistration";
 import TDSReturnFiling from "./pages/TDSReturnFiling";
 import IncomeTaxNotice from "./pages/IncomeTaxNotice";
 import DINReactivation from "./pages/DINReactivation";
+import DirectorChange from "./pages/DirectorChange";
+import RemoveDirector from "./pages/RemoveDirector";
+import ADT1Filing from "./pages/ADT1Filing";
+import DPT3Filing from "./pages/DPT3Filing";
+import LLPForm11Filing from "./pages/LLPForm11Filing";
+import DormantStatusFiling from "./pages/DormantStatusFiling";
 
 const queryClient = new QueryClient();
 
@@ -190,6 +197,12 @@ const App = () => (
             <Route path="/tds-return-filing" element={<TDSReturnFiling />} />
             <Route path="/income-tax-notice" element={<IncomeTaxNotice />} />
             <Route path="/din-reactivation" element={<DINReactivation />} />
+            <Route path="/director-change" element={<DirectorChange />} />
+            <Route path="/remove-director" element={<RemoveDirector />} />
+            <Route path="/adt-1-filing" element={<ADT1Filing />} />
+            <Route path="/dpt-3-filing" element={<DPT3Filing />} />
+            <Route path="/llp-form-11-filing" element={<LLPForm11Filing />} />
+            <Route path="/dormant-status-filing" element={<DormantStatusFiling />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
