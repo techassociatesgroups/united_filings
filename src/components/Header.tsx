@@ -578,12 +578,12 @@ const Header = () => {
                           <Link to="#" className="text-gray-600 hover:text-green-600">DPT-3 Filing</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">LLP Form 11 Filing</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Dormant Status Filing</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">MOA Amendment</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">AOA Amendment</Link>
+                          <Link to="/moa-amendment" className="text-gray-600 hover:text-green-600">MOA Amendment</Link>
+                          <Link to="/aoa-amendment" className="text-gray-600 hover:text-green-600">AOA Amendment</Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Authorized Capital Increase</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Share Transfer</Link>
+                          <Link to="/authorized-capital-increase" className="text-gray-600 hover:text-green-600">Authorized Capital Increase</Link>
+                          <Link to="/share-transfer" className="text-gray-600 hover:text-green-600">Share Transfer</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Demat of Shares</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Winding Up - LLP</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Winding Up - Company</Link>
