@@ -1,4 +1,6 @@
+
 import { Star } from "lucide-react";
+import LiveChatButton from "@/components/LiveChatButton";
 
 const HeroSection = () => {
   return (
@@ -18,17 +20,23 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="md:col-span-7">
-          <h1 className="text-3xl font-bold text-gray-800">
-            Trust Registration
-          </h1>
-          <div className="flex items-center mt-2">
-            <Star className="h-5 w-5 text-yellow-400 fill-current" />
-            <Star className="h-5 w-5 text-yellow-400 fill-current" />
-            <Star className="h-5 w-5 text-yellow-400 fill-current" />
-            <Star className="h-5 w-5 text-yellow-400 fill-current" />
-            <Star className="h-5 w-5 text-gray-300 fill-current" />
-            <span className="ml-2 text-sm text-gray-600">(8)</span>
+          <div className="flex justify-between items-start mb-4">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-800">
+                Trust Registration
+              </h1>
+              <div className="flex items-center mt-2">
+                <Star className="h-5 w-5 text-yellow-400 fill-current" />
+                <Star className="h-5 w-5 text-yellow-400 fill-current" />
+                <Star className="h-5 w-5 text-yellow-400 fill-current" />
+                <Star className="h-5 w-5 text-yellow-400 fill-current" />
+                <Star className="h-5 w-5 text-gray-300 fill-current" />
+                <span className="ml-2 text-sm text-gray-600">(8)</span>
+              </div>
+            </div>
+            <LiveChatButton />
           </div>
+          
           <p className="mt-4 text-gray-600">
             A Trust can be registered in India to conduct not for profit or
             charitable activities. Get a Trust Deed prepared by a Lawyer through

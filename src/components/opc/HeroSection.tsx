@@ -1,3 +1,4 @@
+
 import { Star, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,6 +9,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
+import AddToCartButton from "@/components/AddToCartButton";
+import LiveChatButton from "@/components/LiveChatButton";
 
 const HeroSection = () => {
   return (
@@ -37,17 +40,23 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="md:col-span-8">
-          <h1 className="text-2xl font-bold text-gray-800">OPC Registration</h1>
-          <div className="flex items-center my-2">
-            <div className="flex text-yellow-500">
-              <Star className="h-5 w-5 fill-current" />
-              <Star className="h-5 w-5 fill-current" />
-              <Star className="h-5 w-5 fill-current" />
-              <Star className="h-5 w-5 fill-current" />
-              <Star className="h-5 w-5 fill-current" />
+          <div className="flex justify-between items-start mb-4">
+            <div>
+              <h1 className="text-2xl font-bold text-gray-800">OPC Registration</h1>
+              <div className="flex items-center my-2">
+                <div className="flex text-yellow-500">
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                </div>
+                <span className="text-gray-600 ml-2">(2141)</span>
+              </div>
             </div>
-            <span className="text-gray-600 ml-2">(2141)</span>
+            <LiveChatButton />
           </div>
+          
           <p className="text-gray-600 mb-4">
             Instant Name Application for Company.
           </p>
@@ -85,9 +94,12 @@ const HeroSection = () => {
                     4 Name Choice
                   </li>
                 </ul>
-                <Button className="w-full mt-4 bg-white border border-green-500 text-green-500 hover:bg-green-50">
-                  ADD
-                </Button>
+                <AddToCartButton 
+                  serviceName="OPC MCA Name Approval" 
+                  price={1999}
+                  className="w-full mt-4 bg-white border border-green-500 text-green-500 hover:bg-green-50"
+                  variant="outline"
+                />
               </CardContent>
             </Card>
             <Card className="border-green-200">
@@ -126,9 +138,12 @@ const HeroSection = () => {
                     Bank Account Opening Assistance
                   </li>
                 </ul>
-                <Button className="w-full mt-4 bg-white border border-green-500 text-green-500 hover:bg-green-50">
-                  ADD
-                </Button>
+                <AddToCartButton 
+                  serviceName="OPC Registration - Andaman and Nicobar Islands" 
+                  price={8999}
+                  className="w-full mt-4 bg-white border border-green-500 text-green-500 hover:bg-green-50"
+                  variant="outline"
+                />
               </CardContent>
             </Card>
           </div>

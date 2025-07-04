@@ -33,7 +33,7 @@ const AddToCartButton = ({ serviceName, price, className, variant = "default" }:
       variant={variant}
       onClick={handleAddToCart}
     >
-      ADD TO CART
+      ADD
     </Button>
   );
 };

@@ -1,5 +1,8 @@
+
 import { Star, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import AddToCartButton from "@/components/AddToCartButton";
+import LiveChatButton from "@/components/LiveChatButton";
 
 const HeroSection = () => {
   return (
@@ -30,17 +33,23 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="md:col-span-7">
-          <h1 className="text-3xl font-bold text-gray-800">
-            Public Limited Company
-          </h1>
-          <div className="flex items-center mt-2">
-            <Star className="h-5 w-5 text-yellow-400 fill-current" />
-            <Star className="h-5 w-5 text-yellow-400 fill-current" />
-            <Star className="h-5 w-5 text-yellow-400 fill-current" />
-            <Star className="h-5 w-5 text-yellow-400 fill-current" />
-            <Star className="h-5 w-5 text-yellow-400 fill-current" />
-            <span className="ml-2 text-sm text-gray-600">(29)</span>
+          <div className="flex justify-between items-start mb-4">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-800">
+                Public Limited Company
+              </h1>
+              <div className="flex items-center mt-2">
+                <Star className="h-5 w-5 text-yellow-400 fill-current" />
+                <Star className="h-5 w-5 text-yellow-400 fill-current" />
+                <Star className="h-5 w-5 text-yellow-400 fill-current" />
+                <Star className="h-5 w-5 text-yellow-400 fill-current" />
+                <Star className="h-5 w-5 text-yellow-400 fill-current" />
+                <span className="ml-2 text-sm text-gray-600">(29)</span>
+              </div>
+            </div>
+            <LiveChatButton />
           </div>
+          
           <p className="mt-4 text-gray-600">
             Easily incorporate a Public Limited Company through CA PI. A minimum
             of 3 Directors and 7 Shareholders are required to incorporate a
@@ -87,9 +96,11 @@ const HeroSection = () => {
               </li>
             </ul>
             <div className="text-right mt-4">
-              <Button className="bg-green-500 hover:bg-green-600 text-white font-bold">
-                ADD
-              </Button>
+              <AddToCartButton 
+                serviceName="Public Limited Company Incorporation" 
+                price={29999}
+                className="bg-green-500 hover:bg-green-600 text-white font-bold"
+              />
             </div>
           </div>
           <div className="mt-4 flex justify-between text-sm">

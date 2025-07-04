@@ -26,15 +26,23 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const addToCart = (newItem: Omit<CartItem, 'quantity'>) => {
     console.log('Adding to cart:', newItem);
     setItems(prevItems => {
-      const existingItem = prevItems.find(item => item.id === newItem.id);
-      if (existingItem) {
-        return prevItems.map(item =>
-          item.id === newItem.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
+      const existingItemIndex = prevItems.findIndex(item => item.id === newItem.id);
+      
+      if (existingItemIndex !== -1) {
+        // Item exists, update quantity
+        const updatedItems = [...prevItems];
+        updatedItems[existingItemIndex] = {
+          ...updatedItems[existingItemIndex],
+          quantity: updatedItems[existingItemIndex].quantity + 1
+        };
+        console.log('Updated existing item quantity:', updatedItems[existingItemIndex]);
+        return updatedItems;
+      } else {
+        // New item, add to cart
+        const newCartItem = { ...newItem, quantity: 1 };
+        console.log('Added new item to cart:', newCartItem);
+        return [...prevItems, newCartItem];
       }
-      return [...prevItems, { ...newItem, quantity: 1 }];
     });
   };
 
