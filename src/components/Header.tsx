@@ -559,7 +559,7 @@ const Header = () => {
                       MCA
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="grid w-[800px] gap-4 p-5 md:grid-cols-3 bg-white">
+                      <div className="grid w-[500px] gap-2 p-5 md:grid-cols-3 bg-white">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="/company-compliance" className="text-gray-600 hover:text-green-600">Company Compliance</Link>
                           <Link to="/llp-compliance" className="text-gray-600 hover:text-green-600">LLP Compliance</Link>
