@@ -96,6 +96,11 @@ import MOAAmendment from "./pages/MOAAmendment";
 import AOAAmendment from "./pages/AOAAmendment";
 import AuthorizedCapitalIncrease from "./pages/AuthorizedCapitalIncrease";
 import ShareTransfer from "./pages/ShareTransfer";
+import DematOfShares from "./pages/DematOfShares";
+import WindingUpLLP from "./pages/WindingUpLLP";
+import WindingUpCompany from "./pages/WindingUpCompany";
+import UdyamRegistration from "./pages/UdyamRegistration";
+import FCRARegistration from "./pages/FCRARegistration";
 
 const queryClient = new QueryClient();
 
@@ -198,6 +203,11 @@ const App = () => (
             <Route path="/aoa-amendment" element={<AOAAmendment />} />
             <Route path="/authorized-capital-increase" element={<AuthorizedCapitalIncrease />} />
             <Route path="/share-transfer" element={<ShareTransfer />} />
+            <Route path="/demat-of-shares" element={<DematOfShares />} />
+            <Route path="/winding-up-llp" element={<WindingUpLLP />} />
+            <Route path="/winding-up-company" element={<WindingUpCompany />} />
+            <Route path="/udyam-registration" element={<UdyamRegistration />} />
+            <Route path="/fcra-registration" element={<FCRARegistration />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
