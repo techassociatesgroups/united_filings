@@ -101,6 +101,8 @@ import WindingUpLLP from "./pages/WindingUpLLP";
 import WindingUpCompany from "./pages/WindingUpCompany";
 import UdyamRegistration from "./pages/UdyamRegistration";
 import FCRARegistration from "./pages/FCRARegistration";
+import NidhiCompany from "./pages/NidhiCompany";
+import DirectorChange from "./pages/DirectorChange";
 
 const queryClient = new QueryClient();
 
@@ -208,6 +210,8 @@ const App = () => (
             <Route path="/winding-up-company" element={<WindingUpCompany />} />
             <Route path="/udyam-registration" element={<UdyamRegistration />} />
             <Route path="/fcra-registration" element={<FCRARegistration />} />
+            <Route path="/nidhi-company" element={<NidhiCompany />} />
+            <Route path="/director-change" element={<DirectorChange />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

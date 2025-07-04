@@ -307,7 +307,7 @@ const Header = () => {
                           <Link to="/public-limited-company" className="text-gray-600 hover:text-green-600">Public Limited Company</Link>
                           <Link to="/section-8-company" className="text-gray-600 hover:text-green-600">Section 8 Company</Link>
                           <Link to="/producer-company" className="text-gray-600 hover:text-green-600">Producer Company</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Nidhi Company</Link>
+                          <Link to="/nidhi-company" className="text-gray-600 hover:text-green-600">Nidhi Company</Link>
                           <Link to="/indian-subsidiary" className="text-gray-600 hover:text-green-600">Indian Subsidiary</Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
@@ -580,9 +580,9 @@ const Header = () => {
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="/din-ekyc-filing" className="text-gray-600 hover:text-green-600">DIN eKYC Filing</Link>
                           <Link to="/din-reactivation" className="text-gray-600 hover:text-green-600">DIN Reactivation</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Director Change</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Remove Director</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">ADT-1 Filing</Link>
+                          <Link to="/director-change" className="text-gray-600 hover:text-green-600">Director Change</Link>
+                          <Link to="/remove-director" className="text-gray-600 hover:text-green-600">Remove Director</Link>
+                          <Link to="/adt1-filing" className="text-gray-600 hover:text-green-600">ADT-1 Filing</Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="#" className="text-gray-600 hover:text-green-600">DPT-3 Filing</Link>
