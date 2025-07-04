@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useNavigate, Link } from 'react-router-dom';
@@ -139,16 +140,16 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-8 border border-gray-200">
+      <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 sm:p-8 border border-gray-200">
         {/* Logo and Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6 sm:mb-8">
           <Link to="/" className="flex justify-center mb-4">
-            <div className="bg-gradient-to-r from-orange-400 to-green-500 text-white px-4 py-2 rounded-full text-xl font-bold mr-2">
+            <div className="bg-gradient-to-r from-orange-400 to-green-500 text-white px-3 sm:px-4 py-2 rounded-full text-lg sm:text-xl font-bold mr-2">
               India
             </div>
-            <span className="text-green-600 text-xl font-bold flex items-center">Filings</span>
+            <span className="text-green-600 text-lg sm:text-xl font-bold flex items-center">Filings</span>
           </Link>
-          <h1 className="text-2xl font-bold text-gray-800 mb-2">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
             Sign In to Your Account
           </h1>
           <p className="text-gray-600 text-sm">
@@ -156,7 +157,7 @@ const Login = () => {
           </p>
         </div>
 
-        <form onSubmit={handleLogin} className="space-y-5">
+        <form onSubmit={handleLogin} className="space-y-4 sm:space-y-5">
           {/* Email Field */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -216,7 +217,7 @@ const Login = () => {
           <Button
             type="submit"
             disabled={loading}
-            className="w-full bg-green-600 hover:bg-green-700 text-white py-3 font-semibold rounded-md transition-colors duration-200"
+            className="w-full bg-green-600 hover:bg-green-700 text-white py-2 sm:py-3 font-semibold rounded-md transition-colors duration-200"
           >
             {loading ? (
               <div className="flex items-center justify-center">
@@ -229,7 +230,7 @@ const Login = () => {
           </Button>
 
           {/* Divider */}
-          <div className="relative my-6">
+          <div className="relative my-4 sm:my-6">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-300"></div>
             </div>
@@ -244,7 +245,7 @@ const Login = () => {
             onClick={handleGoogleAuth}
             disabled={loading}
             variant="outline"
-            className="w-full flex items-center justify-center space-x-3 py-3 border-gray-300 hover:bg-gray-50 transition-colors duration-200"
+            className="w-full flex items-center justify-center space-x-3 py-2 sm:py-3 border-gray-300 hover:bg-gray-50 transition-colors duration-200"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -265,7 +266,7 @@ const Login = () => {
         </form>
 
         {/* Footer */}
-        <div className="mt-8 pt-6 border-t border-gray-200">
+        <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200">
           <div className="text-center text-sm text-gray-600">
             Need help?{' '}
             <a href="#" className="text-green-600 hover:text-green-700 font-medium">
