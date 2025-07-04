@@ -1,9 +1,10 @@
 import { Phone, Mail, Search, ShoppingCart, User, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { cn } from "@/lib/utils";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCart } from '@/contexts/CartContext';
 import CartDropdown from '@/components/CartDropdown';
+import { supabase } from '@/integrations/supabase/client';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -194,6 +195,30 @@ const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check current user session
+    const checkUser = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setUser(session?.user || null);
+    };
+    
+    checkUser();
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      setUser(session?.user || null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    navigate('/');
+  };
 
   // Search data - all available services
   const allServices = [
@@ -761,13 +786,33 @@ const Header = () => {
               </button>
               <CartDropdown isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
             </div>
-            <Link 
-              to="/login" 
-              className="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors"
-            >
-              <User className="h-4 w-4 sm:h-5 sm:w-5" />
-              <span className="text-xs sm:text-sm font-medium hidden sm:inline">Login</span>
-            </Link>
+            
+            {user ? (
+              <div className="flex items-center space-x-2">
+                <span className="text-xs sm:text-sm text-gray-700 hidden sm:inline">
+                  {user.email}
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors"
+                >
+                  <User className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="text-xs sm:text-sm font-medium hidden sm:inline">Logout</span>
+                </button>
+              </div>
+            ) : (
+              <Link 
+                to="/login" 
+                className="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/login');
+                }}
+              >
+                <User className="h-4 w-4 sm:h-5 sm:w-5" />
+                <span className="text-xs sm:text-sm font-medium hidden sm:inline">Login</span>
+              </Link>
+            )}
           </div>
         </div>
       </nav>

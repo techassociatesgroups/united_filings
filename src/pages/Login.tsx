@@ -13,37 +13,41 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<{email?: string; password?: string}>({});
-  const [isCheckingSession, setIsCheckingSession] = useState(true);
+  const [mounted, setMounted] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 
   useEffect(() => {
+    // Mark component as mounted
+    setMounted(true);
+    
     // Auto-focus on email field
     const emailInput = document.getElementById('email-input');
     if (emailInput) {
       emailInput.focus();
     }
 
-    // Check for existing session only once
-    const checkSession = async () => {
+    // Check for existing session after component mounts
+    const checkExistingSession = async () => {
       try {
-        const { data: { session }, error } = await supabase.auth.getSession();
-        if (!error && session?.user) {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user && mounted) {
+          console.log('User already logged in, redirecting...');
           navigate('/', { replace: true });
         }
       } catch (error) {
         console.error('Session check error:', error);
-      } finally {
-        setIsCheckingSession(false);
       }
     };
 
-    checkSession();
+    // Small delay to ensure component is fully mounted
+    const timeoutId = setTimeout(checkExistingSession, 100);
 
     // Listen for auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
-        if (event === 'SIGNED_IN' && session?.user) {
+        console.log('Auth state change:', event, session?.user?.email);
+        if (event === 'SIGNED_IN' && session?.user && mounted) {
           toast({
             title: "Welcome back!",
             description: "You have been successfully logged in.",
@@ -53,17 +57,11 @@ const Login = () => {
       }
     );
 
-    return () => subscription.unsubscribe();
-  }, [navigate, toast]);
-
-  // Show loading spinner while checking session
-  if (isCheckingSession) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600"></div>
-      </div>
-    );
-  }
+    return () => {
+      clearTimeout(timeoutId);
+      subscription.unsubscribe();
+    };
+  }, [navigate, toast, mounted]);
 
   const validateForm = () => {
     const newErrors: {email?: string; password?: string} = {};
@@ -117,19 +115,25 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      console.log('Attempting login with:', email);
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
       
       if (error) {
+        console.error('Login error:', error);
         if (error.message.includes('Invalid login credentials')) {
           setErrors({ email: 'Invalid email or password' });
         } else {
           throw error;
         }
+      } else if (data.user) {
+        console.log('Login successful:', data.user.email);
+        // Success handled by auth state change listener
       }
     } catch (error: any) {
+      console.error('Login failed:', error);
       toast({
         title: "Login Failed",
         description: error.message,
@@ -153,6 +157,15 @@ const Login = () => {
       }
     }
   };
+
+  // Don't render anything until component is mounted
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
