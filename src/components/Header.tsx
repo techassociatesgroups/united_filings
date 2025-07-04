@@ -762,7 +762,7 @@ const Header = () => {
               <CartDropdown isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
             </div>
             <Link 
-              to="/auth" 
+              to="/login" 
               className="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors"
             >
               <User className="h-4 w-4 sm:h-5 sm:w-5" />
