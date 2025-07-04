@@ -312,13 +312,13 @@ const Header = () => {
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <h4 className="font-bold text-green-600 mb-2 text-base">INTERNATIONAL BUSINESS</h4>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in UAE</Link>
+                          <Link to="/setup-business-uae" className="text-gray-600 hover:text-green-600">Setup a Business in UAE</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in USA</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in Singapore</Link>
                           <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in UK</Link>
                           <h4 className="font-bold text-green-600 mb-2 pt-4 text-base">TRUST / NGO</h4>
                           <Link to="/trust-registration" className="text-gray-600 hover:text-green-600">Trust Registration</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Society Registration</Link>
+                          <Link to="/society-registration" className="text-gray-600 hover:text-green-600">Society Registration</Link>
                         </div>
                         <div className="bg-gray-50 p-4 rounded-lg flex flex-col justify-center text-center">
                             <div>
@@ -580,14 +580,14 @@ const Header = () => {
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="/din-ekyc-filing" className="text-gray-600 hover:text-green-600">DIN eKYC Filing</Link>
                           <Link to="/din-reactivation" className="text-gray-600 hover:text-green-600">DIN Reactivation</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Director Change</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Remove Director</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">ADT-1 Filing</Link>
+                          <Link to="/director-change" className="text-gray-600 hover:text-green-600">Director Change</Link>
+                          <Link to="/remove-director" className="text-gray-600 hover:text-green-600">Remove Director</Link>
+                          <Link to="/adt1-filing" className="text-gray-600 hover:text-green-600">ADT-1 Filing</Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="#" className="text-gray-600 hover:text-green-600">DPT-3 Filing</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">LLP Form 11 Filing</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Dormant Status Filing</Link>
+                          <Link to="/dpt3-filing" className="text-gray-600 hover:text-green-600">DPT-3 Filing</Link>
+                          <Link to="/llp-form11-filing" className="text-gray-600 hover:text-green-600">LLP Form 11 Filing</Link>
+                          <Link to="dormant-status-filing" className="text-gray-600 hover:text-green-600">Dormant Status Filing</Link>
                           <Link to="/moa-amendment" className="text-gray-600 hover:text-green-600">MOA Amendment</Link>
                           <Link to="/aoa-amendment" className="text-gray-600 hover:text-green-600">AOA Amendment</Link>
                         </div>
