@@ -4,14 +4,13 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 
 const HeroSection = () => {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    addItem({
+    addToCart({
       id: "tds-return-filing",
       name: "TDS Return Filing",
       price: 2499,
-      description: "Professional TDS return filing service for quarterly compliance"
     });
   };
 

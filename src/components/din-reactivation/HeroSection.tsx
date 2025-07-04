@@ -4,14 +4,13 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 
 const HeroSection = () => {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    addItem({
+    addToCart({
       id: "din-reactivation",
       name: "DIN Reactivation",
       price: 3999,
-      description: "Professional DIN reactivation service for deactivated director identification numbers"
     });
   };
 

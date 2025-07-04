@@ -4,14 +4,13 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 
 const HeroSection = () => {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    addItem({
+    addToCart({
       id: "15ca-15cb-filing",
       name: "15CA - 15CB Filing",
       price: 2999,
-      description: "Professional 15CA - 15CB filing service for foreign remittances"
     });
   };
 

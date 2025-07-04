@@ -4,14 +4,13 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 
 const HeroSection = () => {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    addItem({
+    addToCart({
       id: "income-tax-notice",
       name: "Income Tax Notice Response",
       price: 4999,
-      description: "Professional assistance for income tax notice response and compliance"
     });
   };
 

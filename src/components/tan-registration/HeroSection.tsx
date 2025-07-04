@@ -4,14 +4,13 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 
 const HeroSection = () => {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    addItem({
+    addToCart({
       id: "tan-registration",
       name: "TAN Registration",
       price: 1999,
-      description: "Professional TAN registration service for TDS deduction"
     });
   };
 
