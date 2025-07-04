@@ -103,6 +103,7 @@ import UdyamRegistration from "./pages/UdyamRegistration";
 import FCRARegistration from "./pages/FCRARegistration";
 import NidhiCompany from "./pages/NidhiCompany";
 import DirectorChange from "./pages/DirectorChange";
+import DPT3Filing from "./pages/DPT3Filing";
 
 const queryClient = new QueryClient();
 
@@ -212,6 +213,7 @@ const App = () => (
             <Route path="/fcra-registration" element={<FCRARegistration />} />
             <Route path="/nidhi-company" element={<NidhiCompany />} />
             <Route path="/director-change" element={<DirectorChange />} />
+            <Route path="/dpt3-filing" element={<DPT3Filing />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
