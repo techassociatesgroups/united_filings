@@ -291,7 +291,7 @@ const Header = () => {
                       Startup
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="grid w-[750px] gap-6 p-6 md:grid-cols-3 bg-white">
+                      <div className="grid w-[750px] gap-6 p-6 md:grid-cols-3 bg-white z=99">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <h4 className="font-bold text-green-600 mb-2 text-base">START A BUSINESS (INDIA)</h4>
                           <Link to="/proprietorship" className="text-gray-600 hover:text-green-600">Proprietorship</Link>
