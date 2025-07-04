@@ -370,8 +370,8 @@ const Header = () => {
                             <Link to="/digital-signature" className="text-gray-600 hover:text-green-600">Digital Signature</Link>
                             <Link to="/shop-and-establishment-act" className="text-gray-600 hover:text-green-600">Shop Act Registration</Link>
                             <Link to="/drug-license" className="text-gray-600 hover:text-green-600">Drug License</Link>
-                            <Link to="#" className="text-gray-600 hover:text-green-600">Udyam Registration</Link>
-                            <Link to="#" className="text-gray-600 hover:text-green-600">FCRA Registration</Link>
+                            <Link to="/udyam-registration" className="text-gray-600 hover:text-green-600">Udyam Registration</Link>
+                            <Link to="/fcra-registration" className="text-gray-600 hover:text-green-600">FCRA Registration</Link>
                             <Link to="#" className="text-gray-600 hover:text-green-600">Fire License</Link>
                         </div>
                       </div>
@@ -584,9 +584,9 @@ const Header = () => {
                         <div className="flex flex-col space-y-2 text-sm font-normal">
                           <Link to="/authorized-capital-increase" className="text-gray-600 hover:text-green-600">Authorized Capital Increase</Link>
                           <Link to="/share-transfer" className="text-gray-600 hover:text-green-600">Share Transfer</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Demat of Shares</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Winding Up - LLP</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Winding Up - Company</Link>
+                          <Link to="/Demat of Shares" className="text-gray-600 hover:text-green-600">Demat of Shares</Link>
+                          <Link to="/Winding Up - LLP" className="text-gray-600 hover:text-green-600">Winding Up - LLP</Link>
+                          <Link to="/Winding Up - Company" className="text-gray-600 hover:text-green-600">Winding Up - Company</Link>
                         </div>
                       </div>
                     </NavigationMenuContent>
