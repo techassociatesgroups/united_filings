@@ -2,14 +2,13 @@ import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
 
 const HeroSection = () => {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    addItem({
+    addToCart({
       id: 'society-registration',
       name: 'Society Registration',
-      price: 5999,
-      description: 'Register your society for non-profit activities'
+      price: 5999
     });
   };
 

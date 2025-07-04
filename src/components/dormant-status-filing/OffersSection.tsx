@@ -3,14 +3,13 @@ import { CheckCircle, Clock, Shield, Users } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 
 const OffersSection = () => {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    addItem({
+    addToCart({
       id: 'dormant-status-filing',
       name: 'Dormant Status Filing',
-      price: 4999,
-      description: 'Apply for dormant company status with MCA'
+      price: 4999
     });
   };
 

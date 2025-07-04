@@ -8,8 +8,7 @@ const HeroSection = () => {
     addToCart({
       id: 'setup-business-uae',
       name: 'Setup Business in UAE',
-      price: 25000,
-      description: 'Complete business setup assistance in UAE'
+      price: 25000
     });
   };
 
