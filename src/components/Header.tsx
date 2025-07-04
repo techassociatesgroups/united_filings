@@ -15,6 +15,7 @@ import { ChevronDown, Menu, X, User, ShoppingCart } from 'lucide-react';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -154,8 +155,14 @@ const Header = () => {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <CartDropdown />
+          <div className="hidden lg:flex items-center space-x-4 relative">
+            <button
+              onClick={() => setIsCartOpen(!isCartOpen)}
+              className="relative p-2 text-gray-600 hover:text-gray-900"
+            >
+              <ShoppingCart className="h-5 w-5" />
+            </button>
+            <CartDropdown isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
             <Button asChild variant="outline">
               <Link to="/auth">
                 <User className="h-4 w-4 mr-2" />
@@ -168,8 +175,14 @@ const Header = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden flex items-center space-x-2">
-            <CartDropdown />
+          <div className="lg:hidden flex items-center space-x-2 relative">
+            <button
+              onClick={() => setIsCartOpen(!isCartOpen)}
+              className="relative p-2 text-gray-600 hover:text-gray-900"
+            >
+              <ShoppingCart className="h-5 w-5" />
+            </button>
+            <CartDropdown isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-600 hover:text-gray-900 focus:outline-none"
