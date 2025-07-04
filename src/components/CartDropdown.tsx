@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ShoppingCart, X, CreditCard } from 'lucide-react';
+import { ShoppingCart, X } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
@@ -35,7 +35,6 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
           <div className="text-center py-8">
             <ShoppingCart className="h-12 w-12 text-gray-400 mx-auto mb-3" />
             <p className="text-gray-500">Your cart is empty</p>
-            <p className="text-sm text-gray-400 mt-1">Click ADD buttons to add services</p>
           </div>
         ) : (
           <>
@@ -44,10 +43,10 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
                 <div key={item.id} className="flex items-center justify-between p-2 border rounded">
                   <div className="flex-1">
                     <h4 className="text-sm font-medium">{item.name}</h4>
-                    <p className="text-xs text-gray-500">Qty: {item.quantity} × ₹{item.price.toLocaleString()}</p>
+                    <p className="text-xs text-gray-500">Qty: {item.quantity}</p>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <span className="text-sm font-medium">₹{(item.price * item.quantity).toLocaleString()}</span>
+                    <span className="text-sm font-medium">₹{item.price * item.quantity}</span>
                     <button 
                       onClick={() => removeFromCart(item.id)}
                       className="p-1 hover:bg-gray-100 rounded"
@@ -61,7 +60,7 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
             
             <div className="border-t pt-3">
               <div className="flex justify-between items-center mb-3">
-                <span className="font-semibold">Subtotal: ₹{totalPrice.toLocaleString()}</span>
+                <span className="font-semibold">Total: ₹{totalPrice}</span>
                 <Button 
                   onClick={clearCart}
                   variant="outline" 
@@ -72,14 +71,10 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
               </div>
               <Button 
                 onClick={handleCheckout}
-                className="w-full bg-blue-600 hover:bg-blue-700 mb-2"
+                className="w-full bg-green-600 hover:bg-green-700"
               >
-                <CreditCard className="h-4 w-4 mr-2" />
                 Proceed to Checkout
               </Button>
-              <p className="text-xs text-gray-500 text-center">
-                GST (18%) will be calculated at checkout
-              </p>
             </div>
           </>
         )}

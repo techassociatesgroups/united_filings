@@ -201,10 +201,10 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8">
         <div className="flex justify-center mb-8">
-          <div className="text-2xl font-bold text-blue-600">CA PI</div>
+          <img src="/lovable-uploads/4ce05405-f89f-4b07-b491-a85dafeaea7b.png" alt="IndiaFilings" className="h-16 w-auto" />
         </div>
 
         <div className="flex mb-8">
@@ -212,7 +212,7 @@ const Auth = () => {
             onClick={() => setIsLogin(true)}
             className={`flex-1 py-2 px-4 rounded-l-lg transition-colors ${
               isLogin 
-                ? 'bg-blue-600 text-white' 
+                ? 'bg-green-600 text-white' 
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
@@ -222,7 +222,7 @@ const Auth = () => {
             onClick={() => setIsLogin(false)}
             className={`flex-1 py-2 px-4 rounded-r-lg transition-colors ${
               !isLogin 
-                ? 'bg-blue-600 text-white' 
+                ? 'bg-green-600 text-white' 
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
@@ -325,7 +325,7 @@ const Auth = () => {
 
           {isLogin && (
             <div className="text-right">
-              <a href="#" className="text-blue-600 hover:underline text-sm">
+              <a href="#" className="text-green-600 hover:underline text-sm">
                 Forgot Password?
               </a>
             </div>
@@ -336,13 +336,13 @@ const Auth = () => {
           )}
 
           {message && (
-            <div className="text-blue-600 text-sm bg-blue-50 p-3 rounded-md">
+            <div className="text-green-600 text-sm bg-green-50 p-3 rounded-md">
               {message}
               {!isLogin && (
                 <button
                   type="button"
                   onClick={resendConfirmation}
-                  className="block mt-2 text-blue-700 underline hover:text-blue-800"
+                  className="block mt-2 text-green-700 underline hover:text-green-800"
                   disabled={loading}
                 >
                   Resend confirmation email
@@ -353,16 +353,16 @@ const Auth = () => {
 
           {!isLogin && (
             <div className="text-xs text-gray-500">
-              By continuing, you agree to CA PI{' '}
-              <a href="#" className="text-blue-600 hover:underline">Terms of Use</a> and{' '}
-              <a href="#" className="text-blue-600 hover:underline">Privacy Policy</a>.
+              By continuing, you agree to IndiaFilings{' '}
+              <a href="#" className="text-green-600 hover:underline">Terms of Use</a> and{' '}
+              <a href="#" className="text-green-600 hover:underline">Privacy Policy</a>.
             </div>
           )}
 
           <Button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3"
+            className="w-full bg-green-600 hover:bg-green-700 text-white py-3"
           >
             {loading ? 'Loading...' : (isLogin ? 'Continue' : 'Sign up')}
           </Button>
@@ -388,7 +388,7 @@ const Auth = () => {
 
             <div className="flex justify-center space-x-4">
               <button type="button" className="p-2 border rounded-lg hover:bg-gray-50">
-                <MessageCircle className="w-6 h-6 text-blue-600" />
+                <MessageCircle className="w-6 h-6 text-green-600" />
               </button>
               <button type="button" className="p-2 border rounded-lg hover:bg-gray-50">
                 <Apple className="w-6 h-6 text-gray-700" />
@@ -400,7 +400,7 @@ const Auth = () => {
           </div>
 
           <div className="text-center">
-            <a href="#" className="text-blue-600 hover:underline text-sm flex items-center justify-center">
+            <a href="#" className="text-green-600 hover:underline text-sm flex items-center justify-center">
               <MessageCircle className="w-4 h-4 mr-1" />
               Contact Us
             </a>
