@@ -247,7 +247,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-sm overflow-hidden">
+    <header className="bg-white shadow-sm relative z-50">
       {/* Top contact bar */}
       <div className="bg-green-50 py-2 px-2 sm:px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-xs sm:text-sm">
@@ -268,7 +268,7 @@ const Header = () => {
       </div>
 
       {/* Main navigation */}
-      <nav className="max-w-7xl mx-auto px-2 sm:px-4 py-2 sm:py-3">
+      <nav className="max-w-7xl mx-auto px-2 sm:px-4 py-2 sm:py-3 relative">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center flex-shrink-0">
@@ -281,7 +281,7 @@ const Header = () => {
           </div>
 
           {/* Navigation menu - optimized for different screen sizes */}
-          <div className="hidden xl:flex items-center justify-center flex-1 max-w-4xl mx-4">
+          <div className="hidden xl:flex items-center justify-center flex-1 max-w-4xl mx-4 relative z-50">
             <div className="flex items-center space-x-1 text-xs font-medium">
               {/* Startup and Registrations NavigationMenu */}
               <NavigationMenu>
@@ -635,7 +635,7 @@ const Header = () => {
           </div>
 
           {/* Compact navigation for smaller screens */}
-          <div className="hidden lg:flex xl:hidden items-center justify-center flex-1 max-w-3xl mx-4">
+          <div className="hidden lg:flex xl:hidden items-center justify-center flex-1 max-w-3xl mx-4 relative z-50">
             <div className="flex items-center space-x-1 text-xs font-medium">
               <NavigationMenu>
                 <NavigationMenuList>
