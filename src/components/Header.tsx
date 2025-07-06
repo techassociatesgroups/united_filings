@@ -313,11 +313,11 @@ const Header = () => {
           <div className="flex items-center space-x-2 sm:space-x-4">
             <div className="flex items-center space-x-1">
               <Phone className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
-              <span className="hidden sm:inline">+91 9876543210</span>
+              <span className="hidden sm:inline">+91 8106223262/7659902579</span>
             </div>
             <div className="flex items-center space-x-1">
               <Mail className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
-              <span className="hidden sm:inline">info@indiafilings.com</span>
+              <span className="hidden sm:inline">hemanth@capicons.in</span>
             </div>
           </div>
           <div className="hidden lg:block text-green-600 text-xs">
