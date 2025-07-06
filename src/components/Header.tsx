@@ -788,27 +788,20 @@ const Header = () => {
             </div>
             
             {user ? (
-              <div className="flex items-center space-x-2">
-                <span className="text-xs sm:text-sm text-gray-700 hidden sm:inline">
-                  {user.email}
-                </span>
-                <button
-                  onClick={handleLogout}
-                  className="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors"
-                >
-                  <User className="h-4 w-4 sm:h-5 sm:w-5" />
-                  <span className="text-xs sm:text-sm font-medium hidden sm:inline">Logout</span>
-                </button>
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-800 font-semibold">
+                  {user.email ? user.email.charAt(0).toUpperCase() : 'U'}
+                </div>
+                <span className="text-sm font-medium cursor-pointer" onClick={handleLogout}>Logout</span>
               </div>
             ) : (
-      <Link 
-  to="/login" 
-  className="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors"
->
-  <User className="h-4 w-4 sm:h-5 sm:w-5" />
-  <span className="text-xs sm:text-sm font-medium hidden sm:inline">Login</span>
-</Link>
-             
+              <Link 
+                to="/login" 
+                className="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors"
+              >
+                <User className="h-4 w-4 sm:h-5 sm:w-5" />
+                <span className="text-xs sm:text-sm font-medium hidden sm:inline">Login</span>
+              </Link>
             )}
           </div>
         </div>
