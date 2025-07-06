@@ -105,6 +105,7 @@ import FCRARegistration from "./pages/FCRARegistration";
 import NidhiCompany from "./pages/NidhiCompany";
 import DirectorChange from "./pages/DirectorChange";
 import DPT3Filing from "./pages/DPT3Filing";
+import Profile from "./pages/Profile";
 
 const queryClient = new QueryClient();
 
@@ -216,6 +217,7 @@ const App = () => (
             <Route path="/nidhi-company" element={<NidhiCompany />} />
             <Route path="/director-change" element={<DirectorChange />} />
             <Route path="/dpt3-filing" element={<DPT3Filing />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
