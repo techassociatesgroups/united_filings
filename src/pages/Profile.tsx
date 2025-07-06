@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
@@ -7,14 +8,19 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { User, Mail, Phone, Calendar, Edit, Save, X, Shield, FileText, ShoppingCart } from 'lucide-react';
+import { User, Mail, Phone, Calendar, Edit, Save, X, Shield, FileText, ShoppingCart, MapPin, Building } from 'lucide-react';
 
+// Use the actual Supabase database schema
 interface Profile {
   id: string;
-  user_id: string;
-  display_name: string | null;
-  avatar_url: string | null;
-  bio: string | null;
+  full_name: string | null;
+  phone: string | null;
+  business_name: string | null;
+  gstin: string | null;
+  address: string | null;
+  city: string | null;
+  state: string | null;
+  pincode: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -25,8 +31,14 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [editing, setEditing] = useState(false);
   const [formData, setFormData] = useState({
-    display_name: '',
-    bio: ''
+    full_name: '',
+    phone: '',
+    business_name: '',
+    gstin: '',
+    address: '',
+    city: '',
+    state: '',
+    pincode: ''
   });
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -52,7 +64,7 @@ const Profile = () => {
       const { data, error } = await supabase
         .from('profiles')
         .select('*')
-        .eq('user_id', userId)
+        .eq('id', userId)
         .single();
 
       if (error && error.code !== 'PGRST116') {
@@ -63,8 +75,14 @@ const Profile = () => {
       if (data) {
         setProfile(data);
         setFormData({
-          display_name: data.display_name || '',
-          bio: data.bio || ''
+          full_name: data.full_name || '',
+          phone: data.phone || '',
+          business_name: data.business_name || '',
+          gstin: data.gstin || '',
+          address: data.address || '',
+          city: data.city || '',
+          state: data.state || '',
+          pincode: data.pincode || ''
         });
       } else {
         // Create profile if it doesn't exist
@@ -81,9 +99,15 @@ const Profile = () => {
         .from('profiles')
         .insert([
           {
-            user_id: userId,
-            display_name: user?.user_metadata?.name || '',
-            bio: ''
+            id: userId,
+            full_name: user?.user_metadata?.name || '',
+            phone: '',
+            business_name: '',
+            gstin: '',
+            address: '',
+            city: '',
+            state: '',
+            pincode: ''
           }
         ])
         .select()
@@ -96,8 +120,14 @@ const Profile = () => {
 
       setProfile(data);
       setFormData({
-        display_name: data.display_name || '',
-        bio: data.bio || ''
+        full_name: data.full_name || '',
+        phone: data.phone || '',
+        business_name: data.business_name || '',
+        gstin: data.gstin || '',
+        address: data.address || '',
+        city: data.city || '',
+        state: data.state || '',
+        pincode: data.pincode || ''
       });
     } catch (error) {
       console.error('Error creating profile:', error);
@@ -111,11 +141,17 @@ const Profile = () => {
       const { error } = await supabase
         .from('profiles')
         .update({
-          display_name: formData.display_name,
-          bio: formData.bio,
+          full_name: formData.full_name,
+          phone: formData.phone,
+          business_name: formData.business_name,
+          gstin: formData.gstin,
+          address: formData.address,
+          city: formData.city,
+          state: formData.state,
+          pincode: formData.pincode,
           updated_at: new Date().toISOString()
         })
-        .eq('user_id', user.id);
+        .eq('id', user.id);
 
       if (error) {
         throw error;
@@ -139,8 +175,14 @@ const Profile = () => {
 
   const handleCancel = () => {
     setFormData({
-      display_name: profile?.display_name || '',
-      bio: profile?.bio || ''
+      full_name: profile?.full_name || '',
+      phone: profile?.phone || '',
+      business_name: profile?.business_name || '',
+      gstin: profile?.gstin || '',
+      address: profile?.address || '',
+      city: profile?.city || '',
+      state: profile?.state || '',
+      pincode: profile?.pincode || ''
     });
     setEditing(false);
   };
@@ -210,17 +252,17 @@ const Profile = () => {
                   <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center text-gray-800 font-semibold text-xl">
                     {user?.email ? user.email.charAt(0).toUpperCase() : 'U'}
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900">
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
                       {editing ? (
                         <Input
-                          value={formData.display_name}
-                          onChange={(e) => setFormData(prev => ({ ...prev, display_name: e.target.value }))}
-                          placeholder="Enter your name"
+                          value={formData.full_name}
+                          onChange={(e) => setFormData(prev => ({ ...prev, full_name: e.target.value }))}
+                          placeholder="Enter your full name"
                           className="w-full"
                         />
                       ) : (
-                        profile?.display_name || 'No name set'
+                        profile?.full_name || 'No name set'
                       )}
                     </h3>
                     <p className="text-gray-600">{user?.email}</p>
@@ -239,11 +281,110 @@ const Profile = () => {
                 {/* Phone */}
                 <div className="flex items-center gap-3">
                   <Phone className="h-5 w-5 text-gray-400" />
-                  <div>
+                  <div className="flex-1">
                     <p className="text-sm font-medium text-gray-900">Phone</p>
-                    <p className="text-sm text-gray-600">
-                      {user?.user_metadata?.mobile || 'No phone number set'}
-                    </p>
+                    {editing ? (
+                      <Input
+                        value={formData.phone}
+                        onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+                        placeholder="Enter your phone number"
+                        className="mt-1"
+                      />
+                    ) : (
+                      <p className="text-sm text-gray-600">
+                        {profile?.phone || 'No phone number set'}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Business Name */}
+                <div className="flex items-center gap-3">
+                  <Building className="h-5 w-5 text-gray-400" />
+                  <div className="flex-1">
+                    <p className="text-sm font-medium text-gray-900">Business Name</p>
+                    {editing ? (
+                      <Input
+                        value={formData.business_name}
+                        onChange={(e) => setFormData(prev => ({ ...prev, business_name: e.target.value }))}
+                        placeholder="Enter your business name"
+                        className="mt-1"
+                      />
+                    ) : (
+                      <p className="text-sm text-gray-600">
+                        {profile?.business_name || 'No business name set'}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* GSTIN */}
+                <div className="flex items-center gap-3">
+                  <FileText className="h-5 w-5 text-gray-400" />
+                  <div className="flex-1">
+                    <p className="text-sm font-medium text-gray-900">GSTIN</p>
+                    {editing ? (
+                      <Input
+                        value={formData.gstin}
+                        onChange={(e) => setFormData(prev => ({ ...prev, gstin: e.target.value }))}
+                        placeholder="Enter your GSTIN"
+                        className="mt-1"
+                      />
+                    ) : (
+                      <p className="text-sm text-gray-600">
+                        {profile?.gstin || 'No GSTIN set'}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Address */}
+                <div className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 text-gray-400 mt-1" />
+                  <div className="flex-1">
+                    <p className="text-sm font-medium text-gray-900">Address</p>
+                    {editing ? (
+                      <div className="space-y-2 mt-1">
+                        <textarea
+                          value={formData.address}
+                          onChange={(e) => setFormData(prev => ({ ...prev, address: e.target.value }))}
+                          placeholder="Enter your address"
+                          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          rows={2}
+                        />
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                          <Input
+                            value={formData.city}
+                            onChange={(e) => setFormData(prev => ({ ...prev, city: e.target.value }))}
+                            placeholder="City"
+                          />
+                          <Input
+                            value={formData.state}
+                            onChange={(e) => setFormData(prev => ({ ...prev, state: e.target.value }))}
+                            placeholder="State"
+                          />
+                          <Input
+                            value={formData.pincode}
+                            onChange={(e) => setFormData(prev => ({ ...prev, pincode: e.target.value }))}
+                            placeholder="Pincode"
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="text-sm text-gray-600">
+                        {profile?.address && (
+                          <p>{profile.address}</p>
+                        )}
+                        {(profile?.city || profile?.state || profile?.pincode) && (
+                          <p>
+                            {[profile?.city, profile?.state, profile?.pincode].filter(Boolean).join(', ')}
+                          </p>
+                        )}
+                        {!profile?.address && !profile?.city && !profile?.state && !profile?.pincode && (
+                          <p>No address set</p>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -256,24 +397,6 @@ const Profile = () => {
                       {new Date(user?.created_at).toLocaleDateString()}
                     </p>
                   </div>
-                </div>
-
-                {/* Bio */}
-                <div>
-                  <p className="text-sm font-medium text-gray-900 mb-2">Bio</p>
-                  {editing ? (
-                    <textarea
-                      value={formData.bio}
-                      onChange={(e) => setFormData(prev => ({ ...prev, bio: e.target.value }))}
-                      placeholder="Tell us about yourself..."
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                      rows={4}
-                    />
-                  ) : (
-                    <p className="text-sm text-gray-600">
-                      {profile?.bio || 'No bio added yet'}
-                    </p>
-                  )}
                 </div>
               </CardContent>
             </Card>
@@ -341,4 +464,4 @@ const Profile = () => {
   );
 };
 
-export default Profile; 
+export default Profile;
