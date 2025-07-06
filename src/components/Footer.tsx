@@ -151,7 +151,7 @@ const Footer = () => {
                   <Twitter className="h-4 w-4" />
                 </a>
                 <a 
-                  href="#" 
+                  href="http://x.com/CAPiconsultants" 
                   className="bg-gray-800 p-2 rounded-full text-gray-400 hover:text-white hover:bg-red-600 transition-all duration-200"
                   aria-label="YouTube"
                 >
