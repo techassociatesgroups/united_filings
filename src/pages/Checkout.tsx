@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import { useState } from 'react';
 import { useCart } from '@/contexts/CartContext';
@@ -9,32 +10,85 @@ import { Separator } from '@/components/ui/separator';
 import { ArrowLeft, Mail, Phone } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+=======
+import { useState } from "react";
+import { useCart } from "@/contexts/CartContext";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { ArrowLeft, Mail, Phone, Loader2 } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+>>>>>>> 3d57df3 (Images changed)
 
 const Checkout = () => {
   const { items, totalPrice, clearCart } = useCart();
   const navigate = useNavigate();
   const [billingInfo, setBillingInfo] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    businessName: '',
-    gstin: ''
+    name: "",
+    email: "",
+    phone: "",
+    businessName: "",
+    gstin: "",
   });
 
   const handleInputChange = (field: string, value: string) => {
-    setBillingInfo(prev => ({ ...prev, [field]: value }));
+    setBillingInfo((prev) => ({ ...prev, [field]: value }));
   };
 
   const handlePayment = () => {
     if (!billingInfo.name || !billingInfo.email) {
-      toast.error('Please fill in required fields');
+      toast.error("Please fill in required fields");
       return;
     }
+<<<<<<< HEAD
     
     // Simulate payment processing
     toast.success('Payment processed successfully!');
     clearCart();
     navigate('/');
+=======
+
+    if (items.length === 0) {
+      toast.error("Your cart is empty");
+      return;
+    }
+
+    setIsProcessing(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke(
+        "create-checkout",
+        {
+          body: {
+            items: items,
+            customerInfo: billingInfo,
+          },
+        }
+      );
+
+      if (error) {
+        console.error("Payment error:", error);
+        toast.error("Payment failed. Please try again.");
+        return;
+      }
+
+      if (data?.url) {
+        // Redirect to Stripe Checkout
+        window.location.href = data.url;
+      } else {
+        throw new Error("No checkout URL received");
+      }
+    } catch (error) {
+      console.error("Payment error:", error);
+      toast.error("Payment failed. Please try again.");
+    } finally {
+      setIsProcessing(false);
+    }
+>>>>>>> 3d57df3 (Images changed)
   };
 
   const gstAmount = Math.round(totalPrice * 0.18);
@@ -61,7 +115,10 @@ const Checkout = () => {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-4xl mx-auto px-4">
         <div className="mb-6">
-          <Link to="/" className="inline-flex items-center text-blue-600 hover:text-blue-700">
+          <Link
+            to="/"
+            className="inline-flex items-center text-blue-600 hover:text-blue-700"
+          >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Home
           </Link>
@@ -73,13 +130,15 @@ const Checkout = () => {
               <div>
                 <div className="flex items-center mb-2">
                   <div className="bg-orange-500 rounded-full px-3 py-1 text-sm font-bold mr-3">
-                    India Filings
+                    CA PI
                   </div>
                 </div>
-                <CardTitle className="text-xl">IndiaFilings Private Limited</CardTitle>
+                <CardTitle className="text-xl">CA PI Private Limited</CardTitle>
                 <p className="text-blue-100 text-sm mt-1">
-                  Chennai, Chennai - 600031<br/>
-                  CIN: U67190TN2014PTC096978<br/>
+                  Chennai, Chennai - 600031
+                  <br />
+                  CIN: U67190TN2014PTC096978
+                  <br />
                   GSTIN: 33AADCI0542H1ZX
                 </p>
               </div>
@@ -96,14 +155,18 @@ const Checkout = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Billing Information */}
               <div>
-                <h3 className="text-lg font-semibold mb-4">Customer Information</h3>
+                <h3 className="text-lg font-semibold mb-4">
+                  Customer Information
+                </h3>
                 <div className="space-y-4">
                   <div>
                     <Label htmlFor="name">Name *</Label>
                     <Input
                       id="name"
                       value={billingInfo.name}
-                      onChange={(e) => handleInputChange('name', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("name", e.target.value)
+                      }
                       placeholder="Enter your name"
                       required
                     />
@@ -114,7 +177,9 @@ const Checkout = () => {
                       id="email"
                       type="email"
                       value={billingInfo.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("email", e.target.value)
+                      }
                       placeholder="Enter your email"
                       required
                     />
@@ -124,7 +189,9 @@ const Checkout = () => {
                     <Input
                       id="phone"
                       value={billingInfo.phone}
-                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("phone", e.target.value)
+                      }
                       placeholder="Enter your phone number"
                     />
                   </div>
@@ -133,7 +200,9 @@ const Checkout = () => {
                     <Input
                       id="businessName"
                       value={billingInfo.businessName}
-                      onChange={(e) => handleInputChange('businessName', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("businessName", e.target.value)
+                      }
                       placeholder="Enter business name"
                     />
                   </div>
@@ -142,7 +211,9 @@ const Checkout = () => {
                     <Input
                       id="gstin"
                       value={billingInfo.gstin}
-                      onChange={(e) => handleInputChange('gstin', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("gstin", e.target.value)
+                      }
                       placeholder="Enter GSTIN"
                     />
                   </div>
@@ -154,8 +225,13 @@ const Checkout = () => {
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-lg font-semibold">Order Summary</h3>
                   <div className="text-right text-sm text-gray-600">
+<<<<<<< HEAD
                     <p>Estimate Date:</p>
                     <p>{new Date().toLocaleDateString('en-GB')}</p>
+=======
+                    <p>Order Date:</p>
+                    <p>{new Date().toLocaleDateString("en-GB")}</p>
+>>>>>>> 3d57df3 (Images changed)
                   </div>
                 </div>
 
@@ -168,14 +244,27 @@ const Checkout = () => {
                   </div>
 
                   {items.map((item) => (
-                    <div key={item.id} className="grid grid-cols-4 gap-4 text-sm py-2 border-b">
+                    <div
+                      key={item.id}
+                      className="grid grid-cols-4 gap-4 text-sm py-2 border-b"
+                    >
                       <div>
                         <p className="font-medium">{item.name}</p>
+<<<<<<< HEAD
                         <p className="text-gray-600 text-xs">Professional service registration</p>
+=======
+                        <p className="text-gray-600 text-xs">
+                          Professional service
+                        </p>
+>>>>>>> 3d57df3 (Images changed)
                       </div>
                       <div className="text-center">{item.quantity}</div>
-                      <div className="text-center">₹{item.price.toLocaleString()}</div>
-                      <div className="text-right">₹{(item.price * item.quantity).toLocaleString()}</div>
+                      <div className="text-center">
+                        ₹{item.price.toLocaleString()}
+                      </div>
+                      <div className="text-right">
+                        ₹{(item.price * item.quantity).toLocaleString()}
+                      </div>
                     </div>
                   ))}
 
@@ -195,7 +284,7 @@ const Checkout = () => {
                     </div>
                   </div>
 
-                  <Button 
+                  <Button
                     onClick={handlePayment}
                     className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 mt-6"
                     size="lg"
@@ -223,7 +312,7 @@ const Checkout = () => {
                   <div className="text-sm text-gray-700 space-y-1">
                     <p className="flex items-center">
                       <Mail className="h-4 w-4 mr-2" />
-                      Email: billing@indiafilings.com
+                      Email: billing@CA PI.com
                     </p>
                     <p className="flex items-center">
                       <Phone className="h-4 w-4 mr-2" />

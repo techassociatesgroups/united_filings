@@ -42,9 +42,9 @@ const HeroSection = () => {
             <span className="ml-2 text-sm text-gray-600">(29)</span>
           </div>
           <p className="mt-4 text-gray-600">
-            Easily incorporate a Public Limited Company through IndiaFilings. A
-            minimum of 3 Directors and 7 Shareholders are required to
-            incorporate a Public Limited Company.
+            Easily incorporate a Public Limited Company through CA PI. A minimum
+            of 3 Directors and 7 Shareholders are required to incorporate a
+            Public Limited Company.
           </p>
 
           <div className="mt-6 border-2 border-dashed border-yellow-400 bg-yellow-50/50 rounded-lg p-4">

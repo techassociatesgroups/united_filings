@@ -26,8 +26,8 @@ const HeroSection = () => {
                 PROPRIETORSHIP REGISTRATION
               </h3>
               <p className="text-xs mt-1">
-                From Start to Finish, We Help You Launch your business with
-                IndiaFilings
+                From Start to Finish, We Help You Launch your business with CA
+                PI
               </p>
             </div>
           </div>
@@ -158,7 +158,7 @@ const HeroSection = () => {
             <div className="mt-4 space-y-3">
               <div className="flex items-center p-3 border rounded-lg">
                 <img
-                  src="assets/Ledger.png"
+                  src="assets/ledger.png"
                   alt="Ledgers"
                   className="w-10 h-10 mr-4"
                 />
