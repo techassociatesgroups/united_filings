@@ -1,10 +1,20 @@
-import { Phone, Mail, Search, ShoppingCart, User, X, ChevronDown, Settings, LogOut } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import {
+  Phone,
+  Mail,
+  Search,
+  ShoppingCart,
+  User,
+  X,
+  ChevronDown,
+  Settings,
+  LogOut,
+} from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { useState, useEffect } from 'react';
-import { useCart } from '@/contexts/CartContext';
-import CartDropdown from '@/components/CartDropdown';
-import { supabase } from '@/integrations/supabase/client';
+import { useState, useEffect } from "react";
+import { useCart } from "@/contexts/CartContext";
+import CartDropdown from "@/components/CartDropdown";
+import { supabase } from "@/integrations/supabase/client";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -14,16 +24,22 @@ import {
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 
-const businessRegistrationItems: { title: string; href: string; description: string }[] = [
+const businessRegistrationItems: {
+  title: string;
+  href: string;
+  description: string;
+}[] = [
   {
     title: "Proprietorship",
     href: "/proprietorship",
-    description: "A sole proprietorship is a type of unincorporated business that is owned and run by one individual.",
+    description:
+      "A sole proprietorship is a type of unincorporated business that is owned and run by one individual.",
   },
   {
     title: "Partnership Firm",
     href: "/partnership",
-    description: "A legal form of business operation between two or more individuals who share management and profits.",
+    description:
+      "A legal form of business operation between two or more individuals who share management and profits.",
   },
   {
     title: "One Person Company",
@@ -33,7 +49,8 @@ const businessRegistrationItems: { title: string; href: string; description: str
   {
     title: "Limited Liability Partnership",
     href: "/limited-liability-partnership",
-    description: "A partnership in which some or all partners have limited liabilities.",
+    description:
+      "A partnership in which some or all partners have limited liabilities.",
   },
   {
     title: "Private Limited Company",
@@ -43,47 +60,56 @@ const businessRegistrationItems: { title: string; href: string; description: str
   {
     title: "Public Limited Company",
     href: "/public-limited-company",
-    description: "A company whose securities are traded on a stock exchange and can be bought and sold by anyone.",
+    description:
+      "A company whose securities are traded on a stock exchange and can be bought and sold by anyone.",
   },
   {
     title: "Section 8 Company",
     href: "/section-8-company",
-    description: "An organization which is registered for promoting commerce, art, science, sports, education, etc.",
+    description:
+      "An organization which is registered for promoting commerce, art, science, sports, education, etc.",
   },
   {
     title: "Trust Registration",
     href: "/trust-registration",
-    description: "A legal arrangement in which one person holds property for the benefit of another.",
+    description:
+      "A legal arrangement in which one person holds property for the benefit of another.",
   },
   {
     title: "Producer Company",
     href: "/producer-company",
-    description: "A legally recognized body of farmers/agriculturists with the aim to improve the standard of their living.",
+    description:
+      "A legally recognized body of farmers/agriculturists with the aim to improve the standard of their living.",
   },
   {
     title: "Indian Subsidiary",
     href: "/indian-subsidiary",
-    description: "A company in India whose controlling interest is held by another company.",
+    description:
+      "A company in India whose controlling interest is held by another company.",
   },
   {
     title: "Startup India",
     href: "/startup-india",
-    description: "An initiative of the Government of India for generation of employment and wealth creation.",
+    description:
+      "An initiative of the Government of India for generation of employment and wealth creation.",
   },
   {
     title: "Trade License",
     href: "/trade-license",
-    description: "A license or permission issued by the municipal corporation to a person to carry on a particular business.",
+    description:
+      "A license or permission issued by the municipal corporation to a person to carry on a particular business.",
   },
   {
     title: "FSSAI Registration",
     href: "/fssai-registration",
-    description: "Food Safety and Standards Authority of India registration for food businesses.",
+    description:
+      "Food Safety and Standards Authority of India registration for food businesses.",
   },
   {
     title: "FSSAI License",
     href: "/fssai-license",
-    description: "State & Central license for food businesses based on turnover.",
+    description:
+      "State & Central license for food businesses based on turnover.",
   },
   {
     title: "Halal Licence & Certification",
@@ -102,16 +128,22 @@ const businessRegistrationItems: { title: string; href: string; description: str
   },
 ];
 
-const registrationItems: { title: string; href: string; description: string }[] = [
+const registrationItems: {
+  title: string;
+  href: string;
+  description: string;
+}[] = [
   {
     title: "Proprietorship",
     href: "/proprietorship",
-    description: "A sole proprietorship is a type of unincorporated business that is owned and run by one individual.",
+    description:
+      "A sole proprietorship is a type of unincorporated business that is owned and run by one individual.",
   },
   {
     title: "Partnership Firm",
     href: "/partnership",
-    description: "A legal form of business operation between two or more individuals who share management and profits.",
+    description:
+      "A legal form of business operation between two or more individuals who share management and profits.",
   },
   {
     title: "One Person Company",
@@ -121,7 +153,8 @@ const registrationItems: { title: string; href: string; description: string }[] 
   {
     title: "Limited Liability Partnership",
     href: "/limited-liability-partnership",
-    description: "A partnership in which some or all partners have limited liabilities.",
+    description:
+      "A partnership in which some or all partners have limited liabilities.",
   },
   {
     title: "Private Limited Company",
@@ -131,47 +164,56 @@ const registrationItems: { title: string; href: string; description: string }[] 
   {
     title: "Public Limited Company",
     href: "/public-limited-company",
-    description: "A company whose securities are traded on a stock exchange and can be bought and sold by anyone.",
+    description:
+      "A company whose securities are traded on a stock exchange and can be bought and sold by anyone.",
   },
   {
     title: "Section 8 Company",
     href: "/section-8-company",
-    description: "An organization which is registered for promoting commerce, art, science, sports, education, etc.",
+    description:
+      "An organization which is registered for promoting commerce, art, science, sports, education, etc.",
   },
   {
     title: "Trust Registration",
     href: "/trust-registration",
-    description: "A legal arrangement in which one person holds property for the benefit of another.",
+    description:
+      "A legal arrangement in which one person holds property for the benefit of another.",
   },
   {
     title: "Producer Company",
     href: "/producer-company",
-    description: "A legally recognized body of farmers/agriculturists with the aim to improve the standard of their living.",
+    description:
+      "A legally recognized body of farmers/agriculturists with the aim to improve the standard of their living.",
   },
   {
     title: "Indian Subsidiary",
     href: "/indian-subsidiary",
-    description: "A company in India whose controlling interest is held by another company.",
+    description:
+      "A company in India whose controlling interest is held by another company.",
   },
   {
     title: "Startup India",
     href: "/startup-india",
-    description: "An initiative of the Government of India for generation of employment and wealth creation.",
+    description:
+      "An initiative of the Government of India for generation of employment and wealth creation.",
   },
   {
     title: "Trade License",
     href: "/trade-license",
-    description: "A license or permission issued by the municipal corporation to a person to carry on a particular business.",
+    description:
+      "A license or permission issued by the municipal corporation to a person to carry on a particular business.",
   },
   {
     title: "FSSAI Registration",
     href: "/fssai-registration",
-    description: "Food Safety and Standards Authority of India registration for food businesses.",
+    description:
+      "Food Safety and Standards Authority of India registration for food businesses.",
   },
   {
     title: "FSSAI License",
     href: "/fssai-license",
-    description: "State & Central license for food businesses based on turnover.",
+    description:
+      "State & Central license for food businesses based on turnover.",
   },
   {
     title: "Halal Licence & Certification",
@@ -193,7 +235,7 @@ const registrationItems: { title: string; href: string; description: string }[] 
 const Header = () => {
   const { totalItems } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [user, setUser] = useState(null);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
@@ -202,14 +244,18 @@ const Header = () => {
   useEffect(() => {
     // Check current user session
     const checkUser = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
       setUser(session?.user || null);
     };
-    
+
     checkUser();
 
     // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
       setUser(session?.user || null);
     });
 
@@ -220,24 +266,24 @@ const Header = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
-      if (!target.closest('.profile-dropdown')) {
+      if (!target.closest(".profile-dropdown")) {
         setIsProfileDropdownOpen(false);
       }
     };
 
     if (isProfileDropdownOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isProfileDropdownOpen]);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setIsProfileDropdownOpen(false);
-    navigate('/');
+    navigate("/");
   };
 
   const handleProfileClick = () => {
@@ -246,7 +292,7 @@ const Header = () => {
 
   const handleProfileOptionClick = () => {
     setIsProfileDropdownOpen(false);
-    navigate('/profile');
+    navigate("/profile");
   };
 
   // Search data - all available services
@@ -254,7 +300,10 @@ const Header = () => {
     { name: "Proprietorship", path: "/proprietorship" },
     { name: "Partnership Firm", path: "/partnership" },
     { name: "One Person Company", path: "/one-person-company" },
-    { name: "Limited Liability Partnership", path: "/limited-liability-partnership" },
+    {
+      name: "Limited Liability Partnership",
+      path: "/limited-liability-partnership",
+    },
     { name: "Private Limited Company", path: "/private-limited-company" },
     { name: "Public Limited Company", path: "/public-limited-company" },
     { name: "Section 8 Company", path: "/section-8-company" },
@@ -283,7 +332,7 @@ const Header = () => {
   ];
 
   // Filter services based on search query
-  const filteredServices = allServices.filter(service =>
+  const filteredServices = allServices.filter((service) =>
     service.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -301,7 +350,7 @@ const Header = () => {
   };
 
   const clearSearch = () => {
-    setSearchQuery('');
+    setSearchQuery("");
     setIsSearchOpen(false);
   };
 
@@ -313,7 +362,9 @@ const Header = () => {
           <div className="flex items-center space-x-2 sm:space-x-4">
             <div className="flex items-center space-x-1">
               <Phone className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
-              <span className="hidden sm:inline">+91 8106223262/7659902579</span>
+              <span className="hidden sm:inline">
+                +91 8106223262/7659902579
+              </span>
             </div>
             <div className="flex items-center space-x-1">
               <Mail className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
@@ -335,7 +386,9 @@ const Header = () => {
               <div className="bg-gradient-to-r from-orange-400 to-green-500 text-white px-2 sm:px-3 py-1 sm:py-2 rounded-full text-sm sm:text-xl font-bold mr-1 sm:mr-2">
                 India
               </div>
-              <span className="text-green-600 text-sm sm:text-xl font-bold">Filings</span>
+              <span className="text-green-600 text-sm sm:text-xl font-bold">
+                Filings
+              </span>
             </Link>
           </div>
 
@@ -352,43 +405,136 @@ const Header = () => {
                     <NavigationMenuContent>
                       <div className="grid w-[750px] gap-6 p-6 md:grid-cols-3 bg-white z=99">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <h4 className="font-bold text-green-600 mb-2 text-base">START A BUSINESS (INDIA)</h4>
-                          <Link to="/proprietorship" className="text-gray-600 hover:text-green-600">Proprietorship</Link>
-                          <Link to="/partnership" className="text-gray-600 hover:text-green-600">Partnership Firm</Link>
-                          <Link to="/one-person-company" className="text-gray-600 hover:text-green-600">One Person Company</Link>
-                          <Link to="/limited-liability-partnership" className="text-gray-600 hover:text-green-600">Limited Liability Partnership</Link>
-                          <Link to="/private-limited-company" className="text-gray-600 hover:text-green-600">Private Limited Company</Link>
-                          <Link to="/public-limited-company" className="text-gray-600 hover:text-green-600">Public Limited Company</Link>
-                          <Link to="/section-8-company" className="text-gray-600 hover:text-green-600">Section 8 Company</Link>
-                          <Link to="/producer-company" className="text-gray-600 hover:text-green-600">Producer Company</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Nidhi Company</Link>
-                          <Link to="/indian-subsidiary" className="text-gray-600 hover:text-green-600">Indian Subsidiary</Link>
+                          <h4 className="font-bold text-green-600 mb-2 text-base">
+                            START A BUSINESS (INDIA)
+                          </h4>
+                          <Link
+                            to="/proprietorship"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Proprietorship
+                          </Link>
+                          <Link
+                            to="/partnership"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Partnership Firm
+                          </Link>
+                          <Link
+                            to="/one-person-company"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            One Person Company
+                          </Link>
+                          <Link
+                            to="/limited-liability-partnership"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Limited Liability Partnership
+                          </Link>
+                          <Link
+                            to="/private-limited-company"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Private Limited Company
+                          </Link>
+                          <Link
+                            to="/public-limited-company"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Public Limited Company
+                          </Link>
+                          <Link
+                            to="/section-8-company"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Section 8 Company
+                          </Link>
+                          <Link
+                            to="/producer-company"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Producer Company
+                          </Link>
+                          <Link
+                            to="#"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Nidhi Company
+                          </Link>
+                          <Link
+                            to="/indian-subsidiary"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Indian Subsidiary
+                          </Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <h4 className="font-bold text-green-600 mb-2 text-base">INTERNATIONAL BUSINESS</h4>
-                          <Link to="/setup-business-uae" className="text-gray-600 hover:text-green-600">Setup a Business in UAE</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in USA</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in Singapore</Link>
-                          <Link to="#" className="text-gray-600 hover:text-green-600">Setup a Business in UK</Link>
-                          <h4 className="font-bold text-green-600 mb-2 pt-4 text-base">TRUST / NGO</h4>
-                          <Link to="/trust-registration" className="text-gray-600 hover:text-green-600">Trust Registration</Link>
-                          <Link to="/society-registration" className="text-gray-600 hover:text-green-600">Society Registration</Link>
+                          <h4 className="font-bold text-green-600 mb-2 text-base">
+                            INTERNATIONAL BUSINESS
+                          </h4>
+                          <Link
+                            to="/setup-business-uae"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Setup a Business in UAE
+                          </Link>
+                          <Link
+                            to="#"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Setup a Business in USA
+                          </Link>
+                          <Link
+                            to="#"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Setup a Business in Singapore
+                          </Link>
+                          <Link
+                            to="#"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Setup a Business in UK
+                          </Link>
+                          <h4 className="font-bold text-green-600 mb-2 pt-4 text-base">
+                            TRUST / NGO
+                          </h4>
+                          <Link
+                            to="/trust-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Trust Registration
+                          </Link>
+                          <Link
+                            to="/society-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Society Registration
+                          </Link>
                         </div>
                         <div className="bg-gray-50 p-4 rounded-lg flex flex-col justify-center text-center">
-                            <div>
-                              <h4 className="font-bold text-gray-800 text-base">Need help?</h4>
-                              <p className="text-gray-600 mt-1 text-sm font-normal">Talk to our experts to get personalised help.</p>
-                            </div>
-                            <Link to="#" className="mt-4 block bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600">
-                              TALK TO AN EXPERT
-                            </Link>
+                          <div>
+                            <h4 className="font-bold text-gray-800 text-base">
+                              Need help?
+                            </h4>
+                            <p className="text-gray-600 mt-1 text-sm font-normal">
+                              Talk to our experts to get personalised help.
+                            </p>
+                          </div>
+                          <Link
+                            to="#"
+                            className="mt-4 block bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600"
+                          >
+                            TALK TO AN EXPERT
+                          </Link>
                         </div>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
-              
+
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
@@ -398,52 +544,217 @@ const Header = () => {
                     <NavigationMenuContent>
                       <div className="grid w-[1000px] gap-6 p-6 md:grid-cols-4 bg-white">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                            <Link to="/startup-india" className="text-gray-600 hover:text-green-600">Startup India</Link>
-                            <Link to="/trade-license" className="text-gray-600 hover:text-green-600">Trade License</Link>
-                            <Link to="/fssai-registration" className="text-gray-600 hover:text-green-600">FSSAI Registration</Link>
-                            <Link to="/fssai-license" className="text-gray-600 hover:text-green-600">FSSAI License</Link>
-                            <Link to="/halal-certification" className="text-gray-600 hover:text-green-600">Halal License & Certification</Link>
-                            <Link to="/icegate-registration" className="text-gray-600 hover:text-green-600">ICEGATE Registration</Link>
-                            <Link to="/import-export-code" className="text-gray-600 hover:text-green-600">Import Export Code</Link>
+                          <Link
+                            to="/startup-india"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Startup India
+                          </Link>
+                          <Link
+                            to="/trade-license"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Trade License
+                          </Link>
+                          <Link
+                            to="/fssai-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            FSSAI Registration
+                          </Link>
+                          <Link
+                            to="/fssai-license"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            FSSAI License
+                          </Link>
+                          <Link
+                            to="/halal-certification"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Halal License & Certification
+                          </Link>
+                          <Link
+                            to="/icegate-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            ICEGATE Registration
+                          </Link>
+                          <Link
+                            to="/import-export-code"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Import Export Code
+                          </Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                            <Link to="/legal-entity-identifier-code" className="text-gray-600 hover:text-green-600">Legal Entity Identifier Code</Link>
-                            <Link to="/iso-registration" className="text-gray-600 hover:text-green-600">ISO Registration</Link>
-                            <Link to="/pf-registration" className="text-gray-600 hover:text-green-600">PF Registration</Link>
-                            <Link to="/esi-registration" className="text-gray-600 hover:text-green-600">ESI Registration</Link>
-                            <Link to="/professional-tax-registration" className="text-gray-600 hover:text-green-600">Professional Tax Registration</Link>
-                            <Link to="/rcmc-registration" className="text-gray-600 hover:text-green-600">RCMC Registration</Link>
-                            <Link to="/rera-registration-for-agents" className="text-gray-600 hover:text-green-600">TN RERA Registration for Agents</Link>
-                            <Link to="/demat-of-shares" className="text-gray-600 hover:text-green-600">Demat of Shares</Link>
-                            <Link to="/winding-up-llp" className="text-gray-600 hover:text-green-600">Winding Up - LLP</Link>
-                            <Link to="/winding-up-company" className="text-gray-600 hover:text-green-600">Winding Up - Company</Link>
+                          <Link
+                            to="/legal-entity-identifier-code"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Legal Entity Identifier Code
+                          </Link>
+                          <Link
+                            to="/iso-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            ISO Registration
+                          </Link>
+                          <Link
+                            to="/pf-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            PF Registration
+                          </Link>
+                          <Link
+                            to="/esi-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            ESI Registration
+                          </Link>
+                          <Link
+                            to="/professional-tax-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Professional Tax Registration
+                          </Link>
+                          <Link
+                            to="/rcmc-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            RCMC Registration
+                          </Link>
+                          <Link
+                            to="/rera-registration-for-agents"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            TN RERA Registration for Agents
+                          </Link>
+                          <Link
+                            to="/demat-of-shares"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Demat of Shares
+                          </Link>
+                          <Link
+                            to="/winding-up-llp"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Winding Up - LLP
+                          </Link>
+                          <Link
+                            to="/winding-up-company"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Winding Up - Company
+                          </Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                            <Link to="/12a-80g-registration" className="text-gray-600 hover:text-green-600">12A and 80G Registration</Link>
-                            <Link to="/12a-registration" className="text-gray-600 hover:text-green-600">12A Registration</Link>
-                            <Link to="/80g-registration" className="text-gray-600 hover:text-green-600">80G Registration</Link>
-                            <Link to="/udyam-registration" className="text-gray-600 hover:text-green-600">Udyam Registration</Link>
-                            <Link to="/fcra-registration" className="text-gray-600 hover:text-green-600">FCRA Registration</Link>
-                            <Link to="/apeda-registration" className="text-gray-600 hover:text-green-600">APEDA Registration</Link>
-                            <Link to="/barcode-registration" className="text-gray-600 hover:text-green-600">Barcode Registration</Link>
-                            <Link to="/bis-registration" className="text-gray-600 hover:text-green-600">BIS Registration</Link>
-                            <Link to="/certificate-of-incumbency" className="text-gray-600 hover:text-green-600">Certificate of Incumbency</Link>
+                          <Link
+                            to="/12a-80g-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            12A and 80G Registration
+                          </Link>
+                          <Link
+                            to="/12a-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            12A Registration
+                          </Link>
+                          <Link
+                            to="/80g-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            80G Registration
+                          </Link>
+                          <Link
+                            to="/udyam-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Udyam Registration
+                          </Link>
+                          <Link
+                            to="/fcra-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            FCRA Registration
+                          </Link>
+                          <Link
+                            to="/apeda-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            APEDA Registration
+                          </Link>
+                          <Link
+                            to="/barcode-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Barcode Registration
+                          </Link>
+                          <Link
+                            to="/bis-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            BIS Registration
+                          </Link>
+                          <Link
+                            to="/certificate-of-incumbency"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Certificate of Incumbency
+                          </Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                            <Link to="/darpan-registration" className="text-gray-600 hover:text-green-600">Darpan Registration</Link>
-                            <Link to="/digital-signature" className="text-gray-600 hover:text-green-600">Digital Signature</Link>
-                            <Link to="/shop-and-establishment-act" className="text-gray-600 hover:text-green-600">Shop Act Registration</Link>
-                            <Link to="/drug-license" className="text-gray-600 hover:text-green-600">Drug License</Link>
-                            <Link to="/udyam-registration" className="text-gray-600 hover:text-green-600">Udyam Registration</Link>
-                            <Link to="/fcra-registration" className="text-gray-600 hover:text-green-600">FCRA Registration</Link>
-                            <Link to="/fire-license" className="text-gray-600 hover:text-green-600">Fire License</Link>
+                          <Link
+                            to="/darpan-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Darpan Registration
+                          </Link>
+                          <Link
+                            to="/digital-signature"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Digital Signature
+                          </Link>
+                          <Link
+                            to="/shop-and-establishment-act"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Shop Act Registration
+                          </Link>
+                          <Link
+                            to="/drug-license"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Drug License
+                          </Link>
+                          <Link
+                            to="/udyam-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Udyam Registration
+                          </Link>
+                          <Link
+                            to="/fcra-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            FCRA Registration
+                          </Link>
+                          <Link
+                            to="/fire-license"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Fire License
+                          </Link>
                         </div>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
-              
+
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
@@ -453,16 +764,31 @@ const Header = () => {
                     <NavigationMenuContent>
                       <div className="grid w-[250px] gap-6 p-6 md:grid-cols-1 bg-white">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="/trademark-registration" className="text-gray-600 hover:text-green-600">Trademark Registration</Link>
-                          <Link to="/copyright-registration" className="text-gray-600 hover:text-green-600">Copyright Registration</Link>
-                          <Link to="/patent-registration" className="text-gray-600 hover:text-green-600">Patent Registration</Link>
+                          <Link
+                            to="/trademark-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Trademark Registration
+                          </Link>
+                          <Link
+                            to="/copyright-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Copyright Registration
+                          </Link>
+                          <Link
+                            to="/patent-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Patent Registration
+                          </Link>
                         </div>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
-              
+
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
@@ -543,7 +869,8 @@ const Header = () => {
                               GST Registration for Foreigners
                             </div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Register your business with GST for foreign entities.
+                              Register your business with GST for foreign
+                              entities.
                             </p>
                           </Link>
                           <Link
@@ -585,7 +912,7 @@ const Header = () => {
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
-              
+
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
@@ -595,27 +922,87 @@ const Header = () => {
                     <NavigationMenuContent>
                       <div className="grid w-[500px] gap-6 p-6 md:grid-cols-2 bg-white">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="/income-tax-e-filing-new" className="text-gray-600 hover:text-green-600">Income Tax E-Filing</Link>
-                          <Link to="/itr-1-return-filing" className="text-gray-600 hover:text-green-600">ITR-1 Return Filing</Link>
-                          <Link to="/itr-2-return-filing" className="text-gray-600 hover:text-green-600">ITR-2 Return Filing</Link>
-                          <Link to="/itr-3-return-filing" className="text-gray-600 hover:text-green-600">ITR-3 Return Filing</Link>
-                          <Link to="/itr-4-return-filing" className="text-gray-600 hover:text-green-600">ITR-4 Return Filing</Link>
-                          <Link to="/itr-5-return-filing" className="text-gray-600 hover:text-green-600">ITR-5 Return Filing</Link>
+                          <Link
+                            to="/income-tax-e-filing-new"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Income Tax E-Filing
+                          </Link>
+                          <Link
+                            to="/itr-1-return-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            ITR-1 Return Filing
+                          </Link>
+                          <Link
+                            to="/itr-2-return-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            ITR-2 Return Filing
+                          </Link>
+                          <Link
+                            to="/itr-3-return-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            ITR-3 Return Filing
+                          </Link>
+                          <Link
+                            to="/itr-4-return-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            ITR-4 Return Filing
+                          </Link>
+                          <Link
+                            to="/itr-5-return-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            ITR-5 Return Filing
+                          </Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="/itr-6-return-filing" className="text-gray-600 hover:text-green-600">ITR-6 Return Filing</Link>
-                          <Link to="/itr-7-return-filing" className="text-gray-600 hover:text-green-600">ITR-7 Return Filing</Link>
-                          <Link to="/15ca-15cb-filing" className="text-gray-600 hover:text-green-600">15CA - 15CB Filing</Link>
-                          <Link to="/tan-registration" className="text-gray-600 hover:text-green-600">TAN Registration</Link>
-                          <Link to="/tds-return-filing" className="text-gray-600 hover:text-green-600">TDS Return Filing</Link>
-                          <Link to="/income-tax-notice" className="text-gray-600 hover:text-green-600">Income Tax Notice</Link>
+                          <Link
+                            to="/itr-6-return-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            ITR-6 Return Filing
+                          </Link>
+                          <Link
+                            to="/itr-7-return-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            ITR-7 Return Filing
+                          </Link>
+                          <Link
+                            to="/15ca-15cb-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            15CA - 15CB Filing
+                          </Link>
+                          <Link
+                            to="/tan-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            TAN Registration
+                          </Link>
+                          <Link
+                            to="/tds-return-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            TDS Return Filing
+                          </Link>
+                          <Link
+                            to="/income-tax-notice"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Income Tax Notice
+                          </Link>
                         </div>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
-              
+
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
@@ -625,39 +1012,139 @@ const Header = () => {
                     <NavigationMenuContent>
                       <div className="grid min-w-[700px] gap-4 p-2 md:grid-cols-3 bg-white">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="/company-compliance" className="text-gray-600 hover:text-green-600">Company Compliance</Link>
-                          <Link to="/llp-compliance" className="text-gray-600 hover:text-green-600">LLP Compliance</Link>
-                          <Link to="/opc-compliance" className="text-gray-600 hover:text-green-600">OPC Compliance</Link>
-                          <Link to="/name-change-company" className="text-gray-600 hover:text-green-600">Name Change - Company</Link>
-                          <Link to="/registered-office-change-company" className="text-gray-600 hover:text-green-600">Registered Office Change</Link>
+                          <Link
+                            to="/company-compliance"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Company Compliance
+                          </Link>
+                          <Link
+                            to="/llp-compliance"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            LLP Compliance
+                          </Link>
+                          <Link
+                            to="/opc-compliance"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            OPC Compliance
+                          </Link>
+                          <Link
+                            to="/name-change-company"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Name Change - Company
+                          </Link>
+                          <Link
+                            to="/registered-office-change-company"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Registered Office Change
+                          </Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="/din-ekyc-filing" className="text-gray-600 hover:text-green-600">DIN eKYC Filing</Link>
-                          <Link to="/din-reactivation" className="text-gray-600 hover:text-green-600">DIN Reactivation</Link>
-                          <Link to="/director-change" className="text-gray-600 hover:text-green-600">Director Change</Link>
-                          <Link to="/remove-director" className="text-gray-600 hover:text-green-600">Remove Director</Link>
-                          <Link to="/adt1-filing" className="text-gray-600 hover:text-green-600">ADT-1 Filing</Link>
+                          <Link
+                            to="/din-ekyc-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            DIN eKYC Filing
+                          </Link>
+                          <Link
+                            to="/din-reactivation"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            DIN Reactivation
+                          </Link>
+                          <Link
+                            to="/director-change"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Director Change
+                          </Link>
+                          <Link
+                            to="/remove-director"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Remove Director
+                          </Link>
+                          <Link
+                            to="/adt1-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            ADT-1 Filing
+                          </Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="/dpt3-filing" className="text-gray-600 hover:text-green-600">DPT-3 Filing</Link>
-                          <Link to="/llp-form11-filing" className="text-gray-600 hover:text-green-600">LLP Form 11 Filing</Link>
-                          <Link to="dormant-status-filing" className="text-gray-600 hover:text-green-600">Dormant Status Filing</Link>
-                          <Link to="/moa-amendment" className="text-gray-600 hover:text-green-600">MOA Amendment</Link>
-                          <Link to="/aoa-amendment" className="text-gray-600 hover:text-green-600">AOA Amendment</Link>
+                          <Link
+                            to="/dpt3-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            DPT-3 Filing
+                          </Link>
+                          <Link
+                            to="/llp-form11-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            LLP Form 11 Filing
+                          </Link>
+                          <Link
+                            to="dormant-status-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Dormant Status Filing
+                          </Link>
+                          <Link
+                            to="/moa-amendment"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            MOA Amendment
+                          </Link>
+                          <Link
+                            to="/aoa-amendment"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            AOA Amendment
+                          </Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="/authorized-capital-increase" className="text-gray-600 hover:text-green-600">Authorized Capital Increase</Link>
-                          <Link to="/share-transfer" className="text-gray-600 hover:text-green-600">Share Transfer</Link>
-                          <Link to="/Demat of Shares" className="text-gray-600 hover:text-green-600">Demat of Shares</Link>
-                          <Link to="/Winding Up - LLP" className="text-gray-600 hover:text-green-600">Winding Up - LLP</Link>
-                          <Link to="/Winding Up - Company" className="text-gray-600 hover:text-green-600">Winding Up - Company</Link>
+                          <Link
+                            to="/authorized-capital-increase"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Authorized Capital Increase
+                          </Link>
+                          <Link
+                            to="/share-transfer"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Share Transfer
+                          </Link>
+                          <Link
+                            to="/Demat of Shares"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Demat of Shares
+                          </Link>
+                          <Link
+                            to="/Winding Up - LLP"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Winding Up - LLP
+                          </Link>
+                          <Link
+                            to="/Winding Up - Company"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Winding Up - Company
+                          </Link>
                         </div>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
-              
+
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
@@ -667,32 +1154,91 @@ const Header = () => {
                     <NavigationMenuContent>
                       <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="/fdi-filing-rbi" className="text-gray-600 hover:text-green-600">FDI Filing with RBI</Link>
-                          <Link to="/fla-return-filing" className="text-gray-600 hover:text-green-600">FLA Return Filing</Link>
-                          <Link to="/fssai-renewal" className="text-gray-600 hover:text-green-600">FSSAI Renewal</Link>
-                          <Link to="/fssai-return-filing" className="text-gray-600 hover:text-green-600">FSSAI Return Filing</Link>
+                          <Link
+                            to="/fdi-filing-rbi"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            FDI Filing with RBI
+                          </Link>
+                          <Link
+                            to="/fla-return-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            FLA Return Filing
+                          </Link>
+                          <Link
+                            to="/fssai-renewal"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            FSSAI Renewal
+                          </Link>
+                          <Link
+                            to="/fssai-return-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            FSSAI Return Filing
+                          </Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <Link to="/pf-return-filing" className="text-gray-600 hover:text-green-600">PF Return Filing</Link>
-                          <Link to="/esi-return-filing" className="text-gray-600 hover:text-green-600">ESI Return Filing</Link>
-                          <Link to="/professional-tax-return-filing" className="text-gray-600 hover:text-green-600">Professional Tax Return Filing</Link>
-                          <Link to="/partnership-compliance" className="text-gray-600 hover:text-green-600">Partnership Compliance</Link>
-                          <Link to="/proprietorship-compliance" className="text-gray-600 hover:text-green-600">Proprietorship Compliance</Link>
-                          <Link to="/bookkeeping" className="text-gray-600 hover:text-green-600">Bookkeeping</Link>
+                          <Link
+                            to="/pf-return-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            PF Return Filing
+                          </Link>
+                          <Link
+                            to="/esi-return-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            ESI Return Filing
+                          </Link>
+                          <Link
+                            to="/professional-tax-return-filing"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Professional Tax Return Filing
+                          </Link>
+                          <Link
+                            to="/partnership-compliance"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Partnership Compliance
+                          </Link>
+                          <Link
+                            to="/proprietorship-compliance"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Proprietorship Compliance
+                          </Link>
+                          <Link
+                            to="/bookkeeping"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Bookkeeping
+                          </Link>
                         </div>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
-              
-              <Link to="/consultation" className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs">
+
+              <Link
+                to="/consultation"
+                className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs"
+              >
                 Consultation
               </Link>
-              <Link to="/guide" className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs">
+              <Link
+                to="/guide"
+                className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs"
+              >
                 Guides
               </Link>
-              <Link to="/about-us" className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs">
+              <Link
+                to="/about-us"
+                className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs"
+              >
                 About
               </Link>
             </div>
@@ -710,35 +1256,91 @@ const Header = () => {
                     <NavigationMenuContent>
                       <div className="grid w-[600px] gap-6 p-6 md:grid-cols-2 bg-white">
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <h4 className="font-bold text-green-600 mb-2">Startup & Registration</h4>
-                          <Link to="/proprietorship" className="text-gray-600 hover:text-green-600">Proprietorship</Link>
-                          <Link to="/partnership" className="text-gray-600 hover:text-green-600">Partnership</Link>
-                          <Link to="/private-limited-company" className="text-gray-600 hover:text-green-600">Private Ltd Company</Link>
-                          <Link to="/limited-liability-partnership" className="text-gray-600 hover:text-green-600">LLP</Link>
+                          <h4 className="font-bold text-green-600 mb-2">
+                            Startup & Registration
+                          </h4>
+                          <Link
+                            to="/proprietorship"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Proprietorship
+                          </Link>
+                          <Link
+                            to="/partnership"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Partnership
+                          </Link>
+                          <Link
+                            to="/private-limited-company"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Private Ltd Company
+                          </Link>
+                          <Link
+                            to="/limited-liability-partnership"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            LLP
+                          </Link>
                         </div>
                         <div className="flex flex-col space-y-2 text-sm font-normal">
-                          <h4 className="font-bold text-green-600 mb-2">Compliance</h4>
-                          <Link to="/company-compliance" className="text-gray-600 hover:text-green-600">Company Compliance</Link>
-                          <Link to="/gst-registration" className="text-gray-600 hover:text-green-600">GST Registration</Link>
-                          <Link to="/trademark-registration" className="text-gray-600 hover:text-green-600">Trademark</Link>
-                          <Link to="/income-tax-e-filing-new" className="text-gray-600 hover:text-green-600">Income Tax</Link>
+                          <h4 className="font-bold text-green-600 mb-2">
+                            Compliance
+                          </h4>
+                          <Link
+                            to="/company-compliance"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Company Compliance
+                          </Link>
+                          <Link
+                            to="/gst-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            GST Registration
+                          </Link>
+                          <Link
+                            to="/trademark-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Trademark
+                          </Link>
+                          <Link
+                            to="/income-tax-e-filing-new"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            Income Tax
+                          </Link>
                         </div>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
-              
-              <Link to="/gst-registration" className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs">
+
+              <Link
+                to="/gst-registration"
+                className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs"
+              >
                 GST
               </Link>
-              <Link to="/income-tax-e-filing-new" className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs">
+              <Link
+                to="/income-tax-e-filing-new"
+                className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs"
+              >
                 Tax
               </Link>
-              <Link to="/trademark-registration" className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs">
+              <Link
+                to="/trademark-registration"
+                className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs"
+              >
                 Trademark
               </Link>
-              <Link to="/consultation" className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs">
+              <Link
+                to="/consultation"
+                className="px-1 py-1 text-gray-700 hover:text-green-600 transition-colors text-xs"
+              >
                 Consult
               </Link>
             </div>
@@ -768,7 +1370,7 @@ const Header = () => {
                   )}
                 </div>
               </form>
-              
+
               {/* Search Results Dropdown */}
               {isSearchOpen && filteredServices.length > 0 && (
                 <div className="absolute top-full mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
@@ -777,7 +1379,7 @@ const Header = () => {
                       key={index}
                       to={service.path}
                       onClick={() => {
-                        setSearchQuery('');
+                        setSearchQuery("");
                         setIsSearchOpen(false);
                       }}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 border-b border-gray-100 last:border-b-0"
@@ -792,7 +1394,7 @@ const Header = () => {
                   )}
                 </div>
               )}
-              
+
               {/* No Results Message */}
               {isSearchOpen && searchQuery && filteredServices.length === 0 && (
                 <div className="absolute top-full mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50 p-4 text-center text-gray-500 text-sm">
@@ -800,9 +1402,9 @@ const Header = () => {
                 </div>
               )}
             </div>
-            
+
             <div className="relative">
-              <button 
+              <button
                 className="p-1 sm:p-2 hover:bg-gray-100 rounded-full relative"
                 onClick={() => setIsCartOpen(!isCartOpen)}
               >
@@ -813,9 +1415,12 @@ const Header = () => {
                   </span>
                 )}
               </button>
-              <CartDropdown isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+              <CartDropdown
+                isOpen={isCartOpen}
+                onClose={() => setIsCartOpen(false)}
+              />
             </div>
-            
+
             {user ? (
               <div className="relative profile-dropdown">
                 <button
@@ -823,16 +1428,22 @@ const Header = () => {
                   className="flex items-center gap-2 hover:bg-gray-100 rounded-lg p-2 transition-colors"
                 >
                   <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-800 font-semibold">
-                    {user.email ? user.email.charAt(0).toUpperCase() : 'U'}
+                    {user.email ? user.email.charAt(0).toUpperCase() : "U"}
                   </div>
-                  <ChevronDown className={`h-4 w-4 text-gray-600 transition-transform ${isProfileDropdownOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown
+                    className={`h-4 w-4 text-gray-600 transition-transform ${
+                      isProfileDropdownOpen ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
-                
+
                 {/* Profile Dropdown */}
                 {isProfileDropdownOpen && (
                   <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
                     <div className="p-3 border-b border-gray-100">
-                      <p className="text-sm font-medium text-gray-900">{user.email}</p>
+                      <p className="text-sm font-medium text-gray-900">
+                        {user.email}
+                      </p>
                       <p className="text-xs text-gray-500">Signed in</p>
                     </div>
                     <div className="py-1">
@@ -855,12 +1466,14 @@ const Header = () => {
                 )}
               </div>
             ) : (
-              <Link 
-                to="/login" 
+              <Link
+                to="/login"
                 className="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors"
               >
                 <User className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span className="text-xs sm:text-sm font-medium hidden sm:inline">Login</span>
+                <span className="text-xs sm:text-sm font-medium hidden sm:inline">
+                  Login
+                </span>
               </Link>
             )}
           </div>
