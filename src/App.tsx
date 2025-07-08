@@ -15,7 +15,7 @@ import BusinessRegistration from "./pages/BusinessRegistration";
 import Proprietorship from "./pages/Proprietorship";
 import Partnership from "./pages/Partnership";
 import OnePersonCompany from "./pages/OnePersonCompany";
-import LimitedLiabilityPartnership from "./pages/LimitedLiabilityPartnership";
+import LLP from "./pages/LLP";
 import PrivateLimitedCompany from "./pages/PrivateLimitedCompany";
 import PublicLimitedCompany from "./pages/PublicLimitedCompany";
 import Section8Company from "./pages/Section8Company";
@@ -25,15 +25,15 @@ import IndianSubsidiary from "./pages/IndianSubsidiary";
 import StartupIndia from "./pages/StartupIndia";
 import TradeLicense from "./pages/TradeLicense";
 import FSSAIRegistration from "./pages/FSSAIRegistration";
-import FSSAILicense from "./pages/FSSAILicense";
+import FSSAiLicense from "./pages/FSSAiLicense";
 import HalalCertification from "./pages/HalalCertification";
-import ICEGATERegistration from "./pages/ICEGATERegistration";
+import IcegateRegistration from "./pages/IcegateRegistration";
 import ImportExportCode from "./pages/ImportExportCode";
 import TrademarkRegistration from "./pages/TrademarkRegistration";
 import CopyrightRegistration from "./pages/CopyrightRegistration";
 import PatentRegistration from "./pages/PatentRegistration";
-import GSTRegistration from "./pages/GSTRegistration";
-import GSTReturnFiling from "./pages/GSTReturnFiling";
+import GstRegistration from "./pages/GstRegistration";
+import GstReturnFiling from "./pages/GstReturnFiling";
 import IncomeTaxEFilingNew from "./pages/IncomeTaxEFilingNew";
 import DigitalSignature from "./pages/DigitalSignature";
 import PFRegistration from "./pages/PFRegistration";
@@ -44,11 +44,11 @@ import WindingUpCompany from "./pages/WindingUpCompany";
 import UdyamRegistration from "./pages/UdyamRegistration";
 import FCRARegistration from "./pages/FCRARegistration";
 import CompanyCompliance from "./pages/CompanyCompliance";
-import LLPCompliance from "./pages/LLPCompliance";
+import LlpCompliance from "./pages/LlpCompliance";
 import TANRegistration from "./pages/TANRegistration";
 import TDSReturnFiling from "./pages/TDSReturnFiling";
-import SocietyRegistration from "./pages/SocietyRegistration";
-import SetupBusinessUAE from "./pages/SetupBusinessUAE";
+// import SocietyRegistration from "./pages/SocietyRegistration";
+// import SetupBusinessUAE from "./pages/SetupBusinessUAE";
 import Consultation from "./pages/Consultation";
 import AboutUs from "./pages/AboutUs";
 import Guide from "./pages/Guide";
@@ -56,25 +56,25 @@ import LegalEntityIdentifierCode from "./pages/LegalEntityIdentifierCode";
 import ISORegistration from "./pages/ISORegistration";
 import ProfessionalTaxRegistration from "./pages/ProfessionalTaxRegistration";
 import RCMCRegistration from "./pages/RCMCRegistration";
-import RERARegistrationForAgents from "./pages/RERARegistrationForAgents";
-import Twelve_A_80G_Registration from "./pages/12a-80g-registration";
-import Twelve_A_Registration from "./pages/12a-registration";
-import EightyG_Registration from "./pages/80g-registration";
-import APEDARegistration from "./pages/APEDARegistration";
+import ReraRegistrationForAgents from "./pages/ReraRegistrationForAgents";
+import Twelve_A_80G_Registration from "./pages/12Aand80GRegistration";
+import Twelve_A_Registration from "./pages/12ARegistration";
+import EightyG_Registration from "./pages/EightyGRegistration";
+import ApedaRegistration from "./pages/ApedaRegistration";
 import BarcodeRegistration from "./pages/BarcodeRegistration";
-import BISRegistration from "./pages/BISRegistration";
+import BisRegistration from "./pages/BisRegistration";
 import CertificateOfIncumbency from "./pages/CertificateOfIncumbency";
 import DarpanRegistration from "./pages/DarpanRegistration";
 import ShopAndEstablishmentAct from "./pages/ShopAndEstablishmentAct";
 import DrugLicense from "./pages/DrugLicense";
 import FireLicense from "./pages/FireLicense";
-import GSTAnnualReturnFilingGSTR9 from "./pages/GSTAnnualReturnFilingGSTR9";
-import GSTLUTForm from "./pages/GSTLUTForm";
-import GSTNotice from "./pages/GSTNotice";
-import GSTRegistrationForForeigners from "./pages/GSTRegistrationForForeigners";
-import GSTRegistrationAmendment from "./pages/GSTRegistrationAmendment";
-import GSTRevocation from "./pages/GSTRevocation";
-import GSTGSTR10 from "./pages/GSTGSTR10";
+import GstAnnualReturnFilingGstr9 from "./pages/GstAnnualReturnFilingGstr9";
+import GstLutForm from "./pages/GstLutForm";
+import GstNotice from "./pages/GstNotice";
+import GstRegistrationForForeigners from "./pages/GstRegistrationForForeigners";
+import GstRegistrationAmendment from "./pages/GstRegistrationAmendment";
+import GstRevocation from "./pages/GstRevocation";
+import Gstr10ReturnFiling from "./pages/Gstr10ReturnFiling";
 import ITR1ReturnFiling from "./pages/ITR1ReturnFiling";
 import ITR2ReturnFiling from "./pages/ITR2ReturnFiling";
 import ITR3ReturnFiling from "./pages/ITR3ReturnFiling";
@@ -82,23 +82,23 @@ import ITR4ReturnFiling from "./pages/ITR4ReturnFiling";
 import ITR5ReturnFiling from "./pages/ITR5ReturnFiling";
 import ITR6ReturnFiling from "./pages/ITR6ReturnFiling";
 import ITR7ReturnFiling from "./pages/ITR7ReturnFiling";
-import Fifteen_CA_15CB_Filing from "./pages/15ca-15cb-filing";
+import Fifteen_CA_15CB_Filing from "./pages/15CA15CBFiling";
 import IncomeTaxNotice from "./pages/IncomeTaxNotice";
 import NameChangeCompany from "./pages/NameChangeCompany";
 import RegisteredOfficeChangeCompany from "./pages/RegisteredOfficeChangeCompany";
-import DINEKYCFiling from "./pages/DINEKYCFiling";
+import DINEkycFiling from "./pages/DINEkycFiling";
 import DINReactivation from "./pages/DINReactivation";
 import DirectorChange from "./pages/DirectorChange";
-import RemoveDirector from "./pages/RemoveDirector";
-import ADT1Filing from "./pages/ADT1Filing";
+// import RemoveDirector from "./pages/RemoveDirector";
+// import Adt1Filing from "./pages/Adt1Filing";
 import DPT3Filing from "./pages/DPT3Filing";
 import LLPForm11Filing from "./pages/LLPForm11Filing";
-import DormantStatusFiling from "./pages/DormantStatusFiling";
+// import DormantStatusFiling from "./pages/DormantStatusFiling";
 import MOAAmendment from "./pages/MOAAmendment";
 import AOAAmendment from "./pages/AOAAmendment";
 import AuthorizedCapitalIncrease from "./pages/AuthorizedCapitalIncrease";
 import ShareTransfer from "./pages/ShareTransfer";
-import FDIFilingRBI from "./pages/FDIFilingRBI";
+import FDIFilingWithRBI from "./pages/FDIFilingWithRBI";
 import FLAReturnFiling from "./pages/FLAReturnFiling";
 import FSSAIRenewal from "./pages/FSSAIRenewal";
 import FSSAIReturnFiling from "./pages/FSSAIReturnFiling";
@@ -108,7 +108,7 @@ import ProfessionalTaxReturnFiling from "./pages/ProfessionalTaxReturnFiling";
 import PartnershipCompliance from "./pages/PartnershipCompliance";
 import ProprietorshipCompliance from "./pages/ProprietorshipCompliance";
 import Bookkeeping from "./pages/Bookkeeping";
-import OPCCompliance from "./pages/OPCCompliance";
+import OpcCompliance from "./pages/OpcCompliance";
 
 const queryClient = new QueryClient();
 
@@ -132,7 +132,7 @@ function App() {
               <Route path="/proprietorship" element={<Proprietorship />} />
               <Route path="/partnership" element={<Partnership />} />
               <Route path="/one-person-company" element={<OnePersonCompany />} />
-              <Route path="/limited-liability-partnership" element={<LimitedLiabilityPartnership />} />
+              <Route path="/limited-liability-partnership" element={<LLP />} />
               <Route path="/private-limited-company" element={<PrivateLimitedCompany />} />
               <Route path="/public-limited-company" element={<PublicLimitedCompany />} />
               <Route path="/section-8-company" element={<Section8Company />} />
@@ -142,12 +142,12 @@ function App() {
               <Route path="/startup-india" element={<StartupIndia />} />
               <Route path="/trade-license" element={<TradeLicense />} />
               <Route path="/fssai-registration" element={<FSSAIRegistration />} />
-              <Route path="/fssai-license" element={<FSSAILicense />} />
+              <Route path="/fssai-license" element={<FSSAiLicense />} />
               <Route path="/halal-certification" element={<HalalCertification />} />
-              <Route path="/icegate-registration" element={<ICEGATERegistration />} />
+              <Route path="/icegate-registration" element={<IcegateRegistration />} />
               <Route path="/import-export-code" element={<ImportExportCode />} />
-              <Route path="/society-registration" element={<SocietyRegistration />} />
-              <Route path="/setup-business-uae" element={<SetupBusinessUAE />} />
+              {/* <Route path="/society-registration" element={<SocietyRegistration />} /> */}
+              {/* <Route path="/setup-business-uae" element={<SetupBusinessUAE />} /> */}
               
               {/* Trademark Routes */}
               <Route path="/trademark-registration" element={<TrademarkRegistration />} />
@@ -155,15 +155,15 @@ function App() {
               <Route path="/patent-registration" element={<PatentRegistration />} />
               
               {/* GST Routes */}
-              <Route path="/gst-registration" element={<GSTRegistration />} />
-              <Route path="/gst-return-filing" element={<GSTReturnFiling />} />
-              <Route path="/gst-annual-return-filing-gstr9" element={<GSTAnnualReturnFilingGSTR9 />} />
-              <Route path="/gst-lut-form" element={<GSTLUTForm />} />
-              <Route path="/gst-notice" element={<GSTNotice />} />
-              <Route path="/gst-registration-for-foreigners" element={<GSTRegistrationForForeigners />} />
-              <Route path="/gst-registration-amendment" element={<GSTRegistrationAmendment />} />
-              <Route path="/gst-revocation" element={<GSTRevocation />} />
-              <Route path="/gst-gstr-10" element={<GSTGSTR10 />} />
+              <Route path="/gst-registration" element={<GstRegistration />} />
+              <Route path="/gst-return-filing" element={<GstReturnFiling />} />
+              <Route path="/gst-annual-return-filing-gstr9" element={<GstAnnualReturnFilingGstr9 />} />
+              <Route path="/gst-lut-form" element={<GstLutForm />} />
+              <Route path="/gst-notice" element={<GstNotice />} />
+              <Route path="/gst-registration-for-foreigners" element={<GstRegistrationForForeigners />} />
+              <Route path="/gst-registration-amendment" element={<GstRegistrationAmendment />} />
+              <Route path="/gst-revocation" element={<GstRevocation />} />
+              <Route path="/gst-gstr-10" element={<Gstr10ReturnFiling />} />
               
               {/* Tax Routes */}
               <Route path="/income-tax-e-filing-new" element={<IncomeTaxEFilingNew />} />
@@ -189,7 +189,7 @@ function App() {
               <Route path="/udyam-registration" element={<UdyamRegistration />} />
               <Route path="/fcra-registration" element={<FCRARegistration />} />
               <Route path="/company-compliance" element={<CompanyCompliance />} />
-              <Route path="/llp-compliance" element={<LLPCompliance />} />
+              <Route path="/llp-compliance" element={<LlpCompliance />} />
               <Route path="/consultation" element={<Consultation />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/guide" element={<Guide />} />
@@ -199,13 +199,13 @@ function App() {
               <Route path="/iso-registration" element={<ISORegistration />} />
               <Route path="/professional-tax-registration" element={<ProfessionalTaxRegistration />} />
               <Route path="/rcmc-registration" element={<RCMCRegistration />} />
-              <Route path="/rera-registration-for-agents" element={<RERARegistrationForAgents />} />
+              <Route path="/rera-registration-for-agents" element={<ReraRegistrationForAgents />} />
               <Route path="/12a-80g-registration" element={<Twelve_A_80G_Registration />} />
               <Route path="/12a-registration" element={<Twelve_A_Registration />} />
               <Route path="/80g-registration" element={<EightyG_Registration />} />
-              <Route path="/apeda-registration" element={<APEDARegistration />} />
+              <Route path="/apeda-registration" element={<ApedaRegistration />} />
               <Route path="/barcode-registration" element={<BarcodeRegistration />} />
-              <Route path="/bis-registration" element={<BISRegistration />} />
+              <Route path="/bis-registration" element={<BisRegistration />} />
               <Route path="/certificate-of-incumbency" element={<CertificateOfIncumbency />} />
               <Route path="/darpan-registration" element={<DarpanRegistration />} />
               <Route path="/shop-and-establishment-act" element={<ShopAndEstablishmentAct />} />
@@ -215,21 +215,21 @@ function App() {
               {/* MCA Routes */}
               <Route path="/name-change-company" element={<NameChangeCompany />} />
               <Route path="/registered-office-change-company" element={<RegisteredOfficeChangeCompany />} />
-              <Route path="/din-ekyc-filing" element={<DINEKYCFiling />} />
+              <Route path="/din-ekyc-filing" element={<DINEkycFiling />} />
               <Route path="/din-reactivation" element={<DINReactivation />} />
               <Route path="/director-change" element={<DirectorChange />} />
-              <Route path="/remove-director" element={<RemoveDirector />} />
-              <Route path="/adt1-filing" element={<ADT1Filing />} />
+              {/* <Route path="/remove-director" element={<RemoveDirector />} /> */}
+              {/* <Route path="/adt1-filing" element={<Adt1Filing />} /> */}
               <Route path="/dpt3-filing" element={<DPT3Filing />} />
               <Route path="/llp-form11-filing" element={<LLPForm11Filing />} />
-              <Route path="/dormant-status-filing" element={<DormantStatusFiling />} />
+              {/* <Route path="/dormant-status-filing" element={<DormantStatusFiling />} /> */}
               <Route path="/moa-amendment" element={<MOAAmendment />} />
               <Route path="/aoa-amendment" element={<AOAAmendment />} />
               <Route path="/authorized-capital-increase" element={<AuthorizedCapitalIncrease />} />
               <Route path="/share-transfer" element={<ShareTransfer />} />
               
               {/* Compliance Routes */}
-              <Route path="/fdi-filing-rbi" element={<FDIFilingRBI />} />
+              <Route path="/fdi-filing-rbi" element={<FDIFilingWithRBI />} />
               <Route path="/fla-return-filing" element={<FLAReturnFiling />} />
               <Route path="/fssai-renewal" element={<FSSAIRenewal />} />
               <Route path="/fssai-return-filing" element={<FSSAIReturnFiling />} />
@@ -239,7 +239,7 @@ function App() {
               <Route path="/partnership-compliance" element={<PartnershipCompliance />} />
               <Route path="/proprietorship-compliance" element={<ProprietorshipCompliance />} />
               <Route path="/bookkeeping" element={<Bookkeeping />} />
-              <Route path="/opc-compliance" element={<OPCCompliance />} />
+              <Route path="/opc-compliance" element={<OpcCompliance />} />
             </Routes>
           </BrowserRouter>
         </CartProvider>
