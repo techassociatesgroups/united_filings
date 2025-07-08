@@ -1,5 +1,6 @@
 
 import { Building2, FileText, Copyright, Scale, Calculator, UserCheck, Globe, CreditCard, Briefcase, Users, FileCheck, Gavel } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const services = [
@@ -8,56 +9,64 @@ const Services = () => {
       title: "Private Limited Company",
       description: "Incorporate your Private Limited Company with complete documentation",
       price: "₹6,999",
-      popular: true
+      popular: true,
+      link: "/private-limited-company"
     },
     {
       icon: Users,
       title: "LLP Registration",
       description: "Register your Limited Liability Partnership with expert guidance",
       price: "₹4,999",
-      popular: false
+      popular: false,
+      link: "/limited-liability-partnership"
     },
     {
       icon: UserCheck,
       title: "One Person Company",
       description: "Start your OPC with minimal compliance requirements",
       price: "₹5,999",
-      popular: false
+      popular: false,
+      link: "/one-person-company"
     },
     {
       icon: Copyright,
       title: "Trademark Registration",
       description: "Protect your brand with trademark registration",
       price: "₹3,999",
-      popular: false
+      popular: false,
+      link: "/trademark-registration"
     },
     {
       icon: Calculator,
       title: "GST Registration",
       description: "Get your GST number with complete assistance",
       price: "₹2,999",
-      popular: false
+      popular: false,
+      link: "/gst-registration"
     },
     {
       icon: FileCheck,
       title: "Income Tax Return",
       description: "Professional ITR filing services for individuals and businesses",
       price: "₹999",
-      popular: false
+      popular: false,
+      link: "/income-tax-e-filing-new"
     },
     {
       icon: Scale,
       title: "Legal Documentation",
       description: "Draft legal agreements and contracts",
       price: "₹1,999",
-      popular: false
+      popular: false,
+      link: "/consultation"
     },
     {
       icon: Gavel,
       title: "Compliance Services",
       description: "Ongoing compliance support for your business",
       price: "₹4,999",
-      popular: false
+      popular: false,
+      link: "/company-compliance"
     }
   ];
 
@@ -102,18 +111,24 @@ const Services = () => {
                 <div className="text-2xl font-bold text-green-600 mb-4">
                   {service.price}
                 </div>
-                <button className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors">
+                <Link 
+                  to={service.link}
+                  className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors inline-block text-center"
+                >
                   Get Started
-                </button>
+                </Link>
               </div>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-white text-green-600 border-2 border-green-600 px-8 py-3 rounded-md font-semibold hover:bg-green-600 hover:text-white transition-colors">
+          <Link 
+            to="/services"
+            className="bg-white text-green-600 border-2 border-green-600 px-8 py-3 rounded-md font-semibold hover:bg-green-600 hover:text-white transition-colors"
+          >
             View All Services
-          </button>
+          </Link>
         </div>
       </div>
     </section>
