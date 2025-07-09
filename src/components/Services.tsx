@@ -115,7 +115,7 @@ const Services = () => {
                   to={service.link}
                   className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors inline-block text-center"
                 >
-                  Get Started
+                  know more
                 </Link>
               </div>
             </div>

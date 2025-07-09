@@ -298,10 +298,7 @@ const Header = () => {
     { name: "Proprietorship", path: "/proprietorship" },
     { name: "Partnership Firm", path: "/partnership" },
     { name: "One Person Company", path: "/one-person-company" },
-    {
-      name: "Limited Liability Partnership",
-      path: "/limited-liability-partnership",
-    },
+    {name: "Limited Liability Partnership",path: "/limited-liability-partnership"},
     { name: "Private Limited Company", path: "/private-limited-company" },
     { name: "Public Limited Company", path: "/public-limited-company" },
     { name: "Section 8 Company", path: "/section-8-company" },
@@ -327,6 +324,11 @@ const Header = () => {
     { name: "Winding Up - Company", path: "/winding-up-company" },
     { name: "Udyam Registration", path: "/udyam-registration" },
     { name: "FCRA Registration", path: "/fcra-registration" },
+    { name: "12A Registration", path: "/12a-registration" },
+    { name: "80G Registration", path: "/80g-registration" },
+    { name: "80G Certificate", path: "/80g-certificate" },
+    { name: "12A Certificate", path: "/12a-certificate" },
+    
   ];
 
   // Filter services based on search query
@@ -604,6 +606,13 @@ const Header = () => {
                           >
                             PF Registration
                           </Link>
+                          <Link
+                            to="/12a-80g-registration"
+                            className="text-gray-600 hover:text-green-600"
+                          >
+                            12A and 80G Registration
+                          </Link>
+
                           <Link
                             to="/esi-registration"
                             className="text-gray-600 hover:text-green-600"

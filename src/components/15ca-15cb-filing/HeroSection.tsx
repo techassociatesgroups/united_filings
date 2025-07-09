@@ -2,6 +2,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
+import SendRequestButton from "@/components/ui/SendRequestButton";
 
 const HeroSection = () => {
   const { addToCart } = useCart();
