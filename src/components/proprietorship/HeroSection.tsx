@@ -102,7 +102,7 @@ const HeroSection = () => {
                   </li>
                 </ul>
                 <Button className="w-full mt-4 bg-white text-green-600 border border-green-600 hover:bg-green-50">
-                  ADD
+                  Know More
                 </Button>
               </CardContent>
             </Card>
