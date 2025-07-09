@@ -54,8 +54,12 @@ const HeroSection = () => {
                   12A Certificate
                 </li>
               </ul>
-              <Button className="w-full mt-4 bg-white text-green-600 border border-green-600 hover:bg-green-50">
-                ADD
+              <Button 
+                className="w-full mt-4"
+                style={{ backgroundColor: '#C5BAFF', borderColor: '#C5BAFF', color: '#000' }}
+                onClick={() => window.open('https://forms.gle/your-actual-form-id', '_blank')}
+              >
+                Enquire Now
               </Button>
             </CardContent>
           </Card>

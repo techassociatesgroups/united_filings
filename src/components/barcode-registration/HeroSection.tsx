@@ -53,7 +53,13 @@ const HeroSection = () => {
                   <li className="flex items-start"><span className="text-green-500 mr-2 font-bold">&gt;</span> Barcode Allotment Number</li>
                   <li className="flex items-start"><span className="text-green-500 mr-2 font-bold">&gt;</span> Barcode Login credentials</li>
                 </ul>
-                <Button variant="outline" className="mt-4 w-full border-green-500 text-green-500 hover:bg-green-50 hover:text-green-600">ADD</Button>
+                <Button 
+                  className="mt-4 w-full"
+                  style={{ backgroundColor: '#C5BAFF', borderColor: '#C5BAFF', color: '#000' }}
+                  onClick={() => window.open('https://forms.gle/your-actual-form-id', '_blank')}
+                >
+                  Enquire Now
+                </Button>
               </div>
               <div className="border rounded-lg p-4 relative border-dashed border-green-500">
                 <div className="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full absolute top-2 right-2">2 Exclusive Offers</div>
@@ -64,7 +70,13 @@ const HeroSection = () => {
                   <li className="flex items-start"><span className="text-green-500 mr-2 font-bold">&gt;</span> Barcode Allotment Number</li>
                   <li className="flex items-start"><span className="text-green-500 mr-2 font-bold">&gt;</span> Barcode Login credentials</li>
                 </ul>
-                <Button variant="outline" className="mt-4 w-full border-green-500 text-green-500 hover:bg-green-50 hover:text-green-600">ADD</Button>
+                <Button 
+                  className="mt-4 w-full"
+                  style={{ backgroundColor: '#C5BAFF', borderColor: '#C5BAFF', color: '#000' }}
+                  onClick={() => window.open('https://forms.gle/your-actual-form-id', '_blank')}
+                >
+                  Enquire Now
+                </Button>
               </div>
             </div>
             <div className="flex justify-between mt-6 text-sm">

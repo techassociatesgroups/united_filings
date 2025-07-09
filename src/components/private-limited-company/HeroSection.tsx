@@ -1,5 +1,5 @@
 import { Star, CheckCircle } from "lucide-react";
-import AddToCartButton from "@/components/ui/AddToCartButton";
+import SendRequestButton from "@/components/ui/SendRequestButton";
 import {
   Select,
   SelectContent,
@@ -82,11 +82,9 @@ const HeroSection = () => {
                   </li>
                 </ul>
               </div>
-              <AddToCartButton 
-                serviceId="company-name-approval"
+              <SendRequestButton 
                 serviceName="Company Name Approval"
-                price={999}
-                className="border-green-500 text-green-500 mt-4 w-full"
+                className="mt-4 w-full"
               />
             </div>
             <div className="border border-yellow-200 bg-yellow-50/50 rounded-lg p-4 flex flex-col justify-between">
@@ -126,11 +124,9 @@ const HeroSection = () => {
                   </li>
                 </ul>
               </div>
-              <AddToCartButton 
-                serviceId="company-registration-full"
+              <SendRequestButton 
                 serviceName="Private Limited Company Registration - Andaman and Nicobar Islands"
-                price={16999}
-                className="border-green-500 text-green-500 mt-4 w-full"
+                className="mt-4 w-full"
               />
             </div>
           </div>
