@@ -1,9 +1,8 @@
-
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
-import { Phone } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useCart } from '@/contexts/CartContext';
 import { toast } from 'sonner';
@@ -11,27 +10,26 @@ import { toast } from 'sonner';
 const Sidebar = () => {
   const { addToCart } = useCart();
 
-  const handleContactUs = () => {
-    // Add a consultation service to cart when contact us is clicked
+  const handleAddToCart = () => {
     addToCart({
-      id: 'llp-consultation',
-      name: 'LLP Consultation',
-      price: 999
+      id: 'llp-registration',
+      name: 'Limited Liability Partnership Registration',
+      price: 4999
     });
-    toast.success('LLP Consultation added to cart!');
+    toast.success('LLP Registration added to cart!');
   };
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 sticky top-24">
       <div className="text-center">
-        <Phone className="mx-auto h-12 w-12 text-green-400" />
-        <h3 className="mt-2 text-lg font-semibold text-gray-800">Reach us now</h3>
-        <p className="mt-1 text-sm text-gray-500">Get in touch with our experts for personalized assistance!</p>
+        <ShoppingBag className="mx-auto h-12 w-12 text-gray-400" />
+        <h3 className="mt-2 text-lg font-semibold text-gray-800">Your cart is empty</h3>
+        <p className="mt-1 text-sm text-gray-500">Browse our services and add some services in cart!</p>
       </div>
 
       <div className="mt-6 text-sm text-center">
         <span className="text-gray-600">Existing User? </span>
-        <Link to="/login" className="font-medium text-green-600 hover:text-green-700">Login</Link>
+        <Link to="/auth" className="font-medium text-green-600 hover:text-green-700">Login</Link>
       </div>
 
       <form className="mt-6 space-y-4">
@@ -51,11 +49,11 @@ const Sidebar = () => {
         </div>
         <Button 
           type="button" 
-          onClick={handleContactUs}
+          onClick={handleAddToCart}
           className="w-full bg-green-500 hover:bg-green-600 text-white font-bold text-base" 
           size="lg"
         >
-          Contact Us
+          Add to Cart
         </Button>
       </form>
     </div>
