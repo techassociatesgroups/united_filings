@@ -8,7 +8,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
-import AddToCartButton from "@/components/ui/AddToCartButton";
 
 const HeroSection = () => {
   return (
@@ -87,17 +86,12 @@ const HeroSection = () => {
                 <li>Trademark for one class</li>
                 <li>Trademark Software</li>
               </ul>
-              <AddToCartButton
-                service={{
-                  id: "trademark-filing",
-                  name: "Trademark Filing",
-                  price: 3999
-                }}
+              <Button
                 variant="outline"
                 className="w-full mt-4 border-green-500 text-green-500 hover:bg-green-50 hover:text-green-600"
               >
-                ADD TO CART
-              </AddToCartButton>
+                ADD
+              </Button>
             </CardContent>
           </Card>
           <Card className="border-green-500 border-2">
@@ -114,17 +108,12 @@ const HeroSection = () => {
                 <li>Trademark for one class</li>
                 <li>Trademark Software</li>
               </ul>
-              <AddToCartButton
-                service={{
-                  id: "trademark-filing-form48",
-                  name: "Trademark Filing + Form 48",
-                  price: 4499
-                }}
+              <Button
                 variant="outline"
                 className="w-full mt-4 border-green-500 text-green-500 hover:bg-green-50 hover:text-green-600"
               >
-                ADD TO CART
-              </AddToCartButton>
+                ADD
+              </Button>
             </CardContent>
           </Card>
         </div>
