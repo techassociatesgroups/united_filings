@@ -1,34 +1,35 @@
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { ShoppingBag } from "lucide-react";
+import { Phone } from "lucide-react";
 import { useCart } from '@/contexts/CartContext';
 import { toast } from 'sonner';
 
 const Sidebar = () => {
   const { addToCart } = useCart();
 
-  const handleAddToCart = () => {
+  const handleContactUs = () => {
     addToCart({
-      id: 'gst-lut-form',
-      name: 'GST LUT Form',
-      price: 1999
+      id: 'gst-lut-consultation',
+      name: 'GST LUT Consultation',
+      price: 599
     });
-    toast.success('GST LUT Form added to cart!');
+    toast.success('GST LUT Consultation added to cart!');
   };
 
   return (
     <aside className="bg-gray-50 p-6 rounded-lg shadow-sm sticky top-24">
       <div className="text-center border-b pb-6">
-        <ShoppingBag className="mx-auto h-12 w-12 text-gray-400" />
-        <h3 className="mt-2 text-lg font-medium text-gray-900">Your cart is empty</h3>
-        <p className="mt-1 text-sm text-gray-500">Browse our services and add some services in cart!</p>
+        <Phone className="mx-auto h-12 w-12 text-green-400" />
+        <h3 className="mt-2 text-lg font-medium text-gray-900">Reach us now</h3>
+        <p className="mt-1 text-sm text-gray-500">Get in touch with our experts for personalized assistance!</p>
       </div>
 
       <div className="text-center my-6">
         <span className="text-sm text-gray-600">Existing User? </span>
-        <a href="#" className="font-medium text-green-600 hover:text-green-500">Login</a>
+        <a href="/login" className="font-medium text-green-600 hover:text-green-500">Login</a>
       </div>
 
       <form className="space-y-4">
@@ -57,10 +58,10 @@ const Sidebar = () => {
         </div>
         <Button 
           type="button" 
-          onClick={handleAddToCart}
+          onClick={handleContactUs}
           className="w-full bg-green-500 hover:bg-green-600"
         >
-          Add to Cart
+          Contact Us
         </Button>
       </form>
     </aside>
