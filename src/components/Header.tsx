@@ -2,18 +2,16 @@ import {
   Phone,
   Mail,
   Search,
-  ShoppingCart,
   User,
   X,
   ChevronDown,
   Settings,
   LogOut,
+  Menu,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
-import { useCart } from "@/contexts/CartContext";
-import CartDropdown from "@/components/CartDropdown";
 import { supabase } from "@/integrations/supabase/client";
 import {
   NavigationMenu,
@@ -233,12 +231,11 @@ const registrationItems: {
 ];
 
 const Header = () => {
-  const { totalItems } = useCart();
-  const [isCartOpen, setIsCartOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [user, setUser] = useState(null);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -1326,22 +1323,14 @@ const Header = () => {
               )}
             </div>
 
-            <div className="relative">
+            {/* Mobile menu button */}
+            <div className="xl:hidden">
               <button
-                className="p-1 sm:p-2 hover:bg-gray-100 rounded-full relative"
-                onClick={() => setIsCartOpen(!isCartOpen)}
+                className="p-2 hover:bg-gray-100 rounded-lg"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
-                <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600" />
-                {totalItems > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center">
-                    {totalItems}
-                  </span>
-                )}
+                <Menu className="h-5 w-5 text-gray-600" />
               </button>
-              <CartDropdown
-                isOpen={isCartOpen}
-                onClose={() => setIsCartOpen(false)}
-              />
             </div>
 
             {user ? (
@@ -1403,6 +1392,60 @@ const Header = () => {
             )}
           </div>
         </div>
+
+        {/* Mobile menu */}
+        {isMobileMenuOpen && (
+          <div className="xl:hidden bg-white border-t border-gray-200 shadow-lg">
+            <div className="px-4 py-6 space-y-4">
+              <div className="space-y-2">
+                <h3 className="font-semibold text-gray-900">Business Registration</h3>
+                <div className="pl-4 space-y-1">
+                  <Link to="/private-limited-company" className="block text-gray-600 hover:text-green-600">Private Limited Company</Link>
+                  <Link to="/limited-liability-partnership" className="block text-gray-600 hover:text-green-600">LLP</Link>
+                  <Link to="/one-person-company" className="block text-gray-600 hover:text-green-600">One Person Company</Link>
+                  <Link to="/partnership" className="block text-gray-600 hover:text-green-600">Partnership</Link>
+                  <Link to="/trust-registration" className="block text-gray-600 hover:text-green-600">Trust Registration</Link>
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <h3 className="font-semibold text-gray-900">GST Services</h3>
+                <div className="pl-4 space-y-1">
+                  <Link to="/gst-registration" className="block text-gray-600 hover:text-green-600">GST Registration</Link>
+                  <Link to="/gst-return-filing" className="block text-gray-600 hover:text-green-600">GST Return Filing</Link>
+                  <Link to="/gst-annual-return-filing-gstr9" className="block text-gray-600 hover:text-green-600">GST Annual Return</Link>
+                  <Link to="/gst-lut-form" className="block text-gray-600 hover:text-green-600">GST LUT Form</Link>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="font-semibold text-gray-900">Trademark & IP</h3>
+                <div className="pl-4 space-y-1">
+                  <Link to="/trademark-registration" className="block text-gray-600 hover:text-green-600">Trademark Registration</Link>
+                  <Link to="/copyright-registration" className="block text-gray-600 hover:text-green-600">Copyright Registration</Link>
+                  <Link to="/patent-registration" className="block text-gray-600 hover:text-green-600">Patent Registration</Link>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="font-semibold text-gray-900">Income Tax</h3>
+                <div className="pl-4 space-y-1">
+                  <Link to="/income-tax-e-filing-new" className="block text-gray-600 hover:text-green-600">Income Tax E-Filing</Link>
+                  <Link to="/business-income-tax" className="block text-gray-600 hover:text-green-600">Business Income Tax</Link>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="font-semibold text-gray-900">Other Services</h3>
+                <div className="pl-4 space-y-1">
+                  <Link to="/consultation" className="block text-gray-600 hover:text-green-600">Consultation</Link>
+                  <Link to="/demat-of-shares" className="block text-gray-600 hover:text-green-600">Demat of Shares</Link>
+                  <Link to="/udyam-registration" className="block text-gray-600 hover:text-green-600">Udyam Registration</Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
     </header>
   );

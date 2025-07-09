@@ -1,6 +1,6 @@
 
 import { Check } from "lucide-react";
-import AddToCartButton from "@/components/ui/AddToCartButton";
+import SendRequestButton from "@/components/ui/SendRequestButton";
 
 const OffersSection = () => {
   return (
@@ -18,11 +18,9 @@ const OffersSection = () => {
             <li className="flex items-start"><Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-1" /> <span>DIY GST Filing</span></li>
             <li className="flex items-start"><Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-1" /> <span>LEDGERS GST Software - 1 Year License</span></li>
           </ul>
-          <AddToCartButton 
-            serviceId="gst-software-registration"
+          <SendRequestButton 
             serviceName="GST Software & Registration"
-            price={2999}
-            className="w-full mt-6 bg-white text-green-600 border border-green-600 hover:bg-green-50"
+            className="w-full mt-6"
           />
         </div>
         <div className="border rounded-lg p-6 shadow-sm">
@@ -37,11 +35,9 @@ const OffersSection = () => {
             <li className="flex items-start"><Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-1" /> <span>GST Filing Training & Setup</span></li>
             <li className="flex items-start"><Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-1" /> <span>LEDGERS GST Software - 1 Year License</span></li>
           </ul>
-          <AddToCartButton 
-            serviceId="gst-filing-registration-6months"
+          <SendRequestButton 
             serviceName="GST Filing & Registration - 6 Months"
-            price={4999}
-            className="w-full mt-6 bg-white text-green-600 border border-green-600 hover:bg-green-50"
+            className="w-full mt-6"
           />
         </div>
       </div>
