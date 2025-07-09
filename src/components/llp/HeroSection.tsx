@@ -8,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import AddToCartButton from "@/components/ui/AddToCartButton";
 
 const HeroSection = () => {
   return (
@@ -70,7 +71,16 @@ const HeroSection = () => {
                 <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 shrink-0" /> Instant Filing</li>
                 <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 shrink-0" /> 4 Name Choice</li>
               </ul>
-              <Button className="w-full mt-4 bg-green-500 hover:bg-green-600">ADD</Button>
+              <AddToCartButton
+                service={{
+                  id: "llp-name-approval",
+                  name: "LLP MCA Name Approval",
+                  price: 1499
+                }}
+                className="w-full mt-4 bg-green-500 hover:bg-green-600"
+              >
+                ADD TO CART
+              </AddToCartButton>
             </div>
             <div className="border-2 border-dashed border-yellow-400 rounded-lg p-4 relative pt-6">
               <span className="absolute top-0 -translate-y-1/2 left-4 bg-white px-2 text-xs font-semibold text-yellow-500">2 Exclusive Offers</span>
@@ -85,7 +95,16 @@ const HeroSection = () => {
                 <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 shrink-0" /> D&C Downloading & Shipping Support</li>
                 <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 shrink-0" /> Bank Account Opening Assistance</li>
               </ul>
-              <Button className="w-full mt-4 bg-green-500 hover:bg-green-600">ADD</Button>
+              <AddToCartButton
+                service={{
+                  id: "llp-full-registration",
+                  name: "Complete LLP Registration - Andaman and Nicobar Islands",
+                  price: 4999
+                }}
+                className="w-full mt-4 bg-green-500 hover:bg-green-600"
+              >
+                ADD TO CART
+              </AddToCartButton>
             </div>
           </div>
           <div className="flex justify-between items-center mt-4 text-sm">

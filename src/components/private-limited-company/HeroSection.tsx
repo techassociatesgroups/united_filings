@@ -8,6 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Link } from "react-router-dom";
+import AddToCartButton from "@/components/ui/AddToCartButton";
 
 const HeroSection = () => {
   return (
@@ -82,12 +83,17 @@ const HeroSection = () => {
                   </li>
                 </ul>
               </div>
-              <Button
+              <AddToCartButton
+                service={{
+                  id: "company-name-approval",
+                  name: "Company Name Approval",
+                  price: 1499
+                }}
                 variant="outline"
                 className="border-green-500 text-green-500 mt-4 w-full"
               >
-                ADD
-              </Button>
+                ADD TO CART
+              </AddToCartButton>
             </div>
             <div className="border border-yellow-200 bg-yellow-50/50 rounded-lg p-4 flex flex-col justify-between">
               <div>
@@ -126,12 +132,17 @@ const HeroSection = () => {
                   </li>
                 </ul>
               </div>
-              <Button
+              <AddToCartButton
+                service={{
+                  id: "company-registration-full",
+                  name: "Complete Company Registration - Andaman and Nicobar Islands",
+                  price: 6999
+                }}
                 variant="outline"
                 className="border-green-500 text-green-500 mt-4 w-full"
               >
-                ADD
-              </Button>
+                ADD TO CART
+              </AddToCartButton>
             </div>
           </div>
           <div className="flex justify-between items-center mt-4 text-sm">
