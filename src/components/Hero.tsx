@@ -343,8 +343,8 @@ const Hero = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 max-w-4xl mx-auto">
             <div className="text-center">
               <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2 md:mb-3">
-                <div className="w-6 h-6 md:w-8 md:h-8 bg-blue-600 rounded">
-                  <img src="assets/incorporation.jpg" alt="Incorporation" className="w-full h-full object-cover rounded" />
+                <div className="w-6 h-6 md:w-8 md:h-8 z-10 rounded">
+                  <img src="assets/incorporation_logo.png" alt="Incorporation" className="w-full h-full object-cover rounded" />
                 </div>
               </div>
               <h3 className="font-semibold text-gray-900 text-xs md:text-sm">Incorporation</h3>
@@ -352,8 +352,8 @@ const Hero = () => {
 
             <div className="text-center">
               <div className="w-12 h-12 md:w-16 md:h-16 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-2 md:mb-3">
-                <div className="w-6 h-6 md:w-8 md:h-8 bg-green-600 rounded">
-                  <img src="assets/trade.jpg" alt="Trademark" className="w-full h-full object-cover rounded" />
+                <div className="w-6 h-6 md:w-8 md:h-8  rounded">
+                  <img src="assets/trademark.png" alt="Trademark" className="w-full h-full object-cover rounded" />
                 </div>
               </div>
               <h3 className="font-semibold text-gray-900 text-xs md:text-sm">Trademark</h3>
@@ -361,8 +361,8 @@ const Hero = () => {
 
             <div className="text-center">
               <div className="w-12 h-12 md:w-16 md:h-16 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-2 md:mb-3">
-                <div className="w-6 h-6 md:w-8 md:h-8 bg-purple-600 rounded">
-                  <img src="assets/accounts.jpg" alt="Accounting" className="w-full h-full object-cover rounded" />
+                <div className="w-6 h-6 md:w-8 md:h-8  rounded">
+                  <img src="assets/accounting.png" alt="Accounting" className="w-full h-full object-cover rounded" />
                 </div>
               </div>
               <h3 className="font-semibold text-gray-900 text-xs md:text-sm">Accounting</h3>
@@ -370,8 +370,8 @@ const Hero = () => {
 
             <div className="text-center">
               <div className="w-12 h-12 md:w-16 md:h-16 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-2 md:mb-3">
-                <div className="w-6 h-6 md:w-8 md:h-8 bg-orange-600 rounded">
-                  <img src="assets/income.jpg" alt="Income Tax" className="w-full h-full object-cover rounded" />
+                <div className="w-6 h-6 md:w-8 md:h-8 rounded">
+                  <img src="assets/tax.png" alt="Income Tax" className="w-full h-full object-cover rounded" />
                 </div>
               </div>
               <h3 className="font-semibold text-gray-900 text-xs md:text-sm">Income Tax</h3>
@@ -379,8 +379,8 @@ const Hero = () => {
 
             <div className="text-center">
               <div className="w-12 h-12 md:w-16 md:h-16 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-2 md:mb-3">
-                <div className="w-6 h-6 md:w-8 md:h-8 bg-red-600 rounded">
-                  <img src="assets/gst-services.jpg" alt="GST Services" className="w-full h-full object-cover rounded" />
+                <div className="w-6 h-6 md:w-8 md:h-8 ">
+                  <img src="assets/gst.png" alt="GST Services" className="w-full h-full object-cover rounded" />
                 </div>
               </div>
               <h3 className="font-semibold text-gray-900 text-xs md:text-sm">GST Services</h3>
