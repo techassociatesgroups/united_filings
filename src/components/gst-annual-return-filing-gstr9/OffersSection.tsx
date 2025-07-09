@@ -1,6 +1,6 @@
 
-import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
+import AddToCartButton from "@/components/ui/AddToCartButton";
 
 const OffersSection = () => {
   return (
@@ -16,7 +16,12 @@ const OffersSection = () => {
                 <li className="flex items-start"><ChevronRight className="h-4 w-4 text-green-500 mr-2 flex-shrink-0 mt-1" /> <span>LEDGERS GST Software - 1 Year</span></li>
                 <li className="flex items-start"><ChevronRight className="h-4 w-4 text-green-500 mr-2 flex-shrink-0 mt-1" /> <span>Post-Filing Clarification Support</span></li>
             </ul>
-            <Button className="w-full mt-6 bg-white text-green-600 border border-green-600 hover:bg-green-50">ADD</Button>
+            <AddToCartButton 
+                serviceId="gstr9-annual-return"
+                serviceName="GSTR-9 Annual Return Filing"
+                price={3999}
+                className="w-full mt-6 bg-white text-green-600 border border-green-600 hover:bg-green-50"
+            />
         </div>
         <div className="flex justify-between items-center mt-6 text-sm">
             <a href="#" className="text-blue-600 hover:underline">Terms and conditions</a>

@@ -1,5 +1,5 @@
 
-import { ShoppingBag } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -10,9 +10,9 @@ const CartSidebar = () => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 sticky top-8">
       <div className="text-center py-8">
-        <ShoppingBag className="mx-auto h-12 w-12 text-gray-400" />
-        <h3 className="mt-2 text-lg font-semibold text-gray-800">Your cart is empty</h3>
-        <p className="mt-1 text-sm text-gray-500">Browse our services and add some services in cart!</p>
+        <Phone className="mx-auto h-12 w-12 text-gray-400" />
+        <h3 className="mt-2 text-lg font-semibold text-gray-800">Reach us now</h3>
+        <p className="mt-1 text-sm text-gray-500">Fill out the form below and we'll contact you immediately.</p>
       </div>
 
       <div className="text-center text-sm mb-4">
@@ -43,7 +43,7 @@ const CartSidebar = () => {
           <Label htmlFor="gstin" className="text-sm font-normal text-gray-600 leading-none">Enter GSTIN to get 18% GST Credit</Label>
         </div>
         <Button type="submit" className="w-full bg-green-500 hover:bg-green-600 text-white font-bold text-base py-3 h-auto">
-          Get Started
+          Contact Us
         </Button>
       </form>
     </div>

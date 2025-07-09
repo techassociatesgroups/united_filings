@@ -1,5 +1,5 @@
 import { Star } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import AddToCartButton from "@/components/ui/AddToCartButton";
 import {
   Select,
   SelectContent,
@@ -86,12 +86,12 @@ const HeroSection = () => {
                 <li>Trademark for one class</li>
                 <li>Trademark Software</li>
               </ul>
-              <Button
-                variant="outline"
+              <AddToCartButton 
+                serviceId="trademark-filing"
+                serviceName="Trademark Filing"
+                price={7999}
                 className="w-full mt-4 border-green-500 text-green-500 hover:bg-green-50 hover:text-green-600"
-              >
-                ADD
-              </Button>
+              />
             </CardContent>
           </Card>
           <Card className="border-green-500 border-2">
@@ -108,12 +108,12 @@ const HeroSection = () => {
                 <li>Trademark for one class</li>
                 <li>Trademark Software</li>
               </ul>
-              <Button
-                variant="outline"
+              <AddToCartButton 
+                serviceId="trademark-filing-form48"
+                serviceName="Trademark Filing + Form 48"
+                price={8499}
                 className="w-full mt-4 border-green-500 text-green-500 hover:bg-green-50 hover:text-green-600"
-              >
-                ADD
-              </Button>
+              />
             </CardContent>
           </Card>
         </div>
