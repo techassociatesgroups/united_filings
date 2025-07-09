@@ -58,10 +58,11 @@ const HeroSection = () => {
                 </li>
               </ul>
               <Button
-                variant="outline"
-                className="mt-4 w-full border-green-500 text-green-500 hover:bg-green-50 hover:text-green-600"
+                className="mt-4 w-full"
+                style={{ backgroundColor: '#C5BAFF', borderColor: '#C5BAFF', color: '#000' }}
+                onClick={() => window.open('https://forms.gle/your-actual-form-id', '_blank')}
               >
-                ADD
+                Enquire Now
               </Button>
             </div>
 
