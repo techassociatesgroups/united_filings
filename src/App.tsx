@@ -50,6 +50,7 @@ import TDSReturnFiling from "./pages/TDSReturnFiling";
 // import SocietyRegistration from "./pages/SocietyRegistration";
 // import SetupBusinessUAE from "./pages/SetupBusinessUAE";
 import Consultation from "./pages/Consultation";
+import TalkToExpert from "./pages/TalkToExpert";
 import AboutUs from "./pages/AboutUs";
 import Guide from "./pages/Guide";
 import LegalEntityIdentifierCode from "./pages/LegalEntityIdentifierCode";
@@ -191,6 +192,7 @@ function App() {
               <Route path="/company-compliance" element={<CompanyCompliance />} />
               <Route path="/llp-compliance" element={<LlpCompliance />} />
               <Route path="/consultation" element={<Consultation />} />
+              <Route path="/talk-to-expert" element={<TalkToExpert />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/guide" element={<Guide />} />
               
