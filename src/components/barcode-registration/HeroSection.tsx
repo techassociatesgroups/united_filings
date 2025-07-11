@@ -56,7 +56,7 @@ const HeroSection = () => {
                 <Button 
                   className="mt-4 w-full"
                   style={{ backgroundColor: '#C5BAFF', borderColor: '#C5BAFF', color: '#000' }}
-                  onClick={() => window.open('https://forms.gle/your-actual-form-id', '_blank')}
+                  onClick={() => window.open('https://forms.gle/rh7pCaqQSELtPwJz6', '_blank')}
                 >
                   Enquire Now
                 </Button>
@@ -73,7 +73,7 @@ const HeroSection = () => {
                 <Button 
                   className="mt-4 w-full"
                   style={{ backgroundColor: '#C5BAFF', borderColor: '#C5BAFF', color: '#000' }}
-                  onClick={() => window.open('https://forms.gle/your-actual-form-id', '_blank')}
+                  onClick={() => window.open('https://forms.gle/rh7pCaqQSELtPwJz6', '_blank')}
                 >
                   Enquire Now
                 </Button>
