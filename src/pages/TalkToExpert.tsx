@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ExpertRequestForm from '@/components/ExpertRequestForm';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Phone, MessageSquare, Mail, Clock, Users, Shield } from 'lucide-react';
@@ -138,16 +139,57 @@ const TalkToExpert = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Expert Request Form Section */}
       <section className="py-16">
+        <div className="max-w-screen-xl mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <h2 className="text-3xl font-bold text-foreground mb-6">
+                Request Expert Assistance
+              </h2>
+              <p className="text-muted-foreground mb-8">
+                Fill out the form below and our experts will contact you within 24 hours. 
+                Provide as much detail as possible so we can better understand your needs and 
+                provide you with the most relevant assistance.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                    <span className="text-green-600 font-semibold text-sm">1</span>
+                  </div>
+                  <span className="text-sm">Fill out the contact form</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                    <span className="text-green-600 font-semibold text-sm">2</span>
+                  </div>
+                  <span className="text-sm">Our expert reviews your request</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                    <span className="text-green-600 font-semibold text-sm">3</span>
+                  </div>
+                  <span className="text-sm">We contact you within 24 hours</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <ExpertRequestForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-muted/30">
         <div className="max-w-screen-xl mx-auto px-4 text-center">
           <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-8 md:p-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">
-              Ready to Get Expert Help?
+              Need Immediate Assistance?
             </h2>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Don't let compliance issues hold your business back. Connect with our experts today 
-              and get the professional guidance you need.
+              For urgent matters, feel free to call us directly. Our experts are available 
+              during business hours to provide immediate guidance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -160,10 +202,10 @@ const TalkToExpert = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                onClick={() => window.open('https://forms.gle/rh7pCaqQSELtPwJz6', '_blank')}
+                onClick={() => handleEmailContact(businessEmail, "Urgent Expert Consultation")}
               >
-                <MessageSquare className="mr-2 h-4 w-4" />
-                Schedule Consultation
+                <Mail className="mr-2 h-4 w-4" />
+                Send Email
               </Button>
             </div>
           </div>
