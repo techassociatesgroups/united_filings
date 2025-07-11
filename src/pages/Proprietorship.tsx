@@ -1,5 +1,4 @@
 
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/proprietorship/Breadcrumb';
 import HeroSection from '@/components/proprietorship/HeroSection';
@@ -11,7 +10,6 @@ import OffersSection from '@/components/consultation/OffersSection';
 const Proprietorship = () => {
   return (
     <div className="bg-white min-h-screen">
-      <Header />
       <div className="bg-gray-50/50">
         <main className="max-w-screen-xl mx-auto px-4 py-6">
           <Breadcrumb />
