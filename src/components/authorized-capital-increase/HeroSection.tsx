@@ -1,18 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { useCart } from "@/contexts/CartContext";
+import SendRequestButton from "@/components/ui/SendRequestButton";
 
 const HeroSection = () => {
-  const { addToCart } = useCart();
-
-  const handleAddToCart = () => {
-    addToCart({
-      id: "authorized-capital-increase",
-      name: "Authorized Capital Increase",
-      price: 5999,
-    });
-  };
-
   return (
     <div className="bg-gradient-to-r from-blue-50 to-indigo-100 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,9 +18,10 @@ const HeroSection = () => {
               <span className="text-gray-500 line-through">₹8,999</span>
               <span className="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">33% OFF</span>
             </div>
-            <Button onClick={handleAddToCart} className="mt-6 bg-green-600 hover:bg-green-700">
-              Get Started
-            </Button>
+            <SendRequestButton 
+              serviceName="Authorized Capital Increase"
+              className="mt-6"
+            />
           </div>
           <div>
             <Card>

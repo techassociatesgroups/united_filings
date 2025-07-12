@@ -1,7 +1,7 @@
 import { Star, CheckCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Link } from 'react-router-dom';
+import SendRequestButton from "@/components/ui/SendRequestButton";
 
 const HeroSection = () => {
   return (
@@ -23,13 +23,12 @@ const HeroSection = () => {
         <div className="md:col-span-7">
           <h1 className="text-3xl font-bold text-gray-800">Remove Director</h1>
           <div className="flex items-center my-2">
-            <div className="flex text-yellow-400">
-              <Star fill="currentColor" className="h-5 w-5" />
-              <Star fill="currentColor" className="h-5 w-5" />
-              <Star fill="currentColor" className="h-5 w-5" />
-              <Star fill="currentColor" className="h-5 w-5" />
-              <Star fill="currentColor" className="h-5 w-5" />
-            </div>
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                className="h-5 w-5 text-yellow-400 fill-yellow-400"
+              />
+            ))}
             <span className="ml-2 text-gray-600 text-sm">(4567)</span>
           </div>
           <p className="text-sm text-gray-500 mb-4">Remove directors from your company with proper MCA compliance.</p>
@@ -55,7 +54,10 @@ const HeroSection = () => {
                         <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" /><span>MCA Filing</span></li>
                     </ul>
                 </div>
-                <Button variant="outline" className="border-green-500 text-green-500 mt-4 w-full">ADD</Button>
+                <SendRequestButton 
+                  serviceName="Remove Director - Voluntary Resignation"
+                  className="mt-4 w-full"
+                />
             </div>
             <div className="border border-yellow-200 bg-yellow-50/50 rounded-lg p-4 flex flex-col justify-between">
                 <div>
@@ -68,7 +70,10 @@ const HeroSection = () => {
                         <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" /><span>Legal Documentation</span></li>
                     </ul>
                 </div>
-                <Button variant="outline" className="border-green-500 text-green-500 mt-4 w-full">ADD</Button>
+                <SendRequestButton 
+                  serviceName="Remove Director - Board Removal"
+                  className="mt-4 w-full"
+                />
             </div>
           </div>
           <div className="flex justify-between items-center mt-4 text-sm">

@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Star, Usb } from "lucide-react";
 import {
   Select,
@@ -8,6 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import SendRequestButton from "@/components/ui/SendRequestButton";
 
 const HeroSection = () => {
   return (
@@ -33,13 +33,12 @@ const HeroSection = () => {
         <div className="md:col-span-8 p-8">
           <h1 className="text-3xl font-bold">Digital Signature</h1>
           <div className="flex items-center my-2">
-            <div className="flex text-yellow-400">
-              <Star className="h-5 w-5 fill-current" />
-              <Star className="h-5 w-5 fill-current" />
-              <Star className="h-5 w-5 fill-current" />
-              <Star className="h-5 w-5 fill-current" />
-              <Star className="h-5 w-5 fill-current" />
-            </div>
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                className="h-5 w-5 text-yellow-400 fill-yellow-400"
+              />
+            ))}
             <span className="ml-2 text-sm text-gray-600">(9046)</span>
           </div>
           <p className="text-gray-600 mb-4 text-sm">
@@ -70,12 +69,10 @@ const HeroSection = () => {
                   <li>&gt; DSC Downloading</li>
                   <li>&gt; Shipping & Handling</li>
                 </ul>
-                <Button
-                  variant="outline"
-                  className="w-full mt-4 border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700"
-                >
-                  ADD
-                </Button>
+                <SendRequestButton 
+                  serviceName="Digital Signature - Individual"
+                  className="mt-4 w-full"
+                />
               </CardContent>
             </Card>
             <Card className="border-orange-200">
@@ -89,12 +86,10 @@ const HeroSection = () => {
                   <li>&gt; DSC Downloading</li>
                   <li>&gt; Shipping & Handling</li>
                 </ul>
-                <Button
-                  variant="outline"
-                  className="w-full mt-4 border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700"
-                >
-                  ADD
-                </Button>
+                <SendRequestButton 
+                  serviceName="Digital Signature - Company"
+                  className="mt-4 w-full"
+                />
               </CardContent>
             </Card>
           </div>

@@ -456,7 +456,7 @@ const Header = () => {
                             Producer Company
                           </Link>
                           <Link
-                            to="#"
+                            to="/nidhi-company"
                             className="text-gray-600 hover:text-green-600"
                           >
                             Nidhi Company
@@ -485,7 +485,7 @@ const Header = () => {
                             Setup a Business in USA
                           </Link>
                           <Link
-                            to="#"
+                            to="/setup-business-usa"
                             className="text-gray-600 hover:text-green-600"
                           >
                             Setup a Business in Singapore
@@ -522,7 +522,7 @@ const Header = () => {
                             </p>
                           </div>
                           <Link
-                            to="#"
+                            to="/talk-to-expert"
                             className="mt-4 block bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600"
                           >
                             TALK TO AN EXPERT

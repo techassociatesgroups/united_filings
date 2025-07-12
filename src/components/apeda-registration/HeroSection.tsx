@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
+import SendRequestButton from "@/components/ui/SendRequestButton";
 
 const HeroSection = () => {
   return (
@@ -19,13 +19,13 @@ const HeroSection = () => {
               APEDA Registration
             </h1>
             <div className="flex items-center mt-2">
-              <div className="flex text-yellow-400">
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 text-gray-300" />
-              </div>
+              {[...Array(4)].map((_, i) => (
+                <Star
+                  key={i}
+                  className="h-5 w-5 text-yellow-400 fill-yellow-400"
+                />
+              ))}
+              <Star className="h-5 w-5 text-gray-300" />
               <span className="ml-2 text-gray-600">(67)</span>
             </div>
             <p className="mt-4 text-gray-600">
@@ -57,13 +57,10 @@ const HeroSection = () => {
                   RCMC Certificate
                 </li>
               </ul>
-              <Button
+              <SendRequestButton 
+                serviceName="APEDA Registration"
                 className="mt-4 w-full"
-                style={{ backgroundColor: '#C5BAFF', borderColor: '#C5BAFF', color: '#000' }}
-                onClick={() => window.open('https://forms.gle/rh7pCaqQSELtPwJz6', '_blank')}
-              >
-                Enquire Now
-              </Button>
+              />
             </div>
 
             <div className="flex justify-between mt-6 text-sm">

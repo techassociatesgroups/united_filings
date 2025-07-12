@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import SendRequestButton from "@/components/ui/SendRequestButton";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Select,
@@ -106,12 +107,10 @@ const HeroSection = () => {
                     LEDGERS Platform
                   </li>
                 </ul>
-                <Button
-                  variant="outline"
-                  className="mt-6 w-full text-green-500 border-green-500 hover:bg-green-50 hover:text-green-600"
-                >
-                  ADD
-                </Button>
+                <SendRequestButton 
+                serviceName="12A Registration"
+                className="mt-4 w-full"
+              />
               </CardContent>
             </Card>
             <Card className="border-dashed border-green-500">
@@ -141,12 +140,10 @@ const HeroSection = () => {
                     LEDGERS Platform
                   </li>
                 </ul>
-                <Button
-                  variant="outline"
-                  className="mt-6 w-full text-green-500 border-green-500 hover:bg-green-50 hover:text-green-600"
-                >
-                  ADD
-                </Button>
+                <SendRequestButton 
+                serviceName="12A Registration"
+                className="mt-4 w-full"
+              />
               </CardContent>
             </Card>
           </div>

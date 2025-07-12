@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
+import SendRequestButton from "@/components/ui/SendRequestButton";
 
 const HeroSection = () => {
   return (
@@ -19,13 +19,12 @@ const HeroSection = () => {
               BIS Registration
             </h1>
             <div className="flex items-center mt-2">
-              <div className="flex text-yellow-400">
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 fill-current" />
-              </div>
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className="h-5 w-5 text-yellow-400 fill-yellow-400"
+                />
+              ))}
               <span className="ml-2 text-gray-600">(5)</span>
             </div>
             <p className="mt-4 text-gray-600">
@@ -58,12 +57,10 @@ const HeroSection = () => {
                     100% Refund Guarantee
                   </li>
                 </ul>
-                <Button
-                  variant="outline"
-                  className="mt-4 w-full border-green-500 text-green-500 hover:bg-green-50 hover:text-green-600"
-                >
-                  ADD
-                </Button>
+                <SendRequestButton 
+                  serviceName="BIS Consultation"
+                  className="mt-4 w-full"
+                />
               </div>
               <div className="border rounded-lg p-4 relative">
                 <div className="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full absolute top-2 right-2">
@@ -88,12 +85,10 @@ const HeroSection = () => {
                     BIS Certification
                   </li>
                 </ul>
-                <Button
-                  variant="outline"
-                  className="mt-4 w-full border-green-500 text-green-500 hover:bg-green-50 hover:text-green-600"
-                >
-                  ADD
-                </Button>
+                <SendRequestButton 
+                  serviceName="BIS Certification"
+                  className="mt-4 w-full"
+                />
               </div>
             </div>
             <div className="flex justify-between mt-6 text-sm">

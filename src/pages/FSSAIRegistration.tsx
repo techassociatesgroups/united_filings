@@ -3,7 +3,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/fssai-registration/Breadcrumb';
 import HeroSection from '@/components/fssai-registration/HeroSection';
-import OffersSection from '@/components/fssai-registration/OffersSection';
 import DocumentsSection from '@/components/fssai-registration/DocumentsSection';
 import DetailsSection from '@/components/fssai-registration/DetailsSection';
 import { Button } from '@/components/ui/button';
@@ -18,7 +17,7 @@ const FSSAIRegistration = () => {
           <Breadcrumb />
           <div className="mt-4">
             <HeroSection />
-            <OffersSection />
+           
             <DocumentsSection />
             <DetailsSection />
           </div>

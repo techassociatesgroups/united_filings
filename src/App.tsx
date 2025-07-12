@@ -22,6 +22,7 @@ import PublicLimitedCompany from "./pages/PublicLimitedCompany";
 import Section8Company from "./pages/Section8Company";
 import TrustRegistration from "./pages/TrustRegistration";
 import ProducerCompany from "./pages/ProducerCompany";
+import NidhiCompany from "./pages/NidhiCompany";
 import IndianSubsidiary from "./pages/IndianSubsidiary";
 import StartupIndia from "./pages/StartupIndia";
 import TradeLicense from "./pages/TradeLicense";
@@ -48,8 +49,7 @@ import CompanyCompliance from "./pages/CompanyCompliance";
 import LlpCompliance from "./pages/LlpCompliance";
 import TANRegistration from "./pages/TANRegistration";
 import TDSReturnFiling from "./pages/TDSReturnFiling";
-// import SocietyRegistration from "./pages/SocietyRegistration";
-// import SetupBusinessUAE from "./pages/SetupBusinessUAE";
+import SetupBusinessUAE from "./pages/setupBusinessInUAE";
 import Consultation from "./pages/Consultation";
 import TalkToExpert from "./pages/TalkToExpert";
 import AboutUs from "./pages/AboutUs";
@@ -141,6 +141,7 @@ function App() {
               <Route path="/section-8-company" element={<Section8Company />} />
               <Route path="/trust-registration" element={<TrustRegistration />} />
               <Route path="/producer-company" element={<ProducerCompany />} />
+              <Route path="/nidhi-company" element={<NidhiCompany />} />
               <Route path="/indian-subsidiary" element={<IndianSubsidiary />} />
               <Route path="/startup-india" element={<StartupIndia />} />
               <Route path="/trade-license" element={<TradeLicense />} />
@@ -150,7 +151,16 @@ function App() {
               <Route path="/icegate-registration" element={<IcegateRegistration />} />
               <Route path="/import-export-code" element={<ImportExportCode />} />
               {/* <Route path="/society-registration" element={<SocietyRegistration />} /> */}
-              {/* <Route path="/setup-business-uae" element={<SetupBusinessUAE />} /> */}
+               <Route path="/setup-business-uae" element={<SetupBusinessUAE />} />
+              <Route path="/setup-business-usa" element={<div className="min-h-screen bg-gray-50 flex items-center justify-center">
+                <div className="text-center">
+                  <h1 className="text-3xl font-bold text-gray-900 mb-4">Setup Business in USA</h1>
+                  <p className="text-gray-600 mb-6">This page is under development. Coming soon!</p>
+                  <a href="/consultation" className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
+                    Contact Us for Details
+                  </a>
+                </div>
+              </div>} /> 
               
               {/* Trademark Routes */}
               <Route path="/trademark-registration" element={<TrademarkRegistration />} />
