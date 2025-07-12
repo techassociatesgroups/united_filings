@@ -9,7 +9,7 @@ const HeroSection = () => {
         <div className="grid md:grid-cols-12 gap-0">
           <div className="md:col-span-4">
             <img
-              src="/lovable-uploads/8892b4d6-7b9e-4f9c-a358-2a4158a0603d.png"
+              src="/assets/logo.png"
               alt="BIS Registration"
               className="h-full w-full object-cover"
             />
@@ -35,7 +35,7 @@ const HeroSection = () => {
             <div className="grid md:grid-cols-2 gap-6 mt-6">
               <div className="border rounded-lg p-4 relative">
                 <img
-                  src="/lovable-uploads/b82916f3-a462-4bfc-ac5e-a5da577d3e2a.png"
+                  src="/assets/logo.png"
                   alt="Assured by Ledgers"
                   className="h-6 absolute top-2 right-2"
                 />
