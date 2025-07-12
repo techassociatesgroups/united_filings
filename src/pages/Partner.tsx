@@ -66,7 +66,6 @@ const Partner = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
       <main className="pt-8">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">

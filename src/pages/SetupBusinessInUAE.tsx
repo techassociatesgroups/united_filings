@@ -63,8 +63,6 @@ const SetupBusinessInUAE = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
-      
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
         <div className="max-w-screen-xl mx-auto px-4">

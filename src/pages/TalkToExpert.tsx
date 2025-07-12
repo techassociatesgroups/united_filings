@@ -1,4 +1,3 @@
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ExpertRequestForm from '@/components/ExpertRequestForm';
 import { Button } from '@/components/ui/button';
@@ -54,7 +53,6 @@ const TalkToExpert = () => {
 
   return (
     <div className="bg-background min-h-screen">
-      <Header />
       
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-16">

@@ -9,7 +9,7 @@ import OffersSection from "@/components/demat-of-shares/OffersSection";
 const DematOfShares = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
+  
       <div className="py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <Breadcrumb />
       </div>

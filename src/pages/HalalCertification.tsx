@@ -8,8 +8,7 @@ import DetailsSection from '@/components/halal-certification/DetailsSection';
 const HalalCertification = () => {
   return (
     <div className="bg-white min-h-screen">
-      <Header />
-      <div className="bg-gray-50/50">
+\      <div className="bg-gray-50/50">
         <main className="max-w-screen-xl mx-auto px-4 py-6">
           <Breadcrumb />
           <div className="mt-4">

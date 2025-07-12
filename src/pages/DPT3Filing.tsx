@@ -9,7 +9,6 @@ import OffersSection from '@/components/dpt3-filing/OffersSection';
 const DPT3Filing = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
       <main className="container mx-auto px-4 py-6">
         <Breadcrumb />
         <div className="mt-6 space-y-8">
