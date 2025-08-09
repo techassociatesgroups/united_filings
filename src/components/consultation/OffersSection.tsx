@@ -10,7 +10,7 @@ const OffersSection = () => {
         <Card className="hover:shadow-md transition-shadow">
           <CardContent className="p-4 flex items-center">
             <img
-              src="assets/ledger.png"
+              src="assets/Ledger.png"
               alt="Ledgers Logo"
               className="h-10 w-auto mr-4"
             />

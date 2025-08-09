@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 const AuthorizedCapitalIncrease = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-    
       <main className="container mx-auto px-4 py-8">
         <nav className="flex items-center space-x-1 text-sm text-gray-600 mb-6">
           <Link to="/" className="hover:text-green-600">
@@ -36,7 +35,7 @@ const AuthorizedCapitalIncrease = () => {
               </CardHeader>
               <CardContent>
                 <img
-                  src="/assets/5297086e-acf0-4b80-ad21-5c2e95a411d8.png"
+                  src="assets/capital.avif"
                   alt="Authorized Capital Increase"
                   className="w-full h-48 object-cover rounded-lg mb-6"
                 />

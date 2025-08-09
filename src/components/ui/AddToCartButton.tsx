@@ -7,17 +7,23 @@ interface AddToCartButtonProps {
   serviceName: string;
   price: number;
   className?: string;
-  variant?: "default" | "outline" | "ghost" | "destructive" | "secondary" | "link";
+  variant?:
+    | "default"
+    | "outline"
+    | "ghost"
+    | "destructive"
+    | "secondary"
+    | "link";
   children?: React.ReactNode;
 }
 
-const AddToCartButton = ({ 
-  serviceId, 
-  serviceName, 
-  price, 
+const AddToCartButton = ({
+  serviceId,
+  serviceName,
+  price,
   className = "w-full mt-4 bg-white text-green-600 border border-green-600 hover:bg-green-50",
   variant = "outline",
-  children = "ADD"
+  children = "ADD",
 }: AddToCartButtonProps) => {
   const { addToCart } = useCart();
 
@@ -31,11 +37,7 @@ const AddToCartButton = ({
   };
 
   return (
-    <Button 
-      onClick={handleAddToCart}
-      className={className}
-      variant={variant}
-    >
+    <Button onClick={handleAddToCart} className={className} variant={variant}>
       {children}
     </Button>
   );

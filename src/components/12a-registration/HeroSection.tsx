@@ -9,7 +9,7 @@ const HeroSection = () => {
       <div className="grid md:grid-cols-12">
         <div className="md:col-span-5 flex items-center justify-center p-4">
           <img
-            src="/lovable-uploads/b82916f3-a462-4bfc-ac5e-a5da577d3e2a.png"
+            src="assets/12a.avif"
             alt="12A Registration"
             className="object-contain rounded-lg max-h-[450px]"
           />
@@ -55,7 +55,7 @@ const HeroSection = () => {
                   12A Certificate
                 </li>
               </ul>
-              <SendRequestButton 
+              <SendRequestButton
                 serviceName="12A Registration"
                 className="mt-4 w-full"
               />

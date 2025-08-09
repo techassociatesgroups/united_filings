@@ -14,7 +14,7 @@ const HeroSection = () => {
     <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
       <div>
         <img
-          src="/lovable-uploads/ef059ded-5ba4-44f9-b1de-9e26f1117873.png"
+          src="assets/revoke.webp"
           alt="GST Services"
           className="rounded-lg shadow-md w-full"
         />

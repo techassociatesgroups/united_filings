@@ -8,11 +8,11 @@ const HeroSection = () => {
 
   const handleAddToCart = () => {
     addToCart({
-      id: 'demat-of-shares',
-      name: 'Demat of Shares',
-      price: 15000
+      id: "demat-of-shares",
+      name: "Demat of Shares",
+      price: 15000,
     });
-    
+
     toast({
       title: "Added to Cart",
       description: "Demat of Shares service has been added to your cart.",
@@ -28,11 +28,12 @@ const HeroSection = () => {
               Demat of Shares
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Convert your physical shares to electronic form with our professional demat services. Secure, fast, and compliant process.
+              Convert your physical shares to electronic form with our
+              professional demat services. Secure, fast, and compliant process.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-green-600 hover:bg-green-700"
                 onClick={handleAddToCart}
               >
@@ -49,9 +50,9 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="lg:text-right">
-            <img 
-              src="/lovable-uploads/cf8e8f5e-ca90-481e-a896-30d551e0e4c0.png" 
-              alt="Demat of Shares" 
+            <img
+              src="assets/demat.avif"
+              alt="Demat of Shares"
               className="rounded-lg shadow-xl"
             />
           </div>

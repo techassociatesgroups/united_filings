@@ -8,11 +8,11 @@ const HeroSection = () => {
 
   const handleAddToCart = () => {
     addToCart({
-      id: 'udyam-registration',
-      name: 'Udyam Registration',
-      price: 2500
+      id: "udyam-registration",
+      name: "Udyam Registration",
+      price: 2500,
     });
-    
+
     toast({
       title: "Added to Cart",
       description: "Udyam Registration service has been added to your cart.",
@@ -28,11 +28,12 @@ const HeroSection = () => {
               Udyam Registration
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Get your MSME registration under the Udyam portal. Access government benefits, subsidies, and business opportunities.
+              Get your MSME registration under the Udyam portal. Access
+              government benefits, subsidies, and business opportunities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-green-600 hover:bg-green-700"
                 onClick={handleAddToCart}
               >
@@ -49,9 +50,9 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="lg:text-right">
-            <img 
-              src="/lovable-uploads/f6943072-16a1-4ed4-ada7-494ea3a433fe.png" 
-              alt="Udyam Registration" 
+            <img
+              src="assets/udayam.jpg"
+              alt="Udyam Registration"
               className="rounded-lg shadow-xl"
             />
           </div>

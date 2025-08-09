@@ -6,7 +6,7 @@ const HeroSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
         <div className="md:col-span-1">
           <img
-            src="/lovable-uploads/8f5a9b8e-901a-44fe-8254-7060ce84a2e7.png"
+            src="assets/lut.jpg"
             alt="GST LUT Form"
             className="rounded-lg w-full shadow-md"
           />

@@ -7,7 +7,7 @@ const HeroSection = () => {
       <div className="grid lg:grid-cols-2 gap-8 items-start">
         <div>
           <img
-            src="/lovable-uploads/af854e9e-0988-40fc-859b-9b0377969feb.png"
+            src="assets/opc-comp.avif"
             alt="OPC Compliance"
             className="rounded-lg shadow-lg w-full"
           />
@@ -16,7 +16,11 @@ const HeroSection = () => {
           <h1 className="text-3xl font-bold text-gray-800">OPC Compliance</h1>
           <div className="flex items-center my-2">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} fill="currentColor" className="w-5 h-5 text-yellow-400" />
+              <Star
+                key={i}
+                fill="currentColor"
+                className="w-5 h-5 text-yellow-400"
+              />
             ))}
             <span className="text-gray-600 ml-2">(525)</span>
           </div>
@@ -57,7 +61,7 @@ const HeroSection = () => {
                 Commencement of Business
               </li>
             </ul>
-            <SendRequestButton 
+            <SendRequestButton
               serviceName="OPC Compliance"
               className="mt-6 w-full"
             />

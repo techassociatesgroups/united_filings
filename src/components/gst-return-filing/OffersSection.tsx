@@ -71,7 +71,7 @@ const OffersSection = () => {
         <div className="space-y-4">
           <div className="border rounded-lg p-4 flex items-center">
             <img
-              src="assets/ledger.png"
+              src="assets/Ledger.png"
               alt="Ledgers Logo"
               className="h-10 mr-4"
             />

@@ -35,7 +35,7 @@ const LLPForm11Filing = () => {
               </CardHeader>
               <CardContent>
                 <img
-                  src="/assets/5297086e-acf0-4b80-ad21-5c2e95a411d8.png"
+                  src="assets/llp11.jpg"
                   alt="LLP Form 11 Filing"
                   className="w-full h-48 object-cover rounded-lg mb-6"
                 />

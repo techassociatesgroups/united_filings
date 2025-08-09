@@ -8,11 +8,11 @@ const HeroSection = () => {
 
   const handleAddToCart = () => {
     addToCart({
-      id: 'fcra-registration',
-      name: 'FCRA Registration',
-      price: 50000
+      id: "fcra-registration",
+      name: "FCRA Registration",
+      price: 50000,
     });
-    
+
     toast({
       title: "Added to Cart",
       description: "FCRA Registration service has been added to your cart.",
@@ -28,11 +28,12 @@ const HeroSection = () => {
               FCRA Registration
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Get FCRA registration to legally receive foreign contributions. Expert assistance for NGOs, trusts, and societies.
+              Get FCRA registration to legally receive foreign contributions.
+              Expert assistance for NGOs, trusts, and societies.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-green-600 hover:bg-green-700"
                 onClick={handleAddToCart}
               >
@@ -49,9 +50,9 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="lg:text-right">
-            <img 
-              src="/lovable-uploads/8892b4d6-7b9e-4f9c-a358-2a4158a0603d.png" 
-              alt="FCRA Registration" 
+            <img
+              src="assets/fcra.png"
+              alt="FCRA Registration"
               className="rounded-lg shadow-xl"
             />
           </div>

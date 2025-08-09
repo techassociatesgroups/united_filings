@@ -16,13 +16,16 @@ const HeroSection = () => {
     <Card className="p-6">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className="lg:col-span-4">
-          <div
+          {/* <div
             className="bg-blue-600 rounded-lg text-white p-8 flex flex-col items-center justify-center h-80 bg-cover bg-center"
             style={{
               backgroundImage:
                 "url('/lovable-uploads/789c416a-2d10-43cc-91db-4eb7f4ef33ef.png')",
             }}
-          ></div>
+          ></div> */}
+          <div>
+            <img src="assets/trade lc.jpg"></img>
+          </div>
           <div className="mt-6">
             <h3 className="font-semibold text-lg">Documents Required</h3>
             <ul className="mt-2 space-y-2 text-gray-600">
@@ -70,10 +73,9 @@ const HeroSection = () => {
               <CardContent className="p-6">
                 <div className="flex justify-between items-start">
                   <h3 className="font-bold text-lg">Chennai</h3>
-                  <img
-                    src="https://indiafilings.com/images/home/assured-by-ledgers.svg"
-                    alt="Assured by Ledgers"
-                  />
+                  <div className="w-[50px]">
+                    <img src="assets/Ledger.png" alt="Assured by Ledgers" />
+                  </div>
                 </div>
                 <ul className="mt-4 space-y-2 text-gray-600">
                   <li className="flex items-center">
@@ -93,20 +95,19 @@ const HeroSection = () => {
                     Year Trade License
                   </li>
                 </ul>
-                <SendRequestButton 
-                serviceName="12A Registration"
-                className="mt-4 w-full"
-              />
+                <SendRequestButton
+                  serviceName="12A Registration"
+                  className="mt-4 w-full"
+                />
               </CardContent>
             </Card>
             <Card className="border-dashed border-green-500">
               <CardContent className="p-6">
                 <div className="flex justify-between items-start">
                   <h3 className="font-bold text-lg">Telangana</h3>
-                  <img
-                    src="https://indiafilings.com/images/home/assured-by-ledgers.svg"
-                    alt="Assured by Ledgers"
-                  />
+                  <div className="w-[50px]">
+                    <img src="assets/Ledger.png" alt="Assured by Ledgers" />
+                  </div>
                 </div>
                 <ul className="mt-4 space-y-2 text-gray-600">
                   <li className="flex items-center">
@@ -126,10 +127,10 @@ const HeroSection = () => {
                     Year Trade License
                   </li>
                 </ul>
-                <SendRequestButton 
-                serviceName="12A Registration"
-                className="mt-4 w-full"
-              />
+                <SendRequestButton
+                  serviceName="12A Registration"
+                  className="mt-4 w-full"
+                />
               </CardContent>
             </Card>
           </div>

@@ -9,7 +9,7 @@ const HeroSection = () => {
         <div className="grid md:grid-cols-12 gap-0">
           <div className="md:col-span-4">
             <img
-              src="/assets/logo.png"
+              src="assets/BIS.jpeg"
               alt="BIS Registration"
               className="h-full w-full object-cover"
             />
@@ -57,7 +57,7 @@ const HeroSection = () => {
                     100% Refund Guarantee
                   </li>
                 </ul>
-                <SendRequestButton 
+                <SendRequestButton
                   serviceName="BIS Consultation"
                   className="mt-4 w-full"
                 />
@@ -85,7 +85,7 @@ const HeroSection = () => {
                     BIS Certification
                   </li>
                 </ul>
-                <SendRequestButton 
+                <SendRequestButton
                   serviceName="BIS Certification"
                   className="mt-4 w-full"
                 />

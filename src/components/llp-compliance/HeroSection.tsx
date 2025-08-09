@@ -7,7 +7,7 @@ const HeroSection = () => {
       <div className="grid lg:grid-cols-2 gap-8 items-start">
         <div>
           <img
-            src="/lovable-uploads/cf8e8f5e-ca90-481e-a896-30d551e0e4c0.png"
+            src="assets/comp-llp.jpg"
             alt="LLP Compliance"
             className="rounded-lg shadow-lg w-full"
           />
@@ -16,7 +16,11 @@ const HeroSection = () => {
           <h1 className="text-3xl font-bold text-gray-800">LLP Compliance</h1>
           <div className="flex items-center my-2">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} fill="currentColor" className="w-5 h-5 text-yellow-400" />
+              <Star
+                key={i}
+                fill="currentColor"
+                className="w-5 h-5 text-yellow-400"
+              />
             ))}
             <span className="text-gray-600 ml-2">(525)</span>
           </div>
@@ -53,7 +57,7 @@ const HeroSection = () => {
                 LEDGERS Platform
               </li>
             </ul>
-            <SendRequestButton 
+            <SendRequestButton
               serviceName="LLP Compliance"
               className="mt-6 w-full"
             />

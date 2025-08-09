@@ -25,7 +25,7 @@ const HeroSection = () => {
                 </p>
               </div>
               <img
-                src="/lovable-uploads/789c416a-2d10-43cc-91db-4eb7f4ef33ef.png"
+                src="assets/iso.jpg"
                 alt="ISO Certification"
                 className="absolute inset-0 w-full h-full object-cover opacity-40"
               />
@@ -99,7 +99,7 @@ const HeroSection = () => {
                       100% Refund Guarantee
                     </li>
                   </ul>
-                  <SendRequestButton 
+                  <SendRequestButton
                     serviceName="ISO Registration - Non-Audited ISO 9001:2018"
                     className="mt-4 w-full"
                   />
@@ -134,7 +134,7 @@ const HeroSection = () => {
                       100% Refund Guarantee
                     </li>
                   </ul>
-                  <SendRequestButton 
+                  <SendRequestButton
                     serviceName="ISO Registration - Audited ISO 14001:2018"
                     className="mt-4 w-full"
                   />

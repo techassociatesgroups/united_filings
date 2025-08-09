@@ -7,11 +7,11 @@ const OffersSection = () => {
 
   const handleAddToCart = () => {
     addToCart({
-      id: 'icegate-registration',
-      name: 'ICEGATE Registration',
-      price: 1499
+      id: "icegate-registration",
+      name: "ICEGATE Registration",
+      price: 1499,
     });
-    toast.success('ICEGATE Registration added to cart!');
+    toast.success("ICEGATE Registration added to cart!");
   };
 
   return (
@@ -42,7 +42,7 @@ const OffersSection = () => {
         <div className="flex items-center justify-between p-4 border rounded-lg">
           <div className="flex items-center">
             <img
-              src="assets/ledger.png"
+              src="assets/Ledger.png"
               alt="LEDGERS Logo"
               className="h-10 w-10 mr-4"
             />

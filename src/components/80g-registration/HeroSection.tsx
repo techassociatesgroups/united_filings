@@ -8,7 +8,7 @@ const HeroSection = () => {
       <div className="grid md:grid-cols-12">
         <div className="md:col-span-5 flex items-center justify-center p-4">
           <img
-            src="/lovable-uploads/b85cd1a7-529b-417e-9d8e-156a3b53bbd3.png"
+            src="assets/80g.avif"
             alt="80G Registration"
             className="object-contain rounded-lg max-h-[450px]"
           />
@@ -53,7 +53,7 @@ const HeroSection = () => {
                   80G Certificate
                 </li>
               </ul>
-              <SendRequestButton 
+              <SendRequestButton
                 serviceName="80G Registration"
                 className="mt-4 w-full"
               />

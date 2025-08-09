@@ -16,7 +16,7 @@ const HeroSection = () => {
       <div className="grid md:grid-cols-12 gap-0">
         <div className="md:col-span-5 lg:col-span-4 flex items-center justify-center p-8 bg-black">
           <img
-            src="/lovable-uploads/3a16634c-246d-4475-8774-b29e6d955635.png"
+            src="assets/12a-80g.jpg"
             alt="12A and 80G Registration"
             className="object-contain rounded-lg max-h-[450px]"
           />
@@ -74,10 +74,10 @@ const HeroSection = () => {
                     12A Certificate
                   </li>
                 </ul>
-                <SendRequestButton 
-                serviceName="12A Registration"
-                className="mt-4 w-full"
-              />
+                <SendRequestButton
+                  serviceName="12A Registration"
+                  className="mt-4 w-full"
+                />
               </CardContent>
             </Card>
             <Card className="border-green-200">
@@ -104,10 +104,10 @@ const HeroSection = () => {
                     80G Certificate
                   </li>
                 </ul>
-                <SendRequestButton 
-                serviceName="80G Registration"
-                className="mt-4 w-full"
-              />
+                <SendRequestButton
+                  serviceName="80G Registration"
+                  className="mt-4 w-full"
+                />
               </CardContent>
             </Card>
           </div>

@@ -11,6 +11,9 @@ import {
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
+  const handleAddToCart = () => {
+    console.log("ADD CLICKED");
+  };
   return (
     <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
@@ -136,7 +139,10 @@ const HeroSection = () => {
                     LEDGERS GST Software - 1 Year License
                   </li>
                 </ul>
-                <Button className="w-full mt-4 bg-white text-green-600 border border-green-600 hover:bg-green-50">
+                <Button
+                  className="w-full mt-4 bg-white text-green-600 border border-green-600 hover:bg-green-50"
+                  onClick={handleAddToCart}
+                >
                   ADD
                 </Button>
               </CardContent>
